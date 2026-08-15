@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   CalcLumen — "soft neutral" system
+   Warm light-grey ground, white cards, soft shadow, indigo accent.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --paper: #f6f5f3;        /* page ground */
+  --paper-2: #ffffff;      /* cards / inputs */
+  --ink: #20201e;          /* primary text */
+  --ink-soft: #86857f;     /* secondary text */
+  --rule: #ecebe7;         /* hairline */
+  --rule-strong: #e0ded8;
+  --accent: #5b63e6;       /* indigo */
+  --accent-2: #4a51d4;     /* hover / active */
+  --accent-soft: #eef0fc;  /* tinted chip / badge */
+  --on-accent: #ffffff;
+  --good: #2e9e6b;
+  --warn: #c98a1e;
+  --bad: #db5a4b;
+  --shadow: 0 1px 2px rgba(24, 24, 27, 0.05), 0 6px 16px rgba(24, 24, 27, 0.05);
+  --shadow-lg: 0 2px 4px rgba(24, 24, 27, 0.06), 0 12px 30px rgba(24, 24, 27, 0.08);
+}
+
+/* Dark palette — shared by system-dark (unless the user forced light) and the
+   explicit dark toggle. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17181b;
+    --paper-2: #1f2024;
+    --ink: #ececee;
+    --ink-soft: #9a9aa1;
+    --rule: #2a2b30;
+    --rule-strong: #34353b;
+    --accent: #838af2;
+    --accent-2: #9aa0f5;
+    --accent-soft: #262842;
+    --on-accent: #14151a;
+    --good: #4cbd86;
+    --warn: #e0a63b;
+    --bad: #ef6a5b;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.45), 0 16px 36px rgba(0, 0, 0, 0.45);
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17181b;
+  --paper-2: #1f2024;
+  --ink: #ececee;
+  --ink-soft: #9a9aa1;
+  --rule: #2a2b30;
+  --rule-strong: #34353b;
+  --accent: #838af2;
+  --accent-2: #9aa0f5;
+  --accent-soft: #262842;
+  --on-accent: #14151a;
+  --good: #4cbd86;
+  --warn: #e0a63b;
+  --bad: #ef6a5b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.45), 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+.display {
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ink-soft);
+}
+.numeral {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.card {
+  background: var(--paper-2);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+.card-hover {
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 10px;
+  padding: 0.7rem 1.3rem;
+  font-weight: 600;
+  transition: background 0.14s ease;
+}
+.btn-primary:hover {
+  background: var(--accent-2);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--paper-2);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  padding: 0.7rem 1.3rem;
+  font-weight: 600;
+  transition: border-color 0.14s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Chip / badge ───────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+.badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-2);
+}
+
+/* ── Form controls ──────────────────────────────────────────── */
+.field {
+  width: 100%;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+.field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+/* ── Segmented control (iOS-style: grey track, white active pill) ── */
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 11px;
+}
+.seg > button {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-radius: 8px;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+.seg > button:hover {
+  color: var(--ink);
+}
+.seg > button[data-on="true"] {
+  background: var(--paper-2);
+  color: var(--accent-2);
+  box-shadow: var(--shadow);
+}
+
+/* ── Stat / result ──────────────────────────────────────────── */
+.stat {
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.stat-value {
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 0.3rem;
+}
+
+/* ── Ad slot ────────────────────────────────────────────────── */
+.ad-slot {
+  display: grid;
+  place-items: center;
+  min-height: 90px;
+  border: 1px dashed var(--rule-strong);
+  border-radius: 12px;
+  color: var(--ink-soft);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* long-form links */
+.prose-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Floating decorative glyphs (hero ambience) ─────────────── */
+.glyphs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.glyph {
+  position: absolute;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.12;
+  will-change: transform;
+  animation: floaty var(--d, 9s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  user-select: none;
+}
+.glyph.soft {
+  color: var(--ink-soft);
+  opacity: 0.1;
+}
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-16px) rotate(calc(var(--r, 0deg) + 5deg));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glyph {
+    animation: none;
+  }
+}
