@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { AreaChart, SplitBar } from "@/components/chart";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -14,23 +17,19 @@ const FREQUENCIES = [
   { value: "365", label: "Daily" },
 ];
 
-/** Future value of a lump sum plus monthly contributions with compound interest. */
-function compound(
+function balanceAt(
   principal: number,
   annualRatePct: number,
-  years: number,
+  y: number,
   n: number,
   monthly: number,
 ) {
-  const fvPrincipal = principal * Math.pow(1 + annualRatePct / 100 / n, n * years);
+  const fvPrincipal = principal * Math.pow(1 + annualRatePct / 100 / n, n * y);
   const i = annualRatePct / 100 / 12;
-  const N = 12 * years;
+  const N = 12 * y;
   const fvContributions =
     i === 0 ? monthly * N : monthly * ((Math.pow(1 + i, N) - 1) / i);
-  const futureValue = fvPrincipal + fvContributions;
-  const totalContributions = principal + monthly * N;
-  const totalInterest = futureValue - totalContributions;
-  return { futureValue, totalContributions, totalInterest };
+  return fvPrincipal + fvContributions;
 }
 
 export function CompoundInterestCalculator() {
@@ -41,22 +40,48 @@ export function CompoundInterestCalculator() {
   const [monthly, setMonthly] = useState("200");
   const [currency, setCurrency] = useState("USD");
 
+  useEffect(() => {
+    const map: Record<string, (v: string) => void> = {
+      deposit: setDeposit,
+      rate: setRate,
+      years: setYears,
+      freq: setFrequency,
+      monthly: setMonthly,
+    };
+    for (const [k, set] of Object.entries(map)) {
+      const v = readParam(k);
+      if (v) set(v);
+    }
+    const c = readParam("cur");
+    if (c && (CURRENCIES as readonly string[]).includes(c)) setCurrency(c);
+  }, []);
+
+  useEffect(() => {
+    syncParams({ deposit, rate, years, freq: frequency, monthly, cur: currency });
+  }, [deposit, rate, years, frequency, monthly, currency]);
+
   const p = num(deposit);
   const r = num(rate);
   const t = num(years);
   const n = num(frequency);
   const c = num(monthly);
   const valid =
-    p >= 0 &&
-    Number.isFinite(r) &&
-    t > 0 &&
-    n > 0 &&
-    Number.isFinite(c) &&
-    c >= 0;
+    p >= 0 && Number.isFinite(r) && t > 0 && t <= 100 && n > 0 && Number.isFinite(c) && c >= 0;
 
-  const { futureValue, totalContributions, totalInterest } = valid
-    ? compound(p, r, t, n, c)
-    : { futureValue: NaN, totalContributions: NaN, totalInterest: NaN };
+  const years0 = valid ? Math.round(t) : 0;
+  const balances = valid
+    ? Array.from({ length: years0 + 1 }, (_, y) => balanceAt(p, r, y, n, c))
+    : [];
+  const futureValue = valid ? balanceAt(p, r, t, n, c) : NaN;
+  const totalContributions = valid ? p + c * 12 * t : NaN;
+  const totalInterest = valid ? futureValue - totalContributions : NaN;
+  const money = (v: number) => formatMoney(v, currency);
+
+  const summary = valid
+    ? `${money(p)} at ${r}% for ${t} years with ${money(c)}/mo → future value ${money(
+        futureValue,
+      )} (interest ${money(totalInterest)}). via CalcLumen`
+    : "";
 
   return (
     <ToolCard>
@@ -128,20 +153,35 @@ export function CompoundInterestCalculator() {
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        <Stat
-          label="Future value"
-          accent
-          value={valid ? formatMoney(futureValue, currency) : "—"}
-        />
+        <Stat label="Future value" accent value={valid ? money(futureValue) : "—"} />
         <Stat
           label="Total contributions"
-          value={valid ? formatMoney(totalContributions, currency) : "—"}
+          value={valid ? money(totalContributions) : "—"}
         />
-        <Stat
-          label="Total interest"
-          value={valid ? formatMoney(totalInterest, currency) : "—"}
-        />
+        <Stat label="Total interest" value={valid ? money(totalInterest) : "—"} />
       </div>
+
+      {valid && balances.length > 1 ? (
+        <>
+          <div className="mt-6">
+            <div className="text-xs font-semibold uppercase tracking-wide text-[var(--ink-soft)] mb-2">
+              Growth over {years0} years
+            </div>
+            <AreaChart data={balances} />
+            <div className="mt-4">
+              <SplitBar
+                a={totalContributions}
+                b={totalInterest}
+                aLabel={`Contributions ${money(totalContributions)}`}
+                bLabel={`Interest ${money(totalInterest)}`}
+              />
+            </div>
+          </div>
+          <div className="mt-5">
+            <ResultActions summary={summary} />
+          </div>
+        </>
+      ) : null}
     </ToolCard>
   );
 }
