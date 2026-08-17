@@ -978,6 +978,180 @@ export const calculators: CalcDef[] = [
     ],
     popular: true,
   },
+
+  // ── Batch 3: growth calculators ────────────────────────────
+  {
+    slug: "height-converter",
+    category: "conversions",
+    title: "Height",
+    heading: "Height Converter",
+    description:
+      "Convert height between centimeters, meters and feet and inches.",
+    keywords: [
+      "height converter",
+      "cm to feet",
+      "feet to cm",
+      "cm to inches",
+    ],
+    popular: true,
+  },
+  {
+    slug: "weight-converter",
+    category: "conversions",
+    title: "Weight",
+    heading: "Weight Converter",
+    description:
+      "Convert weight between kilograms, pounds, stones, ounces and grams.",
+    keywords: [
+      "weight converter",
+      "kg to lbs",
+      "lbs to kg",
+      "pounds to kg",
+    ],
+    popular: true,
+  },
+  {
+    slug: "number-base-converter",
+    category: "conversions",
+    title: "Number base",
+    heading: "Number Base Converter",
+    description:
+      "Convert numbers between binary, octal, decimal and hexadecimal.",
+    keywords: [
+      "number base converter",
+      "binary to decimal",
+      "decimal to hex",
+      "hex to binary",
+    ],
+  },
+  {
+    slug: "pythagorean-theorem-calculator",
+    category: "math",
+    title: "Pythagorean theorem",
+    heading: "Pythagorean Theorem Calculator",
+    description:
+      "Find the hypotenuse or a missing leg of a right triangle with a² + b² = c².",
+    keywords: [
+      "pythagorean theorem calculator",
+      "hypotenuse calculator",
+      "right triangle calculator",
+      "a squared plus b squared",
+    ],
+  },
+  {
+    slug: "quadratic-equation-calculator",
+    category: "math",
+    title: "Quadratic equation",
+    heading: "Quadratic Equation Solver",
+    description:
+      "Solve ax² + bx + c = 0 for real or complex roots, with the discriminant.",
+    keywords: [
+      "quadratic equation calculator",
+      "quadratic formula solver",
+      "roots of quadratic",
+      "discriminant calculator",
+    ],
+  },
+  {
+    slug: "lcm-gcd-calculator",
+    category: "math",
+    title: "LCM & GCD",
+    heading: "LCM and GCD Calculator",
+    description:
+      "Find the least common multiple and greatest common divisor of two or more numbers.",
+    keywords: [
+      "lcm calculator",
+      "gcd calculator",
+      "least common multiple",
+      "greatest common divisor",
+    ],
+  },
+  {
+    slug: "sleep-calculator",
+    category: "health",
+    title: "Sleep / bedtime",
+    heading: "Sleep Calculator",
+    description:
+      "Find the best bedtime or wake-up time based on 90-minute sleep cycles.",
+    keywords: [
+      "sleep calculator",
+      "bedtime calculator",
+      "sleep cycle calculator",
+      "what time to wake up",
+    ],
+    popular: true,
+  },
+  {
+    slug: "target-heart-rate-calculator",
+    category: "health",
+    title: "Target heart rate",
+    heading: "Target Heart Rate Calculator",
+    description:
+      "Find your training heart-rate zones from your age and resting heart rate.",
+    keywords: [
+      "target heart rate calculator",
+      "heart rate zones",
+      "max heart rate",
+      "karvonen formula",
+    ],
+  },
+  {
+    slug: "dti-calculator",
+    category: "finance",
+    title: "Debt-to-income",
+    heading: "Debt-to-Income (DTI) Calculator",
+    description:
+      "Calculate your debt-to-income ratio to see how lenders view your finances.",
+    keywords: [
+      "debt to income calculator",
+      "dti calculator",
+      "dti ratio",
+      "debt to income ratio",
+    ],
+  },
+  {
+    slug: "down-payment-calculator",
+    category: "finance",
+    title: "Down payment",
+    heading: "Down Payment Calculator",
+    description:
+      "Work out your down payment amount and loan amount from a home price and percentage.",
+    keywords: [
+      "down payment calculator",
+      "how much down payment",
+      "20 percent down",
+      "mortgage down payment",
+    ],
+  },
+  {
+    slug: "budget-calculator",
+    category: "finance",
+    title: "50/30/20 budget",
+    heading: "Budget Calculator (50/30/20)",
+    description:
+      "Split your monthly income into needs, wants and savings with the 50/30/20 rule.",
+    keywords: [
+      "budget calculator",
+      "50 30 20 budget",
+      "monthly budget calculator",
+      "budget planner",
+    ],
+    popular: true,
+  },
+  {
+    slug: "concrete-calculator",
+    category: "homediy",
+    title: "Concrete",
+    heading: "Concrete Calculator",
+    description:
+      "Estimate the concrete you need for a slab in cubic yards, cubic feet and bags.",
+    keywords: [
+      "concrete calculator",
+      "concrete yardage calculator",
+      "how much concrete do I need",
+      "concrete bags calculator",
+    ],
+  },
 ];
 
 // ── Lookups ──────────────────────────────────────────────────────
