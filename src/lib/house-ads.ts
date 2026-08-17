@@ -16,9 +16,30 @@ export const PROMOS: Promo[] = [
   {
     id: "cryptotools",
     name: "The Crypto Tools",
-    tagline: "Free crypto calculators & converters — profit, fees, and rates.",
+    tagline: "69+ free crypto calculators — profit, fees, DCA and more.",
     url: "https://thecryptotools.com/",
     accent: "#f59e0b",
+  },
+  {
+    id: "izngames",
+    name: "izn.games",
+    tagline: "Free browser games — 2048, Tetris, Sudoku and dozens more.",
+    url: "https://izngames.com/",
+    accent: "#2563eb",
+  },
+  {
+    id: "costtrek",
+    name: "CostTrek",
+    tagline: "Compare the cost of living between cities worldwide.",
+    url: "https://costtrek.com/",
+    accent: "#0d9488",
+  },
+  {
+    id: "iznkit",
+    name: "iznkit",
+    tagline: "Free tools that generate clean, ready-to-send PDFs.",
+    url: "https://iznkit.com/",
+    accent: "#7c3aed",
   },
   {
     id: "zdorovie",
@@ -31,9 +52,9 @@ export const PROMOS: Promo[] = [
   {
     id: "prodom",
     name: "ProDom Expert",
-    tagline: "Practical real-estate advice and guides.",
+    tagline: "Practical home-renovation advice and guides.",
     url: "https://prodom-expert.ru/",
-    accent: "#2563eb",
+    accent: "#ea580c",
     lang: "RU",
   },
 ];
