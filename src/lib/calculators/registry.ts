@@ -803,6 +803,181 @@ export const calculators: CalcDef[] = [
       "sq ft calculator",
     ],
   },
+
+  // ── Batch 2: more high-demand calculators ──────────────────
+  {
+    slug: "income-tax-calculator",
+    category: "finance",
+    title: "Income tax",
+    heading: "Income Tax Calculator (US Federal)",
+    description:
+      "Estimate your US federal income tax, effective rate and take-home pay by filing status.",
+    keywords: [
+      "income tax calculator",
+      "federal tax calculator",
+      "tax bracket calculator",
+      "how much tax will I pay",
+    ],
+    popular: true,
+  },
+  {
+    slug: "paycheck-calculator",
+    category: "finance",
+    title: "Paycheck",
+    heading: "Paycheck Calculator",
+    description:
+      "Estimate your take-home pay per paycheck after taxes, FICA and retirement contributions.",
+    keywords: [
+      "paycheck calculator",
+      "take home pay calculator",
+      "net pay calculator",
+      "salary after tax",
+    ],
+  },
+  {
+    slug: "net-worth-calculator",
+    category: "finance",
+    title: "Net worth",
+    heading: "Net Worth Calculator",
+    description:
+      "Add up your assets and liabilities to see your total net worth.",
+    keywords: [
+      "net worth calculator",
+      "assets and liabilities",
+      "personal net worth",
+      "how to calculate net worth",
+    ],
+  },
+  {
+    slug: "pace-calculator",
+    category: "health",
+    title: "Running pace",
+    heading: "Running Pace Calculator",
+    description:
+      "Work out your running pace, speed and finish time from distance and time.",
+    keywords: [
+      "pace calculator",
+      "running pace calculator",
+      "pace per mile",
+      "marathon pace calculator",
+    ],
+    popular: true,
+  },
+  {
+    slug: "calories-burned-calculator",
+    category: "health",
+    title: "Calories burned",
+    heading: "Calories Burned Calculator",
+    description:
+      "Estimate calories burned during exercise from activity, weight and duration.",
+    keywords: [
+      "calories burned calculator",
+      "calories burned walking",
+      "exercise calorie calculator",
+      "met calculator",
+    ],
+  },
+  {
+    slug: "add-days-calculator",
+    category: "datetime",
+    title: "Add / subtract days",
+    heading: "Add or Subtract Days Calculator",
+    description:
+      "Add or subtract days, weeks, months or years from any date to find the new date.",
+    keywords: [
+      "add days to date",
+      "date calculator add days",
+      "subtract days from date",
+      "days from today calculator",
+    ],
+  },
+  {
+    slug: "ratio-calculator",
+    category: "math",
+    title: "Ratio",
+    heading: "Ratio Calculator",
+    description:
+      "Simplify a ratio or solve a proportion, with the decimal and percentage.",
+    keywords: [
+      "ratio calculator",
+      "simplify ratio",
+      "proportion calculator",
+      "ratio simplifier",
+    ],
+  },
+  {
+    slug: "average-calculator",
+    category: "math",
+    title: "Average (mean)",
+    heading: "Average Calculator",
+    description:
+      "Find the mean, median, mode, range and sum of a set of numbers.",
+    keywords: [
+      "average calculator",
+      "mean calculator",
+      "median mode calculator",
+      "how to find the average",
+    ],
+    popular: true,
+  },
+  {
+    slug: "temperature-converter",
+    category: "conversions",
+    title: "Temperature",
+    heading: "Temperature Converter",
+    description:
+      "Convert temperatures between Celsius, Fahrenheit and Kelvin instantly.",
+    keywords: [
+      "temperature converter",
+      "celsius to fahrenheit",
+      "fahrenheit to celsius",
+      "c to f converter",
+    ],
+    popular: true,
+  },
+  {
+    slug: "speed-converter",
+    category: "conversions",
+    title: "Speed",
+    heading: "Speed Converter",
+    description:
+      "Convert speed between mph, km/h, m/s, knots and feet per second.",
+    keywords: [
+      "speed converter",
+      "mph to kmh",
+      "kmh to mph",
+      "m/s to mph",
+    ],
+  },
+  {
+    slug: "data-storage-converter",
+    category: "conversions",
+    title: "Data storage",
+    heading: "Data Storage Converter",
+    description:
+      "Convert digital storage between bytes, KB, MB, GB, TB and more.",
+    keywords: [
+      "data storage converter",
+      "mb to gb",
+      "gb to tb",
+      "bytes converter",
+    ],
+  },
+  {
+    slug: "fuel-cost-calculator",
+    category: "auto",
+    title: "Fuel / trip cost",
+    heading: "Fuel Cost Calculator",
+    description:
+      "Estimate the fuel needed and total cost of a trip from distance, efficiency and price.",
+    keywords: [
+      "fuel cost calculator",
+      "gas cost calculator",
+      "trip cost calculator",
+      "cost of driving calculator",
+    ],
+    popular: true,
+  },
 ];
 
 // ── Lookups ──────────────────────────────────────────────────────
