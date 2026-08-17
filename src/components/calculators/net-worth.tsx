@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -67,12 +68,9 @@ function List({
               />
             </Field>
             <Field label={i === 0 ? "Amount" : ""}>
-              <input
-                className="field"
-                type="number"
-                inputMode="decimal"
+              <NumberInput
                 value={row.amount}
-                onChange={(e) => update(i, "amount", e.target.value)}
+                onChange={(v) => update(i, "amount", v)}
               />
             </Field>
             <div className={i === 0 ? "flex items-end" : "flex items-start"}>

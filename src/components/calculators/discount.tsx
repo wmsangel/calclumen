@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -42,13 +43,7 @@ export function DiscountCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Original price">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={originalPrice}
-              onChange={(e) => setOriginalPrice(e.target.value)}
-            />
+            <NumberInput value={originalPrice} onChange={setOriginalPrice} />
             <select
               className="field w-24"
               value={currency}

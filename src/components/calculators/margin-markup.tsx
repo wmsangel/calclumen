@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 type Mode = "price" | "margin" | "markup";
 
@@ -52,13 +53,7 @@ export function MarginMarkupCalculator() {
   const secondField =
     mode === "price" ? (
       <Field label="Selling price">
-        <input
-          className="field"
-          type="number"
-          inputMode="decimal"
-          value={sellingPrice}
-          onChange={(e) => setSellingPrice(e.target.value)}
-        />
+        <NumberInput value={sellingPrice} onChange={setSellingPrice} />
       </Field>
     ) : mode === "margin" ? (
       <Field label="Margin (%)">
@@ -97,13 +92,7 @@ export function MarginMarkupCalculator() {
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <Field label="Cost">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={cost}
-              onChange={(e) => setCost(e.target.value)}
-            />
+            <NumberInput value={cost} onChange={setCost} />
             <select
               className="field w-24"
               value={currency}

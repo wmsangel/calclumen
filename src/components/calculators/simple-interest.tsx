@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -26,13 +27,7 @@ export function SimpleInterestCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Principal">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={principal}
-              onChange={(e) => setPrincipal(e.target.value)}
-            />
+            <NumberInput value={principal} onChange={setPrincipal} />
             <select
               className="field w-24"
               value={currency}

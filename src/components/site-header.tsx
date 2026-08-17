@@ -4,6 +4,7 @@ import { categories } from "@/lib/calculators/registry";
 import { SiteSearch } from "./site-search";
 import { ThemeToggle } from "./theme-toggle";
 import { BrandMark } from "./brand";
+import { MobileMenu } from "./mobile-menu";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   return (
@@ -38,6 +39,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               Guides
             </Link>
           </nav>
+          <MobileMenu locale={locale} />
           <ThemeToggle />
         </div>
       </div>

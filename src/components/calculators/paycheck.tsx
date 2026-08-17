@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -60,13 +61,7 @@ export function PaycheckCalculator() {
     <ToolCard>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Gross annual salary">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={salary}
-            onChange={(e) => setSalary(e.target.value)}
-          />
+          <NumberInput value={salary} onChange={setSalary} />
         </Field>
         <Field label="Pay frequency">
           <select

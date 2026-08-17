@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -93,13 +94,7 @@ export function HomeAffordabilityCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Annual income">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={annualIncome}
-              onChange={(e) => setAnnualIncome(e.target.value)}
-            />
+            <NumberInput value={annualIncome} onChange={setAnnualIncome} />
             <select
               className="field w-24"
               value={currency}
@@ -115,22 +110,10 @@ export function HomeAffordabilityCalculator() {
           </div>
         </Field>
         <Field label="Monthly debts">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={monthlyDebts}
-            onChange={(e) => setMonthlyDebts(e.target.value)}
-          />
+          <NumberInput value={monthlyDebts} onChange={setMonthlyDebts} />
         </Field>
         <Field label="Down payment">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={downPayment}
-            onChange={(e) => setDownPayment(e.target.value)}
-          />
+          <NumberInput value={downPayment} onChange={setDownPayment} />
         </Field>
         <Field label="Mortgage rate (APR %)">
           <input
@@ -160,13 +143,7 @@ export function HomeAffordabilityCalculator() {
           />
         </Field>
         <Field label="Annual insurance">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={annualInsurance}
-            onChange={(e) => setAnnualInsurance(e.target.value)}
-          />
+          <NumberInput value={annualInsurance} onChange={setAnnualInsurance} />
         </Field>
         <Field label="Front-end ratio (%)">
           <input

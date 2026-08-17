@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 type Mode = "Add VAT" | "Remove VAT";
 
@@ -49,13 +50,7 @@ export function VatCalculator() {
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <Field label="Amount">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
+            <NumberInput value={amount} onChange={setAmount} />
             <select
               className="field w-24"
               value={currency}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 type Mode = "fixed" | "target";
 
@@ -70,13 +71,7 @@ export function CreditCardPayoffCalculator() {
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <Field label="Balance">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={balance}
-              onChange={(e) => setBalance(e.target.value)}
-            />
+            <NumberInput value={balance} onChange={setBalance} />
             <select
               className="field w-24"
               value={currency}
@@ -102,13 +97,7 @@ export function CreditCardPayoffCalculator() {
         </Field>
         {mode === "fixed" ? (
           <Field label="Monthly payment">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={monthlyPayment}
-              onChange={(e) => setMonthlyPayment(e.target.value)}
-            />
+            <NumberInput value={monthlyPayment} onChange={setMonthlyPayment} />
           </Field>
         ) : (
           <Field label="Target months">

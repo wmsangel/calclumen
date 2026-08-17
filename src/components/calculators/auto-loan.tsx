@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -54,13 +55,7 @@ export function AutoLoanCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Vehicle price">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={vehiclePrice}
-              onChange={(e) => setVehiclePrice(e.target.value)}
-            />
+            <NumberInput value={vehiclePrice} onChange={setVehiclePrice} />
             <select
               className="field w-24"
               value={currency}
@@ -76,22 +71,10 @@ export function AutoLoanCalculator() {
           </div>
         </Field>
         <Field label="Down payment">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={downPayment}
-            onChange={(e) => setDownPayment(e.target.value)}
-          />
+          <NumberInput value={downPayment} onChange={setDownPayment} />
         </Field>
         <Field label="Trade-in value">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={tradeInValue}
-            onChange={(e) => setTradeInValue(e.target.value)}
-          />
+          <NumberInput value={tradeInValue} onChange={setTradeInValue} />
         </Field>
         <Field label="Sales tax rate (%)">
           <input
@@ -121,13 +104,7 @@ export function AutoLoanCalculator() {
           />
         </Field>
         <Field label="Fees">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={fees}
-            onChange={(e) => setFees(e.target.value)}
-          />
+          <NumberInput value={fees} onChange={setFees} />
         </Field>
       </div>
 

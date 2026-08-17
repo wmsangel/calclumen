@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -36,13 +37,7 @@ export function BreakEvenCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Fixed costs">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={fixedCosts}
-              onChange={(e) => setFixedCosts(e.target.value)}
-            />
+            <NumberInput value={fixedCosts} onChange={setFixedCosts} />
             <select
               className="field w-24"
               value={currency}
@@ -58,21 +53,12 @@ export function BreakEvenCalculator() {
           </div>
         </Field>
         <Field label="Price per unit">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={pricePerUnit}
-            onChange={(e) => setPricePerUnit(e.target.value)}
-          />
+          <NumberInput value={pricePerUnit} onChange={setPricePerUnit} />
         </Field>
         <Field label="Variable cost per unit">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
+          <NumberInput
             value={variableCostPerUnit}
-            onChange={(e) => setVariableCostPerUnit(e.target.value)}
+            onChange={setVariableCostPerUnit}
           />
         </Field>
       </div>

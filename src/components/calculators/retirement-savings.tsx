@@ -5,6 +5,7 @@ import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { AreaChart, SplitBar } from "@/components/chart";
 import { ResultActions } from "@/components/result-actions";
+import { NumberInput } from "@/components/number-input";
 import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
@@ -128,13 +129,7 @@ export function RetirementSavingsCalculator() {
         </Field>
         <Field label="Current savings">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={currentSavings}
-              onChange={(e) => setCurrentSavings(e.target.value)}
-            />
+            <NumberInput value={currentSavings} onChange={setCurrentSavings} />
             <select
               className="field w-24"
               value={currency}
@@ -150,12 +145,9 @@ export function RetirementSavingsCalculator() {
           </div>
         </Field>
         <Field label="Monthly contribution">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
+          <NumberInput
             value={monthlyContribution}
-            onChange={(e) => setMonthlyContribution(e.target.value)}
+            onChange={setMonthlyContribution}
           />
         </Field>
         <Field label="Annual return (%)">

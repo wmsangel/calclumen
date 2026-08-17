@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -64,13 +65,7 @@ export function MortgageRefinanceCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Current loan balance">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={currentBalance}
-              onChange={(e) => setCurrentBalance(e.target.value)}
-            />
+            <NumberInput value={currentBalance} onChange={setCurrentBalance} />
             <select
               className="field w-24"
               value={currency}
@@ -122,13 +117,7 @@ export function MortgageRefinanceCalculator() {
           />
         </Field>
         <Field label="Closing costs">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={closingCosts}
-            onChange={(e) => setClosingCosts(e.target.value)}
-          />
+          <NumberInput value={closingCosts} onChange={setClosingCosts} />
         </Field>
       </div>
 

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -38,13 +39,7 @@ export function SavingsGoalCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Goal amount">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={goalAmount}
-              onChange={(e) => setGoalAmount(e.target.value)}
-            />
+            <NumberInput value={goalAmount} onChange={setGoalAmount} />
             <select
               className="field w-24"
               value={currency}
@@ -60,13 +55,7 @@ export function SavingsGoalCalculator() {
           </div>
         </Field>
         <Field label="Current savings">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={currentSavings}
-            onChange={(e) => setCurrentSavings(e.target.value)}
-          />
+          <NumberInput value={currentSavings} onChange={setCurrentSavings} />
         </Field>
         <Field label="Years to goal">
           <input

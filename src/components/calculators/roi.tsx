@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -32,13 +33,7 @@ export function RoiCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Amount invested">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={amountInvested}
-              onChange={(e) => setAmountInvested(e.target.value)}
-            />
+            <NumberInput value={amountInvested} onChange={setAmountInvested} />
             <select
               className="field w-24"
               value={currency}
@@ -54,13 +49,7 @@ export function RoiCalculator() {
           </div>
         </Field>
         <Field label="Amount returned">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={amountReturned}
-            onChange={(e) => setAmountReturned(e.target.value)}
-          />
+          <NumberInput value={amountReturned} onChange={setAmountReturned} />
         </Field>
         <Field label="Investment length (years)">
           <input

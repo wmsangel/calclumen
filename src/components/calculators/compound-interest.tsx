@@ -5,6 +5,7 @@ import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { AreaChart, SplitBar } from "@/components/chart";
 import { ResultActions } from "@/components/result-actions";
+import { NumberInput } from "@/components/number-input";
 import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
@@ -88,13 +89,7 @@ export function CompoundInterestCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Initial deposit">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={deposit}
-              onChange={(e) => setDeposit(e.target.value)}
-            />
+            <NumberInput value={deposit} onChange={setDeposit} />
             <select
               className="field w-24"
               value={currency}
@@ -142,13 +137,7 @@ export function CompoundInterestCalculator() {
           </select>
         </Field>
         <Field label="Monthly contribution">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={monthly}
-            onChange={(e) => setMonthly(e.target.value)}
-          />
+          <NumberInput value={monthly} onChange={setMonthly} />
         </Field>
       </div>
 

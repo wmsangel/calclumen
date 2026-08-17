@@ -5,6 +5,7 @@ import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { AreaChart, SplitBar } from "@/components/chart";
 import { ResultActions } from "@/components/result-actions";
+import { NumberInput } from "@/components/number-input";
 import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
@@ -99,13 +100,7 @@ export function LoanCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Loan amount">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
+            <NumberInput value={amount} onChange={setAmount} />
             <select
               className="field w-24"
               value={currency}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 type Filing = "single" | "mfj";
 
@@ -72,13 +73,7 @@ export function IncomeTaxCalculator() {
     <ToolCard>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Annual income">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={income}
-            onChange={(e) => setIncome(e.target.value)}
-          />
+          <NumberInput value={income} onChange={setIncome} />
         </Field>
         <Field label="Filing status">
           <Segmented<Filing>

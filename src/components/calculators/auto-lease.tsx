@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -54,13 +55,7 @@ export function AutoLeaseCalculator() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Vehicle price (MSRP)">
           <div className="flex gap-2">
-            <input
-              className="field"
-              type="number"
-              inputMode="decimal"
-              value={vehiclePrice}
-              onChange={(e) => setVehiclePrice(e.target.value)}
-            />
+            <NumberInput value={vehiclePrice} onChange={setVehiclePrice} />
             <select
               className="field w-24"
               value={currency}
@@ -76,22 +71,10 @@ export function AutoLeaseCalculator() {
           </div>
         </Field>
         <Field label="Capitalized cost (negotiated)">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={capCost}
-            onChange={(e) => setCapCost(e.target.value)}
-          />
+          <NumberInput value={capCost} onChange={setCapCost} />
         </Field>
         <Field label="Down payment">
-          <input
-            className="field"
-            type="number"
-            inputMode="decimal"
-            value={downPayment}
-            onChange={(e) => setDownPayment(e.target.value)}
-          />
+          <NumberInput value={downPayment} onChange={setDownPayment} />
         </Field>
         <Field label="Residual (%)">
           <input

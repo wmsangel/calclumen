@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { NumberInput } from "@/components/number-input";
 
 type Mode = "toHourly" | "toSalary";
 
@@ -60,13 +61,7 @@ export function SalaryToHourly() {
         {mode === "toHourly" ? (
           <Field label="Annual salary">
             <div className="flex gap-2">
-              <input
-                className="field"
-                type="number"
-                inputMode="decimal"
-                value={salary}
-                onChange={(e) => setSalary(e.target.value)}
-              />
+              <NumberInput value={salary} onChange={setSalary} />
               <select
                 className="field w-24"
                 value={currency}
@@ -84,13 +79,7 @@ export function SalaryToHourly() {
         ) : (
           <Field label="Hourly rate">
             <div className="flex gap-2">
-              <input
-                className="field"
-                type="number"
-                inputMode="decimal"
-                value={hourly}
-                onChange={(e) => setHourly(e.target.value)}
-              />
+              <NumberInput value={hourly} onChange={setHourly} />
               <select
                 className="field w-24"
                 value={currency}
