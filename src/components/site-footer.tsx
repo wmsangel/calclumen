@@ -70,6 +70,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <span>© 2026 {SITE_NAME}</span>
           <nav className="flex items-center gap-4 flex-wrap justify-center">
             <Link
+              href={`/${locale}/guides`}
+              className="hover:text-[var(--accent)]"
+            >
+              Guides
+            </Link>
+            <Link
               href={`/${locale}/about`}
               className="hover:text-[var(--accent)]"
             >

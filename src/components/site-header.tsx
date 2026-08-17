@@ -31,6 +31,12 @@ export function SiteHeader({ locale }: { locale: Locale }) {
                 {cat.title}
               </Link>
             ))}
+            <Link
+              href={`/${locale}/guides`}
+              className="px-3 py-1.5 rounded-lg whitespace-nowrap text-[var(--ink-soft)] hover:text-[var(--ink)] hover:bg-[var(--paper-2)] transition-colors"
+            >
+              Guides
+            </Link>
           </nav>
           <ThemeToggle />
         </div>

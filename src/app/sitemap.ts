@@ -4,6 +4,7 @@ import { calculators, categories } from "@/lib/calculators/registry";
 import { CURRENCIES } from "@/lib/format";
 import { absUrl } from "@/lib/seo/site";
 import { PERCENT_PAGES } from "@/lib/programmatic/percent";
+import { GUIDES } from "@/lib/guides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -18,6 +19,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: absUrl(locale, cat.slug),
         changeFrequency: "weekly",
         priority: 0.7,
+      });
+    }
+
+    // Guides
+    entries.push({
+      url: absUrl(locale, "guides"),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    });
+    for (const g of GUIDES) {
+      entries.push({
+        url: absUrl(locale, `guides/${g.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.6,
       });
     }
 

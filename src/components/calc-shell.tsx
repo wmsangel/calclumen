@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookOpen } from "lucide-react";
 import type { Locale } from "@/lib/i18n/config";
 import {
   getCalc,
@@ -7,6 +8,7 @@ import {
   type CalcDef,
 } from "@/lib/calculators/registry";
 import { absUrl, SITE_NAME } from "@/lib/seo/site";
+import { guideForCalc } from "@/lib/guides";
 import { AdSlot } from "./ad-slot";
 import { CalcBadge } from "./calc-icon";
 import { FavoriteButton } from "./favorite-button";
@@ -38,6 +40,7 @@ export function CalcShell({
   const category = getCategory(calc.category);
   const url = absUrl(locale, slug);
   const related = relatedCalcs(slug);
+  const guide = guideForCalc(slug);
 
   const jsonLd = [
     {
@@ -114,6 +117,26 @@ export function CalcShell({
 
       {/* The interactive calculator */}
       <div className="mt-7">{children}</div>
+
+      {guide ? (
+        <Link
+          href={`/${locale}/guides/${guide.slug}`}
+          className="mt-6 card card-hover p-4 flex items-center gap-3"
+        >
+          <span className="grid place-items-center w-9 h-9 rounded-xl bg-[var(--accent-soft)] text-[var(--accent-2)] shrink-0">
+            <BookOpen size={18} />
+          </span>
+          <span className="flex-1 min-w-0">
+            <span className="font-medium text-sm block">Read the guide</span>
+            <span className="text-xs text-[var(--ink-soft)] truncate block">
+              {guide.title}
+            </span>
+          </span>
+          <span className="text-[var(--accent)] text-sm font-medium shrink-0">
+            Read →
+          </span>
+        </Link>
+      ) : null}
 
       <AdSlot className="mt-8" />
 
