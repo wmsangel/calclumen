@@ -118,6 +118,19 @@ export function CalcShell({
       {/* The interactive calculator */}
       <div className="mt-7">{children}</div>
 
+      {(() => {
+        const money = ["finance", "auto", "business"].includes(calc.category);
+        const health = calc.category === "health";
+        if (!money && !health) return null;
+        return (
+          <p className="mt-3 text-xs text-[var(--ink-soft)] leading-relaxed">
+            {money
+              ? "This is an estimate for general information only and is not financial, tax or investment advice. Figures may differ from a lender or advisor."
+              : "This is an estimate for general information only and is not medical advice. Talk to a healthcare professional for decisions about your health."}
+          </p>
+        );
+      })()}
+
       {guide ? (
         <Link
           href={`/${locale}/guides/${guide.slug}`}

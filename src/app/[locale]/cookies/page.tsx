@@ -142,8 +142,8 @@ export default async function Page({
       <h2 className="text-xl font-semibold mt-8 mb-2">Contact</h2>
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
         Questions about our use of cookies? Email us at{" "}
-        <a href="mailto:contact@calclumen.com" className="prose-link">
-          contact@calclumen.com
+        <a href="mailto:info@calclumen.com" className="prose-link">
+          info@calclumen.com
         </a>
         .
       </p>

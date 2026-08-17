@@ -45,17 +45,21 @@ export async function generateMetadata({
   const p = parsePair(pair);
   if (!p) return {};
   const rate = convert(1, p.from, p.to);
-  return pageMetadata({
-    locale,
-    path: `convert/${pair}`,
-    title: `Convert ${p.from} to ${p.to}`,
-    description: `1 ${p.from} = ${formatNumber(rate, 4)} ${p.to}. Convert ${p.from} to ${p.to} with a fast, free currency calculator.`,
-    keywords: [
-      `${p.from.toLowerCase()} to ${p.to.toLowerCase()}`,
-      `convert ${p.from} to ${p.to}`,
-      "currency converter",
-    ],
-  });
+  return {
+    ...pageMetadata({
+      locale,
+      path: `convert/${pair}`,
+      title: `Convert ${p.from} to ${p.to}`,
+      description: `1 ${p.from} = ${formatNumber(rate, 4)} ${p.to}. Convert ${p.from} to ${p.to} with a fast, free currency calculator.`,
+      keywords: [
+        `${p.from.toLowerCase()} to ${p.to.toLowerCase()}`,
+        `convert ${p.from} to ${p.to}`,
+        "currency converter",
+      ],
+    }),
+    // Thin templated pages: keep them for users but out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 const AMOUNTS = [1, 5, 10, 50, 100, 500, 1000];

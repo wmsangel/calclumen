@@ -6,7 +6,7 @@ import { isLocale } from "@/lib/i18n/config";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_NAME } from "@/lib/seo/site";
 
-const EMAIL = "contact@calclumen.com";
+const EMAIL = "info@calclumen.com";
 
 export async function generateMetadata({
   params,
@@ -37,7 +37,7 @@ const reasons = [
   {
     icon: Megaphone,
     title: "Advertising & business",
-    text: "For partnership or advertising enquiries, drop us a line with a few details.",
+    text: "For partnership or advertising enquiries, email ads@calclumen.com with a few details.",
   },
 ];
 

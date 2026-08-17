@@ -1,9 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
 import { calculators, categories } from "@/lib/calculators/registry";
-import { CURRENCIES } from "@/lib/format";
 import { absUrl } from "@/lib/seo/site";
-import { PERCENT_PAGES } from "@/lib/programmatic/percent";
 import { GUIDES } from "@/lib/guides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -54,26 +52,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    // Programmatic: percentage long-tail pages
-    for (const p of PERCENT_PAGES) {
-      entries.push({
-        url: absUrl(locale, `${p.a}-percent-of-${p.b}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic: currency conversion pages (a subset of common pairs)
-    for (const from of CURRENCIES) {
-      for (const to of CURRENCIES) {
-        if (from === to) continue;
-        entries.push({
-          url: absUrl(locale, `convert/${from.toLowerCase()}-to-${to.toLowerCase()}`),
-          changeFrequency: "daily",
-          priority: 0.4,
-        });
-      }
-    }
+    // Note: the templated percent (/X-percent-of-Y) and currency
+    // (/convert/…) pages are intentionally noindex, so they're kept out of
+    // the sitemap. They stay reachable for users and internal links.
   }
 
   return entries;

@@ -36,19 +36,23 @@ export async function generateMetadata({
   const d = data(slug);
   if (!d) return {};
   const title = `What is ${formatNumber(d.a, 0)}% of ${formatNumber(d.b, 0)}?`;
-  return pageMetadata({
-    locale,
-    path: slug,
-    title,
-    description: `${formatNumber(d.a, 0)}% of ${formatNumber(d.b, 0)} is ${formatNumber(
-      d.result,
-    )}. Step-by-step answer and a free percentage calculator.`,
-    keywords: [
-      `${d.a} percent of ${d.b}`,
-      `what is ${d.a}% of ${d.b}`,
-      "percentage calculator",
-    ],
-  });
+  return {
+    ...pageMetadata({
+      locale,
+      path: slug,
+      title,
+      description: `${formatNumber(d.a, 0)}% of ${formatNumber(d.b, 0)} is ${formatNumber(
+        d.result,
+      )}. Step-by-step answer and a free percentage calculator.`,
+      keywords: [
+        `${d.a} percent of ${d.b}`,
+        `what is ${d.a}% of ${d.b}`,
+        "percentage calculator",
+      ],
+    }),
+    // Thin templated pages: keep them for users but out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({
