@@ -26,7 +26,16 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   robots: { index: true, follow: true },
-  verification: { google: "0cUYNZmd0xq1DTEIVY6InfTyVaBldVyBVGgtQaSMpjE" },
+  verification: {
+    google: "0cUYNZmd0xq1DTEIVY6InfTyVaBldVyBVGgtQaSMpjE",
+    // Optional: set these in Vercel env to verify Yandex / Bing without a redeploy.
+    ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
+      ? { yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION } }
+      : {}),
+  },
 };
 
 export const viewport: Viewport = {
