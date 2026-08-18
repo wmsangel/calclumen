@@ -11,8 +11,9 @@ const ENABLED = process.env.NEXT_PUBLIC_EZOIC;
 
 export function Ezoic() {
   if (process.env.NODE_ENV !== "production" || !ENABLED) return null;
-  // Both beforeInteractive so the tags land in the server-rendered HTML <head>
-  // — Ezoic's crawler inspects the raw page source to detect the integration.
+  // The universal Ezoic JavaScript-integration snippet (same for every
+  // publisher — there is no per-site code). beforeInteractive so the tags land
+  // in the server-rendered HTML <head>, where Ezoic's crawler looks for them.
   return (
     <>
       <Script
@@ -23,6 +24,11 @@ export function Ezoic() {
       <Script id="ezoic-init" strategy="beforeInteractive">
         {"window.ezstandalone=window.ezstandalone||{};ezstandalone.cmd=ezstandalone.cmd||[];"}
       </Script>
+      <Script
+        id="ezoic-analytics"
+        strategy="afterInteractive"
+        src="https://ezoicanalytics.com/analytics.js"
+      />
     </>
   );
 }
