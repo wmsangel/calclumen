@@ -11,6 +11,7 @@ import { absUrl, SITE_NAME } from "@/lib/seo/site";
 import { guideForCalc } from "@/lib/guides";
 import { AdSlot } from "./ad-slot";
 import { CalcBadge } from "./calc-icon";
+import { AffiliateBlock } from "./affiliate-block";
 import { FavoriteButton } from "./favorite-button";
 
 export interface FaqItem {
@@ -217,6 +218,8 @@ export function CalcShell({
           ))}
         </div>
       </section>
+
+      <AffiliateBlock calc={calc} />
     </div>
   );
 }
