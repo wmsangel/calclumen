@@ -608,6 +608,166 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "snowball-vs-avalanche-debt-payoff",
+    title: "Snowball vs Avalanche: The Fastest Way to Pay Off Debt",
+    description:
+      "Two proven strategies for clearing multiple debts — one saves the most money, the other keeps you motivated. Here's how to choose.",
+    category: "finance",
+    updated: "2026-08",
+    readMins: 5,
+    calcSlugs: ["debt-payoff-calculator", "credit-card-payoff-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "When you owe money on several cards or loans at once, the order you pay them off in changes how fast you become debt-free and how much interest you hand over along the way. Two methods dominate: the debt snowball and the debt avalanche. Both tell you to pay the minimum on every debt, then throw every spare dollar at one target debt until it's gone — they only disagree on which debt to target first.",
+      },
+      { t: "h2", text: "The debt snowball" },
+      {
+        t: "p",
+        text: "The snowball method targets the debt with the smallest balance first, regardless of interest rate. When that debt is cleared, its old minimum payment rolls onto the next-smallest — the payment 'snowballs' and grows as each debt disappears.",
+      },
+      {
+        t: "callout",
+        text: "The snowball wins on psychology: you clear whole debts quickly, and each cleared account is a visible win that keeps you going.",
+      },
+      { t: "h2", text: "The debt avalanche" },
+      {
+        t: "p",
+        text: "The avalanche method targets the debt with the highest interest rate (APR) first. Because you're always attacking the most expensive debt, you pay the least total interest and usually become debt-free slightly sooner. The trade-off is motivation: if your highest-rate debt also has a big balance, it can take a while before you clear your first account.",
+      },
+      { t: "h2", text: "Which should you choose?" },
+      {
+        t: "ul",
+        items: [
+          "Choose the avalanche if you're motivated by numbers and want to pay the least interest possible.",
+          "Choose the snowball if you've struggled to stick with debt payoff before and need quick wins to stay motivated.",
+          "The gap between the two is often small — the best method is the one you'll actually finish.",
+        ],
+      },
+      { t: "h2", text: "The one rule both share" },
+      {
+        t: "p",
+        text: "Every extra dollar goes to a single target debt while the rest get only their minimums. Splitting extra money across all debts equally is the slowest, most expensive approach — it keeps every balance alive longer and accruing interest.",
+      },
+      {
+        t: "steps",
+        items: [
+          "List every debt with its balance, APR and minimum payment.",
+          "Decide how much extra you can add on top of the minimums each month.",
+          "Pick a strategy — smallest balance (snowball) or highest APR (avalanche).",
+          "Pay minimums on everything, and the extra on your target debt.",
+          "When a debt is cleared, roll its payment onto the next target.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "apr-vs-apy-explained",
+    title: "APR vs APY: What's the Difference?",
+    description:
+      "APR and APY look similar but mean different things — one is what you pay, the other is what you earn. Understanding compounding is the key.",
+    category: "finance",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: [
+      "apr-calculator",
+      "cd-calculator",
+      "compound-interest-calculator",
+    ],
+    body: [
+      {
+        t: "p",
+        text: "APR (annual percentage rate) and APY (annual percentage yield) both describe an interest rate as a yearly percentage, but they answer different questions. APR is normally used for what you borrow; APY for what you earn. The difference between them comes down to one thing: compounding.",
+      },
+      { t: "h2", text: "APR — the cost of borrowing" },
+      {
+        t: "p",
+        text: "APR is the yearly rate a lender charges, and on loans it usually also folds in certain fees to show the true annual cost of the credit. Crucially, a quoted APR does not assume the interest compounds on itself — it's a simple annual rate divided into your payments. That's why it's the standard figure for mortgages, car loans and credit cards.",
+      },
+      { t: "h2", text: "APY — the power of compounding" },
+      {
+        t: "p",
+        text: "APY describes what you actually earn (or, on revolving debt, truly pay) once interest compounds — that is, once you start earning interest on your interest. The more often interest compounds (daily, monthly, quarterly), the higher the APY climbs above the stated rate.",
+      },
+      {
+        t: "callout",
+        text: "APY = (1 + r ÷ n)ⁿ − 1, where r is the annual rate and n is the number of compounding periods per year. More frequent compounding → higher APY.",
+      },
+      { t: "h2", text: "A quick example" },
+      {
+        t: "p",
+        text: "A savings account paying 5% compounded monthly doesn't earn you exactly 5% over the year — it earns about 5.12% APY, because each month's interest starts earning interest too. The 5% is the nominal rate; the 5.12% is what actually lands in your account.",
+      },
+      { t: "h2", text: "What to compare" },
+      {
+        t: "ul",
+        items: [
+          "Comparing savings accounts or CDs? Compare APY — it reflects compounding, so it's apples-to-apples.",
+          "Comparing loans or credit cards? Compare APR — the standard, fee-inclusive cost of borrowing.",
+          "Watch the compounding frequency: two accounts with the same nominal rate can have different APYs.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-much-house-can-you-afford",
+    title: "How Much House Can You Afford?",
+    description:
+      "Lenders use a few simple ratios to decide your budget. Learn the 28/36 rule, what counts toward it, and how the down payment changes everything.",
+    category: "finance",
+    updated: "2026-08",
+    readMins: 5,
+    calcSlugs: [
+      "home-affordability-calculator",
+      "down-payment-calculator",
+      "mortgage-refinance-calculator",
+    ],
+    body: [
+      {
+        t: "p",
+        text: "Affordability isn't just the price a lender will approve — it's the payment you can comfortably live with. Lenders lean on a couple of ratios to set a ceiling, but the smart number is usually below that limit, leaving room for the rest of your life.",
+      },
+      { t: "h2", text: "The 28/36 rule" },
+      {
+        t: "p",
+        text: "The classic guideline says your housing costs should stay under 28% of gross monthly income, and your total debt payments (housing plus car loans, student loans, credit cards) should stay under 36%. These are the front-end and back-end debt-to-income ratios lenders check.",
+      },
+      {
+        t: "callout",
+        text: "Front-end ratio = housing payment ÷ gross monthly income. Back-end ratio = all debt payments ÷ gross monthly income. Aim for 28% and 36% or lower.",
+      },
+      { t: "h2", text: "What counts as the housing payment" },
+      {
+        t: "p",
+        text: "It's more than principal and interest. Lenders look at PITI: principal, interest, property taxes and homeowners insurance — plus PMI if your down payment is under 20%, and any HOA dues. All of it counts toward that 28%.",
+      },
+      { t: "h2", text: "How the down payment changes things" },
+      {
+        t: "ul",
+        items: [
+          "A bigger down payment means a smaller loan, so a lower monthly payment for the same house.",
+          "Reaching 20% down typically removes PMI, cutting the payment further.",
+          "More cash down can also earn a better interest rate, compounding the savings.",
+        ],
+      },
+      { t: "h2", text: "Don't forget the other costs" },
+      {
+        t: "p",
+        text: "Closing costs, moving, repairs and a maintenance cushion all sit outside the mortgage payment. A common rule of thumb is to budget around 1% of the home's value per year for upkeep. Borrowing the maximum a lender offers leaves nothing for these — which is why the affordable number is usually below the approved one.",
+      },
+      {
+        t: "steps",
+        items: [
+          "Add up your gross monthly income before tax.",
+          "Total your existing monthly debt payments.",
+          "Apply the 28/36 rule to find your housing-payment ceiling.",
+          "Subtract taxes, insurance and HOA to see what's left for principal and interest.",
+          "Factor in your down payment to arrive at a realistic price range.",
+        ],
+      },
+    ],
+  },
 ];
 
 // ── Lookups ──────────────────────────────────────────────────────
