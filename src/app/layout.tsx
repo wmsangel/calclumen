@@ -7,6 +7,7 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/seo/site";
 import { PwaRegister } from "@/components/pwa-register";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { AdSense } from "@/components/adsense";
+import { Ezoic } from "@/components/ezoic";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -61,6 +62,7 @@ export default function RootLayout({
         </Script>
         {children}
         <PwaRegister />
+        <Ezoic />
         <AdSense />
         <GoogleAnalytics />
         <Analytics />
