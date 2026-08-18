@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { MultiBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -55,6 +56,18 @@ export function BudgetCalculator() {
           value={valid ? formatMoney(savings, currency) : "—"}
         />
       </div>
+
+      {valid ? (
+        <div className="mt-6">
+          <MultiBar
+            segments={[
+              { label: `Needs ${formatMoney(needs, currency)}`, value: needs, color: "var(--accent)" },
+              { label: `Wants ${formatMoney(wants, currency)}`, value: wants, color: "#f59e0b" },
+              { label: `Savings ${formatMoney(savings, currency)}`, value: savings, color: "var(--good)" },
+            ]}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

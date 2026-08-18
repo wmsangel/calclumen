@@ -36,7 +36,7 @@ export function CookieConsent({ locale }: { locale: Locale }) {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-50 bg-[var(--paper-2)] border-t border-[var(--rule)] shadow-lg">
+    <div className="fixed bottom-0 inset-x-0 z-50 no-print bg-[var(--paper-2)] border-t border-[var(--rule)] shadow-lg">
       <div className="mx-auto max-w-6xl px-5 py-4 flex flex-col sm:flex-row items-center gap-4">
         <p className="text-sm text-[var(--ink-soft)] leading-relaxed flex-1">
           We use cookies for analytics and ads. See our{" "}

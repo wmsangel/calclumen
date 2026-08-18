@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -66,6 +67,17 @@ export function DownPaymentCalculator() {
           value={valid ? `${formatNumber(pct, 1)}%` : "—"}
         />
       </div>
+
+      {valid ? (
+        <div className="mt-6">
+          <SplitBar
+            a={downAmount}
+            b={loanAmount}
+            aLabel={`Down ${formatMoney(downAmount, currency)}`}
+            bLabel={`Loan ${formatMoney(loanAmount, currency)}`}
+          />
+        </div>
+      ) : null}
 
       {valid && pct < 20 ? (
         <p className="mt-4 text-xs text-[var(--ink-soft)] leading-relaxed">

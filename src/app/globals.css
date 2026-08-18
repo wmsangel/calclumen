@@ -164,6 +164,16 @@ body {
   background: var(--accent-soft);
   color: var(--accent-2);
 }
+.badge-new {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--good) 16%, transparent);
+  color: var(--good);
+}
 
 /* ── Form controls ──────────────────────────────────────────── */
 .field {
@@ -283,6 +293,25 @@ body {
 /* fields have their own focus ring — avoid doubling it */
 .field:focus-visible {
   outline: none;
+}
+
+/* ── Print (clean result page) ──────────────────────────────── */
+@media print {
+  header,
+  footer,
+  .skip-link,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+  .card,
+  .stat,
+  .field {
+    box-shadow: none !important;
+  }
 }
 
 /* long-form links */

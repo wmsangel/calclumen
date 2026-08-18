@@ -33,6 +33,8 @@ export interface CalcDef {
   description: string;
   keywords: string[];
   popular?: boolean;
+  /** recently added — shows a "New" badge and a home "Recently added" row */
+  isNew?: boolean;
 }
 
 export const categories: CategoryDef[] = [
@@ -1151,6 +1153,158 @@ export const calculators: CalcDef[] = [
       "how much concrete do I need",
       "concrete bags calculator",
     ],
+  },
+
+  // ── Batch 4: growth (marked new) ───────────────────────────
+  {
+    slug: "apr-calculator",
+    category: "finance",
+    title: "APR",
+    heading: "APR Calculator",
+    description:
+      "Find the true annual percentage rate of a loan including fees, not just the interest rate.",
+    keywords: ["apr calculator", "annual percentage rate", "loan apr", "true cost of a loan"],
+    isNew: true,
+  },
+  {
+    slug: "emergency-fund-calculator",
+    category: "finance",
+    title: "Emergency fund",
+    heading: "Emergency Fund Calculator",
+    description:
+      "Work out how much to save for an emergency fund based on your monthly expenses.",
+    keywords: ["emergency fund calculator", "how much emergency fund", "rainy day fund", "months of expenses"],
+    isNew: true,
+  },
+  {
+    slug: "rent-affordability-calculator",
+    category: "finance",
+    title: "Rent affordability",
+    heading: "Rent Affordability Calculator",
+    description:
+      "See how much rent you can afford based on your income and the 30% rule.",
+    keywords: ["rent affordability calculator", "how much rent can I afford", "30 percent rule rent", "rent budget"],
+    isNew: true,
+  },
+  {
+    slug: "overtime-pay-calculator",
+    category: "finance",
+    title: "Overtime pay",
+    heading: "Overtime Pay Calculator",
+    description:
+      "Calculate your overtime pay and total weekly earnings from your hourly rate.",
+    keywords: ["overtime pay calculator", "time and a half calculator", "overtime rate", "weekly pay with overtime"],
+    isNew: true,
+  },
+  {
+    slug: "length-converter",
+    category: "conversions",
+    title: "Length",
+    heading: "Length Converter",
+    description:
+      "Convert length between meters, feet, miles, inches, kilometers and more.",
+    keywords: ["length converter", "meters to feet", "miles to km", "inches to cm"],
+    isNew: true,
+  },
+  {
+    slug: "volume-converter",
+    category: "conversions",
+    title: "Volume",
+    heading: "Volume Converter",
+    description:
+      "Convert volume between liters, gallons, milliliters, cups, pints and quarts.",
+    keywords: ["volume converter", "liters to gallons", "ml to oz", "gallons to liters"],
+    isNew: true,
+  },
+  {
+    slug: "area-converter",
+    category: "conversions",
+    title: "Area",
+    heading: "Area Converter",
+    description:
+      "Convert area between square feet, square meters, acres, hectares and more.",
+    keywords: ["area converter", "square feet to square meters", "acres to hectares", "sq m to sq ft"],
+    isNew: true,
+  },
+  {
+    slug: "scientific-notation-calculator",
+    category: "math",
+    title: "Scientific notation",
+    heading: "Scientific Notation Converter",
+    description:
+      "Convert numbers to and from scientific notation and see the expanded form.",
+    keywords: ["scientific notation calculator", "standard form converter", "e notation", "convert to scientific notation"],
+    isNew: true,
+  },
+  {
+    slug: "permutations-combinations-calculator",
+    category: "math",
+    title: "Permutations & combinations",
+    heading: "Permutations and Combinations Calculator",
+    description:
+      "Calculate permutations (nPr), combinations (nCr) and factorials.",
+    keywords: ["permutations calculator", "combinations calculator", "nCr nPr calculator", "factorial calculator"],
+    isNew: true,
+  },
+  {
+    slug: "tile-calculator",
+    category: "homediy",
+    title: "Tile",
+    heading: "Tile Calculator",
+    description:
+      "Estimate how many tiles and boxes you need for a floor or wall, with waste.",
+    keywords: ["tile calculator", "how many tiles do I need", "tile flooring calculator", "square footage tiles"],
+    isNew: true,
+  },
+  {
+    slug: "gravel-calculator",
+    category: "homediy",
+    title: "Gravel / mulch",
+    heading: "Gravel & Mulch Calculator",
+    description:
+      "Estimate the gravel, mulch or soil you need in cubic yards and tons.",
+    keywords: ["gravel calculator", "mulch calculator", "how much gravel do I need", "cubic yards calculator"],
+    isNew: true,
+  },
+  {
+    slug: "btu-calculator",
+    category: "homediy",
+    title: "BTU (AC size)",
+    heading: "BTU Calculator (Room Size)",
+    description:
+      "Estimate the BTUs needed to cool or heat a room from its square footage.",
+    keywords: ["btu calculator", "ac size calculator", "how many btu do I need", "air conditioner size"],
+    isNew: true,
+  },
+  {
+    slug: "flooring-calculator",
+    category: "homediy",
+    title: "Flooring",
+    heading: "Flooring Calculator",
+    description:
+      "Work out the flooring area and number of boxes you need, including waste.",
+    keywords: ["flooring calculator", "how much flooring do I need", "laminate flooring calculator", "square footage flooring"],
+    isNew: true,
+  },
+  {
+    slug: "mileage-reimbursement-calculator",
+    category: "auto",
+    title: "Mileage reimbursement",
+    heading: "Mileage Reimbursement Calculator",
+    description:
+      "Calculate mileage reimbursement from miles driven and the rate per mile.",
+    keywords: ["mileage reimbursement calculator", "irs mileage rate", "business mileage calculator", "cents per mile"],
+    isNew: true,
+  },
+  {
+    slug: "lease-vs-buy-calculator",
+    category: "auto",
+    title: "Lease vs buy",
+    heading: "Lease vs Buy Car Calculator",
+    description:
+      "Compare the total cost of leasing versus buying a car over the same period.",
+    keywords: ["lease vs buy calculator", "should I lease or buy", "car lease vs buy", "lease or finance"],
+    isNew: true,
   },
 ];
 

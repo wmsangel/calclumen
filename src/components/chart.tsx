@@ -51,6 +51,41 @@ export function AreaChart({
   );
 }
 
+/** A multi-segment proportion bar with a legend. */
+export function MultiBar({
+  segments,
+}: {
+  segments: { label: string; value: number; color: string }[];
+}) {
+  const total = segments.reduce((s, x) => s + x.value, 0) || 1;
+  return (
+    <div>
+      <div className="flex h-2.5 w-full overflow-hidden rounded-full">
+        {segments.map((s, i) => (
+          <div
+            key={i}
+            style={{
+              width: `${Math.max(0, (s.value / total) * 100)}%`,
+              background: s.color,
+            }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--ink-soft)]">
+        {segments.map((s, i) => (
+          <span key={i} className="flex items-center gap-1.5">
+            <span
+              className="inline-block w-2.5 h-2.5 rounded-sm"
+              style={{ background: s.color }}
+            />
+            {s.label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** A two-segment proportion bar with a small legend. */
 export function SplitBar({
   a,

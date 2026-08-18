@@ -74,6 +74,29 @@ export function DtiCalculator() {
           sub={valid ? `Total debt ${money(house + debt)}/mo` : undefined}
         />
       </div>
+
+      {valid ? (
+        <div className="mt-6">
+          <div className="text-xs font-semibold uppercase tracking-wide text-[var(--ink-soft)] mb-2">
+            Where you stand
+          </div>
+          <div className="relative h-3 w-full flex rounded-full overflow-hidden">
+            <div style={{ width: "60%", background: "var(--good)" }} />
+            <div style={{ width: "11.67%", background: "var(--warn)" }} />
+            <div style={{ width: "28.33%", background: "var(--bad)" }} />
+            <div
+              className="absolute -top-1 h-5 w-[3px] rounded bg-[var(--ink)]"
+              style={{ left: `${Math.min(Math.max(backEnd, 0), 60) / 60 * 100}%` }}
+            />
+          </div>
+          <div className="mt-1 flex justify-between text-[10px] text-[var(--ink-soft)]">
+            <span>0%</span>
+            <span>36% healthy</span>
+            <span>43%</span>
+            <span>60%+</span>
+          </div>
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

@@ -40,6 +40,7 @@ export default async function HomePage({
   if (!isLocale(locale)) notFound();
 
   const popular = calculators.filter((c) => c.popular).slice(0, 8);
+  const recent = calculators.filter((c) => c.isNew).slice(0, 8);
 
   return (
     <div>
@@ -76,6 +77,26 @@ export default async function HomePage({
 
         <MyCalculators locale={locale} />
 
+        {recent.length > 0 ? (
+          <section className="py-8 border-b border-[var(--rule)]">
+            <h2 className="flex items-center gap-2 text-lg font-semibold mb-4">
+              <span className="badge-new">New</span> Recently added
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {recent.map((calc) => (
+                <Link
+                  key={calc.slug}
+                  href={`/${locale}/${calc.slug}`}
+                  className="card card-hover p-4 flex items-center gap-3"
+                >
+                  <CalcBadge calc={calc} size={16} tile={34} />
+                  <span className="font-medium text-sm">{calc.title}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {/* Category sections */}
         <div className="py-10 space-y-12">
           {categories.map((cat) => (
@@ -104,7 +125,9 @@ export default async function HomePage({
                     <div className="flex items-center gap-3">
                       <CalcBadge calc={calc} />
                       <span className="font-semibold flex-1">{calc.title}</span>
-                      {calc.popular ? (
+                      {calc.isNew ? (
+                        <span className="badge-new">New</span>
+                      ) : calc.popular ? (
                         <span className="badge">Popular</span>
                       ) : null}
                     </div>

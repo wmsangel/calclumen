@@ -13,6 +13,7 @@ import { AdSlot } from "./ad-slot";
 import { CalcBadge } from "./calc-icon";
 import { AffiliateBlock } from "./affiliate-block";
 import { FavoriteButton } from "./favorite-button";
+import { PrintButton } from "./print-button";
 
 export interface FaqItem {
   q: string;
@@ -108,7 +109,8 @@ export function CalcShell({
           <CalcBadge calc={calc} size={26} tile={54} />
           <h1 className="display text-3xl sm:text-4xl">{calc.heading}</h1>
         </div>
-        <div className="shrink-0 pt-1">
+        <div className="shrink-0 pt-1 flex items-center gap-2 no-print">
+          <PrintButton />
           <FavoriteButton slug={slug} />
         </div>
       </div>
@@ -135,7 +137,7 @@ export function CalcShell({
       {guide ? (
         <Link
           href={`/${locale}/guides/${guide.slug}`}
-          className="mt-6 card card-hover p-4 flex items-center gap-3"
+          className="mt-6 card card-hover p-4 flex items-center gap-3 no-print"
         >
           <span className="grid place-items-center w-9 h-9 rounded-xl bg-[var(--accent-soft)] text-[var(--accent-2)] shrink-0">
             <BookOpen size={18} />
@@ -152,7 +154,7 @@ export function CalcShell({
         </Link>
       ) : null}
 
-      <AdSlot className="mt-8" />
+      <AdSlot className="mt-8 no-print" />
 
       {/* SEO long-form content */}
       <section className="mt-14">
@@ -198,7 +200,7 @@ export function CalcShell({
       </section>
 
       {/* Related */}
-      <section className="mt-12">
+      <section className="mt-12 no-print">
         <h2 className="text-xl font-semibold">Related calculators</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {related.map((c) => (
@@ -219,7 +221,9 @@ export function CalcShell({
         </div>
       </section>
 
-      <AffiliateBlock calc={calc} />
+      <div className="no-print">
+        <AffiliateBlock calc={calc} />
+      </div>
     </div>
   );
 }
