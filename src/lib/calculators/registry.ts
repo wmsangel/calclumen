@@ -805,6 +805,22 @@ export const calculators: CalcDef[] = [
       "sq ft calculator",
     ],
   },
+  {
+    slug: "electricity-cost-calculator",
+    category: "homediy",
+    title: "Electricity cost",
+    heading: "Electricity Cost Calculator",
+    description:
+      "Work out what any appliance costs to run — per day, month and year — from its wattage and your electricity rate.",
+    keywords: [
+      "electricity cost calculator",
+      "appliance running cost",
+      "kwh cost calculator",
+      "energy cost calculator",
+      "cost to run appliance",
+    ],
+    isNew: true,
+  },
 
   // ── Batch 2: more high-demand calculators ──────────────────
   {
