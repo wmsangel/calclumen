@@ -79,6 +79,16 @@ export function CalcShell({
         { "@type": "ListItem", position: 3, name: calc.title, item: url },
       ],
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: `How to use the ${calc.heading}`,
+      step: content.steps.map((text, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        text,
+      })),
+    },
   ];
 
   return (

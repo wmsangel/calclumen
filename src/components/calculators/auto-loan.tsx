@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -131,6 +132,17 @@ export function AutoLoanCalculator() {
           value={valid ? formatMoney(totalCost, currency) : "—"}
         />
       </div>
+
+      {valid ? (
+        <div className="mt-6">
+          <SplitBar
+            a={principal}
+            b={totalInterest}
+            aLabel={`Loan ${formatMoney(principal, currency)}`}
+            bLabel={`Interest ${formatMoney(totalInterest, currency)}`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

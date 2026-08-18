@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
+import { AreaChart, MultiBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -44,6 +45,7 @@ export function K401Calculator() {
   let totalEmp = NaN;
   let totalMatch = NaN;
   let growth = NaN;
+  let balances: number[] = [];
 
   if (valid) {
     let b = cb;
@@ -51,6 +53,7 @@ export function K401Calculator() {
     let te = 0;
     let tm = 0;
     const years = Math.max(0, Math.round(ra - ca));
+    balances = [cb];
     for (let y = 0; y < years; y++) {
       const empContrib = (salary * cp) / 100;
       const matched = Math.min(cp, eml) / 100;
@@ -62,6 +65,7 @@ export function K401Calculator() {
       te += empContrib;
       tm += empr;
       salary *= 1 + sg / 100;
+      balances.push(b);
     }
     bal = b;
     totalEmp = te;
@@ -188,6 +192,25 @@ export function K401Calculator() {
           value={valid ? formatMoney(growth, currency) : "—"}
         />
       </div>
+
+      {valid && balances.length > 1 ? (
+        <div className="mt-6 space-y-5">
+          <div>
+            <div className="text-sm font-medium mb-2">
+              Balance growth to retirement
+            </div>
+            <AreaChart data={balances} />
+          </div>
+          <MultiBar
+            segments={[
+              { label: "Starting balance", value: Math.max(0, cb), color: "var(--ink-soft)" },
+              { label: "Your contributions", value: Math.max(0, totalEmp), color: "var(--accent)" },
+              { label: "Employer match", value: Math.max(0, totalMatch), color: "var(--accent-2)" },
+              { label: "Investment growth", value: Math.max(0, growth), color: "var(--good)" },
+            ]}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

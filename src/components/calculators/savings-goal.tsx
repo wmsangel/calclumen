@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -92,6 +93,17 @@ export function SavingsGoalCalculator() {
           value={valid && !reached ? formatMoney(interestEarned, currency) : "—"}
         />
       </div>
+
+      {valid && !reached && totalDeposits > 0 ? (
+        <div className="mt-6">
+          <SplitBar
+            a={current + totalDeposits}
+            b={interestEarned}
+            aLabel={`Your money ${formatMoney(current + totalDeposits, currency)}`}
+            bLabel={`Interest ${formatMoney(interestEarned, currency)}`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }
