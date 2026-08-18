@@ -768,6 +768,105 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "how-car-loans-work",
+    title: "How Car Loans Work",
+    description:
+      "From sales tax and trade-ins to APR and loan term — what really drives your monthly car payment, and how to pay less for the same car.",
+    category: "auto",
+    updated: "2026-08",
+    readMins: 5,
+    calcSlugs: ["auto-loan-calculator", "lease-vs-buy-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "A car loan works like any other amortized loan: you borrow a lump sum and repay it in equal monthly instalments made up of principal and interest. But the amount you actually finance is rarely just the sticker price — sales tax, fees, a down payment and a trade-in all move it before interest is ever applied.",
+      },
+      { t: "h2", text: "What you actually finance" },
+      {
+        t: "p",
+        text: "Start with the vehicle price, add sales tax and dealer fees, then subtract your down payment and any trade-in value. What's left is the loan principal. Because interest is charged on that principal, anything that lowers it — a bigger down payment, a valuable trade-in — directly cuts what you pay.",
+      },
+      {
+        t: "callout",
+        text: "Loan amount = vehicle price + sales tax + fees − down payment − trade-in. A larger down payment shrinks both the loan and the interest.",
+      },
+      { t: "h2", text: "APR and loan term" },
+      {
+        t: "p",
+        text: "The APR is your yearly borrowing rate; the term is how many months you spread it over. A longer term lowers the monthly payment but raises total interest — and can leave you 'underwater', owing more than the car is worth. A shorter term costs more each month but far less overall.",
+      },
+      { t: "h2", text: "Watch the sales tax rules" },
+      {
+        t: "p",
+        text: "In many US states, a trade-in reduces the taxable amount — you only pay sales tax on the price difference, not the full sticker. That can be a meaningful saving, and it's why trade-in value and tax are worth modelling together rather than guessing.",
+      },
+      { t: "h2", text: "How to pay less" },
+      {
+        t: "ul",
+        items: [
+          "Put more down — it cuts the principal and the interest on top of it.",
+          "Choose the shortest term whose payment you can comfortably afford.",
+          "Shop the APR separately from the car — a credit union pre-approval is a strong bargaining chip.",
+          "Be wary of long 72–84 month terms; the low payment hides a high total cost.",
+        ],
+      },
+      {
+        t: "steps",
+        items: [
+          "Enter the vehicle price, your down payment and any trade-in value.",
+          "Add your local sales tax rate and dealer fees.",
+          "Set the APR you've been quoted and the loan term in months.",
+          "Compare a shorter term against a longer one to see the interest difference.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "margin-vs-markup",
+    title: "Margin vs Markup: Pricing Without the Confusion",
+    description:
+      "Margin and markup use the same two numbers but mean different things — and mixing them up quietly erodes your profit. Here's the clear version.",
+    category: "business",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: ["margin-markup-calculator", "break-even-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "Margin and markup both describe the gap between what a product costs you and what you sell it for. They're built from the same two numbers — cost and price — but they measure that gap against different bases. Confusing them is one of the most common ways small businesses underprice themselves.",
+      },
+      { t: "h2", text: "Markup — measured against cost" },
+      {
+        t: "p",
+        text: "Markup is the profit expressed as a percentage of the cost. If an item costs you $40 and you add $20, that's a 50% markup ($20 ÷ $40). Markup answers: 'how much do I add on top of cost?'",
+      },
+      { t: "h2", text: "Margin — measured against price" },
+      {
+        t: "p",
+        text: "Margin is the same $20 profit expressed as a percentage of the selling price. Sell that item for $60 and your margin is 33% ($20 ÷ $60), not 50%. Margin answers: 'how much of each sale do I actually keep?'",
+      },
+      {
+        t: "callout",
+        text: "Markup = profit ÷ cost. Margin = profit ÷ price. The same dollar profit always shows a smaller margin than markup.",
+      },
+      { t: "h2", text: "Why the mix-up costs money" },
+      {
+        t: "p",
+        text: "If you want a 40% margin but set a 40% markup by mistake, you'll charge too little — a 40% markup only yields about a 29% margin. Over hundreds of sales that gap is real money left on the table. Decide which one your target is, and price to it deliberately.",
+      },
+      { t: "h2", text: "Which should you use?" },
+      {
+        t: "ul",
+        items: [
+          "Use markup when setting a price up from a known cost.",
+          "Use margin when judging how healthy a sale or a whole business is.",
+          "Retail and accounting usually talk in margin; buyers and suppliers often talk in markup.",
+          "Always confirm which one a quoted percentage refers to before you compare.",
+        ],
+      },
+    ],
+  },
 ];
 
 // ── Lookups ──────────────────────────────────────────────────────
