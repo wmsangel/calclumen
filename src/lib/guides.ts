@@ -867,6 +867,161 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "how-big-should-your-emergency-fund-be",
+    title: "How Big Should Your Emergency Fund Be?",
+    description:
+      "The classic answer is 3–6 months of expenses — but the right number depends on your job, your dependents and your fixed costs. Here's how to size it.",
+    category: "finance",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: ["emergency-fund-calculator", "budget-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "An emergency fund is cash set aside for the unexpected — a job loss, a medical bill, a car repair — so a bad month doesn't become debt. The common rule is three to six months of essential expenses, but that range is a starting point, not a one-size answer.",
+      },
+      { t: "h2", text: "Base it on expenses, not income" },
+      {
+        t: "p",
+        text: "Size the fund against what you must spend each month, not what you earn. Add up the essentials: housing, utilities, food, insurance, minimum debt payments and transport. Discretionary spending — dining out, subscriptions — can be paused in a real emergency, so leave it out of the core number.",
+      },
+      {
+        t: "callout",
+        text: "Target = essential monthly expenses × number of months of cover. Three months is a floor; six or more suits less stable situations.",
+      },
+      { t: "h2", text: "What pushes the number up" },
+      {
+        t: "ul",
+        items: [
+          "Irregular or commission-based income — aim for the higher end.",
+          "A single income supporting dependents.",
+          "A specialised job where finding a new role takes longer.",
+          "High fixed costs you can't quickly cut.",
+        ],
+      },
+      { t: "h2", text: "What lets you keep it smaller" },
+      {
+        t: "ul",
+        items: [
+          "Two stable incomes in the household.",
+          "Few dependents and low fixed costs.",
+          "Strong, genuinely accessible backup options.",
+        ],
+      },
+      { t: "h2", text: "Where to keep it" },
+      {
+        t: "p",
+        text: "The fund's job is safety and access, not growth. Keep it in a high-yield savings account — separate from your everyday checking so you're not tempted to spend it, but reachable within a day or two. Investments can fall exactly when you need the cash, so they're the wrong home for this money.",
+      },
+      {
+        t: "steps",
+        items: [
+          "Total your essential monthly expenses.",
+          "Choose a months-of-cover target based on your job stability and dependents.",
+          "Multiply to get your goal, then subtract what you've already saved.",
+          "Automate a monthly transfer until you close the gap.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "understanding-your-take-home-pay",
+    title: "Understanding Your Take-Home Pay",
+    description:
+      "Gross pay is the headline; take-home is what lands in your account. Learn what's deducted between the two and why your paycheck looks smaller.",
+    category: "finance",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: ["paycheck-calculator", "salary-to-hourly-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "Your salary is quoted as a gross figure, but the amount that actually reaches your bank account — your take-home or net pay — is smaller. The difference is a stack of deductions taken from each paycheck, some mandatory and some chosen by you.",
+      },
+      { t: "h2", text: "What comes out of gross pay" },
+      {
+        t: "ul",
+        items: [
+          "Federal income tax — withheld based on your W-4 and pay rate.",
+          "State and sometimes local income tax, depending on where you live.",
+          "FICA — Social Security and Medicare, a fixed percentage of your pay.",
+          "Pre-tax deductions — 401(k) contributions, health insurance premiums, HSA/FSA.",
+        ],
+      },
+      { t: "h2", text: "Pre-tax vs post-tax deductions" },
+      {
+        t: "p",
+        text: "Order matters. Pre-tax deductions like a traditional 401(k) come out before income tax is calculated, so they lower your taxable income and soften the tax hit. Post-tax deductions come out after. That's why increasing your 401(k) contribution reduces your paycheck by less than the contribution itself.",
+      },
+      {
+        t: "callout",
+        text: "Take-home pay = gross pay − taxes − pre-tax deductions − post-tax deductions. Two people with the same salary can take home very different amounts.",
+      },
+      { t: "h2", text: "Why your withholding may be off" },
+      {
+        t: "p",
+        text: "Withholding is an estimate. If too little is withheld you owe at tax time; too much and you get a refund — effectively an interest-free loan to the government. Big life changes (marriage, a new job, a child) are the moments to revisit your W-4 so the estimate stays close.",
+      },
+      { t: "h2", text: "Budget on net, not gross" },
+      {
+        t: "p",
+        text: "Because deductions are substantial, always build your budget around take-home pay. Planning against the gross figure overstates what you can actually spend or save each month.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-calculate-roi",
+    title: "How to Calculate ROI",
+    description:
+      "Return on investment turns a profit into a comparable percentage — but the simple formula hides two traps: time and total cost. Here's how to get it right.",
+    category: "finance",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: ["roi-calculator", "compound-interest-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "Return on investment (ROI) measures how much you gained relative to what you put in, expressed as a percentage so you can compare very different investments on the same scale. It's the go-to metric for judging whether something was worth the money.",
+      },
+      { t: "h2", text: "The basic formula" },
+      {
+        t: "callout",
+        text: "ROI = (final value − initial cost) ÷ initial cost × 100%. Invest $1,000, end with $1,250, and your ROI is 25%.",
+      },
+      {
+        t: "p",
+        text: "The number is only as honest as the two figures you feed it. The 'initial cost' should include every cost — fees, taxes, time and money spent along the way — not just the headline purchase price. Leave costs out and the ROI looks better than reality.",
+      },
+      { t: "h2", text: "The time trap" },
+      {
+        t: "p",
+        text: "Plain ROI ignores how long the money was tied up. A 25% return in one year is excellent; the same 25% over ten years is mediocre. To compare fairly, convert to an annualized return — otherwise a slow winner can masquerade as a strong one.",
+      },
+      {
+        t: "callout",
+        text: "Annualized ROI = (1 + total ROI)^(1 ÷ years) − 1. It puts investments of different lengths on equal footing.",
+      },
+      { t: "h2", text: "What ROI doesn't tell you" },
+      {
+        t: "ul",
+        items: [
+          "Risk — a high ROI can come with a high chance of loss.",
+          "Timing of cash flows — money returned early is worth more than money returned late.",
+          "Scale — a 100% ROI on $50 is less meaningful than 10% on $50,000.",
+        ],
+      },
+      {
+        t: "steps",
+        items: [
+          "Add up the full initial cost, including fees and extras.",
+          "Record the final value you received or expect.",
+          "Apply the ROI formula for the raw percentage.",
+          "Annualize it if the holding periods you're comparing differ.",
+        ],
+      },
+    ],
+  },
 ];
 
 // ── Lookups ──────────────────────────────────────────────────────
