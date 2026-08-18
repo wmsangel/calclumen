@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { AreaChart } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -44,6 +45,7 @@ export function MortgageRefinanceCalculator() {
   let monthlySavings = NaN;
   let breakEvenMonths: number | null = null;
   let interestSaved = NaN;
+  let savingsCurve: number[] = [];
 
   if (valid) {
     const rc = cr / 100 / 12;
@@ -58,6 +60,16 @@ export function MortgageRefinanceCalculator() {
     const totalIntCurrent = Mc * rm - bal;
     const totalIntNew = Mn * nn - principal;
     interestSaved = totalIntCurrent - totalIntNew;
+
+    // Cumulative net position: monthly savings minus the up-front closing
+    // costs. Where the line crosses zero is the break-even point.
+    if (monthlySavings > 0) {
+      const months = Math.min(nn, 120);
+      savingsCurve = Array.from(
+        { length: months + 1 },
+        (_, m) => monthlySavings * m - cc,
+      );
+    }
   }
 
   return (
@@ -155,6 +167,22 @@ export function MortgageRefinanceCalculator() {
           value={valid ? formatMoney(interestSaved, currency) : "—"}
         />
       </div>
+
+      {savingsCurve.length > 1 ? (
+        <div className="mt-6">
+          <div className="text-sm font-medium mb-2">
+            Cumulative savings after closing costs
+          </div>
+          <AreaChart data={savingsCurve} color="var(--good)" />
+          <p className="mt-2 text-xs text-[var(--ink-soft)]">
+            The line turns positive at your break-even point
+            {breakEvenMonths !== null
+              ? ` (~${Math.ceil(breakEvenMonths)} months)`
+              : ""}
+            . First {savingsCurve.length - 1} months shown.
+          </p>
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { AreaChart } from "@/components/chart";
 
 type Direction = "Future value" | "Buying power";
 
@@ -25,6 +26,15 @@ export function InflationCalculator() {
   const adjusted = direction === "Future value" ? a * factor : a / factor;
   const change = adjusted - a;
   const changePct = (adjusted / a - 1) * 100;
+
+  const yearsInt = Number.isFinite(y) ? Math.min(Math.max(Math.round(y), 0), 100) : 0;
+  const curve =
+    valid && yearsInt > 0
+      ? Array.from({ length: yearsInt + 1 }, (_, i) => {
+          const f = Math.pow(1 + rate / 100, i);
+          return direction === "Future value" ? a * f : a / f;
+        })
+      : [];
 
   return (
     <ToolCard>
@@ -94,6 +104,20 @@ export function InflationCalculator() {
           value={valid ? `${formatNumber(changePct)}%` : "—"}
         />
       </div>
+
+      {curve.length > 1 ? (
+        <div className="mt-6">
+          <div className="text-sm font-medium mb-2">
+            {direction === "Future value"
+              ? "Value over time"
+              : "Buying power over time"}
+          </div>
+          <AreaChart
+            data={curve}
+            color={direction === "Future value" ? "var(--accent)" : "var(--bad)"}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

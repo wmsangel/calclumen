@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 type Mode = "fixed" | "target";
 
@@ -161,6 +162,20 @@ export function CreditCardPayoffCalculator() {
           />
         </div>
       )}
+
+      {((mode === "fixed" && fixedValid && payable) ||
+        (mode === "target" && targetValid)) &&
+      Number.isFinite(totalInterest) ? (
+        <div className="mt-6">
+          <SplitBar
+            a={bal}
+            b={totalInterest}
+            aLabel={`Balance ${formatMoney(bal, currency)}`}
+            bLabel={`Interest ${formatMoney(totalInterest, currency)}`}
+            bColor="var(--bad)"
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

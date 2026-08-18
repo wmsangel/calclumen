@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -102,6 +103,17 @@ export function CdCalculator() {
           value={valid ? `${formatNumber(apy * 100, 2)}%` : "—"}
         />
       </div>
+
+      {valid ? (
+        <div className="mt-6">
+          <SplitBar
+            a={p}
+            b={interest}
+            aLabel={`Principal ${formatMoney(p, currency)}`}
+            bLabel={`Interest ${formatMoney(interest, currency)}`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -73,6 +74,17 @@ export function SimpleInterestCalculator() {
           value={valid ? formatMoney(total, currency) : "—"}
         />
       </div>
+
+      {valid ? (
+        <div className="mt-6">
+          <SplitBar
+            a={p}
+            b={interest}
+            aLabel={`Principal ${formatMoney(p, currency)}`}
+            bLabel={`Interest ${formatMoney(interest, currency)}`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }
