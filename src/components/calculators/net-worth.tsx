@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { SplitBar } from "@/components/chart";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -146,6 +147,19 @@ export function NetWorthCalculator() {
         <Stat label="Total assets" value={money(totalAssets)} />
         <Stat label="Total liabilities" value={money(totalLiabilities)} />
       </div>
+
+      {totalAssets + totalLiabilities > 0 ? (
+        <div className="mt-6">
+          <SplitBar
+            a={totalAssets}
+            b={totalLiabilities}
+            aLabel={`Assets ${money(totalAssets)}`}
+            bLabel={`Liabilities ${money(totalLiabilities)}`}
+            aColor="var(--good)"
+            bColor="var(--bad)"
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

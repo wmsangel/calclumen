@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { AreaChart } from "@/components/chart";
 
 type Strategy = "snowball" | "avalanche";
 
@@ -34,6 +35,7 @@ function simulate(debts: Debt[], extra: number, strategy: Strategy) {
   let totalInterest = 0;
   let month = 0;
   let capped = false;
+  const curve: number[] = [startBalances];
 
   const active = () => bal.map((_, i) => i).filter((i) => bal[i] > 0);
 
@@ -92,6 +94,9 @@ function simulate(debts: Debt[], extra: number, strategy: Strategy) {
         cleared[i] = true;
       }
     }
+
+    // Snapshot the total remaining balance at the end of this month.
+    curve.push(bal.reduce((s, b) => s + b, 0));
   }
 
   return {
@@ -99,6 +104,7 @@ function simulate(debts: Debt[], extra: number, strategy: Strategy) {
     totalInterest,
     totalPaid: startBalances + totalInterest,
     capped,
+    curve,
   };
 }
 
@@ -139,7 +145,7 @@ export function DebtPayoffCalculator() {
 
   const result = valid
     ? simulate(debts, extraVal, strategy)
-    : { months: NaN, totalInterest: NaN, totalPaid: NaN, capped: false };
+    : { months: NaN, totalInterest: NaN, totalPaid: NaN, capped: false, curve: [] as number[] };
 
   const payoffNote = !valid
     ? "Add at least one debt"
@@ -256,6 +262,15 @@ export function DebtPayoffCalculator() {
           value={valid && !result.capped ? formatMoney(result.totalPaid, currency) : "—"}
         />
       </div>
+
+      {valid && !result.capped && result.curve.length > 1 ? (
+        <div className="mt-6">
+          <div className="text-sm font-medium mb-2">
+            Total balance until debt-free
+          </div>
+          <AreaChart data={result.curve} color="var(--good)" />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }
