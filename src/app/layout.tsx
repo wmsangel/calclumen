@@ -8,6 +8,7 @@ import { PwaRegister } from "@/components/pwa-register";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { AdSense } from "@/components/adsense";
 import { Ezoic } from "@/components/ezoic";
+import { AwinMasterTag } from "@/components/awin";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -63,6 +64,7 @@ export default function RootLayout({
         {children}
         <PwaRegister />
         <Ezoic />
+        <AwinMasterTag />
         <AdSense />
         <GoogleAnalytics />
         <Analytics />
