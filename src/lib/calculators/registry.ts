@@ -455,6 +455,21 @@ export const calculators: CalcDef[] = [
     popular: true,
   },
   {
+    slug: "car-affordability-calculator",
+    category: "auto",
+    title: "Car affordability",
+    heading: "Car Affordability Calculator",
+    description:
+      "Find the car price you can afford from a monthly payment budget, down payment, trade-in, APR and loan term.",
+    keywords: [
+      "car affordability calculator",
+      "how much car can i afford",
+      "car budget calculator",
+      "affordable car price calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "auto-lease-calculator",
     category: "auto",
     title: "Auto lease",
@@ -953,6 +968,22 @@ export const calculators: CalcDef[] = [
       "how to find the average",
     ],
     popular: true,
+  },
+  {
+    slug: "unit-price-calculator",
+    category: "math",
+    title: "Unit price",
+    heading: "Unit Price Calculator",
+    description:
+      "Compare products by price per unit and see which one is the better deal, plus how much you save.",
+    keywords: [
+      "unit price calculator",
+      "price per unit calculator",
+      "cost per unit calculator",
+      "which is cheaper calculator",
+      "compare prices per unit",
+    ],
+    isNew: true,
   },
   {
     slug: "temperature-converter",
