@@ -704,6 +704,22 @@ export const calculators: CalcDef[] = [
     popular: true,
   },
   {
+    slug: "grade-calculator",
+    category: "math",
+    title: "Grade",
+    heading: "Grade Calculator",
+    description:
+      "Find your weighted course grade from assignment scores and weights, or the score you need on the final to hit your target.",
+    keywords: [
+      "grade calculator",
+      "weighted grade calculator",
+      "final grade calculator",
+      "test grade calculator",
+      "what do i need on my final",
+    ],
+    isNew: true,
+  },
+  {
     slug: "fraction-calculator",
     category: "math",
     title: "Fractions",
