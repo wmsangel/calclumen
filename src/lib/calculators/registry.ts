@@ -135,6 +135,21 @@ export const calculators: CalcDef[] = [
     popular: true,
   },
   {
+    slug: "rule-of-72-calculator",
+    category: "finance",
+    title: "Rule of 72",
+    heading: "Rule of 72 Calculator",
+    description:
+      "Estimate how long it takes to double your money at a given return — or the rate needed to double in a set time.",
+    keywords: [
+      "rule of 72 calculator",
+      "double your money calculator",
+      "time to double investment",
+      "rule of 72",
+    ],
+    isNew: true,
+  },
+  {
     slug: "salary-to-hourly-calculator",
     category: "finance",
     title: "Salary to hourly",
