@@ -58,9 +58,24 @@ const AUTO: OfferGroup = {
 };
 
 const BUSINESS: OfferGroup = {
-  label: "Business tools you may like",
+  label: "Tools you may like",
   offers: [
-    // e.g. accounting/invoicing SaaS, payment processors, POS.
+    {
+      id: "nordvpn",
+      name: "NordVPN",
+      blurb:
+        "Keep your work and financial data private with one of the most trusted VPNs — secure browsing on any network.",
+      url: "https://qwpeg.com/g/mai1uhgx1645d9374ef3004ed038cb/",
+      cta: "Get NordVPN",
+    },
+    {
+      id: "lenovo",
+      name: "Lenovo",
+      blurb:
+        "Laptops, desktops and accessories for work and business, direct from the world's #1 PC maker.",
+      url: "https://bednari.com/g/6iia5dppfe45d9374ef3cc01b591a8/",
+      cta: "Shop Lenovo",
+    },
   ],
 };
 
@@ -71,11 +86,48 @@ const HOME: OfferGroup = {
   ],
 };
 
+const TECH: OfferGroup = {
+  label: "Online privacy & security",
+  offers: [
+    {
+      id: "purevpn",
+      name: "PureVPN",
+      blurb:
+        "Encrypt your connection and protect your data on any network with a fast, no-logs VPN.",
+      url: "https://plrvq.com/c/ayvzzawv4045d9374ef3dd63dd688c/",
+      cta: "Get PureVPN",
+    },
+  ],
+};
+
+const EDUCATION: OfferGroup = {
+  label: "Level up your skills",
+  offers: [
+    {
+      id: "coursera",
+      name: "Coursera",
+      blurb:
+        "Earn certificates and specializations from top universities and companies like Yale, Google and IBM.",
+      url: "https://thevospad.com/g/e7zq1rwhrg45d9374ef348547b1485/",
+      cta: "Explore Coursera",
+    },
+  ],
+};
+
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
+// Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.
+const TECH_SLUGS = new Set([
+  "data-storage-converter",
+  "number-base-converter",
+]);
+// Student / education pages.
+const EDUCATION_SLUGS = new Set(["gpa-calculator", "grade-calculator"]);
 
 /** The affiliate offer group for a calculator, or null (ads-only). */
 export function offersForCalc(calc: CalcDef): OfferGroup | null {
   if (PREGNANCY_SLUGS.has(calc.slug)) return PREGNANCY;
+  if (EDUCATION_SLUGS.has(calc.slug)) return EDUCATION;
+  if (TECH_SLUGS.has(calc.slug)) return TECH;
   switch (calc.category) {
     case "finance":
       return FINANCIAL;
