@@ -164,6 +164,12 @@ export function CalcShell({
         </Link>
       ) : null}
 
+      {/* Intent-matched affiliate recommendations — placed right under the
+          result (peak attention), not buried at the bottom of the page. */}
+      <div className="no-print">
+        <AffiliateBlock calc={calc} />
+      </div>
+
       <AdSlot className="mt-8 no-print" />
 
       {/* SEO long-form content */}
@@ -231,9 +237,6 @@ export function CalcShell({
         </div>
       </section>
 
-      <div className="no-print">
-        <AffiliateBlock calc={calc} />
-      </div>
     </div>
   );
 }
