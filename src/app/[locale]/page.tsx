@@ -14,6 +14,7 @@ import { SiteSearch } from "@/components/site-search";
 import { FloatingGlyphs } from "@/components/floating-glyphs";
 import { CalcBadge, CategoryBadge } from "@/components/calc-icon";
 import { MyCalculators } from "@/components/my-calculators";
+import { HomeOffers } from "@/components/home-offers";
 import { SiteJsonLd } from "@/components/site-jsonld";
 
 export async function generateMetadata({
@@ -96,6 +97,8 @@ export default async function HomePage({
             </div>
           </section>
         ) : null}
+
+        <HomeOffers />
 
         {/* Category sections */}
         <div className="py-10 space-y-12">

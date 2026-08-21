@@ -57,26 +57,43 @@ const AUTO: OfferGroup = {
   ],
 };
 
+// ── Live offers (named so the homepage pool can reuse them) ──────
+const NORDVPN: Offer = {
+  id: "nordvpn",
+  name: "NordVPN",
+  blurb:
+    "Keep your work and financial data private with one of the most trusted VPNs — secure browsing on any network.",
+  url: "https://qwpeg.com/g/mai1uhgx1645d9374ef3004ed038cb/",
+  cta: "Get NordVPN",
+};
+const LENOVO: Offer = {
+  id: "lenovo",
+  name: "Lenovo",
+  blurb:
+    "Laptops, desktops and accessories for work and business, direct from the world's #1 PC maker.",
+  url: "https://bednari.com/g/6iia5dppfe45d9374ef3cc01b591a8/",
+  cta: "Shop Lenovo",
+};
+const PUREVPN: Offer = {
+  id: "purevpn",
+  name: "PureVPN",
+  blurb:
+    "Encrypt your connection and protect your data on any network with a fast, no-logs VPN.",
+  url: "https://plrvq.com/c/ayvzzawv4045d9374ef3dd63dd688c/",
+  cta: "Get PureVPN",
+};
+const COURSERA: Offer = {
+  id: "coursera",
+  name: "Coursera",
+  blurb:
+    "Earn certificates and specializations from top universities and companies like Yale, Google and IBM.",
+  url: "https://thevospad.com/g/e7zq1rwhrg45d9374ef348547b1485/",
+  cta: "Explore Coursera",
+};
+
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
-  offers: [
-    {
-      id: "nordvpn",
-      name: "NordVPN",
-      blurb:
-        "Keep your work and financial data private with one of the most trusted VPNs — secure browsing on any network.",
-      url: "https://qwpeg.com/g/mai1uhgx1645d9374ef3004ed038cb/",
-      cta: "Get NordVPN",
-    },
-    {
-      id: "lenovo",
-      name: "Lenovo",
-      blurb:
-        "Laptops, desktops and accessories for work and business, direct from the world's #1 PC maker.",
-      url: "https://bednari.com/g/6iia5dppfe45d9374ef3cc01b591a8/",
-      cta: "Shop Lenovo",
-    },
-  ],
+  offers: [NORDVPN, LENOVO],
 };
 
 const HOME: OfferGroup = {
@@ -88,31 +105,21 @@ const HOME: OfferGroup = {
 
 const TECH: OfferGroup = {
   label: "Online privacy & security",
-  offers: [
-    {
-      id: "purevpn",
-      name: "PureVPN",
-      blurb:
-        "Encrypt your connection and protect your data on any network with a fast, no-logs VPN.",
-      url: "https://plrvq.com/c/ayvzzawv4045d9374ef3dd63dd688c/",
-      cta: "Get PureVPN",
-    },
-  ],
+  offers: [PUREVPN],
 };
 
 const EDUCATION: OfferGroup = {
   label: "Level up your skills",
-  offers: [
-    {
-      id: "coursera",
-      name: "Coursera",
-      blurb:
-        "Earn certificates and specializations from top universities and companies like Yale, Google and IBM.",
-      url: "https://thevospad.com/g/e7zq1rwhrg45d9374ef348547b1485/",
-      cta: "Explore Coursera",
-    },
-  ],
+  offers: [COURSERA],
 };
+
+/**
+ * Curated pool for the homepage. One offer per vertical (no duplicate
+ * categories, so two VPNs never appear together). <HomeOffers/> shuffles it
+ * client-side so the block rotates across visits. Safe to leave empty.
+ */
+export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.
