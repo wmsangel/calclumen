@@ -157,3 +157,40 @@ export function tableValues(conv: UnitConversion, current: number): number[] {
   set.add(current);
   return [...set].sort((a, b) => a - b);
 }
+
+/** Conversion types whose interactive tool is `converterSlug` — used to build
+ *  "Popular conversions" hubs on the converter pages. */
+export function typesForConverter(converterSlug: string): UnitConversion[] {
+  return UNITS.filter((u) => u.converterSlug === converterSlug);
+}
+
+// Ordered by how often people search each amount (body weights, heights,
+// oven temps first), so the "popular" links pick sensible defaults per type.
+const POPULAR_PREF = [70, 60, 80, 50, 100, 10, 20, 30, 75, 90, 175, 180, 160, 150, 200, 5, 40, 25, 350, 400, 180];
+
+/** A handful of commonly-searched values that exist for this type. */
+export function popularValues(conv: UnitConversion, n = 6): number[] {
+  const out: number[] = [];
+  for (const v of POPULAR_PREF) {
+    if (conv.values.includes(v) && !out.includes(v)) out.push(v);
+    if (out.length >= n) break;
+  }
+  // Fallback: if the preference list didn't fill up, take the first values.
+  for (const v of conv.values) {
+    if (out.length >= n) break;
+    if (!out.includes(v)) out.push(v);
+  }
+  return out;
+}
+
+/** The reverse conversion type (kg→lbs ⇄ lbs→kg), if one exists. */
+export function reverseConv(conv: UnitConversion): UnitConversion | null {
+  return BY_ID.get(`${conv.toUnit}-to-${conv.fromUnit}`) ?? null;
+}
+
+/** Other conversion types in the same category (e.g. other length units). */
+export function siblingTypes(conv: UnitConversion): UnitConversion[] {
+  return UNITS.filter(
+    (u) => u.category === conv.category && u.id !== conv.id,
+  );
+}

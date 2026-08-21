@@ -9,6 +9,9 @@ import {
   UNIT_PAGES,
   convertUnit,
   parseUnitSlug,
+  popularValues,
+  reverseConv,
+  siblingTypes,
   tableValues,
   type UnitConversion,
 } from "@/lib/programmatic/units";
@@ -226,6 +229,56 @@ export default async function Page({
           converts between many {conv.category} units instantly.
         </p>
       </section>
+
+      {(() => {
+        const reverse = reverseConv(conv);
+        const siblings = siblingTypes(conv);
+        if (!reverse && siblings.length === 0) return null;
+        const chip = (
+          fromUnit: string,
+          toUnit: string,
+          v: number,
+          fl: string,
+          tl: string,
+        ) => (
+          <Link
+            key={`${v}-${fromUnit}-${toUnit}`}
+            href={`/${locale}/units/${v}-${fromUnit}-to-${toUnit}`}
+            className="chip"
+          >
+            {v} {fl} to {tl}
+          </Link>
+        );
+        return (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold">Related conversions</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {reverse
+                ? popularValues(reverse, 4).map((v) =>
+                    chip(
+                      reverse.fromUnit,
+                      reverse.toUnit,
+                      v,
+                      reverse.fromLabel ?? reverse.fromUnit,
+                      reverse.toLabel ?? reverse.toUnit,
+                    ),
+                  )
+                : null}
+              {siblings.map((s) => {
+                const v = popularValues(s, 1)[0];
+                if (v == null) return null;
+                return chip(
+                  s.fromUnit,
+                  s.toUnit,
+                  v,
+                  s.fromLabel ?? s.fromUnit,
+                  s.toLabel ?? s.toUnit,
+                );
+              })}
+            </div>
+          </section>
+        );
+      })()}
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold">Frequently asked questions</h2>

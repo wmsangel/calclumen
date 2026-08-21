@@ -5,6 +5,7 @@ import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { TemperatureConverter } from "@/components/calculators/temperature-converter";
+import { ConversionLinks } from "@/components/conversion-links";
 
 const SLUG = "temperature-converter";
 
@@ -59,7 +60,14 @@ export default async function Page({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell
+      locale={locale}
+      slug={SLUG}
+      content={{
+        ...content,
+        extra: <ConversionLinks locale={locale} converterSlug={SLUG} />,
+      }}
+    >
       <TemperatureConverter />
     </CalcShell>
   );
