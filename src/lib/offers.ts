@@ -90,10 +90,26 @@ const COURSERA: Offer = {
   url: "https://thevospad.com/g/e7zq1rwhrg45d9374ef348547b1485/",
   cta: "Explore Coursera",
 };
+const OPENART: Offer = {
+  id: "openart",
+  name: "OpenArt AI",
+  blurb:
+    "Create images and video with fast AI generation tools — 15% off with code LEADS15.",
+  url: "https://io0.xyz/6a885e9645132",
+  cta: "Try OpenArt",
+};
+const EASEUS: Offer = {
+  id: "easeus",
+  name: "EaseUS",
+  blurb:
+    "Recover lost files, manage disks and back up data — trusted by 100M+ users.",
+  url: "https://i0x.xyz/6a885f89c22cd",
+  cta: "Get EaseUS",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
-  offers: [NORDVPN, LENOVO],
+  offers: [NORDVPN, LENOVO, OPENART],
 };
 
 const HOME: OfferGroup = {
@@ -104,8 +120,8 @@ const HOME: OfferGroup = {
 };
 
 const TECH: OfferGroup = {
-  label: "Online privacy & security",
-  offers: [PUREVPN],
+  label: "Tools & software you may like",
+  offers: [EASEUS, PUREVPN],
 };
 
 const EDUCATION: OfferGroup = {
@@ -119,7 +135,7 @@ const EDUCATION: OfferGroup = {
  * client-side so the block rotates across visits. Safe to leave empty.
  */
 export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
-export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO];
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.
