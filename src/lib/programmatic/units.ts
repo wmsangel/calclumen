@@ -2,49 +2,115 @@
 //
 // Unlike the percent (/X-percent-of-Y) and currency (/convert/…) templates,
 // these are INDEXABLE: each page carries a unique answer, a worked formula, a
-// conversion table with internal links, and its own FAQ — enough to earn a
-// place in the index rather than read as a thin doorway.
+// conversion table with internal links, and its own FAQ.
 //
-// To scale to new conversion types, add entries to UNITS. Everything else
-// (routes, sitemap, parsing) is driven off this list.
+// To add a conversion type, append an entry to UNITS. Routes, sitemap and
+// parsing are all driven off this list. `factor`/`offset` define an affine
+// transform: toValue = fromValue * factor + offset (offset is only non-zero
+// for temperature). `fromLabel`/`toLabel` are the display symbols (e.g. °C)
+// while `fromUnit`/`toUnit` are the ASCII slug/keyword words.
 
 export interface UnitConversion {
-  id: string; // "kg-to-lbs"
-  fromUnit: string; // "kg"
-  toUnit: string; // "lbs"
-  fromName: string; // plural, lower-case: "kilograms"
-  toName: string; // "pounds"
-  fromNameSingular: string; // "kilogram"
-  toNameSingular: string; // "pound"
-  factor: number; // multiply a fromUnit value by this to get toUnit
-  precision: number; // decimals in the result
-  category: string; // for copy: "weight"
-  converterSlug: string; // the full interactive tool to link to
-  values: number[]; // which amounts each get their own page
+  id: string; // "kg-to-lbs" (must equal `${fromUnit}-to-${toUnit}`)
+  fromUnit: string; // slug/keyword word: "kg", "celsius"
+  toUnit: string;
+  fromLabel?: string; // display symbol, defaults to fromUnit: "°C"
+  toLabel?: string;
+  fromName: string; // prose plural: "kilograms", "degrees Celsius"
+  toName: string;
+  fromNameSingular: string;
+  toNameSingular: string;
+  factor: number;
+  offset?: number; // affine offset (temperature only)
+  precision: number;
+  category: string; // "weight" | "length" | "temperature" …
+  converterSlug: string; // full interactive tool to link to
+  values: number[]; // amounts that each get their own page
 }
 
-// The amounts people actually search for a weight conversion: every whole
-// number up to 100 covers the bulk ("60 kg to lbs", "75 kg to lbs", …), plus
-// common larger round numbers.
-const COMMON_WEIGHTS = [
-  ...Array.from({ length: 100 }, (_, i) => i + 1),
-  110, 120, 130, 140, 150, 160, 170, 180, 200, 250, 300, 500,
-];
+const int = (a: number, b: number) =>
+  Array.from({ length: b - a + 1 }, (_, i) => a + i);
+
+// Value sets tuned to what people actually search, not 1..1000.
+const WEIGHTS = [...int(1, 100), 110, 120, 130, 140, 150, 160, 170, 180, 200, 250, 300, 500];
+const DISTANCES = [...int(1, 100), 110, 120, 150, 200, 250, 300, 500];
+const SMALL = int(1, 100);
+const CM = int(1, 200);
+const CELSIUS = [...int(0, 50), 100, 120, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250];
+const FAHRENHEIT = [...int(0, 120), 300, 325, 350, 375, 400, 425, 450, 475, 500];
 
 export const UNITS: UnitConversion[] = [
   {
-    id: "kg-to-lbs",
-    fromUnit: "kg",
-    toUnit: "lbs",
-    fromName: "kilograms",
-    toName: "pounds",
-    fromNameSingular: "kilogram",
-    toNameSingular: "pound",
-    factor: 2.2046226218,
-    precision: 3,
-    category: "weight",
-    converterSlug: "weight-converter",
-    values: COMMON_WEIGHTS,
+    id: "kg-to-lbs", fromUnit: "kg", toUnit: "lbs",
+    fromName: "kilograms", toName: "pounds",
+    fromNameSingular: "kilogram", toNameSingular: "pound",
+    factor: 2.2046226218, precision: 3,
+    category: "weight", converterSlug: "weight-converter", values: WEIGHTS,
+  },
+  {
+    id: "lbs-to-kg", fromUnit: "lbs", toUnit: "kg",
+    fromName: "pounds", toName: "kilograms",
+    fromNameSingular: "pound", toNameSingular: "kilogram",
+    factor: 0.45359237, precision: 3,
+    category: "weight", converterSlug: "weight-converter", values: WEIGHTS,
+  },
+  {
+    id: "cm-to-inches", fromUnit: "cm", toUnit: "inches",
+    fromName: "centimeters", toName: "inches",
+    fromNameSingular: "centimeter", toNameSingular: "inch",
+    factor: 0.3937007874, precision: 3,
+    category: "length", converterSlug: "length-converter", values: CM,
+  },
+  {
+    id: "inches-to-cm", fromUnit: "inches", toUnit: "cm",
+    fromName: "inches", toName: "centimeters",
+    fromNameSingular: "inch", toNameSingular: "centimeter",
+    factor: 2.54, precision: 2,
+    category: "length", converterSlug: "length-converter", values: SMALL,
+  },
+  {
+    id: "miles-to-km", fromUnit: "miles", toUnit: "km",
+    fromName: "miles", toName: "kilometers",
+    fromNameSingular: "mile", toNameSingular: "kilometer",
+    factor: 1.609344, precision: 3,
+    category: "length", converterSlug: "length-converter", values: DISTANCES,
+  },
+  {
+    id: "km-to-miles", fromUnit: "km", toUnit: "miles",
+    fromName: "kilometers", toName: "miles",
+    fromNameSingular: "kilometer", toNameSingular: "mile",
+    factor: 0.6213711922, precision: 3,
+    category: "length", converterSlug: "length-converter", values: DISTANCES,
+  },
+  {
+    id: "feet-to-meters", fromUnit: "feet", toUnit: "meters",
+    fromName: "feet", toName: "meters",
+    fromNameSingular: "foot", toNameSingular: "meter",
+    factor: 0.3048, precision: 3,
+    category: "length", converterSlug: "length-converter", values: SMALL,
+  },
+  {
+    id: "meters-to-feet", fromUnit: "meters", toUnit: "feet",
+    fromName: "meters", toName: "feet",
+    fromNameSingular: "meter", toNameSingular: "foot",
+    factor: 3.280839895, precision: 3,
+    category: "length", converterSlug: "length-converter", values: SMALL,
+  },
+  {
+    id: "celsius-to-fahrenheit", fromUnit: "celsius", toUnit: "fahrenheit",
+    fromLabel: "°C", toLabel: "°F",
+    fromName: "degrees Celsius", toName: "degrees Fahrenheit",
+    fromNameSingular: "degree Celsius", toNameSingular: "degree Fahrenheit",
+    factor: 1.8, offset: 32, precision: 1,
+    category: "temperature", converterSlug: "temperature-converter", values: CELSIUS,
+  },
+  {
+    id: "fahrenheit-to-celsius", fromUnit: "fahrenheit", toUnit: "celsius",
+    fromLabel: "°F", toLabel: "°C",
+    fromName: "degrees Fahrenheit", toName: "degrees Celsius",
+    fromNameSingular: "degree Fahrenheit", toNameSingular: "degree Celsius",
+    factor: 0.5555555556, offset: -17.7777778, precision: 1,
+    category: "temperature", converterSlug: "temperature-converter", values: FAHRENHEIT,
   },
 ];
 
@@ -78,11 +144,11 @@ export function parseUnitSlug(slug: string): UnitPage | null {
 }
 
 export function convertUnit(value: number, conv: UnitConversion): number {
-  return value * conv.factor;
+  return value * conv.factor + (conv.offset ?? 0);
 }
 
 /** Anchor amounts every page links to (plus the current value) — a small,
- *  consistent internal-link graph across the whole conversion type. */
+ *  consistent internal-link graph across each conversion type. */
 export function tableValues(conv: UnitConversion, current: number): number[] {
   const anchors = [1, 5, 10, 20, 50, 75, 100].filter((v) =>
     conv.values.includes(v),

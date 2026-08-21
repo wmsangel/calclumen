@@ -10,6 +10,7 @@ import {
   convertUnit,
   parseUnitSlug,
   tableValues,
+  type UnitConversion,
 } from "@/lib/programmatic/units";
 import { getCalc } from "@/lib/calculators/registry";
 import { AdSlot } from "@/components/ad-slot";
@@ -23,6 +24,24 @@ export function generateStaticParams() {
   );
 }
 
+/** The "multiply by X (and add Y)" phrase, reused in copy and FAQ. */
+function formula(conv: UnitConversion) {
+  const factorStr = formatNumber(conv.factor, 5);
+  const off = conv.offset ?? 0;
+  if (off === 0) return `multiply by ${factorStr}`;
+  const offAbs = formatNumber(Math.abs(off), 4);
+  return `multiply by ${factorStr} and ${off > 0 ? "add" : "subtract"} ${offAbs}`;
+}
+
+/** "10 × 2.20462 = 22.046" (or with an offset step). */
+function worked(conv: UnitConversion, value: number, resultStr: string) {
+  const factorStr = formatNumber(conv.factor, 5);
+  const off = conv.offset ?? 0;
+  if (off === 0) return `${value} × ${factorStr} = ${resultStr}`;
+  const offAbs = formatNumber(Math.abs(off), 4);
+  return `${value} × ${factorStr} ${off > 0 ? "+" : "−"} ${offAbs} = ${resultStr}`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -34,11 +53,10 @@ export async function generateMetadata({
   if (!page) return {};
   const { conv, value } = page;
   const result = formatNumber(convertUnit(value, conv), conv.precision);
-  const title = `${value} ${conv.fromUnit} to ${conv.toUnit}`;
   return pageMetadata({
     locale,
     path: `units/${slug}`,
-    title,
+    title: `${value} ${conv.fromUnit} to ${conv.toUnit}`,
     description: `${value} ${conv.fromName} equals ${result} ${conv.toName}. See the formula, a conversion table and a free ${conv.category} converter.`,
     keywords: [
       `${value} ${conv.fromUnit} to ${conv.toUnit}`,
@@ -60,17 +78,19 @@ export default async function Page({
   if (!page) notFound();
 
   const { conv, value } = page;
-  const exact = convertUnit(value, conv);
-  const result = formatNumber(exact, conv.precision);
+  const fLabel = conv.fromLabel ?? conv.fromUnit;
+  const tLabel = conv.toLabel ?? conv.toUnit;
+  const off = conv.offset ?? 0;
+  const result = formatNumber(convertUnit(value, conv), conv.precision);
   const factorStr = formatNumber(conv.factor, 5);
-  const reverse = formatNumber(1 / conv.factor, 5);
   const tool = getCalc(conv.converterSlug);
   const rows = tableValues(conv, value);
+  const formulaPhrase = formula(conv);
 
   const q1 = `What is ${value} ${conv.fromUnit} in ${conv.toName}?`;
-  const a1 = `${value} ${conv.fromName} equals ${result} ${conv.toName}. To convert, multiply ${value} by ${factorStr}.`;
+  const a1 = `${value} ${conv.fromName} equals ${result} ${conv.toName}. To convert, ${formulaPhrase}.`;
   const q2 = `How do you convert ${conv.fromName} to ${conv.toName}?`;
-  const a2 = `Multiply the number of ${conv.fromName} by ${factorStr} (1 ${conv.fromNameSingular} = ${factorStr} ${conv.toName}). For ${value}: ${value} × ${factorStr} = ${result} ${conv.toName}.`;
+  const a2 = `To convert ${conv.fromName} to ${conv.toName}, ${formulaPhrase}. For ${value}: ${worked(conv, value, result)} ${tLabel}.`;
 
   const jsonLd = [
     {
@@ -109,10 +129,7 @@ export default async function Page({
         </Link>
         <span>/</span>
         {tool ? (
-          <Link
-            href={`/${locale}/${conv.converterSlug}`}
-            className="hover:text-[var(--accent)]"
-          >
+          <Link href={`/${locale}/${conv.converterSlug}`} className="hover:text-[var(--accent)]">
             {tool.title}
           </Link>
         ) : (
@@ -120,12 +137,12 @@ export default async function Page({
         )}
         <span>/</span>
         <span className="text-[var(--ink)]">
-          {value} {conv.fromUnit} → {conv.toUnit}
+          {value} {fLabel} → {tLabel}
         </span>
       </nav>
 
       <h1 className="display mt-4 text-4xl sm:text-5xl">
-        {value} {conv.fromUnit} to {conv.toUnit}
+        {value} {fLabel} to {tLabel}
       </h1>
       <p className="mt-3 text-lg text-[var(--ink-soft)]">
         {value} {conv.fromName} to {conv.toName}
@@ -136,15 +153,17 @@ export default async function Page({
           <Stat
             label="Result"
             accent
-            value={`${value} ${conv.fromUnit} = ${result} ${conv.toUnit}`}
-            sub={`1 ${conv.fromUnit} = ${factorStr} ${conv.toUnit} · 1 ${conv.toUnit} = ${reverse} ${conv.fromUnit}`}
+            value={`${value} ${fLabel} = ${result} ${tLabel}`}
+            sub={
+              off === 0
+                ? `1 ${fLabel} = ${factorStr} ${tLabel} · 1 ${tLabel} = ${formatNumber(1 / conv.factor, 5)} ${fLabel}`
+                : `Formula: ${conv.fromNameSingular} × ${factorStr} + ${formatNumber(conv.offset ?? 0, 4)}`
+            }
           />
           <div className="mt-4 text-sm text-[var(--ink-soft)] leading-relaxed">
-            To convert {conv.fromName} to {conv.toName}, multiply by{" "}
-            <strong className="text-[var(--ink)]">{factorStr}</strong>. So{" "}
-            {value} × {factorStr} ={" "}
+            To convert {conv.fromName} to {conv.toName}, {formulaPhrase}. So{" "}
             <strong className="text-[var(--ink)]">
-              {result} {conv.toUnit}
+              {worked(conv, value, result)} {tLabel}
             </strong>
             .
           </div>
@@ -160,8 +179,8 @@ export default async function Page({
         <table className="mt-4 w-full text-sm">
           <thead>
             <tr className="text-left text-[var(--ink-soft)]">
-              <th className="py-1.5 font-medium">{conv.fromUnit}</th>
-              <th className="py-1.5 font-medium">{conv.toUnit}</th>
+              <th className="py-1.5 font-medium">{fLabel}</th>
+              <th className="py-1.5 font-medium">{tLabel}</th>
             </tr>
           </thead>
           <tbody className="tabular-nums">
@@ -169,18 +188,20 @@ export default async function Page({
               <tr key={v} className="border-t border-[var(--rule)]">
                 <td className="py-1.5">
                   {v === value ? (
-                    <strong>{v} {conv.fromUnit}</strong>
+                    <strong>
+                      {v} {fLabel}
+                    </strong>
                   ) : (
                     <Link
                       href={`/${locale}/units/${v}-${conv.fromUnit}-to-${conv.toUnit}`}
                       className="text-[var(--accent)] hover:underline"
                     >
-                      {v} {conv.fromUnit}
+                      {v} {fLabel}
                     </Link>
                   )}
                 </td>
                 <td className="py-1.5">
-                  {formatNumber(convertUnit(v, conv), conv.precision)} {conv.toUnit}
+                  {formatNumber(convertUnit(v, conv), conv.precision)} {tLabel}
                 </td>
               </tr>
             ))}
