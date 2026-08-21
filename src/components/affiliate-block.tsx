@@ -1,3 +1,4 @@
+import { Sparkles } from "lucide-react";
 import type { CalcDef } from "@/lib/calculators/registry";
 import { offersForCalc } from "@/lib/offers";
 
@@ -12,31 +13,42 @@ export function AffiliateBlock({ calc }: { calc: CalcDef }) {
 
   return (
     <section className="mt-12">
-      <h2 className="text-xl font-semibold">{group.label}</h2>
-      <p className="mt-1 text-xs text-[var(--ink-soft)]">
-        Some of these are affiliate links — we may earn a commission at no extra
-        cost to you.
-      </p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2">
-        {group.offers.map((o) => (
-          <a
-            key={o.id}
-            href={o.url}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="card card-hover p-4 flex items-center justify-between gap-3"
-          >
-            <span className="min-w-0">
-              <span className="font-semibold text-sm block">{o.name}</span>
-              <span className="text-xs text-[var(--ink-soft)] block truncate">
-                {o.blurb}
+      <div className="offer-panel">
+        <div className="flex items-center gap-2">
+          <span className="grid place-items-center w-7 h-7 rounded-lg bg-[var(--accent)] text-[var(--on-accent)] shrink-0">
+            <Sparkles size={15} />
+          </span>
+          <h2 className="text-lg font-semibold">{group.label}</h2>
+        </div>
+        <p className="mt-1 text-xs text-[var(--ink-soft)]">
+          Some of these are affiliate links — we may earn a commission at no
+          extra cost to you.
+        </p>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {group.offers.map((o) => (
+            <a
+              key={o.id}
+              href={o.url}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              className="offer-card"
+            >
+              <span className="min-w-0">
+                <span className="flex items-center gap-2">
+                  <span className="font-semibold text-sm">{o.name}</span>
+                  {o.badge ? (
+                    <span className="offer-badge">{o.badge}</span>
+                  ) : null}
+                </span>
+                <span className="mt-0.5 block text-xs text-[var(--ink-soft)] leading-snug line-clamp-2">
+                  {o.blurb}
+                </span>
               </span>
-            </span>
-            <span className="text-sm font-medium text-[var(--accent)] shrink-0">
-              {o.cta ?? "Visit"} →
-            </span>
-          </a>
-        ))}
+              <span className="offer-cta">{o.cta ?? "Visit"} →</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

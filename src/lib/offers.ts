@@ -16,6 +16,8 @@ export interface Offer {
   blurb: string;
   url: string;
   cta?: string;
+  /** optional promo/deal pill, e.g. "15% OFF" */
+  badge?: string;
 }
 
 export interface OfferGroup {
@@ -97,6 +99,7 @@ const OPENART: Offer = {
     "Create images and video with fast AI generation tools — 15% off with code LEADS15.",
   url: "https://io0.xyz/6a885e9645132",
   cta: "Try OpenArt",
+  badge: "15% OFF",
 };
 const EASEUS: Offer = {
   id: "easeus",
@@ -105,6 +108,7 @@ const EASEUS: Offer = {
     "Recover lost files, manage disks and back up data — trusted by 100M+ users.",
   url: "https://i0x.xyz/6a885f89c22cd",
   cta: "Get EaseUS",
+  badge: "20% OFF",
 };
 
 const BUSINESS: OfferGroup = {
