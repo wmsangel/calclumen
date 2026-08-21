@@ -1275,6 +1275,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "timesheet-calculator",
+    category: "finance",
+    title: "Timesheet",
+    heading: "Timesheet Calculator",
+    description:
+      "Add up your weekly work hours from clock-in and clock-out times, with breaks, overtime and gross pay.",
+    keywords: [
+      "timesheet calculator",
+      "work hours calculator",
+      "time card calculator",
+      "hours and minutes calculator",
+      "weekly hours calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "length-converter",
     category: "conversions",
     title: "Length",
