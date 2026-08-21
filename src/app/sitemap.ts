@@ -3,6 +3,7 @@ import { locales } from "@/lib/i18n/config";
 import { calculators, categories } from "@/lib/calculators/registry";
 import { absUrl } from "@/lib/seo/site";
 import { GUIDES } from "@/lib/guides";
+import { UNIT_PAGES } from "@/lib/programmatic/units";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -49,6 +50,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: absUrl(locale, calc.slug),
         changeFrequency: "monthly",
         priority: calc.popular ? 0.9 : 0.8,
+      });
+    }
+
+    // Programmatic unit-conversion pages (/units/…) — indexable, so included.
+    for (const p of UNIT_PAGES) {
+      entries.push({
+        url: absUrl(locale, `units/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
       });
     }
 
