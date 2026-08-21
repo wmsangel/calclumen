@@ -35,9 +35,13 @@ export const metadata: Metadata = {
     ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
       ? { yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION }
       : {}),
-    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
-      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION } }
-      : {}),
+    other: {
+      // Mitgo / Admitad publisher verification.
+      "mitgo-verification": "9a011d91-558b-4e4a-a57a-b44f7dd37247",
+      ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+        ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION }
+        : {}),
+    },
   },
 };
 
