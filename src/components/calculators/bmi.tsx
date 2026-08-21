@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 type Unit = "metric" | "imperial";
 
@@ -22,6 +24,26 @@ export function BmiCalculator() {
   const [ft, setFt] = useState("5");
   const [inch, setInch] = useState("9");
   const [lb, setLb] = useState("160");
+
+  useEffect(() => {
+    const u = readParam("unit");
+    if (u === "metric" || u === "imperial") setUnit(u);
+    const map: [string, (v: string) => void][] = [
+      ["cm", setCm],
+      ["kg", setKg],
+      ["ft", setFt],
+      ["in", setInch],
+      ["lb", setLb],
+    ];
+    for (const [key, set] of map) {
+      const v = readParam(key);
+      if (v) set(v);
+    }
+  }, []);
+
+  useEffect(() => {
+    syncParams({ unit, cm, kg, ft, in: inch, lb });
+  }, [unit, cm, kg, ft, inch, lb]);
 
   let bmi = NaN;
   let low = NaN;
@@ -134,6 +156,14 @@ export function BmiCalculator() {
         />
         <Stat label="Healthy weight range" value={valid ? range : "—"} />
       </div>
+
+      {valid && cat ? (
+        <div className="mt-5 no-print">
+          <ResultActions
+            summary={`BMI ${formatNumber(bmi, 1)} — ${cat.label}. Healthy weight range: ${range}. — via calclumen.com`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

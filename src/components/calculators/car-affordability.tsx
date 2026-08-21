@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
 import { SplitBar } from "@/components/chart";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -16,6 +18,35 @@ export function CarAffordabilityCalculator() {
   const [apr, setApr] = useState("6.5");
   const [salesTaxRate, setSalesTaxRate] = useState("7");
   const [currency, setCurrency] = useState("USD");
+
+  useEffect(() => {
+    const map: [string, (v: string) => void][] = [
+      ["budget", setMonthlyBudget],
+      ["down", setDownPayment],
+      ["trade", setTradeInValue],
+      ["term", setLoanTermMonths],
+      ["apr", setApr],
+      ["tax", setSalesTaxRate],
+    ];
+    for (const [key, set] of map) {
+      const v = readParam(key);
+      if (v) set(v);
+    }
+    const c = readParam("cur");
+    if (c && (CURRENCIES as readonly string[]).includes(c)) setCurrency(c);
+  }, []);
+
+  useEffect(() => {
+    syncParams({
+      budget: monthlyBudget,
+      down: downPayment,
+      trade: tradeInValue,
+      term: loanTermMonths,
+      apr,
+      tax: salesTaxRate,
+      cur: currency,
+    });
+  }, [monthlyBudget, downPayment, tradeInValue, loanTermMonths, apr, salesTaxRate, currency]);
 
   const pmt = num(monthlyBudget);
   const dp = num(downPayment);
@@ -133,6 +164,14 @@ export function CarAffordabilityCalculator() {
             b={principal}
             aLabel={`Cash down + trade-in ${formatMoney(dp + ti, currency)}`}
             bLabel={`Financed ${formatMoney(principal, currency)}`}
+          />
+        </div>
+      ) : null}
+
+      {valid ? (
+        <div className="mt-5 no-print">
+          <ResultActions
+            summary={`On ${formatMoney(pmt, currency)}/mo, I can afford a ${formatMoney(price, currency)} car (${formatMoney(principal, currency)} financed at ${apr}% over ${loanTermMonths} months). — via calclumen.com`}
           />
         </div>
       ) : null}

@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
 import { SplitBar } from "@/components/chart";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -17,6 +19,37 @@ export function AutoLoanCalculator() {
   const [apr, setApr] = useState("6.5");
   const [fees, setFees] = useState("500");
   const [currency, setCurrency] = useState("USD");
+
+  useEffect(() => {
+    const map: [string, (v: string) => void][] = [
+      ["price", setVehiclePrice],
+      ["down", setDownPayment],
+      ["trade", setTradeInValue],
+      ["tax", setSalesTaxRate],
+      ["term", setLoanTermMonths],
+      ["apr", setApr],
+      ["fees", setFees],
+    ];
+    for (const [key, set] of map) {
+      const v = readParam(key);
+      if (v) set(v);
+    }
+    const c = readParam("cur");
+    if (c && (CURRENCIES as readonly string[]).includes(c)) setCurrency(c);
+  }, []);
+
+  useEffect(() => {
+    syncParams({
+      price: vehiclePrice,
+      down: downPayment,
+      trade: tradeInValue,
+      tax: salesTaxRate,
+      term: loanTermMonths,
+      apr,
+      fees,
+      cur: currency,
+    });
+  }, [vehiclePrice, downPayment, tradeInValue, salesTaxRate, loanTermMonths, apr, fees, currency]);
 
   const vp = num(vehiclePrice);
   const dp = num(downPayment);
@@ -140,6 +173,14 @@ export function AutoLoanCalculator() {
             b={totalInterest}
             aLabel={`Loan ${formatMoney(principal, currency)}`}
             bLabel={`Interest ${formatMoney(totalInterest, currency)}`}
+          />
+        </div>
+      ) : null}
+
+      {valid ? (
+        <div className="mt-5 no-print">
+          <ResultActions
+            summary={`Car loan: ${formatMoney(monthly, currency)}/mo on a ${formatMoney(principal, currency)} loan (${apr}% APR, ${loanTermMonths} months). Total cost ${formatMoney(totalCost, currency)}. — via calclumen.com`}
           />
         </div>
       ) : null}

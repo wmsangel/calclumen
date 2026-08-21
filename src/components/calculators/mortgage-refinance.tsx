@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CURRENCIES, formatMoney, formatNumber } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
 import { AreaChart } from "@/components/chart";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -24,6 +26,37 @@ export function MortgageRefinanceCalculator() {
   const [closingCosts, setClosingCosts] = useState("4000");
   const [rollIn, setRollIn] = useState(false);
   const [currency, setCurrency] = useState("USD");
+
+  useEffect(() => {
+    const map: [string, (v: string) => void][] = [
+      ["bal", setCurrentBalance],
+      ["rate", setCurrentRate],
+      ["rem", setRemainingMonths],
+      ["nrate", setNewRate],
+      ["nterm", setNewTermYears],
+      ["cc", setClosingCosts],
+    ];
+    for (const [key, set] of map) {
+      const v = readParam(key);
+      if (v) set(v);
+    }
+    if (readParam("roll") === "1") setRollIn(true);
+    const c = readParam("cur");
+    if (c && (CURRENCIES as readonly string[]).includes(c)) setCurrency(c);
+  }, []);
+
+  useEffect(() => {
+    syncParams({
+      bal: currentBalance,
+      rate: currentRate,
+      rem: remainingMonths,
+      nrate: newRate,
+      nterm: newTermYears,
+      cc: closingCosts,
+      roll: rollIn ? "1" : "",
+      cur: currency,
+    });
+  }, [currentBalance, currentRate, remainingMonths, newRate, newTermYears, closingCosts, rollIn, currency]);
 
   const bal = num(currentBalance);
   const cr = num(currentRate);
@@ -181,6 +214,14 @@ export function MortgageRefinanceCalculator() {
               : ""}
             . First {savingsCurve.length - 1} months shown.
           </p>
+        </div>
+      ) : null}
+
+      {valid ? (
+        <div className="mt-5 no-print">
+          <ResultActions
+            summary={`Refinance: new payment ${formatMoney(newPayment, currency)}/mo, saving ${formatMoney(monthlySavings, currency)}/mo${breakEvenMonths !== null ? `, break-even in ~${Math.ceil(breakEvenMonths)} months` : ""}. Lifetime interest saved ${formatMoney(interestSaved, currency)}. — via calclumen.com`}
+          />
         </div>
       ) : null}
     </ToolCard>

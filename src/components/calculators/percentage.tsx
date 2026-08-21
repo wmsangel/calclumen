@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 type Mode = "of" | "change" | "isWhat";
 
@@ -12,6 +14,19 @@ export function PercentageCalculator() {
   const [mode, setMode] = useState<Mode>("of");
   const [a, setA] = useState("15");
   const [b, setB] = useState("200");
+
+  useEffect(() => {
+    const m = readParam("mode");
+    if (m === "of" || m === "change" || m === "isWhat") setMode(m);
+    const av = readParam("a");
+    const bv = readParam("b");
+    if (av) setA(av);
+    if (bv) setB(bv);
+  }, []);
+
+  useEffect(() => {
+    syncParams({ mode, a, b });
+  }, [mode, a, b]);
 
   const x = num(a);
   const y = num(b);
@@ -84,6 +99,14 @@ export function PercentageCalculator() {
           sub={valid ? caption : "Enter two numbers"}
         />
       </div>
+
+      {valid && result ? (
+        <div className="mt-5 no-print">
+          <ResultActions
+            summary={`${caption} = ${result} — via calclumen.com`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }

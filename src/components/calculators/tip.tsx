@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { Field, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
+import { ResultActions } from "@/components/result-actions";
+import { readParam, syncParams } from "@/lib/share";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
@@ -14,6 +16,21 @@ export function TipCalculator() {
   const [tip, setTip] = useState("18");
   const [people, setPeople] = useState("1");
   const [currency, setCurrency] = useState("USD");
+
+  useEffect(() => {
+    const b = readParam("bill");
+    const t = readParam("tip");
+    const pp = readParam("people");
+    const c = readParam("cur");
+    if (b) setBill(b);
+    if (t) setTip(t);
+    if (pp) setPeople(pp);
+    if (c && (CURRENCIES as readonly string[]).includes(c)) setCurrency(c);
+  }, []);
+
+  useEffect(() => {
+    syncParams({ bill, tip, people, cur: currency });
+  }, [bill, tip, people, currency]);
 
   const b = num(bill);
   const t = num(tip);
@@ -103,6 +120,14 @@ export function TipCalculator() {
           value={validBill ? formatMoney(tipPerPerson, currency) : "—"}
         />
       </div>
+
+      {validBill ? (
+        <div className="mt-5 no-print">
+          <ResultActions
+            summary={`Bill ${formatMoney(b, currency)} + ${tipPct}% tip = ${formatMoney(total, currency)} total (${formatMoney(tipAmount, currency)} tip), split ${heads} = ${formatMoney(perPerson, currency)} each. — via calclumen.com`}
+          />
+        </div>
+      ) : null}
     </ToolCard>
   );
 }
