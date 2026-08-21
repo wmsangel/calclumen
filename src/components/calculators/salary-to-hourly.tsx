@@ -9,8 +9,12 @@ type Mode = "toHourly" | "toSalary";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
-export function SalaryToHourly() {
-  const [mode, setMode] = useState<Mode>("toHourly");
+export function SalaryToHourly({
+  defaultMode = "toHourly",
+}: {
+  defaultMode?: Mode;
+} = {}) {
+  const [mode, setMode] = useState<Mode>(defaultMode);
   const [salary, setSalary] = useState("60000");
   const [hourly, setHourly] = useState("30");
   const [hoursPerWeek, setHoursPerWeek] = useState("40");

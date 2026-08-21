@@ -164,6 +164,22 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "hourly-to-salary-calculator",
+    category: "finance",
+    title: "Hourly to salary",
+    heading: "Hourly to Salary Calculator",
+    description:
+      "Convert an hourly wage to a yearly, monthly and weekly salary based on your hours and weeks worked.",
+    keywords: [
+      "hourly to salary calculator",
+      "hourly wage to annual salary",
+      "hourly to yearly",
+      "annual income from hourly rate",
+      "what is my salary",
+    ],
+    isNew: true,
+  },
+  {
     slug: "tip-calculator",
     category: "finance",
     title: "Tip & split",
