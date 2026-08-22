@@ -82,7 +82,16 @@ export function RomanNumeralConverter() {
     const upper = value.toUpperCase();
     const n = romanToNumber(upper);
     result = String(n);
-    const parts = upper.split("").map((ch) => ROMAN_VALUES[ch]);
+    // Decompose the value into Roman token values (subtractive-aware) so the
+    // sum is correct — e.g. IX = 9, not "1+10" which reads as 11.
+    const parts: number[] = [];
+    let remaining = n;
+    for (const [v] of TO_ROMAN) {
+      while (remaining >= v) {
+        parts.push(v);
+        remaining -= v;
+      }
+    }
     breakdown = `${upper} = ${parts.join("+")}`;
   }
 

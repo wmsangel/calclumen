@@ -9,6 +9,7 @@ export function AverageCalculator() {
 
   const numbers = text
     .split(/[\s,]+/)
+    .filter((t) => t.trim() !== "")
     .map(Number)
     .filter((v) => Number.isFinite(v));
   const n = numbers.length;

@@ -105,7 +105,7 @@ export function UnitConverter() {
   }
 
   const x = num(value);
-  const valid = Number.isFinite(x);
+  const valid = Number.isFinite(x) && x >= 0;
   const result = valid ? convert(category, x, from, to) : NaN;
   const display = valid && Number.isFinite(result) ? formatResult(result) : "—";
 

@@ -19,7 +19,7 @@ export function VatCalculator() {
 
   const a = num(amount);
   const rate = num(vatRate);
-  const valid = a > 0 && Number.isFinite(rate);
+  const valid = a > 0 && Number.isFinite(rate) && rate > -100;
 
   let vat = NaN;
   let net = NaN;

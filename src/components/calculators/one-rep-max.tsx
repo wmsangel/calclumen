@@ -21,7 +21,13 @@ export function OneRepMaxCalculator() {
 
   const epley = valid ? w * (1 + r / 30) : NaN;
   const brzycki = valid && r < 37 ? (w * 36) / (37 - r) : NaN;
-  const avg = valid ? (epley + brzycki) / 2 : NaN;
+  // Average the two estimates; fall back to Epley when Brzycki is undefined
+  // (reps ≥ 37) so the result doesn't collapse entirely.
+  const avg = valid
+    ? Number.isFinite(brzycki)
+      ? (epley + brzycki) / 2
+      : epley
+    : NaN;
 
   const ok = Number.isFinite(avg) && avg > 0;
 

@@ -110,6 +110,14 @@ const EASEUS: Offer = {
   cta: "Get EaseUS",
   badge: "20% OFF",
 };
+const ADGUARD: Offer = {
+  id: "adguard",
+  name: "AdGuard",
+  blurb:
+    "Block ads and trackers and browse privately with AdGuard's ad blocker and VPN.",
+  url: "https://dhwnh.com/g/xc497owldv45d9374ef3a9584d7a68/",
+  cta: "Get AdGuard",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
@@ -139,7 +147,7 @@ const EDUCATION: OfferGroup = {
  * client-side so the block rotates across visits. Safe to leave empty.
  */
 export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
-export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS];
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.

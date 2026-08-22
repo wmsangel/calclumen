@@ -98,7 +98,7 @@ function ToScientific({
         />
         <Stat
           label="Expanded"
-          value={!valid ? "—" : formatNumber(n, 0)}
+          value={!valid ? "—" : zero ? "0" : trim(n, 10)}
         />
       </div>
     </>

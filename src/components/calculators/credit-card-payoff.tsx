@@ -35,7 +35,12 @@ export function CreditCardPayoffCalculator() {
   if (mode === "fixed") {
     const valid = baseValid && mp > 0;
     if (valid) {
-      if (mp <= bal * r) {
+      if (r === 0) {
+        // 0% APR: no interest, straight division.
+        months = Math.ceil(bal / mp);
+        totalInterest = 0;
+        totalPaid = bal;
+      } else if (mp <= bal * r) {
         payable = false;
       } else {
         months = Math.ceil(-Math.log(1 - (r * bal) / mp) / Math.log(1 + r));

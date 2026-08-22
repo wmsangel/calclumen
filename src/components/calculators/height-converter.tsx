@@ -23,8 +23,13 @@ export function HeightConverter() {
     const c = num(cm);
     const valid = Number.isFinite(c) && c >= 0;
     const totalIn = c / 2.54;
-    const ft = Math.floor(totalIn / 12);
-    const inch = totalIn - ft * 12;
+    let ft = Math.floor(totalIn / 12);
+    let inch = totalIn - ft * 12;
+    // Carry over when inches round up to a full foot (avoids "5' 12.0\"").
+    if (Math.round(inch * 10) / 10 >= 12) {
+      ft += 1;
+      inch = 0;
+    }
     const meters = c / 100;
 
     return (

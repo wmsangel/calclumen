@@ -37,15 +37,17 @@ export function BusinessDaysCalculator() {
     }
 
     let count = 0;
+    let weekend = 0;
     let guard = 0;
     while (cursor.getTime() <= end.getTime() && guard < 20000) {
       const dow = cursor.getDay();
       if (dow >= 1 && dow <= 5) count += 1;
+      else weekend += 1;
       cursor.setDate(cursor.getDate() + 1);
       guard += 1;
     }
     businessDays = count;
-    weekendDays = totalCalendarDays - businessDays;
+    weekendDays = weekend;
   }
 
   const reversed =

@@ -12,6 +12,7 @@ export function StandardDeviationCalculator() {
 
   const numbers = text
     .split(/[\s,]+/)
+    .filter((t) => t.trim() !== "")
     .map(Number)
     .filter((v) => Number.isFinite(v));
   const N = numbers.length;

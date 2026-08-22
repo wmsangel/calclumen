@@ -38,7 +38,7 @@ export function VolumeConverter() {
   const [to, setTo] = useState<Unit>("gal (US)");
 
   const x = num(value);
-  const valid = Number.isFinite(x);
+  const valid = Number.isFinite(x) && x >= 0;
   const result = valid ? convert(x, from, to) : NaN;
   const display = valid && Number.isFinite(result) ? formatResult(result) : "—";
 

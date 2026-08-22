@@ -113,7 +113,9 @@ export function CountdownCalculator() {
           sub={
             ok
               ? label
-                ? `Until ${label}`
+                ? past
+                  ? `Since ${label}`
+                  : `Until ${label}`
                 : undefined
               : "Pick both dates"
           }

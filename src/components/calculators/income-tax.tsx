@@ -42,7 +42,8 @@ function computeTax(income: number, filing: Filing) {
 
   let tax = 0;
   let prevCap = 0;
-  let marginal = brackets[0][0];
+  // 0 until some income is actually taxable — avoids showing "10%" on $0 tax.
+  let marginal = 0;
 
   for (const [rate, upTo] of brackets) {
     if (taxable > prevCap) {
