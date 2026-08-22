@@ -4,6 +4,7 @@ import { calculators, categories } from "@/lib/calculators/registry";
 import { absUrl } from "@/lib/seo/site";
 import { GUIDES } from "@/lib/guides";
 import { UNIT_PAGES } from "@/lib/programmatic/units";
+import { ROMAN_PAGES } from "@/lib/programmatic/roman";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -57,6 +58,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of UNIT_PAGES) {
       entries.push({
         url: absUrl(locale, `units/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "N in Roman numerals" pages — indexable.
+    for (const p of ROMAN_PAGES) {
+      entries.push({
+        url: absUrl(locale, `roman-numerals/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });
