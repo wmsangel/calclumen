@@ -65,14 +65,14 @@ export function DueDateCalculator() {
         <Field label="Last period start">
           <div className="flex gap-2">
             <input
-              className="field"
+              className="field flex-1 min-w-0"
               type="date"
               value={lastPeriodStart}
               onChange={(e) => setLastPeriodStart(e.target.value)}
             />
             <button
               type="button"
-              className="px-3 btn-primary font-semibold text-sm"
+              className="px-3 btn-primary font-semibold text-sm shrink-0"
               onClick={() => setLastPeriodStart(today())}
             >
               Today
@@ -91,14 +91,14 @@ export function DueDateCalculator() {
         <Field label="As-of date (gestational age)">
           <div className="flex gap-2">
             <input
-              className="field"
+              className="field flex-1 min-w-0"
               type="date"
               value={asOfDate}
               onChange={(e) => setAsOfDate(e.target.value)}
             />
             <button
               type="button"
-              className="px-3 btn-primary font-semibold text-sm"
+              className="px-3 btn-primary font-semibold text-sm shrink-0"
               onClick={() => setAsOfDate(today())}
             >
               Today

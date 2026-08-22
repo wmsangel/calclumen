@@ -234,6 +234,7 @@ body {
 /* ── Form controls ──────────────────────────────────────────── */
 .field {
   width: 100%;
+  min-width: 0; /* allow shrinking in flex rows (e.g. date input + Today button) */
   border: 1px solid var(--rule-strong);
   background: var(--paper);
   color: var(--ink);
