@@ -118,6 +118,14 @@ const ADGUARD: Offer = {
   url: "https://dhwnh.com/g/xc497owldv45d9374ef3a9584d7a68/",
   cta: "Get AdGuard",
 };
+const PROHOSTER: Offer = {
+  id: "prohoster",
+  name: "ProHoster",
+  blurb:
+    "Reliable web hosting, VPS and dedicated servers from $2.5/mo with 24/7 support.",
+  url: "https://ntzgd.com/g/gaetfoqpj745d9374ef3934d4157fe/",
+  cta: "Try ProHoster",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
@@ -147,7 +155,7 @@ const EDUCATION: OfferGroup = {
  * client-side so the block rotates across visits. Safe to leave empty.
  */
 export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
-export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD];
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.
