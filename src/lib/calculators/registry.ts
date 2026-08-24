@@ -1135,6 +1135,22 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "distance-between-two-points-calculator",
+    category: "math",
+    title: "Distance between two points",
+    heading: "Distance Between Two Points Calculator",
+    description:
+      "Find the distance, midpoint and slope between two points on a coordinate plane.",
+    keywords: [
+      "distance between two points",
+      "distance formula calculator",
+      "midpoint calculator",
+      "slope between two points",
+      "coordinate distance calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "quadratic-equation-calculator",
     category: "math",
     title: "Quadratic equation",
