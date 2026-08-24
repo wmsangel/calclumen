@@ -531,6 +531,21 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "sales-commission-calculator",
+    category: "business",
+    title: "Sales commission",
+    heading: "Sales Commission Calculator",
+    description:
+      "Calculate commission earned and total pay from your sales and commission rate.",
+    keywords: [
+      "commission calculator",
+      "sales commission calculator",
+      "how to calculate commission",
+      "commission rate calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "break-even-calculator",
     category: "business",
     title: "Break-even",
@@ -1234,6 +1249,21 @@ export const calculators: CalcDef[] = [
       "20 percent down",
       "mortgage down payment",
     ],
+  },
+  {
+    slug: "ltv-calculator",
+    category: "finance",
+    title: "Loan-to-value (LTV)",
+    heading: "Loan-to-Value (LTV) Calculator",
+    description:
+      "Calculate your loan-to-value ratio from a property value and down payment, and see if PMI applies.",
+    keywords: [
+      "ltv calculator",
+      "loan to value calculator",
+      "loan to value ratio",
+      "ltv ratio calculator",
+    ],
+    isNew: true,
   },
   {
     slug: "budget-calculator",
