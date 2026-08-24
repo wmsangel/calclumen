@@ -38,6 +38,14 @@ const SMALL = int(1, 100);
 const CM = int(1, 200);
 const CELSIUS = [...int(0, 50), 100, 120, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250];
 const FAHRENHEIT = [...int(0, 120), 300, 325, 350, 375, 400, 425, 450, 475, 500];
+const ML = [...int(1, 20), 25, 30, 50, 100, 118, 150, 200, 237, 250, 300, 355, 473, 500, 750, 1000];
+const FLOZ = [...int(1, 20), 24, 32];
+const L = [...int(1, 20), 25, 30, 40, 50, 100];
+const GAL = [...int(1, 20), 25, 50, 100];
+const STONE = int(1, 30);
+const GRAMS = [...int(1, 20), 25, 30, 40, 50, 75, 100, 125, 150, 200, 250, 300, 400, 500, 750, 1000];
+const OZW = [...int(1, 20), 24, 32];
+const SPEED = [...int(1, 120), 130, 140, 150, 200];
 
 export const UNITS: UnitConversion[] = [
   {
@@ -111,6 +119,76 @@ export const UNITS: UnitConversion[] = [
     fromNameSingular: "degree Fahrenheit", toNameSingular: "degree Celsius",
     factor: 0.5555555556, offset: -17.7777778, precision: 1,
     category: "temperature", converterSlug: "temperature-converter", values: FAHRENHEIT,
+  },
+  {
+    id: "ml-to-oz", fromUnit: "ml", toUnit: "oz", toLabel: "fl oz",
+    fromName: "milliliters", toName: "fluid ounces",
+    fromNameSingular: "milliliter", toNameSingular: "fluid ounce",
+    factor: 0.0338140227, precision: 3,
+    category: "volume", converterSlug: "volume-converter", values: ML,
+  },
+  {
+    id: "oz-to-ml", fromUnit: "oz", toUnit: "ml", fromLabel: "fl oz",
+    fromName: "fluid ounces", toName: "milliliters",
+    fromNameSingular: "fluid ounce", toNameSingular: "milliliter",
+    factor: 29.5735296, precision: 2,
+    category: "volume", converterSlug: "volume-converter", values: FLOZ,
+  },
+  {
+    id: "l-to-gallons", fromUnit: "l", toUnit: "gallons", fromLabel: "L",
+    fromName: "liters", toName: "gallons",
+    fromNameSingular: "liter", toNameSingular: "gallon",
+    factor: 0.2641720524, precision: 3,
+    category: "volume", converterSlug: "volume-converter", values: L,
+  },
+  {
+    id: "gallons-to-l", fromUnit: "gallons", toUnit: "l", toLabel: "L",
+    fromName: "gallons", toName: "liters",
+    fromNameSingular: "gallon", toNameSingular: "liter",
+    factor: 3.785411784, precision: 3,
+    category: "volume", converterSlug: "volume-converter", values: GAL,
+  },
+  {
+    id: "kg-to-stone", fromUnit: "kg", toUnit: "stone",
+    fromName: "kilograms", toName: "stone",
+    fromNameSingular: "kilogram", toNameSingular: "stone",
+    factor: 0.1574730444, precision: 3,
+    category: "weight", converterSlug: "weight-converter", values: WEIGHTS,
+  },
+  {
+    id: "stone-to-kg", fromUnit: "stone", toUnit: "kg",
+    fromName: "stone", toName: "kilograms",
+    fromNameSingular: "stone", toNameSingular: "kilogram",
+    factor: 6.35029318, precision: 3,
+    category: "weight", converterSlug: "weight-converter", values: STONE,
+  },
+  {
+    id: "grams-to-oz", fromUnit: "grams", toUnit: "oz",
+    fromName: "grams", toName: "ounces",
+    fromNameSingular: "gram", toNameSingular: "ounce",
+    factor: 0.0352739619, precision: 3,
+    category: "weight", converterSlug: "weight-converter", values: GRAMS,
+  },
+  {
+    id: "oz-to-grams", fromUnit: "oz", toUnit: "grams",
+    fromName: "ounces", toName: "grams",
+    fromNameSingular: "ounce", toNameSingular: "gram",
+    factor: 28.3495231, precision: 2,
+    category: "weight", converterSlug: "weight-converter", values: OZW,
+  },
+  {
+    id: "mph-to-kph", fromUnit: "mph", toUnit: "kph",
+    fromName: "miles per hour", toName: "kilometers per hour",
+    fromNameSingular: "mile per hour", toNameSingular: "kilometer per hour",
+    factor: 1.609344, precision: 2,
+    category: "speed", converterSlug: "speed-converter", values: SPEED,
+  },
+  {
+    id: "kph-to-mph", fromUnit: "kph", toUnit: "mph",
+    fromName: "kilometers per hour", toName: "miles per hour",
+    fromNameSingular: "kilometer per hour", toNameSingular: "mile per hour",
+    factor: 0.6213711922, precision: 2,
+    category: "speed", converterSlug: "speed-converter", values: SPEED,
   },
 ];
 
