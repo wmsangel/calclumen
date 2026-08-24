@@ -6,6 +6,7 @@ import { GUIDES } from "@/lib/guides";
 import { UNIT_PAGES } from "@/lib/programmatic/units";
 import { ROMAN_PAGES } from "@/lib/programmatic/roman";
 import { SIZE_PAGES } from "@/lib/programmatic/datasize";
+import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -77,6 +78,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of SIZE_PAGES) {
       entries.push({
         url: absUrl(locale, `data/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "n choose k" combination pages — indexable.
+    for (const p of CHOOSE_PAGES) {
+      entries.push({
+        url: absUrl(locale, `combinations/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });
