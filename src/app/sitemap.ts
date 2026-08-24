@@ -5,6 +5,7 @@ import { absUrl } from "@/lib/seo/site";
 import { GUIDES } from "@/lib/guides";
 import { UNIT_PAGES } from "@/lib/programmatic/units";
 import { ROMAN_PAGES } from "@/lib/programmatic/roman";
+import { SIZE_PAGES } from "@/lib/programmatic/datasize";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -67,6 +68,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of ROMAN_PAGES) {
       entries.push({
         url: absUrl(locale, `roman-numerals/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic data-storage conversion pages (/data/…) — indexable.
+    for (const p of SIZE_PAGES) {
+      entries.push({
+        url: absUrl(locale, `data/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });
