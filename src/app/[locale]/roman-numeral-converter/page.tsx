@@ -5,6 +5,7 @@ import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { RomanNumeralConverter } from "@/components/calculators/roman-numeral";
+import { RomanNumeralLinks } from "@/components/programmatic-hubs";
 
 const SLUG = "roman-numeral-converter";
 
@@ -60,7 +61,14 @@ export default async function Page({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell
+      locale={locale}
+      slug={SLUG}
+      content={{
+        ...content,
+        extra: <RomanNumeralLinks locale={locale} />,
+      }}
+    >
       <RomanNumeralConverter />
     </CalcShell>
   );

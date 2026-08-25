@@ -46,6 +46,13 @@ const STONE = int(1, 30);
 const GRAMS = [...int(1, 20), 25, 30, 40, 50, 75, 100, 125, 150, 200, 250, 300, 400, 500, 750, 1000];
 const OZW = [...int(1, 20), 24, 32];
 const SPEED = [...int(1, 120), 130, 140, 150, 200];
+const SQFT = [...int(1, 20), 25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1200, 1500, 2000, 2500, 3000];
+const SQM = [...int(1, 20), 25, 30, 40, 50, 60, 70, 75, 80, 90, 100, 120, 150, 200, 250, 300, 500, 1000];
+const ACRES = [...int(1, 20), 25, 40, 50, 100, 160, 200, 500, 1000];
+const HECTARES = [...int(1, 20), 25, 50, 100, 200, 500, 1000];
+const YARDS = [...int(1, 100), 110, 120, 150, 200, 250, 300, 500];
+const MM = [...int(1, 100), 110, 120, 150, 200, 250, 300, 500];
+const CUPS = [...int(1, 16), 20, 24];
 
 export const UNITS: UnitConversion[] = [
   {
@@ -189,6 +196,78 @@ export const UNITS: UnitConversion[] = [
     fromNameSingular: "kilometer per hour", toNameSingular: "mile per hour",
     factor: 0.6213711922, precision: 2,
     category: "speed", converterSlug: "speed-converter", values: SPEED,
+  },
+  {
+    id: "sqft-to-sqm", fromUnit: "sqft", toUnit: "sqm",
+    fromLabel: "sq ft", toLabel: "m²",
+    fromName: "square feet", toName: "square meters",
+    fromNameSingular: "square foot", toNameSingular: "square meter",
+    factor: 0.09290304, precision: 3,
+    category: "area", converterSlug: "area-converter", values: SQFT,
+  },
+  {
+    id: "sqm-to-sqft", fromUnit: "sqm", toUnit: "sqft",
+    fromLabel: "m²", toLabel: "sq ft",
+    fromName: "square meters", toName: "square feet",
+    fromNameSingular: "square meter", toNameSingular: "square foot",
+    factor: 10.7639104167, precision: 2,
+    category: "area", converterSlug: "area-converter", values: SQM,
+  },
+  {
+    id: "acres-to-hectares", fromUnit: "acres", toUnit: "hectares",
+    fromName: "acres", toName: "hectares",
+    fromNameSingular: "acre", toNameSingular: "hectare",
+    factor: 0.40468564224, precision: 3,
+    category: "area", converterSlug: "area-converter", values: ACRES,
+  },
+  {
+    id: "hectares-to-acres", fromUnit: "hectares", toUnit: "acres",
+    fromName: "hectares", toName: "acres",
+    fromNameSingular: "hectare", toNameSingular: "acre",
+    factor: 2.4710538147, precision: 3,
+    category: "area", converterSlug: "area-converter", values: HECTARES,
+  },
+  {
+    id: "meters-to-yards", fromUnit: "meters", toUnit: "yards",
+    fromName: "meters", toName: "yards",
+    fromNameSingular: "meter", toNameSingular: "yard",
+    factor: 1.0936132983, precision: 3,
+    category: "length", converterSlug: "length-converter", values: YARDS,
+  },
+  {
+    id: "yards-to-meters", fromUnit: "yards", toUnit: "meters",
+    fromName: "yards", toName: "meters",
+    fromNameSingular: "yard", toNameSingular: "meter",
+    factor: 0.9144, precision: 3,
+    category: "length", converterSlug: "length-converter", values: YARDS,
+  },
+  {
+    id: "mm-to-inches", fromUnit: "mm", toUnit: "inches",
+    fromName: "millimeters", toName: "inches",
+    fromNameSingular: "millimeter", toNameSingular: "inch",
+    factor: 0.0393700787, precision: 3,
+    category: "length", converterSlug: "length-converter", values: MM,
+  },
+  {
+    id: "inches-to-mm", fromUnit: "inches", toUnit: "mm",
+    fromName: "inches", toName: "millimeters",
+    fromNameSingular: "inch", toNameSingular: "millimeter",
+    factor: 25.4, precision: 2,
+    category: "length", converterSlug: "length-converter", values: SMALL,
+  },
+  {
+    id: "ml-to-cups", fromUnit: "ml", toUnit: "cups",
+    fromName: "milliliters", toName: "cups",
+    fromNameSingular: "milliliter", toNameSingular: "cup",
+    factor: 0.0042267528, precision: 3,
+    category: "volume", converterSlug: "volume-converter", values: ML,
+  },
+  {
+    id: "cups-to-ml", fromUnit: "cups", toUnit: "ml",
+    fromName: "cups", toName: "milliliters",
+    fromNameSingular: "cup", toNameSingular: "milliliter",
+    factor: 236.5882365, precision: 1,
+    category: "volume", converterSlug: "volume-converter", values: CUPS,
   },
 ];
 

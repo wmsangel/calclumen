@@ -5,6 +5,7 @@ import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { DataStorageConverter } from "@/components/calculators/data-storage-converter";
+import { DataSizeLinks } from "@/components/programmatic-hubs";
 
 const SLUG = "data-storage-converter";
 
@@ -60,7 +61,14 @@ export default async function Page({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell
+      locale={locale}
+      slug={SLUG}
+      content={{
+        ...content,
+        extra: <DataSizeLinks locale={locale} />,
+      }}
+    >
       <DataStorageConverter />
     </CalcShell>
   );

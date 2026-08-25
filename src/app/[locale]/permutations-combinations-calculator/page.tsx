@@ -5,6 +5,7 @@ import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { PermutationsCombinationsCalculator } from "@/components/calculators/permutations-combinations";
+import { CombinationsLinks } from "@/components/programmatic-hubs";
 
 const SLUG = "permutations-combinations-calculator";
 
@@ -60,7 +61,14 @@ export default async function Page({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell
+      locale={locale}
+      slug={SLUG}
+      content={{
+        ...content,
+        extra: <CombinationsLinks locale={locale} />,
+      }}
+    >
       <PermutationsCombinationsCalculator />
     </CalcShell>
   );
