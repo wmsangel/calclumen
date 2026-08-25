@@ -51,11 +51,18 @@ const FITNESS: OfferGroup = {
   offers: [DOCTRONIC],
 };
 
+const QUSTODIO: Offer = {
+  id: "qustodio",
+  name: "Qustodio",
+  blurb:
+    "All-in-one parental controls: screen-time limits, content filtering and location alerts across your kids' phones, tablets and computers.",
+  url: "https://zejcl.com/g/zgsaevrb3a45d9374ef32411861ed1/",
+  cta: "Try Qustodio",
+};
+
 const PREGNANCY: OfferGroup = {
-  label: "For your pregnancy",
-  offers: [
-    // e.g. baby registries, prenatal vitamins, pregnancy apps.
-  ],
+  label: "For parents & families",
+  offers: [QUSTODIO],
 };
 
 const AUTO: OfferGroup = {
@@ -161,7 +168,7 @@ const EDUCATION: OfferGroup = {
  * client-side so the block rotates across visits. Safe to leave empty.
  */
 export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
-export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER];
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER, QUSTODIO];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.
