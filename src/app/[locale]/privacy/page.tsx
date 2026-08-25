@@ -84,6 +84,27 @@ export default async function Page({
         advertising cookies enables it and its partners to serve ads to you based
         on your visit to {SITE_NAME} and/or other sites on the Internet.
       </p>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
+        {SITE_NAME} may also use Ezoic to serve and optimize advertising. Ezoic
+        and its advertising partners may collect and process data, and use
+        cookies and similar technologies, to personalize and measure ads. For
+        details on the data Ezoic collects and the partners involved, see the{" "}
+        <a
+          href="https://www.ezoic.com/privacy-policy/"
+          className="prose-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ezoic privacy policy
+        </a>
+        . The current list of Ezoic advertising partners and the categories of
+        data they use is shown below:
+      </p>
+      <div className="text-[var(--ink-soft)] leading-relaxed mt-3 text-sm">
+        {/* Ezoic auto-populates this with its vendor/data disclosure once the
+            Ezoic script loads (NEXT_PUBLIC_EZOIC=1). Harmless when empty. */}
+        <span id="ezoic-privacy-policy-embed"></span>
+      </div>
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Third-party analytics</h2>
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
