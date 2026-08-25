@@ -37,12 +37,18 @@ const FINANCIAL: OfferGroup = {
   ],
 };
 
+const DOCTRONIC: Offer = {
+  id: "doctronic",
+  name: "Doctronic",
+  blurb:
+    "Free AI health consults 24/7, or talk to a licensed U.S. doctor online — telehealth visits from $39.",
+  url: "https://tsygg.com/g/7r1pt1n1fo45d9374ef3abb0242f2d/",
+  cta: "Try Doctronic",
+};
+
 const FITNESS: OfferGroup = {
-  label: "Fitness picks you may like",
-  offers: [
-    // e.g. meal-plan / macro apps, workout apps, smart scales,
-    // fitness trackers, supplement brands.
-  ],
+  label: "Health & wellness",
+  offers: [DOCTRONIC],
 };
 
 const PREGNANCY: OfferGroup = {
