@@ -1419,6 +1419,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "prime-factorization-calculator",
+    category: "math",
+    title: "Prime factorization",
+    heading: "Prime Factorization Calculator",
+    description:
+      "Break a number into its prime factors, list all its divisors, and check whether it is prime.",
+    keywords: [
+      "prime factorization calculator",
+      "factors of a number",
+      "prime factors calculator",
+      "divisors calculator",
+      "is this number prime",
+    ],
+    isNew: true,
+  },
+  {
     slug: "tile-calculator",
     category: "homediy",
     title: "Tile",
