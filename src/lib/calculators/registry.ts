@@ -1403,6 +1403,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "set-partitions-calculator",
+    category: "math",
+    title: "Set partitions",
+    heading: "Set Partitions & Stirling Numbers Calculator",
+    description:
+      "Count the ways to partition n objects into k groups (Stirling numbers of the second kind) and into any number of groups (Bell number).",
+    keywords: [
+      "set partition calculator",
+      "stirling numbers calculator",
+      "ways to partition n objects into k groups",
+      "bell number calculator",
+      "S(n,k) calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "tile-calculator",
     category: "homediy",
     title: "Tile",
