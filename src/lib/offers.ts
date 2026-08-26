@@ -139,6 +139,14 @@ const PROHOSTER: Offer = {
   url: "https://ntzgd.com/g/gaetfoqpj745d9374ef3934d4157fe/",
   cta: "Try ProHoster",
 };
+const NORDPASS: Offer = {
+  id: "nordpass",
+  name: "NordPass",
+  blurb:
+    "Password manager from the team behind NordVPN — autofill, secure sharing and zero-knowledge encryption across all your devices.",
+  url: "https://rkdro.com/g/mx19yq7dtc45d9374ef3410fff306a/",
+  cta: "Get NordPass",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
@@ -154,7 +162,7 @@ const HOME: OfferGroup = {
 
 const TECH: OfferGroup = {
   label: "Tools & software you may like",
-  offers: [EASEUS, PUREVPN],
+  offers: [NORDPASS, EASEUS, PUREVPN],
 };
 
 const EDUCATION: OfferGroup = {
