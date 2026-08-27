@@ -7,7 +7,10 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/seo/site";
 import { PwaRegister } from "@/components/pwa-register";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { AdSense } from "@/components/adsense";
-import { Ezoic } from "@/components/ezoic";
+// Ezoic disabled 2026-08-27 (Incubator application not approved — site too new).
+// Re-enable by restoring this import and the <Ezoic /> render below, then set
+// NEXT_PUBLIC_EZOIC=1 in Vercel, after a successful re-application.
+// import { Ezoic } from "@/components/ezoic";
 import { AwinMasterTag } from "@/components/awin";
 import "./globals.css";
 
@@ -67,7 +70,7 @@ export default function RootLayout({
         </Script>
         {children}
         <PwaRegister />
-        <Ezoic />
+        {/* <Ezoic /> — disabled 2026-08-27, see import note above */}
         <AwinMasterTag />
         <AdSense />
         <GoogleAnalytics />
