@@ -30,7 +30,22 @@ export const metadata: Metadata = {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    // Let search engines show large image thumbnails and full-length text
+    // snippets for our pages (better SERP appearance and CTR).
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   verification: {
     google: "0cUYNZmd0xq1DTEIVY6InfTyVaBldVyBVGgtQaSMpjE",
     // Optional: set these in Vercel env to verify Yandex / Bing without a redeploy.

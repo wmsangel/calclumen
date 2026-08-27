@@ -1,8 +1,10 @@
 import type { Locale } from "@/lib/i18n/config";
+import { calculators } from "@/lib/calculators/registry";
 import { absUrl, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/seo/site";
 
 /** Organization + WebSite (with Sitelinks Searchbox) structured data for the home page. */
 export function SiteJsonLd({ locale }: { locale: Locale }) {
+  const featured = calculators.filter((c) => c.popular).slice(0, 15);
   const data = [
     {
       "@context": "https://schema.org",
@@ -27,6 +29,17 @@ export function SiteJsonLd({ locale }: { locale: Locale }) {
         },
         "query-input": "required name=search_term_string",
       },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `Popular ${SITE_NAME} calculators`,
+      itemListElement: featured.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c.heading,
+        url: absUrl(locale, c.slug),
+      })),
     },
   ];
   return (

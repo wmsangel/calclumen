@@ -27,13 +27,19 @@ export function pageMetadata({
     title,
     description,
     keywords,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // Single-language site today; declare en-US + x-default so search
+      // engines have an explicit hreflang signal (and room to grow locales).
+      languages: { "en-US": url, "x-default": url },
+    },
     openGraph: {
       type: "website",
       url,
       title,
       description,
       siteName: SITE_NAME,
+      locale: "en_US",
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {

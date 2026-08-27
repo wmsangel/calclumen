@@ -53,6 +53,8 @@ export function CalcShell({
       url,
       applicationCategory: "UtilityApplication",
       operatingSystem: "Any",
+      inLanguage: "en",
+      isAccessibleForFree: true,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@type": "Organization", name: SITE_NAME },
     },
