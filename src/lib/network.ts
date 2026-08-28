@@ -1,6 +1,12 @@
 // Our own network of sister sites. These render as normal FOLLOW links
 // (not sponsored/nofollow like affiliate offers) so the cross-links pass
 // SEO value between the sites we own — reciprocal promotion + backlinks.
+//
+// Scope: only the English, topically-adjacent tool/calculator sites are
+// linked from CalcLumen — keeping the footer relevant to our audience and
+// avoiding a cross-language sitewide-footer footprint. The Russian
+// (prodom-expert.ru, 24zdorovie.com) and Kazakh (bilimjol.com) sites, and
+// izngames.com, are deliberately left out here.
 
 export interface NetworkSite {
   name: string;
@@ -11,6 +17,27 @@ export interface NetworkSite {
 
 export const NETWORK_SITES: NetworkSite[] = [
   {
+    name: "CostTrek",
+    url: "https://costtrek.com/en",
+    blurb:
+      "Compare the cost of living between cities and find the salary you'd need to keep your standard of living.",
+    cta: "Open CostTrek",
+  },
+  {
+    name: "TheCryptoTools",
+    url: "https://thecryptotools.com/",
+    blurb:
+      "69+ free crypto calculators — profit/ROI, position size, liquidation, DCA and more. No signup.",
+    cta: "Open TheCryptoTools",
+  },
+  {
+    name: "iznkit",
+    url: "https://iznkit.com/en",
+    blurb:
+      "30+ calculators and document generators that hand you a clean, branded PDF — invoices, quotes and more.",
+    cta: "Open iznkit",
+  },
+  {
     name: "IZN Tools",
     url: "https://izntools.com/",
     blurb:
@@ -20,7 +47,8 @@ export const NETWORK_SITES: NetworkSite[] = [
   {
     name: "TestSweep",
     url: "https://testsweep.com/",
-    // TODO: confirm exact positioning with the owner.
+    // TODO: confirm exact positioning with the owner (site unreachable from
+    // the build environment — placeholder blurb).
     blurb:
       "Quick online testing and checkup tools that run right in your browser.",
     cta: "Visit TestSweep",
