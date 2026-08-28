@@ -15,6 +15,7 @@ import { FloatingGlyphs } from "@/components/floating-glyphs";
 import { CalcBadge, CategoryBadge } from "@/components/calc-icon";
 import { MyCalculators } from "@/components/my-calculators";
 import { HomeOffers } from "@/components/home-offers";
+import { NetworkPromo } from "@/components/network-promo";
 import { SiteJsonLd } from "@/components/site-jsonld";
 
 export async function generateMetadata({
@@ -146,6 +147,8 @@ export default async function HomePage({
             </section>
           ))}
         </div>
+
+        <NetworkPromo />
       </div>
     </div>
   );

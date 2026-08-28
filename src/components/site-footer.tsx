@@ -6,6 +6,7 @@ import {
   categories,
 } from "@/lib/calculators/registry";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/seo/site";
+import { NETWORK_SITES } from "@/lib/network";
 import { BrandMark } from "./brand";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -65,8 +66,28 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           ))}
         </div>
 
+        {/* Our network — follow links to sister sites (reciprocal SEO) */}
+        {NETWORK_SITES.length > 0 ? (
+          <div className="mt-12 pt-6 border-t border-[var(--rule)] text-sm text-[var(--ink-soft)]">
+            <span className="font-semibold text-[var(--ink)]">Our network:</span>{" "}
+            {NETWORK_SITES.map((s, i) => (
+              <span key={s.url}>
+                {i > 0 ? " · " : ""}
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-[var(--accent)] transition-colors"
+                >
+                  {s.name}
+                </a>
+              </span>
+            ))}
+          </div>
+        ) : null}
+
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-[var(--rule)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[var(--ink-soft)]">
+        <div className="mt-8 pt-6 border-t border-[var(--rule)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[var(--ink-soft)]">
           <span>© 2026 {SITE_NAME}</span>
           <nav className="flex items-center gap-4 flex-wrap justify-center">
             <Link
