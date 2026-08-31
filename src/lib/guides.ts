@@ -25,6 +25,76 @@ export interface Guide {
 
 export const GUIDES: Guide[] = [
   {
+    slug: "roman-numerals-explained",
+    title: "Roman Numerals Explained: Chart, Rules and Examples",
+    description:
+      "The seven Roman numeral symbols, how the additive and subtractive rules work, a quick chart, and step-by-step examples up to the year 2025.",
+    category: "math",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: ["roman-numeral-converter"],
+    body: [
+      {
+        t: "p",
+        text: "Roman numerals use seven letters to write numbers: I, V, X, L, C, D and M. You build a number by adding symbols from largest to smallest — except in a few cases where a smaller symbol sits before a larger one to mean subtraction. Once you know the seven values and the subtractive pairs, you can read or write almost any number.",
+      },
+      {
+        t: "callout",
+        text: "The seven symbols: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1,000.",
+      },
+      { t: "h2", text: "How Roman numerals work" },
+      {
+        t: "p",
+        text: "Most of the time you add. You write the largest values first and keep adding smaller ones until you reach the number. For example, MMXV is 1,000 + 1,000 + 10 + 5 = 2,015. A symbol can repeat up to three times in a row (III = 3, XXX = 30), but never four — that is where the subtractive rule takes over.",
+      },
+      { t: "h2", text: "The subtractive rule" },
+      {
+        t: "p",
+        text: "To avoid four identical symbols, a smaller value placed before a larger one is subtracted. There are exactly six of these pairs:",
+      },
+      {
+        t: "ul",
+        items: [
+          "IV = 4 (5 − 1) and IX = 9 (10 − 1).",
+          "XL = 40 (50 − 10) and XC = 90 (100 − 10).",
+          "CD = 400 (500 − 100) and CM = 900 (1,000 − 100).",
+          "So 49 is XLIX (40 + 9), not IL, and 99 is XCIX (90 + 9), not IC.",
+        ],
+      },
+      { t: "h2", text: "Common numbers at a glance" },
+      {
+        t: "ul",
+        items: [
+          "1–10: I, II, III, IV, V, VI, VII, VIII, IX, X.",
+          "40 = XL · 50 = L · 90 = XC · 100 = C.",
+          "400 = CD · 500 = D · 900 = CM · 1,000 = M.",
+          "2024 = MMXXIV · 2025 = MMXXV.",
+        ],
+      },
+      { t: "h2", text: "The rules and limits" },
+      {
+        t: "ul",
+        items: [
+          "Symbols are written from highest to lowest value, left to right.",
+          "I, X, C and M may repeat up to three times; V, L and D never repeat.",
+          "Only I, X and C are used subtractively, and only before the next one or two larger symbols.",
+          "There is no zero and no fractions, and standard Roman numerals stop at 3,999 (MMMCMXCIX).",
+        ],
+      },
+      { t: "h2", text: "Turning a number into Roman numerals" },
+      { t: "steps", items: [
+        "Break the number into thousands, hundreds, tens and units.",
+        "Convert each part using the chart — e.g. 2,024 → 2,000 (MM) + 20 (XX) + 4 (IV).",
+        "Write the parts in order, largest first: MMXXIV.",
+        "Check that no symbol repeats more than three times and every subtractive pair is valid.",
+      ] },
+      {
+        t: "callout",
+        text: "Worked example: 1,994 = 1,000 (M) + 900 (CM) + 90 (XC) + 4 (IV) = MCMXCIV.",
+      },
+    ],
+  },
+  {
     slug: "how-many-gb-in-a-tb",
     title: "How Many GB in a TB? Data Storage Units Explained",
     description:
