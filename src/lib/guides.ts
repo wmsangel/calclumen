@@ -25,6 +25,73 @@ export interface Guide {
 
 export const GUIDES: Guide[] = [
   {
+    slug: "how-many-gb-in-a-tb",
+    title: "How Many GB in a TB? Data Storage Units Explained",
+    description:
+      "1 TB is 1,000 GB in decimal units and 1,024 GB in binary units. Here's why there are two answers, the full ladder from bytes to terabytes, and why a new drive shows less space than the box says.",
+    category: "conversions",
+    updated: "2026-08",
+    readMins: 5,
+    calcSlugs: ["data-storage-converter", "number-base-converter"],
+    body: [
+      {
+        t: "p",
+        text: "There are two correct answers, and that is the whole source of the confusion. In decimal (SI) units, 1 terabyte = 1,000 gigabytes. In binary (IEC) units, 1 terabyte = 1,024 gibibytes. Storage makers advertise the decimal number, while operating systems usually count in binary — which is why a \"1 TB\" drive shows up as about 931 GB on your computer.",
+      },
+      {
+        t: "callout",
+        text: "Quick answer: 1 TB = 1,000 GB (decimal, how drives are sold) or 1,024 GiB (binary, how Windows counts). 1 GB = 1,000 MB, 1 MB = 1,000 KB in decimal.",
+      },
+      { t: "h2", text: "Why there are two different numbers" },
+      {
+        t: "p",
+        text: "Computers work in powers of two, so early on a \"kilobyte\" came to mean 1,024 bytes (2¹⁰) rather than exactly 1,000. That works, but it clashes with the metric system, where kilo always means 1,000. To fix the ambiguity, standards bodies introduced separate binary names: kibibyte (KiB), mebibyte (MiB), gibibyte (GiB) and tebibyte (TiB) for the powers of 1,024, leaving KB, MB, GB and TB for the powers of 1,000.",
+      },
+      {
+        t: "p",
+        text: "In practice, hard-drive and SSD manufacturers use the decimal meaning (1 TB = 1,000,000,000,000 bytes) because it gives a bigger, rounder number. Windows reports the same drive using binary math but still labels it \"GB\", so 1,000,000,000,000 bytes ÷ 1,024³ ≈ 931 — hence the \"missing\" space.",
+      },
+      { t: "h2", text: "The full ladder of units" },
+      {
+        t: "ul",
+        items: [
+          "8 bits = 1 byte (B) — one character of text.",
+          "1 kilobyte (KB) = 1,000 bytes · 1 kibibyte (KiB) = 1,024 bytes.",
+          "1 megabyte (MB) = 1,000 KB · 1 mebibyte (MiB) = 1,024 KiB.",
+          "1 gigabyte (GB) = 1,000 MB · 1 gibibyte (GiB) = 1,024 MiB.",
+          "1 terabyte (TB) = 1,000 GB · 1 tebibyte (TiB) = 1,024 GiB.",
+          "1 petabyte (PB) = 1,000 TB — the next step up.",
+        ],
+      },
+      { t: "h2", text: "Common conversions people search" },
+      {
+        t: "ul",
+        items: [
+          "1 TB = 1,000 GB (decimal) or 1,024 GiB (binary).",
+          "2 TB = 2,000 GB · 500 GB = 0.5 TB.",
+          "1 GB = 1,000 MB · 1 MB = 1,000 KB.",
+          "A 4K movie is roughly 15–25 GB; a 1 TB drive holds about 40–60 of them.",
+          "A byte count like 849,346,560 bytes ÷ 1,000³ ≈ 0.85 GB (or ÷ 1,024³ ≈ 0.79 GiB).",
+        ],
+      },
+      { t: "h2", text: "Which one should you use?" },
+      {
+        t: "p",
+        text: "For buying, planning and everyday math, decimal (1 TB = 1,000 GB) is simplest and matches how storage is sold. When you want to know why your operating system shows a smaller number, switch to binary (÷ 1,024 per step). Both are shown side by side on our data storage converter so you never have to guess which one a site means.",
+      },
+      { t: "steps", items: [
+        "Decide whether you want decimal (selling/marketing) or binary (what your OS shows).",
+        "For decimal, multiply or divide by 1,000 for each step up or down the ladder.",
+        "For binary, use 1,024 per step instead.",
+        "For an exact byte count, divide by 1,000³ (GB) or 1,024³ (GiB).",
+      ] },
+      {
+        t: "callout",
+        text: "Rule of thumb: a drive sold as 1 TB really holds ~931 GiB once your computer counts it in binary. Nothing is missing — it's just two ways of naming the same bytes.",
+      },
+    ],
+  },
+  {
     slug: "how-mortgage-payments-work",
     title: "How Mortgage Payments Work",
     description:
