@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 import type { CalcDef } from "@/lib/calculators/registry";
 import { offersForCalc } from "@/lib/offers";
+import { OfferLogo } from "./offer-logo";
 
 /**
  * Intent-matched affiliate recommendations for a calculator. Renders nothing
@@ -34,16 +35,15 @@ export function AffiliateBlock({ calc }: { calc: CalcDef }) {
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
             >
-              <span className="min-w-0">
-                <span className="flex items-center gap-2">
-                  <span className="font-semibold text-sm">{o.name}</span>
+              <OfferLogo id={o.id} name={o.name} />
+              <span className="offer-body">
+                <span className="offer-name">
+                  {o.name}
                   {o.badge ? (
                     <span className="offer-badge">{o.badge}</span>
                   ) : null}
                 </span>
-                <span className="mt-0.5 block text-xs text-[var(--ink-soft)] leading-snug line-clamp-2">
-                  {o.blurb}
-                </span>
+                <span className="offer-blurb">{o.blurb}</span>
               </span>
               <span className="offer-cta">{o.cta ?? "Visit"} →</span>
             </a>

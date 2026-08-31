@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { HOME_FEATURED, HOME_OFFERS_LABEL } from "@/lib/offers";
+import { OfferLogo } from "./offer-logo";
 
 /**
  * A single, tasteful affiliate block for the homepage. Shows up to `max`
@@ -52,16 +53,15 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
             >
-              <span className="min-w-0">
-                <span className="flex items-center gap-2">
-                  <span className="font-semibold text-sm">{o.name}</span>
+              <OfferLogo id={o.id} name={o.name} />
+              <span className="offer-body">
+                <span className="offer-name">
+                  {o.name}
                   {o.badge ? (
                     <span className="offer-badge">{o.badge}</span>
                   ) : null}
                 </span>
-                <span className="mt-0.5 block text-xs text-[var(--ink-soft)] leading-snug line-clamp-2">
-                  {o.blurb}
-                </span>
+                <span className="offer-blurb">{o.blurb}</span>
               </span>
               <span className="offer-cta">{o.cta ?? "Visit"} →</span>
             </a>
