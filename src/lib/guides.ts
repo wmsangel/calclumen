@@ -25,6 +25,156 @@ export interface Guide {
 
 export const GUIDES: Guide[] = [
   {
+    slug: "how-to-calculate-standard-deviation",
+    title: "How to Calculate Standard Deviation (Step by Step)",
+    description:
+      "Standard deviation measures how spread out a set of numbers is. Learn the formula, the difference between population and sample, and a full worked example.",
+    category: "math",
+    updated: "2026-08",
+    readMins: 5,
+    calcSlugs: ["standard-deviation-calculator", "average-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "Standard deviation is a single number that tells you how spread out a set of values is around their average. A small standard deviation means the numbers cluster tightly near the mean; a large one means they are scattered. It is the most common way to describe variability, used everywhere from test scores to investment risk.",
+      },
+      {
+        t: "callout",
+        text: "Standard deviation = the square root of the average squared distance from the mean. Population uses ÷ N; a sample uses ÷ (N − 1).",
+      },
+      { t: "h2", text: "The formula, step by step" },
+      { t: "steps", items: [
+        "Find the mean (average) of all the values.",
+        "Subtract the mean from each value to get its deviation.",
+        "Square each deviation (so negatives don't cancel positives).",
+        "Average the squared deviations — this is the variance. Divide by N for a whole population, or by N − 1 for a sample.",
+        "Take the square root of the variance to get the standard deviation, back in the original units.",
+      ] },
+      { t: "h2", text: "Worked example" },
+      {
+        t: "p",
+        text: "Take the values 2, 4, 4, 4, 5, 5, 7, 9. The mean is 40 ÷ 8 = 5. The squared deviations are 9, 1, 1, 1, 0, 0, 4, 16, which sum to 32. As a population, variance = 32 ÷ 8 = 4, so the standard deviation is √4 = 2. As a sample, variance = 32 ÷ 7 ≈ 4.57, so the standard deviation is about 2.14.",
+      },
+      { t: "h2", text: "Population vs sample — which to use" },
+      {
+        t: "ul",
+        items: [
+          "Use the population formula (÷ N) when your data is the entire group you care about.",
+          "Use the sample formula (÷ N − 1) when your data is a sample meant to estimate a larger population — dividing by N − 1 corrects the tendency of a small sample to underestimate spread.",
+          "For large data sets the two answers are almost identical; the difference only matters for small samples.",
+        ],
+      },
+      { t: "h2", text: "Why we square the deviations" },
+      {
+        t: "p",
+        text: "Deviations above and below the mean would cancel to zero if you just added them. Squaring makes every distance positive and gives extra weight to values far from the mean, so outliers show up strongly. Taking the square root at the end returns the result to the original units, which is why standard deviation is easier to interpret than variance.",
+      },
+      {
+        t: "callout",
+        text: "Rule of thumb: for roughly bell-shaped data, about 68% of values fall within one standard deviation of the mean, and about 95% within two.",
+      },
+    ],
+  },
+  {
+    slug: "prime-factorization-explained",
+    title: "Prime Factorization Explained (with Examples)",
+    description:
+      "Prime factorization breaks a number into the prime numbers that multiply to make it. Learn the method, how to count a number's divisors, and worked examples.",
+    category: "math",
+    updated: "2026-08",
+    readMins: 4,
+    calcSlugs: ["prime-factorization-calculator", "lcm-gcd-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "Prime factorization means writing a whole number as a product of prime numbers — numbers whose only divisors are 1 and themselves. Every integer greater than 1 has exactly one prime factorization (the fundamental theorem of arithmetic), which makes it the backbone of finding greatest common divisors, least common multiples, and simplifying fractions.",
+      },
+      {
+        t: "callout",
+        text: "Example: 360 = 2 × 2 × 2 × 3 × 3 × 5, written compactly as 2³ × 3² × 5.",
+      },
+      { t: "h2", text: "How to factor a number" },
+      { t: "steps", items: [
+        "Divide by the smallest prime that goes in evenly — start with 2, then 3, 5, 7, and so on.",
+        "Keep dividing the result by that same prime until it no longer divides evenly.",
+        "Move to the next prime and repeat.",
+        "Stop when the number left is 1. The primes you divided by, with their counts, are the factorization.",
+      ] },
+      { t: "h2", text: "Worked example: 84" },
+      {
+        t: "p",
+        text: "84 ÷ 2 = 42, ÷ 2 = 21. 21 is not even, so try 3: 21 ÷ 3 = 7. 7 is prime. So 84 = 2 × 2 × 3 × 7 = 2² × 3 × 7.",
+      },
+      { t: "h2", text: "Counting the divisors" },
+      {
+        t: "p",
+        text: "Once you have the factorization, add one to each exponent and multiply the results — that is how many divisors the number has. For 360 = 2³ × 3² × 5¹, it is (3 + 1)(2 + 1)(1 + 1) = 24 divisors. This trick saves you from listing them all by hand.",
+      },
+      { t: "h2", text: "Why it is useful" },
+      {
+        t: "ul",
+        items: [
+          "Greatest common divisor (GCD): multiply the primes both numbers share, at the lowest power each appears.",
+          "Least common multiple (LCM): multiply every prime that appears in either number, at the highest power.",
+          "Simplifying fractions: cancel the prime factors the numerator and denominator have in common.",
+          "Checking if a number is prime: if it has no prime factors other than itself, it is prime.",
+        ],
+      },
+      {
+        t: "callout",
+        text: "A prime number's factorization is just the number itself — it has exactly two divisors, 1 and itself.",
+      },
+    ],
+  },
+  {
+    slug: "what-is-a-set-partition",
+    title: "What Is a Set Partition? Stirling and Bell Numbers",
+    description:
+      "Counting the ways to split a set of objects into groups uses Stirling numbers of the second kind and Bell numbers. Here's what they mean, with worked examples.",
+    category: "math",
+    updated: "2026-08",
+    readMins: 5,
+    calcSlugs: ["set-partitions-calculator", "permutations-combinations-calculator"],
+    body: [
+      {
+        t: "p",
+        text: "A set partition is a way of splitting a group of distinct objects into non-empty groups, where every object belongs to exactly one group. Counting how many partitions are possible is a classic combinatorics question — for example, how many ways can you sort 11 different books into 4 packets? The answer comes from Stirling numbers of the second kind.",
+      },
+      {
+        t: "callout",
+        text: "11 books into 4 identical packets = S(11, 4) = 145,750. Into any number of packets = the Bell number B(11) = 678,570.",
+      },
+      { t: "h2", text: "How partitions differ from combinations" },
+      {
+        t: "p",
+        text: "Combinations (nCr) count how many ways to choose one subset of items from a larger set. A partition is different: it splits the whole set into several groups at once, with nothing left over. So combinations answer \"which items to pick\", while partitions answer \"how to divide everyone up\".",
+      },
+      { t: "h2", text: "Stirling numbers of the second kind" },
+      {
+        t: "p",
+        text: "S(n, k) is the number of ways to partition n distinct objects into exactly k non-empty, unlabeled groups. It follows the recurrence S(n, k) = k · S(n−1, k) + S(n−1, k−1), with S(n, n) = 1 and S(n, 1) = 1. Each new object either joins one of the k existing groups (k ways) or starts a fresh group.",
+      },
+      { t: "h2", text: "Labeled vs unlabeled groups" },
+      {
+        t: "ul",
+        items: [
+          "If the groups are interchangeable (identical boxes), use S(n, k) directly.",
+          "If the groups are distinguishable (numbered boxes, or different people), multiply by k! because each partition can be handed to the labeled groups in k! ways.",
+          "That labeled count, k!·S(n, k), also equals the number of ways to assign n objects onto k groups with none left empty (surjections).",
+        ],
+      },
+      { t: "h2", text: "Bell numbers: any number of groups" },
+      {
+        t: "p",
+        text: "If you don't fix the number of groups, the total number of partitions of n objects is the Bell number B(n) — simply the sum of S(n, k) over every k from 1 to n. B(3) = 5, B(4) = 15, and the numbers grow very quickly after that.",
+      },
+      {
+        t: "callout",
+        text: "Worked example: 4 distinct objects into 2 identical groups is S(4, 2) = 7. Into 2 labeled groups it is 2! × 7 = 14.",
+      },
+    ],
+  },
+  {
     slug: "roman-numerals-explained",
     title: "Roman Numerals Explained: Chart, Rules and Examples",
     description:
