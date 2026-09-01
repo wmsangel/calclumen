@@ -7,6 +7,7 @@ import { UNIT_PAGES } from "@/lib/programmatic/units";
 import { ROMAN_PAGES } from "@/lib/programmatic/roman";
 import { SIZE_PAGES } from "@/lib/programmatic/datasize";
 import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
+import { GCFLCM_PAGES } from "@/lib/programmatic/gcflcm";
 import { FACTOR_PAGES } from "@/lib/programmatic/factors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -111,6 +112,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of FACTOR_PAGES) {
       entries.push({
         url: absUrl(locale, `factors/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "GCF and LCM of A and B" pages — indexable.
+    for (const p of GCFLCM_PAGES) {
+      entries.push({
+        url: absUrl(locale, `gcf-lcm/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });
