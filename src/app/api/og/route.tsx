@@ -72,6 +72,14 @@ export function GET(req: Request) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630 },
+    {
+      width: 1200,
+      height: 630,
+      // Deterministic per (title, subtitle) — let the CDN cache each card so it
+      // isn't re-rendered on every social/crawler fetch (cuts function invocations).
+      headers: {
+        "cache-control": "public, max-age=31536000, immutable",
+      },
+    },
   );
 }

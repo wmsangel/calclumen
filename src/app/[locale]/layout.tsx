@@ -8,6 +8,12 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+// Content is static and only changes on deploy (which invalidates the cache),
+// so serve the prerendered pages from the CDN for a long window instead of
+// re-reading the prerender store every ~5 min. This is the main lever on
+// Vercel ISR Reads / Fast Origin Transfer. Applies to the whole [locale] tree.
+export const revalidate = 604800; // 7 days
+
 export default async function LocaleLayout({
   children,
   params,

@@ -17,6 +17,12 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  // Run on everything except API routes, Next internals, and files with an extension.
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  // Only run where a locale still has to be added. Paths that already start
+  // with a locale ("/en", "/en/...") are excluded, so the proxy no longer
+  // fires (and bills an Edge Request) on the bulk of page + RSC requests —
+  // it just needs to catch locale-less paths ("/", "/loan-calculator", …).
+  // Also skips API routes, Next internals, and files with an extension.
+  // NOTE: `en` is hard-coded because matchers must be static literals — add
+  // any new locale here if `src/lib/i18n/config.ts` gains one.
+  matcher: ["/((?!en(?:/|$)|api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
