@@ -7,6 +7,7 @@ import { UNIT_PAGES } from "@/lib/programmatic/units";
 import { ROMAN_PAGES } from "@/lib/programmatic/roman";
 import { SIZE_PAGES } from "@/lib/programmatic/datasize";
 import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
+import { FACTOR_PAGES } from "@/lib/programmatic/factors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -101,6 +102,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of CHOOSE_PAGES) {
       entries.push({
         url: absUrl(locale, `combinations/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "Factors of N" pages — indexable.
+    for (const p of FACTOR_PAGES) {
+      entries.push({
+        url: absUrl(locale, `factors/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });

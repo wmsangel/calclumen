@@ -3,10 +3,36 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { PrimeFactorizationCalculator } from "@/components/calculators/prime-factorization";
 
 const SLUG = "prime-factorization-calculator";
+
+const POPULAR_FACTORS = [12, 24, 36, 48, 60, 72, 100, 120, 144, 200, 360, 1000];
+
+function PopularFactors({ locale }: { locale: string }) {
+  return (
+    <div>
+      <h2 className="text-xl font-semibold">Factors of popular numbers</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+        Jump straight to the full factor list, factor pairs and prime
+        factorization for commonly searched numbers:
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {POPULAR_FACTORS.map((n) => (
+          <Link
+            key={n}
+            href={`/${locale}/factors/${n}`}
+            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+          >
+            Factors of {n}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -25,7 +51,7 @@ export async function generateMetadata({
   });
 }
 
-const content: CalcContent = {
+const baseContent: CalcContent = {
   intro: [
     "This prime factorization calculator breaks a whole number down into the prime numbers that multiply together to make it. Enter a number and it shows the factorization in exponent form, every prime factor, all of the number's divisors, and whether the number itself is prime.",
     "Prime factorization is the unique way to write a number as a product of primes. For example, 360 = 2³ × 3² × 5. Every integer greater than 1 has exactly one such factorization (the fundamental theorem of arithmetic), which is why it underpins finding greatest common divisors, least common multiples, and simplifying fractions.",
@@ -63,6 +89,10 @@ export default async function Page({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const content: CalcContent = {
+    ...baseContent,
+    extra: <PopularFactors locale={locale} />,
+  };
   return (
     <CalcShell locale={locale} slug={SLUG} content={content}>
       <PrimeFactorizationCalculator />
