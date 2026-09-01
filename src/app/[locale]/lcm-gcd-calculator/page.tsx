@@ -15,24 +15,45 @@ const POPULAR_PAIRS = [
   "9-and-12", "25-and-50",
 ];
 
+const POPULAR_MULTIPLES = [3, 4, 6, 7, 8, 9, 12, 15, 20, 25];
+
 function PopularPairs({ locale }: { locale: string }) {
   return (
-    <div>
-      <h2 className="text-xl font-semibold">GCF &amp; LCM of popular pairs</h2>
-      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
-        Jump straight to the worked answer, prime factorizations and method for
-        commonly asked pairs:
-      </p>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {POPULAR_PAIRS.map((slug) => (
-          <Link
-            key={slug}
-            href={`/${locale}/gcf-lcm/${slug}`}
-            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
-          >
-            {slug.replace("-and-", " and ")}
-          </Link>
-        ))}
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-xl font-semibold">GCF &amp; LCM of popular pairs</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          Jump straight to the worked answer, prime factorizations and method for
+          commonly asked pairs:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_PAIRS.map((slug) => (
+            <Link
+              key={slug}
+              href={`/${locale}/gcf-lcm/${slug}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              {slug.replace("-and-", " and ")}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold">Multiples of popular numbers</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          See the list and table of multiples for commonly searched numbers:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_MULTIPLES.map((n) => (
+            <Link
+              key={n}
+              href={`/${locale}/multiples/${n}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              Multiples of {n}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
