@@ -8,6 +8,7 @@ import { ROMAN_PAGES } from "@/lib/programmatic/roman";
 import { SIZE_PAGES } from "@/lib/programmatic/datasize";
 import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
 import { GCFLCM_PAGES } from "@/lib/programmatic/gcflcm";
+import { ISPRIME_PAGES } from "@/lib/programmatic/isprime";
 import { MULTIPLES_PAGES } from "@/lib/programmatic/multiples";
 import { FACTOR_PAGES } from "@/lib/programmatic/factors";
 
@@ -131,6 +132,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of MULTIPLES_PAGES) {
       entries.push({
         url: absUrl(locale, `multiples/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "Is N a prime number?" pages — indexable.
+    for (const p of ISPRIME_PAGES) {
+      entries.push({
+        url: absUrl(locale, `is-prime/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });

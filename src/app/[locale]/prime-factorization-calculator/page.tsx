@@ -10,25 +10,45 @@ import { PrimeFactorizationCalculator } from "@/components/calculators/prime-fac
 const SLUG = "prime-factorization-calculator";
 
 const POPULAR_FACTORS = [12, 24, 36, 48, 60, 72, 100, 120, 144, 200, 360, 1000];
+const POPULAR_PRIME_CHECKS = [51, 57, 87, 91, 97, 111, 119, 133, 143, 187, 221, 997];
 
 function PopularFactors({ locale }: { locale: string }) {
   return (
-    <div>
-      <h2 className="text-xl font-semibold">Factors of popular numbers</h2>
-      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
-        Jump straight to the full factor list, factor pairs and prime
-        factorization for commonly searched numbers:
-      </p>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {POPULAR_FACTORS.map((n) => (
-          <Link
-            key={n}
-            href={`/${locale}/factors/${n}`}
-            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
-          >
-            Factors of {n}
-          </Link>
-        ))}
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-xl font-semibold">Factors of popular numbers</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          Jump straight to the full factor list, factor pairs and prime
+          factorization for commonly searched numbers:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_FACTORS.map((n) => (
+            <Link
+              key={n}
+              href={`/${locale}/factors/${n}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              Factors of {n}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold">Is it a prime number?</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          Quick yes/no answers with the reason for numbers people often check:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_PRIME_CHECKS.map((n) => (
+            <Link
+              key={n}
+              href={`/${locale}/is-prime/${n}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              Is {n} prime?
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
