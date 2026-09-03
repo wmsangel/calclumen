@@ -147,10 +147,18 @@ const NORDPASS: Offer = {
   url: "https://rkdro.com/g/mx19yq7dtc45d9374ef3410fff306a/",
   cta: "Get NordPass",
 };
+const ENVATO: Offer = {
+  id: "envato",
+  name: "Envato",
+  blurb:
+    "Unlimited downloads of 19M+ templates, stock video, music, photos and fonts for your projects — from $16.50/mo.",
+  url: "https://xcdus.com/g/5gu8irreos45d9374ef3a186dc55d3/",
+  cta: "Browse Envato",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
-  offers: [NORDVPN, LENOVO, OPENART],
+  offers: [NORDVPN, LENOVO, OPENART, ENVATO],
 };
 
 const HOME: OfferGroup = {
@@ -176,7 +184,7 @@ const EDUCATION: OfferGroup = {
  * client-side so the block rotates across visits. Safe to leave empty.
  */
 export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
-export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER, QUSTODIO];
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER, QUSTODIO, ENVATO];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.
