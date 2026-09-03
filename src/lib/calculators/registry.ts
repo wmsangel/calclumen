@@ -1435,6 +1435,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "number-to-words-calculator",
+    category: "math",
+    title: "Number to words",
+    heading: "Number to Words Converter",
+    description:
+      "Write any number in words — including decimals and a cheque-style amount for USD.",
+    keywords: [
+      "number to words",
+      "number to words converter",
+      "spell a number",
+      "amount in words",
+      "write number in words",
+    ],
+    isNew: true,
+  },
+  {
     slug: "tile-calculator",
     category: "homediy",
     title: "Tile",
