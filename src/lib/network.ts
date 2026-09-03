@@ -47,10 +47,8 @@ export const NETWORK_SITES: NetworkSite[] = [
   {
     name: "TestSweep",
     url: "https://testsweep.com/",
-    // TODO: confirm exact positioning with the owner (site unreachable from
-    // the build environment — placeholder blurb).
     blurb:
-      "Quick online testing and checkup tools that run right in your browser.",
-    cta: "Visit TestSweep",
+      "Test your computer one part at a time — check your monitor, keyboard, mouse, mic, speakers and webcam right in the browser.",
+    cta: "Try TestSweep",
   },
 ];
