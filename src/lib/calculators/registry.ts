@@ -389,7 +389,7 @@ export const calculators: CalcDef[] = [
     title: "CD",
     heading: "Certificate of Deposit (CD) Calculator",
     description:
-      "Calculate the maturity value and APY of a certificate of deposit.",
+      "Calculate the maturity value and APY of a certificate of deposit from your deposit, term length and interest rate — see exactly what it grows to.",
     keywords: [
       "cd calculator",
       "certificate of deposit calculator",
@@ -551,7 +551,7 @@ export const calculators: CalcDef[] = [
     title: "Break-even",
     heading: "Break-Even Point Calculator",
     description:
-      "Find how many units you must sell to cover fixed and variable costs.",
+      "Find how many units you must sell to cover your fixed and variable costs, plus the revenue and contribution margin at your break-even point.",
     keywords: [
       "break even calculator",
       "break even point",
@@ -565,7 +565,7 @@ export const calculators: CalcDef[] = [
     title: "Discount",
     heading: "Discount & Sale Price Calculator",
     description:
-      "Calculate the sale price and amount saved after a percentage discount.",
+      "Calculate the sale price and the amount you save after a percentage discount — enter the original price and the percent off to see both.",
     keywords: [
       "discount calculator",
       "percent off calculator",
@@ -711,7 +711,7 @@ export const calculators: CalcDef[] = [
     title: "Days until",
     heading: "Countdown / Days Until Calculator",
     description:
-      "Count down the days, weeks and months until any upcoming date or event.",
+      "Count down the days, weeks and months until any upcoming date or event — or count up the time that has passed since a date in the past.",
     keywords: [
       "days until calculator",
       "countdown calculator",
@@ -755,7 +755,7 @@ export const calculators: CalcDef[] = [
     title: "GPA",
     heading: "GPA Calculator",
     description:
-      "Calculate your grade point average from course grades and credit hours.",
+      "Calculate your grade point average from your course grades and credit hours on the standard 4.0 scale, with your total quality points.",
     keywords: [
       "gpa calculator",
       "college gpa calculator",
@@ -830,7 +830,7 @@ export const calculators: CalcDef[] = [
     title: "Fuel economy",
     heading: "MPG to L/100km Converter",
     description:
-      "Convert fuel economy between US MPG, UK MPG, km/L and liters per 100 km.",
+      "Convert fuel economy between US MPG, UK MPG, km/L and liters per 100 km — compare car efficiency across different measurement systems.",
     keywords: [
       "mpg to l/100km",
       "fuel economy converter",
@@ -935,7 +935,7 @@ export const calculators: CalcDef[] = [
     title: "Net worth",
     heading: "Net Worth Calculator",
     description:
-      "Add up your assets and liabilities to see your total net worth.",
+      "Add up your assets and liabilities to see your total net worth, and understand your financial position at a glance with a clear breakdown.",
     keywords: [
       "net worth calculator",
       "assets and liabilities",
@@ -992,7 +992,7 @@ export const calculators: CalcDef[] = [
     title: "Ratio",
     heading: "Ratio Calculator",
     description:
-      "Simplify a ratio or solve a proportion, with the decimal and percentage.",
+      "Simplify a ratio to its lowest terms or solve a proportion for the missing value, with the equivalent decimal and percentage shown too.",
     keywords: [
       "ratio calculator",
       "simplify ratio",
@@ -1006,7 +1006,7 @@ export const calculators: CalcDef[] = [
     title: "Average (mean)",
     heading: "Average Calculator",
     description:
-      "Find the mean, median, mode, range and sum of a set of numbers.",
+      "Find the mean, median, mode, range and sum of any set of numbers at once — just paste your values and get every average instantly.",
     keywords: [
       "average calculator",
       "mean calculator",
@@ -1037,7 +1037,7 @@ export const calculators: CalcDef[] = [
     title: "Temperature",
     heading: "Temperature Converter",
     description:
-      "Convert temperatures between Celsius, Fahrenheit and Kelvin instantly.",
+      "Convert temperatures between Celsius, Fahrenheit and Kelvin instantly, with the formulas and a table of common temperatures for each scale.",
     keywords: [
       "temperature converter",
       "celsius to fahrenheit",
@@ -1052,7 +1052,7 @@ export const calculators: CalcDef[] = [
     title: "Speed",
     heading: "Speed Converter",
     description:
-      "Convert speed between mph, km/h, m/s, knots and feet per second.",
+      "Convert speed between mph, km/h, m/s, knots and feet per second instantly, with a clear table of common values for each unit.",
     keywords: [
       "speed converter",
       "mph to kmh",
@@ -1066,7 +1066,7 @@ export const calculators: CalcDef[] = [
     title: "Data storage",
     heading: "Data Storage Converter",
     description:
-      "Convert digital storage between bytes, KB, MB, GB, TB and more.",
+      "Convert digital storage between bytes, KB, MB, GB, TB and PB, using both decimal (1000) and binary (1024) values, instantly and for free.",
     keywords: [
       "data storage converter",
       "mb to gb",
@@ -1097,7 +1097,7 @@ export const calculators: CalcDef[] = [
     title: "Height",
     heading: "Height Converter",
     description:
-      "Convert height between centimeters, meters and feet and inches.",
+      "Convert height between centimeters, meters, and feet and inches — perfect for forms, fitness and comparing metric and imperial heights.",
     keywords: [
       "height converter",
       "cm to feet",
@@ -1112,7 +1112,7 @@ export const calculators: CalcDef[] = [
     title: "Weight",
     heading: "Weight Converter",
     description:
-      "Convert weight between kilograms, pounds, stones, ounces and grams.",
+      "Convert weight between kilograms, pounds, stones, ounces and grams instantly, with a reference table of common conversions for each unit.",
     keywords: [
       "weight converter",
       "kg to lbs",
@@ -1127,7 +1127,7 @@ export const calculators: CalcDef[] = [
     title: "Number base",
     heading: "Number Base Converter",
     description:
-      "Convert numbers between binary, octal, decimal and hexadecimal.",
+      "Convert numbers between binary, octal, decimal and hexadecimal, and see each value side by side — a handy free tool for programming and CS homework.",
     keywords: [
       "number base converter",
       "binary to decimal",
@@ -1171,7 +1171,7 @@ export const calculators: CalcDef[] = [
     title: "Quadratic equation",
     heading: "Quadratic Equation Solver",
     description:
-      "Solve ax² + bx + c = 0 for real or complex roots, with the discriminant.",
+      "Solve any quadratic equation ax² + bx + c = 0 for real or complex roots, with the discriminant and the step-by-step quadratic formula.",
     keywords: [
       "quadratic equation calculator",
       "quadratic formula solver",
@@ -1199,7 +1199,7 @@ export const calculators: CalcDef[] = [
     title: "Sleep / bedtime",
     heading: "Sleep Calculator",
     description:
-      "Find the best bedtime or wake-up time based on 90-minute sleep cycles.",
+      "Find the best bedtime or wake-up time based on 90-minute sleep cycles, so you wake at the end of a cycle feeling refreshed instead of groggy.",
     keywords: [
       "sleep calculator",
       "bedtime calculator",
@@ -1322,7 +1322,7 @@ export const calculators: CalcDef[] = [
     title: "Rent affordability",
     heading: "Rent Affordability Calculator",
     description:
-      "See how much rent you can afford based on your income and the 30% rule.",
+      "See how much rent you can afford based on your income and the 30% rule, with a comfortable monthly range so you don't overstretch your budget.",
     keywords: ["rent affordability calculator", "how much rent can I afford", "30 percent rule rent", "rent budget"],
     isNew: true,
   },
@@ -1358,7 +1358,7 @@ export const calculators: CalcDef[] = [
     title: "Length",
     heading: "Length Converter",
     description:
-      "Convert length between meters, feet, miles, inches, kilometers and more.",
+      "Convert length between meters, feet, miles, inches, kilometers, yards and centimeters instantly, with a table of common conversions.",
     keywords: ["length converter", "meters to feet", "miles to km", "inches to cm"],
     isNew: true,
   },
@@ -1398,7 +1398,7 @@ export const calculators: CalcDef[] = [
     title: "Permutations & combinations",
     heading: "Permutations and Combinations Calculator",
     description:
-      "Calculate permutations (nPr), combinations (nCr) and factorials.",
+      "Calculate permutations (nPr), combinations (nCr) and factorials for any n and r, with the formulas and exact results — ideal for probability and stats.",
     keywords: ["permutations calculator", "combinations calculator", "nCr nPr calculator", "factorial calculator"],
     isNew: true,
   },
@@ -1466,7 +1466,7 @@ export const calculators: CalcDef[] = [
     title: "Gravel / mulch",
     heading: "Gravel & Mulch Calculator",
     description:
-      "Estimate the gravel, mulch or soil you need in cubic yards and tons.",
+      "Estimate the gravel, mulch, sand or soil you need for a project in cubic yards, cubic feet and tons — from the area and depth you enter.",
     keywords: ["gravel calculator", "mulch calculator", "how much gravel do I need", "cubic yards calculator"],
     isNew: true,
   },
@@ -1476,7 +1476,7 @@ export const calculators: CalcDef[] = [
     title: "BTU (AC size)",
     heading: "BTU Calculator (Room Size)",
     description:
-      "Estimate the BTUs needed to cool or heat a room from its square footage.",
+      "Estimate the BTUs needed to cool or heat a room from its square footage, adjusted for sunlight, occupancy and climate, to size an AC or heater.",
     keywords: ["btu calculator", "ac size calculator", "how many btu do I need", "air conditioner size"],
     isNew: true,
   },
@@ -1496,7 +1496,7 @@ export const calculators: CalcDef[] = [
     title: "Mileage reimbursement",
     heading: "Mileage Reimbursement Calculator",
     description:
-      "Calculate mileage reimbursement from miles driven and the rate per mile.",
+      "Calculate mileage reimbursement from the miles you drove and the rate per mile, using the IRS standard rate or your own custom cents-per-mile rate.",
     keywords: ["mileage reimbursement calculator", "irs mileage rate", "business mileage calculator", "cents per mile"],
     isNew: true,
   },
