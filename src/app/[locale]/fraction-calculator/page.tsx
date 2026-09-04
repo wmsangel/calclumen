@@ -3,10 +3,39 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { FractionCalculator } from "@/components/calculators/fraction";
 
 const SLUG = "fraction-calculator";
+
+const POPULAR_SIMPLIFY = [
+  "12-16", "24-36", "8-12", "6-8", "15-20", "9-12",
+  "16-24", "18-24", "75-100", "50-100", "25-100", "20-100",
+];
+
+function PopularSimplify({ locale }: { locale: string }) {
+  return (
+    <div>
+      <h2 className="text-xl font-semibold">Simplify popular fractions</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+        See the simplest form, the step-by-step method and equivalent fractions
+        for commonly reduced fractions:
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {POPULAR_SIMPLIFY.map((slug) => (
+          <Link
+            key={slug}
+            href={`/${locale}/simplify/${slug}`}
+            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+          >
+            {slug.replace("-", "/")}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -59,8 +88,12 @@ export default async function Page({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const pageContent: CalcContent = {
+    ...content,
+    extra: <PopularSimplify locale={locale} />,
+  };
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell locale={locale} slug={SLUG} content={pageContent}>
       <FractionCalculator />
     </CalcShell>
   );
