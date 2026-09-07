@@ -13,12 +13,10 @@ export function OfferLogo({ id, name }: { id: string; name: string }) {
   const hue = hueFromId(id);
   const initial =
     name.replace(/[^A-Za-z0-9]/g, "").charAt(0).toUpperCase() || "•";
+  // Soft diagonal gradient (two nearby hues) reads as a real brand mark.
+  const bg = `linear-gradient(135deg, hsl(${hue} 62% 50%), hsl(${(hue + 22) % 360} 64% 38%))`;
   return (
-    <span
-      className="offer-logo"
-      style={{ background: `hsl(${hue} 55% 42%)` }}
-      aria-hidden="true"
-    >
+    <span className="offer-logo" style={{ background: bg }} aria-hidden="true">
       {initial}
     </span>
   );

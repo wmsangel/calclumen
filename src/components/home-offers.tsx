@@ -63,7 +63,9 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
                 </span>
                 <span className="offer-blurb">{o.blurb}</span>
               </span>
-              <span className="offer-cta">{o.cta ?? "Visit"} →</span>
+              <span className="offer-cta">
+                {o.cta ?? "Visit"} <span className="offer-arw">→</span>
+              </span>
             </a>
           ))}
         </div>

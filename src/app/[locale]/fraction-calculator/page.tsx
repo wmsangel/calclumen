@@ -19,6 +19,11 @@ const POPULAR_DECIMALS = [
   "0-125", "0-375", "0-625", "0-875", "1-5", "2-5", "1-25",
 ];
 
+const POPULAR_FRACDEC = [
+  "1-2", "1-4", "3-4", "1-3", "2-3", "1-8", "3-8", "5-8",
+  "7-8", "1-5", "1-6", "5-6", "1-16", "1-12",
+];
+
 function PopularSimplify({ locale }: { locale: string }) {
   return (
     <div className="space-y-8">
@@ -53,6 +58,23 @@ function PopularSimplify({ locale }: { locale: string }) {
               className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
             >
               {slug.replace("-", ".")} as a fraction
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold">Common fractions as decimals</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          Convert a fraction to its decimal value, with the steps:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_FRACDEC.map((slug) => (
+            <Link
+              key={slug}
+              href={`/${locale}/fraction-to-decimal/${slug}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              {slug.replace("-", "/")} as a decimal
             </Link>
           ))}
         </div>
