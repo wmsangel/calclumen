@@ -9,6 +9,7 @@ import { SIZE_PAGES } from "@/lib/programmatic/datasize";
 import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
 import { GCFLCM_PAGES } from "@/lib/programmatic/gcflcm";
 import { SIMPLIFY_PAGES } from "@/lib/programmatic/simplify";
+import { DECFRAC_PAGES } from "@/lib/programmatic/decfrac";
 import { ISPRIME_PAGES } from "@/lib/programmatic/isprime";
 import { MULTIPLES_PAGES } from "@/lib/programmatic/multiples";
 import { FACTOR_PAGES } from "@/lib/programmatic/factors";
@@ -151,6 +152,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of SIMPLIFY_PAGES) {
       entries.push({
         url: absUrl(locale, `simplify/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "X as a fraction" decimal-to-fraction pages — indexable.
+    for (const p of DECFRAC_PAGES) {
+      entries.push({
+        url: absUrl(locale, `decimal-to-fraction/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });

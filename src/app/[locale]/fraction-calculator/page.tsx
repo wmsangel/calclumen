@@ -14,24 +14,48 @@ const POPULAR_SIMPLIFY = [
   "16-24", "18-24", "75-100", "50-100", "25-100", "20-100",
 ];
 
+const POPULAR_DECIMALS = [
+  "0-5", "0-25", "0-75", "0-2", "0-4", "0-6", "0-8",
+  "0-125", "0-375", "0-625", "0-875", "1-5", "2-5", "1-25",
+];
+
 function PopularSimplify({ locale }: { locale: string }) {
   return (
-    <div>
-      <h2 className="text-xl font-semibold">Simplify popular fractions</h2>
-      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
-        See the simplest form, the step-by-step method and equivalent fractions
-        for commonly reduced fractions:
-      </p>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {POPULAR_SIMPLIFY.map((slug) => (
-          <Link
-            key={slug}
-            href={`/${locale}/simplify/${slug}`}
-            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
-          >
-            {slug.replace("-", "/")}
-          </Link>
-        ))}
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-xl font-semibold">Simplify popular fractions</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          See the simplest form, the step-by-step method and equivalent
+          fractions for commonly reduced fractions:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_SIMPLIFY.map((slug) => (
+            <Link
+              key={slug}
+              href={`/${locale}/simplify/${slug}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              {slug.replace("-", "/")}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold">Common decimals as fractions</h2>
+        <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+          Convert a decimal to its simplest fraction, with the steps:
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {POPULAR_DECIMALS.map((slug) => (
+            <Link
+              key={slug}
+              href={`/${locale}/decimal-to-fraction/${slug}`}
+              className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+            >
+              {slug.replace("-", ".")} as a fraction
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
