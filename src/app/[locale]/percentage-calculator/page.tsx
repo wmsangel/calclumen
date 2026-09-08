@@ -3,10 +3,38 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { PercentageCalculator } from "@/components/calculators/percentage";
 
 const SLUG = "percentage-calculator";
+
+const POPULAR_PERCENTS = [
+  "5", "10", "12-5", "15", "20", "25", "30", "33", "40",
+  "45", "50", "60", "62-5", "70", "75", "80", "90", "150",
+];
+
+function PopularPercents({ locale }: { locale: string }) {
+  return (
+    <div>
+      <h2 className="text-xl font-semibold">Percent as a fraction &amp; decimal</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+        Convert a percent to its simplest fraction and decimal, with the steps:
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {POPULAR_PERCENTS.map((slug) => (
+          <Link
+            key={slug}
+            href={`/${locale}/percent/${slug}`}
+            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+          >
+            {slug.replace("-", ".")}%
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -96,8 +124,17 @@ export default async function Page({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const pageContent: CalcContent = {
+    ...content,
+    extra: (
+      <div className="space-y-10">
+        {content.extra}
+        <PopularPercents locale={locale} />
+      </div>
+    ),
+  };
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell locale={locale} slug={SLUG} content={pageContent}>
       <PercentageCalculator />
     </CalcShell>
   );
