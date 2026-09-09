@@ -11,6 +11,7 @@ import { GCFLCM_PAGES } from "@/lib/programmatic/gcflcm";
 import { SIMPLIFY_PAGES } from "@/lib/programmatic/simplify";
 import { DECFRAC_PAGES } from "@/lib/programmatic/decfrac";
 import { FRACDEC_PAGES } from "@/lib/programmatic/fracdec";
+import { NUMWORDS_PAGES } from "@/lib/programmatic/numwords";
 import { PERCENT_CONV_PAGES } from "@/lib/programmatic/percentconv";
 import { ISPRIME_PAGES } from "@/lib/programmatic/isprime";
 import { MULTIPLES_PAGES } from "@/lib/programmatic/multiples";
@@ -181,6 +182,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const p of PERCENT_CONV_PAGES) {
       entries.push({
         url: absUrl(locale, `percent/${p.slug}`),
+        changeFrequency: "monthly",
+        priority: 0.5,
+      });
+    }
+
+    // Programmatic "N in words" pages — indexable.
+    for (const p of NUMWORDS_PAGES) {
+      entries.push({
+        url: absUrl(locale, `number-in-words/${p.slug}`),
         changeFrequency: "monthly",
         priority: 0.5,
       });

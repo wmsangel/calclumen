@@ -3,10 +3,37 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getCalc } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 import { CalcShell, type CalcContent } from "@/components/calc-shell";
 import { NumberToWordsCalculator } from "@/components/calculators/number-to-words";
 
 const SLUG = "number-to-words-calculator";
+
+const POPULAR_NUMBERS = [
+  100, 200, 500, 1000, 1234, 1500, 2000, 2024, 5000, 10000, 100000, 1000000,
+];
+
+function PopularNumbers({ locale }: { locale: string }) {
+  return (
+    <div>
+      <h2 className="text-xl font-semibold">Popular numbers in words</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-2">
+        See how to write and spell commonly searched numbers:
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {POPULAR_NUMBERS.map((n) => (
+          <Link
+            key={n}
+            href={`/${locale}/number-in-words/${n}`}
+            className="rounded-lg border border-[var(--rule)] px-3 py-1.5 text-sm text-[var(--accent)] hover:border-[var(--accent)]"
+          >
+            {n.toLocaleString("en-US")} in words
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -63,8 +90,12 @@ export default async function Page({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const pageContent: CalcContent = {
+    ...content,
+    extra: <PopularNumbers locale={locale} />,
+  };
   return (
-    <CalcShell locale={locale} slug={SLUG} content={content}>
+    <CalcShell locale={locale} slug={SLUG} content={pageContent}>
       <NumberToWordsCalculator />
     </CalcShell>
   );
