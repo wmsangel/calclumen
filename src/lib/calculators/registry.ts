@@ -108,17 +108,34 @@ export const calculators: CalcDef[] = [
   {
     slug: "loan-calculator",
     category: "finance",
-    title: "Loan & mortgage",
-    heading: "Loan & Mortgage Payment Calculator",
+    title: "Loan",
+    heading: "Loan Payment Calculator",
     description:
-      "Work out the monthly payment, total interest and total cost of any loan or mortgage.",
+      "Work out the monthly payment, total interest and total cost of any loan, with a full amortization schedule.",
     keywords: [
       "loan calculator",
-      "mortgage calculator",
+      "personal loan calculator",
       "monthly payment calculator",
-      "amortization",
+      "amortization schedule",
     ],
     popular: true,
+  },
+  {
+    slug: "mortgage-calculator",
+    category: "finance",
+    title: "Mortgage",
+    heading: "Mortgage Calculator",
+    description:
+      "Estimate your full monthly mortgage payment — principal, interest, property tax, home insurance, PMI and HOA — with total interest and an amortization schedule.",
+    keywords: [
+      "mortgage calculator",
+      "monthly mortgage payment",
+      "mortgage payment calculator",
+      "piti calculator",
+      "home loan payment calculator",
+    ],
+    popular: true,
+    isNew: true,
   },
   {
     slug: "compound-interest-calculator",
