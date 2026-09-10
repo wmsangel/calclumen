@@ -29,12 +29,18 @@ export interface OfferGroup {
 // ── Clusters ─────────────────────────────────────────────────────
 // Fill `offers` with your real affiliate links. Suggested programs are in
 // the comments; leave empty to show nothing.
+const UPGRADE: Offer = {
+  id: "upgrade",
+  name: "Upgrade",
+  blurb:
+    "Personal loans up to $50,000 to consolidate debt or fund a big purchase — check your rate in minutes with no impact to your credit score.",
+  url: "https://gettracker.net/6aa298fc76f5f",
+  cta: "Check your rate",
+};
+
 const FINANCIAL: OfferGroup = {
   label: "Financial services you may like",
-  offers: [
-    // e.g. mortgage/refi marketplaces, brokerages/robo-advisors,
-    // high-yield savings, credit-card marketplaces, credit monitoring.
-  ],
+  offers: [UPGRADE],
 };
 
 const DOCTRONIC: Offer = {
