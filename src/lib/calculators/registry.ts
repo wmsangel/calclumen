@@ -373,6 +373,22 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "debt-consolidation-calculator",
+    category: "finance",
+    title: "Debt consolidation",
+    heading: "Debt Consolidation Calculator",
+    description:
+      "See if rolling your debts into one loan lowers your monthly payment and interest — enter each balance and rate, then a new loan rate and term to compare.",
+    keywords: [
+      "debt consolidation calculator",
+      "consolidate debt calculator",
+      "debt consolidation loan calculator",
+      "combine debt calculator",
+    ],
+    popular: true,
+    isNew: true,
+  },
+  {
     slug: "roi-calculator",
     category: "finance",
     title: "ROI",
