@@ -51,4 +51,11 @@ export const NETWORK_SITES: NetworkSite[] = [
       "Test your computer one part at a time — check your monitor, keyboard, mouse, mic, speakers and webcam right in the browser.",
     cta: "Try TestSweep",
   },
+  {
+    name: "Foldout",
+    url: "https://foldoutkit.com/",
+    blurb:
+      "Website, email and spreadsheet templates with clean, readable code — HTML/Tailwind, MJML and Sheets, free versions to grab and go.",
+    cta: "Browse Foldout",
+  },
 ];
