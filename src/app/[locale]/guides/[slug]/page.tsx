@@ -144,7 +144,11 @@ export default async function GuidePage({
 
       <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--ink-soft)]">
         <span className="inline-block w-2 h-2 rounded-full" style={{ background: cat.accent }} />
-        {cat.title} · {guide.readMins} min read
+        {cat.title} · {guide.readMins} min read · Updated{" "}
+        {new Date(`${guide.updated}-01T00:00:00`).toLocaleDateString("en-US", {
+          month: "long",
+          year: "numeric",
+        })}
       </div>
       <h1 className="display mt-2 text-3xl sm:text-4xl">{guide.title}</h1>
       <p className="mt-3 text-lg text-[var(--ink-soft)] leading-relaxed">

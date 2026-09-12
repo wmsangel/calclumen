@@ -12,9 +12,11 @@ import { CalcBadge, CategoryBadge } from "./calc-icon";
 export function CategoryPage({
   locale,
   categoryId,
+  extra,
 }: {
   locale: Locale;
   categoryId: CategoryId;
+  extra?: React.ReactNode;
 }) {
   const cat = getCategory(categoryId);
   const calcs = calcsInCategory(categoryId);
@@ -89,6 +91,8 @@ export function CategoryPage({
           </Link>
         ))}
       </div>
+
+      {extra ? <div className="mt-12">{extra}</div> : null}
 
       <AdSlot className="mt-10" />
     </div>
