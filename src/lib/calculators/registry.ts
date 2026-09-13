@@ -138,6 +138,23 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "home-equity-calculator",
+    category: "finance",
+    title: "Home equity / HELOC",
+    heading: "Home Equity & HELOC Calculator",
+    description:
+      "Find how much you can borrow against your home — your equity, available credit at a given CLTV, and the monthly payment on a home equity loan or HELOC.",
+    keywords: [
+      "home equity calculator",
+      "heloc calculator",
+      "home equity loan calculator",
+      "how much can i borrow against my house",
+      "cltv calculator",
+    ],
+    popular: true,
+    isNew: true,
+  },
+  {
     slug: "compound-interest-calculator",
     category: "finance",
     title: "Compound interest",
