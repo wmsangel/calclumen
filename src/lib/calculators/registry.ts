@@ -155,6 +155,23 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "biweekly-mortgage-calculator",
+    category: "finance",
+    title: "Biweekly mortgage",
+    heading: "Biweekly Mortgage Calculator",
+    description:
+      "See how much interest and time you save by paying your mortgage every two weeks instead of monthly — the biweekly payment, years shaved off and interest saved.",
+    keywords: [
+      "biweekly mortgage calculator",
+      "biweekly mortgage payment calculator",
+      "bi-weekly mortgage calculator",
+      "pay mortgage biweekly savings",
+      "extra mortgage payment calculator",
+    ],
+    popular: true,
+    isNew: true,
+  },
+  {
     slug: "compound-interest-calculator",
     category: "finance",
     title: "Compound interest",
