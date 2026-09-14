@@ -185,6 +185,14 @@ const TRADINGVIEW: Offer = {
   url: "https://z03o.xyz/6aa7cf97bf91e",
   cta: "Open TradingView",
 };
+const KEYCENSE: Offer = {
+  id: "keycense",
+  name: "Keycense",
+  blurb:
+    "Instant digital keys for games, Windows, Office and antivirus — delivered by email in seconds at discount prices.",
+  url: "https://grfpr.com/g/m5f0y6qe4x45d9374ef35fef375e5b/",
+  cta: "Shop Keycense",
+};
 // EU-geo offer (bluettipower.eu). Only shown to European visitors — see
 // euOffersForCalc + the client-side <EuOfferBlock> timezone gate.
 const BLUETTI: Offer = {
@@ -222,7 +230,7 @@ const HOME: OfferGroup = {
 
 const TECH: OfferGroup = {
   label: "Tools & software you may like",
-  offers: [NORDPASS, EASEUS, PUREVPN],
+  offers: [NORDPASS, EASEUS, PUREVPN, KEYCENSE],
 };
 
 const EDUCATION: OfferGroup = {
