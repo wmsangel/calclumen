@@ -185,6 +185,16 @@ const TRADINGVIEW: Offer = {
   url: "https://z03o.xyz/6aa7cf97bf91e",
   cta: "Open TradingView",
 };
+// EU-geo offer (bluettipower.eu). Only shown to European visitors — see
+// euOffersForCalc + the client-side <EuOfferBlock> timezone gate.
+const BLUETTI: Offer = {
+  id: "bluetti",
+  name: "BLUETTI",
+  blurb:
+    "Portable power stations, solar generators and solar panels for backup power at home, off-grid and on the road.",
+  url: "https://z05o.xyz/6aa7d19799ad8",
+  cta: "Shop BLUETTI",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
@@ -251,6 +261,30 @@ const INVESTING_SLUGS = new Set([
   "simple-interest-calculator",
   "inflation-calculator",
 ]);
+
+// ── Geo-targeted offers ──────────────────────────────────────────
+// Some programs only pay for specific regions (e.g. BLUETTI is EU-only).
+// We keep pages fully static (prerendered + CDN-cached) by gating these
+// CLIENT-SIDE on the visitor's timezone via <EuOfferBlock>, rather than
+// reading request headers on the server. The group below shows in ADDITION
+// to the normal offersForCalc() block, on energy/power-intent pages where a
+// portable power station / solar generator is a natural fit.
+const BLUETTI_EU: OfferGroup = {
+  label: "Backup & solar power",
+  offers: [BLUETTI],
+};
+// Pages with power/energy intent → BLUETTI (EU visitors only).
+const BLUETTI_SLUGS = new Set(["electricity-cost-calculator"]);
+
+/**
+ * EU-only offer group for a calculator, or null. Rendered by the client-side
+ * <EuOfferBlock>, which shows it only when the visitor's timezone is European
+ * — so US/UK/CA/AU visitors never see it and pages stay static.
+ */
+export function euOffersForCalc(calc: CalcDef): OfferGroup | null {
+  if (BLUETTI_SLUGS.has(calc.slug)) return BLUETTI_EU;
+  return null;
+}
 
 /** The affiliate offer group for a calculator, or null (ads-only). */
 export function offersForCalc(calc: CalcDef): OfferGroup | null {

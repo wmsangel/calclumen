@@ -12,6 +12,7 @@ import { guideForCalc } from "@/lib/guides";
 import { AdSlot } from "./ad-slot";
 import { CalcBadge } from "./calc-icon";
 import { AffiliateBlock } from "./affiliate-block";
+import { EuOfferBlock } from "./eu-offer-block";
 import { FavoriteButton } from "./favorite-button";
 import { PrintButton } from "./print-button";
 
@@ -170,6 +171,9 @@ export function CalcShell({
           result (peak attention), not buried at the bottom of the page. */}
       <div className="no-print">
         <AffiliateBlock calc={calc} />
+        {/* EU-only offers (e.g. BLUETTI), gated client-side by visitor
+            timezone so pages stay static and non-EU visitors don't see them. */}
+        <EuOfferBlock calc={calc} />
       </div>
 
       <AdSlot className="mt-8 no-print" />
