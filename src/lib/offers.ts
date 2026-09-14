@@ -161,10 +161,46 @@ const ENVATO: Offer = {
   url: "https://xcdus.com/g/5gu8irreos45d9374ef3a186dc55d3/",
   cta: "Browse Envato",
 };
+const NOTION: Offer = {
+  id: "notion",
+  name: "Notion",
+  blurb:
+    "One workspace for notes, docs, tasks and wikis — organize work and life, with free and paid plans.",
+  url: "https://i05o.xyz/6aa7d02b211a3",
+  cta: "Try Notion",
+};
+const INSTAREM: Offer = {
+  id: "instarem",
+  name: "Instarem",
+  blurb:
+    "Send money abroad at great exchange rates with low, transparent fees — fast, secure international transfers.",
+  url: "https://i07o.xyz/6aa7cfe2483c4",
+  cta: "Compare rates",
+};
+const TRADINGVIEW: Offer = {
+  id: "tradingview",
+  name: "TradingView",
+  blurb:
+    "Real-time charts and market data for stocks, crypto and forex — powerful technical analysis for any level.",
+  url: "https://z03o.xyz/6aa7cf97bf91e",
+  cta: "Open TradingView",
+};
 
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
-  offers: [NORDVPN, LENOVO, OPENART, ENVATO],
+  offers: [NORDVPN, LENOVO, OPENART, ENVATO, NOTION],
+};
+
+// Money-transfer / FX intent (currency converter).
+const MONEY_TRANSFER: OfferGroup = {
+  label: "Sending money abroad?",
+  offers: [INSTAREM],
+};
+
+// Investing / markets intent (return & savings-growth calculators).
+const INVESTING: OfferGroup = {
+  label: "For your investing",
+  offers: [TRADINGVIEW],
 };
 
 const HOME: OfferGroup = {
@@ -200,12 +236,29 @@ const TECH_SLUGS = new Set([
 ]);
 // Student / education pages.
 const EDUCATION_SLUGS = new Set(["gpa-calculator", "grade-calculator"]);
+// Currency conversion → money-transfer intent.
+const CURRENCY_SLUGS = new Set(["currency-converter"]);
+// Investment / savings-growth calculators → markets intent (better match than a
+// loan offer, so these override the finance→FINANCIAL default below).
+const INVESTING_SLUGS = new Set([
+  "compound-interest-calculator",
+  "roi-calculator",
+  "rule-of-72-calculator",
+  "retirement-savings-calculator",
+  "401k-calculator",
+  "cd-calculator",
+  "savings-goal-calculator",
+  "simple-interest-calculator",
+  "inflation-calculator",
+]);
 
 /** The affiliate offer group for a calculator, or null (ads-only). */
 export function offersForCalc(calc: CalcDef): OfferGroup | null {
   if (PREGNANCY_SLUGS.has(calc.slug)) return PREGNANCY;
   if (EDUCATION_SLUGS.has(calc.slug)) return EDUCATION;
   if (TECH_SLUGS.has(calc.slug)) return TECH;
+  if (CURRENCY_SLUGS.has(calc.slug)) return MONEY_TRANSFER;
+  if (INVESTING_SLUGS.has(calc.slug)) return INVESTING;
   switch (calc.category) {
     case "finance":
       return FINANCIAL;
