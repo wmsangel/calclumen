@@ -378,6 +378,21 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "roth-ira-calculator",
+    category: "finance",
+    title: "Roth IRA",
+    heading: "Roth IRA Calculator",
+    description:
+      "Project your tax-free Roth IRA balance at retirement and see how much tax you save versus a taxable account.",
+    keywords: [
+      "roth ira calculator",
+      "roth ira growth calculator",
+      "tax free retirement calculator",
+      "ira calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "credit-card-payoff-calculator",
     category: "finance",
     title: "Credit card payoff",

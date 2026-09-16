@@ -264,6 +264,7 @@ const INVESTING_SLUGS = new Set([
   "rule-of-72-calculator",
   "retirement-savings-calculator",
   "401k-calculator",
+  "roth-ira-calculator",
   "cd-calculator",
   "savings-goal-calculator",
   "simple-interest-calculator",
