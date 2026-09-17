@@ -85,6 +85,13 @@ export default function RootLayout({
         {/* <Ezoic /> — disabled 2026-08-27, see import note above */}
         <AdSense />
         <GoogleAnalytics />
+        {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо прокси, поэтому вставляется руками */}
+        <Script
+          id="cf-beacon"
+          strategy="afterInteractive"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={'{"token": "a86ccab306b54fb2b41445f3dac8b830"}'}
+        />
       </body>
     </html>
   );
