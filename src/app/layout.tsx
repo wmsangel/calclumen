@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/seo/site";
 import { PwaRegister } from "@/components/pwa-register";
 import { GoogleAnalytics } from "@/components/google-analytics";
@@ -87,8 +85,6 @@ export default function RootLayout({
         {/* <Ezoic /> — disabled 2026-08-27, see import note above */}
         <AdSense />
         <GoogleAnalytics />
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
