@@ -35,7 +35,8 @@ export async function generateMetadata({
   const { a, b } = page;
   const g = gcd(a, b);
   const l = lcm(a, b);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `gcf-lcm/${slug}`,
     title: `GCF and LCM of ${a} and ${b}`,
@@ -47,7 +48,10 @@ export async function generateMetadata({
       `least common multiple of ${a} and ${b}`,
       `${a} and ${b} gcf lcm`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

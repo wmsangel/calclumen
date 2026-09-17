@@ -32,7 +32,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { n } = page;
   const first = multiplesOf(n, 10).join(", ");
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `multiples/${slug}`,
     title: `Multiples of ${n}`,
@@ -43,7 +44,10 @@ export async function generateMetadata({
       `list of multiples of ${n}`,
       `what are the multiples of ${n}`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

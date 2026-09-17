@@ -393,6 +393,21 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "capital-gains-tax-calculator",
+    category: "finance",
+    title: "Capital gains tax",
+    heading: "Capital Gains Tax Calculator",
+    description:
+      "Estimate federal and state tax on your investment profit, with 2025 long-term and short-term rates by filing status.",
+    keywords: [
+      "capital gains tax calculator",
+      "long term capital gains calculator",
+      "short term capital gains tax",
+      "stock sale tax calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "credit-card-payoff-calculator",
     category: "finance",
     title: "Credit card payoff",

@@ -33,7 +33,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { a, b } = page;
   const { na, nb } = simplify(a, b);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `simplify/${slug}`,
     title: `${a}/${b} Simplified`,
@@ -44,7 +45,10 @@ export async function generateMetadata({
       `${a}/${b} in simplest form`,
       `reduce ${a}/${b}`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

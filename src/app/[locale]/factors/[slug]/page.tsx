@@ -38,7 +38,8 @@ export async function generateMetadata({
   const divs = divisorsOf(n);
   const list = divs.map(groupNum).join(", ");
   const fz = factorizationString(n);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `factors/${slug}`,
     title: `Factors of ${n}`,
@@ -50,7 +51,10 @@ export async function generateMetadata({
       `${n} factors`,
       `what are the factors of ${n}`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

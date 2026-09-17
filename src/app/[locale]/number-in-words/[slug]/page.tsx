@@ -35,7 +35,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { n } = page;
   const words = integerToWords(n);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `number-in-words/${slug}`,
     title: `${fmt(n)} in Words`,
@@ -46,7 +47,10 @@ export async function generateMetadata({
       `how do you spell ${n}`,
       `${n} spelling`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

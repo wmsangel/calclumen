@@ -32,7 +32,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { decimal } = page;
   const { num, den } = decimalToFraction(decimal);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `decimal-to-fraction/${slug}`,
     title: `${decimal} as a Fraction`,
@@ -43,7 +44,10 @@ export async function generateMetadata({
       `${decimal} in fraction form`,
       `convert ${decimal} to a fraction`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

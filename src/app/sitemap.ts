@@ -7,15 +7,6 @@ import { UNIT_PAGES } from "@/lib/programmatic/units";
 import { ROMAN_PAGES } from "@/lib/programmatic/roman";
 import { SIZE_PAGES } from "@/lib/programmatic/datasize";
 import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
-import { GCFLCM_PAGES } from "@/lib/programmatic/gcflcm";
-import { SIMPLIFY_PAGES } from "@/lib/programmatic/simplify";
-import { DECFRAC_PAGES } from "@/lib/programmatic/decfrac";
-import { FRACDEC_PAGES } from "@/lib/programmatic/fracdec";
-import { NUMWORDS_PAGES } from "@/lib/programmatic/numwords";
-import { PERCENT_CONV_PAGES } from "@/lib/programmatic/percentconv";
-import { ISPRIME_PAGES } from "@/lib/programmatic/isprime";
-import { MULTIPLES_PAGES } from "@/lib/programmatic/multiples";
-import { FACTOR_PAGES } from "@/lib/programmatic/factors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -115,90 +106,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    // Programmatic "Factors of N" pages — indexable.
-    for (const p of FACTOR_PAGES) {
-      entries.push({
-        url: absUrl(locale, `factors/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "GCF and LCM of A and B" pages — indexable.
-    for (const p of GCFLCM_PAGES) {
-      entries.push({
-        url: absUrl(locale, `gcf-lcm/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "Multiples of N" pages — indexable.
-    for (const p of MULTIPLES_PAGES) {
-      entries.push({
-        url: absUrl(locale, `multiples/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "Is N a prime number?" pages — indexable.
-    for (const p of ISPRIME_PAGES) {
-      entries.push({
-        url: absUrl(locale, `is-prime/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "A/B simplified" fraction pages — indexable.
-    for (const p of SIMPLIFY_PAGES) {
-      entries.push({
-        url: absUrl(locale, `simplify/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "X as a fraction" decimal-to-fraction pages — indexable.
-    for (const p of DECFRAC_PAGES) {
-      entries.push({
-        url: absUrl(locale, `decimal-to-fraction/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "A/B as a decimal" fraction-to-decimal pages — indexable.
-    for (const p of FRACDEC_PAGES) {
-      entries.push({
-        url: absUrl(locale, `fraction-to-decimal/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "X% as a fraction and decimal" pages — indexable.
-    for (const p of PERCENT_CONV_PAGES) {
-      entries.push({
-        url: absUrl(locale, `percent/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "N in words" pages — indexable.
-    for (const p of NUMWORDS_PAGES) {
-      entries.push({
-        url: absUrl(locale, `number-in-words/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Note: the templated percent (/X-percent-of-Y) and currency
-    // (/convert/…) pages are intentionally noindex, so they're kept out of
-    // the sitemap. They stay reachable for users and internal links.
+    // Note: the thin math clusters (factors, gcf-lcm, multiples, is-prime,
+    // simplify, decimal-to-fraction, fraction-to-decimal, percent,
+    // number-in-words) plus the templated /X-percent-of-Y and /convert/…
+    // pages are intentionally noindex — 0 impressions over 90 days in GSC,
+    // pure index bloat — so they're kept out of the sitemap. All stay
+    // reachable for users and via internal links.
   }
 
   return entries;

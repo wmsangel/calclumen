@@ -35,7 +35,8 @@ export async function generateMetadata({
   const { n } = page;
   const prime = isPrime(n);
   const answer = prime ? "Yes" : "No";
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `is-prime/${slug}`,
     title: `Is ${n} a Prime Number?`,
@@ -48,7 +49,10 @@ export async function generateMetadata({
       `${n} prime or composite`,
       `factors of ${n}`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

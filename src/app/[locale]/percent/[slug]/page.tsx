@@ -32,7 +32,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { percent } = page;
   const { num, den, decimal } = percentToParts(percent);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `percent/${slug}`,
     title: `${percent}% as a Fraction and Decimal`,
@@ -43,7 +44,10 @@ export async function generateMetadata({
       `what is ${percent}% as a fraction`,
       `convert ${percent} percent to a fraction`,
     ],
-  });
+  }),
+    // Thin templated page with no search demand — keep for users, out of the index.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({
