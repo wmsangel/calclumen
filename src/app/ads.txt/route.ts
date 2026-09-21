@@ -6,7 +6,9 @@
 //   NOTE: while this redirect is active, the local lines below are bypassed —
 //   add any extra authorized-seller lines inside Ezoic's Ads.txt Manager.
 // - Otherwise we emit our own authorized-seller lines:
-//   - AdSense: set NEXT_PUBLIC_ADSENSE_ID (ca-pub-…) to add the Google line.
+//   - AdSense: ADSENSE_PUB (ca-pub-…) adds the Google authorized-seller line.
+import { ADSENSE_PUB } from "@/lib/ads-config";
+
 export const dynamic = "force-static";
 
 export function GET() {
@@ -20,8 +22,10 @@ export function GET() {
 
   const lines: string[] = [];
 
-  const pub = process.env.NEXT_PUBLIC_ADSENSE_ID; // e.g. "ca-pub-1234567890123456"
-  if (pub) lines.push(`google.com, ${pub.replace(/^ca-/, "")}, DIRECT, f08c47fec0942fa0`);
+  if (ADSENSE_PUB)
+    lines.push(
+      `google.com, ${ADSENSE_PUB.replace(/^ca-/, "")}, DIRECT, f08c47fec0942fa0`,
+    );
 
   const body = lines.length
     ? lines.join("\n") + "\n"
