@@ -1,5 +1,6 @@
 // Central catalog of every calculator. Pages, home hub, sitemap, and
 // internal linking all read from here so a new calculator is one entry away.
+import { clusterOfSlug } from "./clusters";
 
 export type CategoryId =
   | "finance"
@@ -1627,11 +1628,20 @@ export function calcsInCategory(id: CategoryId): CalcDef[] {
 export function relatedCalcs(slug: string, limit = 4): CalcDef[] {
   const self = getCalc(slug);
   if (!self) return calculators.slice(0, limit);
+  // Prefer siblings in the same sub-intent cluster (e.g. a mortgage page links
+  // to other mortgage/home calcs, not to unrelated finance tools) — tighter,
+  // more relevant internal links that help discovery and topical grouping.
+  const cluster = clusterOfSlug(slug);
+  const clusterSiblings = (cluster?.slugs ?? [])
+    .filter((s) => s !== slug)
+    .map((s) => getCalc(s))
+    .filter((c): c is CalcDef => Boolean(c));
+  const inCluster = new Set(clusterSiblings.map((c) => c.slug));
   const sameCat = calculators.filter(
-    (c) => c.category === self.category && c.slug !== slug,
+    (c) => c.category === self.category && c.slug !== slug && !inCluster.has(c.slug),
   );
   const rest = calculators.filter(
     (c) => c.category !== self.category && c.slug !== slug,
   );
-  return [...sameCat, ...rest].slice(0, limit);
+  return [...clusterSiblings, ...sameCat, ...rest].slice(0, limit);
 }
