@@ -156,6 +156,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "pmi-calculator",
+    category: "finance",
+    title: "PMI (mortgage insurance)",
+    heading: "PMI Calculator",
+    description:
+      "Estimate your monthly private mortgage insurance, when it drops off, and the total PMI you'll pay before reaching 20% equity.",
+    keywords: [
+      "pmi calculator",
+      "private mortgage insurance calculator",
+      "how much is pmi",
+      "when does pmi go away",
+      "mortgage insurance calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "biweekly-mortgage-calculator",
     category: "finance",
     title: "Biweekly mortgage",

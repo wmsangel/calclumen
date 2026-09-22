@@ -1008,6 +1008,7 @@ export const GUIDES: Guide[] = [
     calcSlugs: [
       "home-affordability-calculator",
       "down-payment-calculator",
+      "pmi-calculator",
       "mortgage-refinance-calculator",
     ],
     body: [
