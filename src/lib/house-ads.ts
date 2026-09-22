@@ -35,6 +35,13 @@ export const PROMOS: Promo[] = [
     accent: "#0d9488",
   },
   {
+    id: "pawdget",
+    name: "Pawdget",
+    tagline: "What a dog or cat really costs per year — 241 breeds, sourced, by state.",
+    url: "https://pawdget.com/",
+    accent: "#b0622f",
+  },
+  {
     id: "iznkit",
     name: "iznkit",
     tagline: "Free tools that generate clean, ready-to-send PDFs.",

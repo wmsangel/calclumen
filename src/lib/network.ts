@@ -24,6 +24,13 @@ export const NETWORK_SITES: NetworkSite[] = [
     cta: "Open CostTrek",
   },
   {
+    name: "Pawdget",
+    url: "https://pawdget.com/",
+    blurb:
+      "The real cost of owning a dog or cat in the US — food, vet, grooming, insurance and gear for 205 dog breeds and 36 cat breeds, adjusted to your state. Every figure sourced.",
+    cta: "Open Pawdget",
+  },
+  {
     name: "TheCryptoTools",
     url: "https://thecryptotools.com/",
     blurb:
