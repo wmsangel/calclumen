@@ -109,6 +109,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               Contact
             </Link>
             <Link
+              href={`/${locale}/support`}
+              className="hover:text-[var(--accent)]"
+            >
+              Support
+            </Link>
+            <Link
               href={`/${locale}/privacy`}
               className="hover:text-[var(--accent)]"
             >

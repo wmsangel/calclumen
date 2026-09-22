@@ -37,7 +37,8 @@ const reasons = [
   {
     icon: Megaphone,
     title: "Advertising & business",
-    text: "For partnership or advertising enquiries, email ads@calclumen.com with a few details.",
+    text: "For partnership or advertising enquiries, get in touch with a few details:",
+    email: "ads@calclumen.com",
   },
 ];
 
@@ -82,6 +83,14 @@ export default async function Page({
               <h3 className="font-semibold mt-3">{r.title}</h3>
               <p className="mt-1.5 text-sm text-[var(--ink-soft)] leading-snug">
                 {r.text}
+                {r.email ? (
+                  <>
+                    {" "}
+                    <a href={`mailto:${r.email}`} className="prose-link">
+                      {r.email}
+                    </a>
+                  </>
+                ) : null}
               </p>
             </div>
           );

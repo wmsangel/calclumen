@@ -60,6 +60,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
+    // Support / donate page
+    entries.push({
+      url: absUrl(locale, "support"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    });
+
     // Calculator pages
     for (const calc of calculators) {
       entries.push({
