@@ -470,6 +470,23 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "student-loan-calculator",
+    category: "finance",
+    title: "Student loan",
+    heading: "Student Loan Calculator",
+    description:
+      "Work out your student loan payment, payoff date and total interest — including interest capitalized during school and grace, plus what paying extra saves.",
+    keywords: [
+      "student loan calculator",
+      "student loan payment calculator",
+      "student loan payoff calculator",
+      "student loan interest calculator",
+      "student loan repayment calculator",
+    ],
+    popular: true,
+    isNew: true,
+  },
+  {
     slug: "roi-calculator",
     category: "finance",
     title: "ROI",

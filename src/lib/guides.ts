@@ -903,7 +903,11 @@ export const GUIDES: Guide[] = [
     category: "finance",
     updated: "2026-08",
     readMins: 5,
-    calcSlugs: ["debt-payoff-calculator", "credit-card-payoff-calculator"],
+    calcSlugs: [
+      "debt-payoff-calculator",
+      "credit-card-payoff-calculator",
+      "student-loan-calculator",
+    ],
     body: [
       {
         t: "p",

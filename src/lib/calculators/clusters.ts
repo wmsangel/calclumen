@@ -41,6 +41,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
         "Personal loans, credit cards and debt payoff — monthly payments, interest, APR and how fast you can be debt-free.",
       slugs: [
         "loan-calculator",
+        "student-loan-calculator",
         "apr-calculator",
         "credit-card-payoff-calculator",
         "debt-payoff-calculator",
