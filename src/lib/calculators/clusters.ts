@@ -74,6 +74,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
         "Plan and track your money — savings goals, an emergency fund, net worth and a monthly budget.",
       slugs: [
         "savings-goal-calculator",
+        "529-calculator",
         "emergency-fund-calculator",
         "budget-calculator",
         "net-worth-calculator",

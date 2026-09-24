@@ -426,6 +426,21 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "529-calculator",
+    category: "finance",
+    title: "529 college savings",
+    heading: "529 College Savings Calculator",
+    description:
+      "Project your 529 plan's value by the time your child starts college and see how much of the four-year cost it covers.",
+    keywords: [
+      "529 calculator",
+      "529 college savings calculator",
+      "college savings calculator",
+      "529 plan calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "capital-gains-tax-calculator",
     category: "finance",
     title: "Capital gains tax",
