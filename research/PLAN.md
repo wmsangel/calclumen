@@ -58,6 +58,30 @@
 
 ---
 
+## D. Аналитика: события GA4 + цели (кросс-задача, можно инкрементально)
+Цель — видеть, ЧТО популярно, КУДА жмут, ЧЕМ пользуются, что конвертит. GA4 уже
+подключён (G-JY9FBM2921, Consent Mode v2), но кастомных событий пока нет.
+- [ ] Хелпер `track(event, params)` в `src/lib/analytics.ts` — обёртка над
+      `gtag('event', …)` через dataLayer, УВАЖАЯ согласие (события только при
+      analytics granted, как в `src/lib/consent.ts`). Без PII и без значений
+      вводимых сумм.
+- [ ] Инструментировать ключевые действия:
+      • `calculator_use { calc: slug }` — первый значимый расчёт/ввод на странице
+        (что реально используют, а не только смотрят)
+      • `offer_click { offer_id, placement }` — клики по офферам/CTA (МОНЕТИЗАЦИЯ:
+        affiliate-block, eu-offer-block, home-offers, offer-panel) — [ключевое]
+      • `result_action { action: copy|share|save }` — result-actions.tsx
+      • `feedback_open` / `feedback_send` — feedback-fab.tsx
+      • `support_copy_address { chain }` / `support_share { network }` — /support
+      • `network_click { site }` — кросс-промо (network-promo, футер)
+      • `outbound_click { host }` — прочие внешние ссылки (по желанию)
+- [ ] В GA4 (UI, владелец): пометить `offer_click`, `feedback_send`,
+      `support_copy_address` как key events (цели/конверсии).
+- [ ] Дальше по данным: какие калькуляторы деглубить, какие офферы работают, что
+      убрать. Кормит Day 6 (data-driven) и решения по контенту/монетизации.
+Гардрейлы: без персональных данных и без значений вводимых сумм; события только с
+согласием; не ломать существующий GA / Consent Mode.
+
 ## C. Опционально (низкий CPM, осторожно — риск тонких страниц)
 - [ ] cooking/baking конверсии (cups↔grams, oven temps) — только топ-спрос, не массово
 - [ ] health: TDEE · BAC · pregnancy weight gain
