@@ -58,6 +58,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
         "retirement-savings-calculator",
         "401k-calculator",
         "roth-ira-calculator",
+        "hsa-calculator",
         "capital-gains-tax-calculator",
         "compound-interest-calculator",
         "roi-calculator",

@@ -410,6 +410,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "hsa-calculator",
+    category: "finance",
+    title: "HSA",
+    heading: "HSA Calculator",
+    description:
+      "See your 2026 HSA contribution limit, the federal, state and FICA tax you save each year, and how your health savings account grows when invested.",
+    keywords: [
+      "hsa calculator",
+      "hsa tax savings calculator",
+      "hsa contribution limit 2026",
+      "health savings account calculator",
+      "hsa growth calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "capital-gains-tax-calculator",
     category: "finance",
     title: "Capital gains tax",

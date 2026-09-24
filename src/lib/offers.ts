@@ -265,6 +265,7 @@ const INVESTING_SLUGS = new Set([
   "retirement-savings-calculator",
   "401k-calculator",
   "roth-ira-calculator",
+  "hsa-calculator",
   "capital-gains-tax-calculator",
   "cd-calculator",
   "savings-goal-calculator",
