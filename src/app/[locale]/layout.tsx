@@ -3,6 +3,7 @@ import { isLocale, locales } from "@/lib/i18n/config";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CookieConsent } from "@/components/cookie-consent";
+import { FeedbackFab } from "@/components/feedback-fab";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -34,6 +35,7 @@ export default async function LocaleLayout({
         {children}
       </main>
       <SiteFooter locale={locale} />
+      <FeedbackFab locale={locale} />
       <CookieConsent locale={locale} />
     </>
   );
