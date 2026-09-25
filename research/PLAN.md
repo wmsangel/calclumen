@@ -11,9 +11,9 @@
 
 ## A. Текущий недельный план (доделать первым)
 
-- [ ] **Day 4** — опорный гайд (напр. «Roth vs Traditional IRA», связать
-      roth-ira/401k/capital-gains/hsa/retirement) + заполнить пустые офферные
-      кластеры **AUTO** и **HOME** (если есть одобренные партнёрки; иначе — владельцу).
+- [x] **Day 4** — опорный гайд «Roth vs Traditional IRA» (`/en/guides/roth-vs-traditional-ira`,
+      связан roth-ira/401k/retirement/hsa/capital-gains) — c3f2ed0 (2026-09-25).
+      ⏳ Офферные кластеры **AUTO** и **HOME** — ждут одобренных партнёрок от владельца.
 - [ ] **Day 5** — CTR/мета/схема: переписать title+description money-страниц под
       клики; видимый «Updated {месяц}» на калькуляторах; проверить FAQ/HowTo schema
       на новых; target-heart-rate title под клик.
