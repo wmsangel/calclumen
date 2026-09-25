@@ -1376,7 +1376,7 @@ export const calculators: CalcDef[] = [
     title: "Target heart rate",
     heading: "Target Heart Rate Calculator",
     description:
-      "Find your training heart-rate zones from your age and resting heart rate.",
+      "Work out your target heart-rate training zones — warm-up, fat-burn, aerobic and peak — from your age and resting heart rate, using the max-HR and Karvonen methods.",
     keywords: [
       "target heart rate calculator",
       "heart rate zones",

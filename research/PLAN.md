@@ -14,9 +14,11 @@
 - [x] **Day 4** — опорный гайд «Roth vs Traditional IRA» (`/en/guides/roth-vs-traditional-ira`,
       связан roth-ira/401k/retirement/hsa/capital-gains) — c3f2ed0 (2026-09-25).
       ⏳ Офферные кластеры **AUTO** и **HOME** — ждут одобренных партнёрок от владельца.
-- [ ] **Day 5** — CTR/мета/схема: переписать title+description money-страниц под
-      клики; видимый «Updated {месяц}» на калькуляторах; проверить FAQ/HowTo schema
-      на новых; target-heart-rate title под клик.
+- [x] **Day 5** — freshness/схема/CTR (commit при пуше): видимый «Updated {Month Year}»
+      на всех калькуляторах (build-time, calc-shell) + `dateModified` в WebApplication
+      JSON-LD; FAQ/HowTo schema проверено (эмитятся CalcShell для всех); target-heart-rate
+      description переписан под клики. Массовый rewrite title+description money-страниц —
+      делать НЕ вслепую, а точечно в Day 6 по GSC-данным (какие близко к топу).
 - [ ] **Day 6** — data-driven усиление: свежий GSC pull → где близко к топу, точечно
       усилить (worked examples / FAQ / related). Без нового тонкого программатика.
 - [ ] **Day 7** — ревизия: URL-инспекция (что проиндексировалось), Request Indexing

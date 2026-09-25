@@ -16,6 +16,14 @@ import { EuOfferBlock } from "./eu-offer-block";
 import { FavoriteButton } from "./favorite-button";
 import { PrintButton } from "./print-button";
 
+// Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
+// are statically regenerated on each deploy, so this reflects the last update.
+const CALC_UPDATED = new Date().toLocaleDateString("en-US", {
+  month: "long",
+  year: "numeric",
+});
+const CALC_UPDATED_ISO = new Date().toISOString().slice(0, 10);
+
 export interface FaqItem {
   q: string;
   a: string;
@@ -56,6 +64,7 @@ export function CalcShell({
       operatingSystem: "Any",
       inLanguage: "en",
       isAccessibleForFree: true,
+      dateModified: CALC_UPDATED_ISO,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@type": "Organization", name: SITE_NAME },
     },
@@ -130,6 +139,7 @@ export function CalcShell({
       <p className="mt-3 text-lg text-[var(--ink-soft)] leading-relaxed">
         {calc.description}
       </p>
+      <p className="mt-2 text-xs text-[var(--ink-soft)]">Updated {CALC_UPDATED}</p>
 
       {/* The interactive calculator */}
       <div className="mt-7">{children}</div>
