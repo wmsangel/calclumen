@@ -1314,6 +1314,102 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "roth-vs-traditional-ira",
+    title: "Roth vs Traditional IRA: Which One Should You Choose?",
+    description:
+      "Roth or traditional? The whole decision comes down to one question: is your tax rate higher now or in retirement? Here's how to answer it, with a worked example.",
+    category: "finance",
+    updated: "2026-09",
+    readMins: 6,
+    calcSlugs: [
+      "roth-ira-calculator",
+      "401k-calculator",
+      "retirement-savings-calculator",
+      "hsa-calculator",
+      "capital-gains-tax-calculator",
+    ],
+    body: [
+      {
+        t: "p",
+        text: "A Roth IRA and a traditional IRA share the same contribution limit and can hold the same investments. The only real difference is when you pay income tax. With a traditional IRA you get a deduction today and pay tax when you withdraw in retirement. With a Roth you pay tax today and every qualified withdrawal, growth included, is tax-free later.",
+      },
+      {
+        t: "callout",
+        text: "The core rule: if you expect your tax rate to be higher in retirement than it is now, choose Roth. If you expect it to be lower, choose traditional. If the rates are equal, both end up with the same after-tax money.",
+      },
+      { t: "h2", text: "Side-by-side comparison" },
+      {
+        t: "ul",
+        items: [
+          "Tax break: Traditional gives you a possible deduction now. Roth gives you tax-free qualified withdrawals later.",
+          "Income limits: Anyone with earned income can contribute to a traditional IRA, but the deduction phases out if you or your spouse have a workplace plan and earn above IRS thresholds. Roth contributions phase out entirely at higher incomes.",
+          "Withdrawals: Traditional withdrawals are taxed as ordinary income. Roth contributions (not earnings) can be taken out at any time, tax- and penalty-free.",
+          "Required minimum distributions: Traditional IRAs force withdrawals starting in your 70s. Roth IRAs have no RMDs during the original owner's lifetime.",
+          "Early withdrawal: Earnings taken before age 59½ are generally hit with a 10% penalty plus tax in both accounts, with some exceptions (first home, education, disability).",
+        ],
+      },
+      { t: "h2", text: "Why equal tax rates give the same result" },
+      {
+        t: "p",
+        text: "Say you have $5,000 of pre-tax salary to invest, a 22% tax rate now and in retirement, and your money grows 8× over 30 years. Traditional: you invest the full $5,000, it grows to $40,000, and you pay 22% on the withdrawal, which leaves $31,200. Roth: you pay 22% up front, invest $3,900, and it grows to $31,200, all of it tax-free. That's the same answer. Multiplication doesn't care about order. What decides the winner is whether the tax rate going in differs from the tax rate coming out.",
+      },
+      {
+        t: "callout",
+        text: "The Roth wins when you max out the contribution. $7,500 in a Roth shelters more money than $7,500 in a traditional IRA, because the Roth dollars are already after-tax. If you can afford the limit either way, the Roth effectively lets you invest more.",
+      },
+      { t: "h2", text: "When a Roth IRA usually makes sense" },
+      {
+        t: "ul",
+        items: [
+          "You're early in your career and in a low tax bracket (10% or 12%).",
+          "You expect your income, and your bracket, to rise over time.",
+          "You want flexibility, because contributions can come back out without tax or penalty.",
+          "You'd like to avoid RMDs, or you plan to leave the account to heirs.",
+          "You think tax rates in general are likely to go up in the future.",
+        ],
+      },
+      { t: "h2", text: "When a traditional IRA usually makes sense" },
+      {
+        t: "ul",
+        items: [
+          "You're in your peak earning years and in a high bracket (24% or above).",
+          "You expect a smaller income in retirement, so a lower bracket when you withdraw.",
+          "You need the deduction now, for example to lower your adjusted gross income for other credits.",
+          "You earn too much to contribute to a Roth directly and don't want to use a backdoor Roth conversion.",
+        ],
+      },
+      { t: "h2", text: "2026 limits at a glance" },
+      {
+        t: "ul",
+        items: [
+          "Contribution limit: $7,500 per person across all your IRAs combined, plus a $1,100 catch-up if you're 50 or older.",
+          "Roth income phase-out: roughly $153,000–$168,000 of modified AGI for single filers and $242,000–$252,000 for married couples filing jointly.",
+          "You can split contributions between a Roth and a traditional IRA in the same year, as long as the total stays under the limit.",
+          "The IRS adjusts these figures every year, so check the current numbers before you contribute.",
+        ],
+      },
+      { t: "h2", text: "Where the IRA fits in your savings order" },
+      {
+        t: "steps",
+        items: [
+          "Contribute enough to your 401(k) to get the full employer match. That's an instant return you can't get anywhere else.",
+          "If you have a high-deductible health plan, fund an HSA. It's the only account that's tax-free going in, while growing and coming out (for medical costs).",
+          "Fund a Roth or traditional IRA, using the tax-rate rule above to pick one.",
+          "Go back and raise your 401(k) contributions toward the annual limit.",
+          "Put anything left over in a taxable brokerage account, where long-term capital gains rates apply.",
+        ],
+      },
+      {
+        t: "callout",
+        text: "Can't decide? Split the difference. Holding both Roth and pre-tax money gives you 'tax diversification': in retirement you can choose which bucket to draw from each year to manage your bracket.",
+      },
+      {
+        t: "p",
+        text: "This guide is general education, not tax advice. Contribution limits, phase-outs and withdrawal rules change and depend on your situation, so confirm the details with the IRS or a tax professional before you act.",
+      },
+    ],
+  },
 ];
 
 // ── Lookups ──────────────────────────────────────────────────────
