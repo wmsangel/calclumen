@@ -1464,8 +1464,8 @@ export const calculators: CalcDef[] = [
     title: "APR",
     heading: "APR Calculator",
     description:
-      "Find the true annual percentage rate of a loan including fees, not just the interest rate.",
-    keywords: ["apr calculator", "annual percentage rate", "loan apr", "true cost of a loan"],
+      "Find the true APR of a loan including fees, convert a monthly interest rate to APR, and see APR vs APY — free, with worked examples.",
+    keywords: ["apr calculator", "annual percentage rate", "loan apr", "true cost of a loan", "monthly interest rate to apr", "apr vs apy", "apr from monthly payment"],
     isNew: true,
   },
   {

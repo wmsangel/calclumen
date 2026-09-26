@@ -30,6 +30,42 @@ const content: CalcContent = {
     "This APR calculator shows the true annual percentage rate on a loan once upfront fees are taken into account. The advertised, or nominal, rate only reflects the interest charged, but fees reduce the money you actually receive — so the effective cost of borrowing is higher. Enter the loan amount, the nominal rate, the term and any upfront fees to see the real APR.",
     "The calculation first works out your fixed monthly payment from the nominal rate using the standard amortization formula. It then finds the interest rate that equates the amount you actually receive after fees to that stream of payments, and expresses it as an annual rate. When there are no fees, the true APR equals the nominal rate.",
   ],
+  extra: (
+    <div>
+      <h2 className="text-xl font-semibold">How to work out APR: worked examples</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
+        The APR questions people ask most, worked step by step:
+      </p>
+      <ul className="mt-4 list-disc pl-5 space-y-2 text-[var(--ink-soft)] leading-relaxed">
+        <li>
+          <strong>Monthly interest rate to APR:</strong> multiply by 12. A 1.5%
+          monthly rate is 1.5 × 12 = <strong>18% APR</strong>. Going the other
+          way, a 24% APR is 24 ÷ 12 = <strong>2% per month</strong>.
+        </li>
+        <li>
+          <strong>APR vs APY:</strong> APR ignores compounding, APY includes it.
+          That same 1.5% a month compounds to (1.015¹² − 1) × 100 ≈{" "}
+          <strong>19.56% APY</strong>, and a 6% APR compounded monthly is about{" "}
+          <strong>6.17% APY</strong>. Lenders quote APR; savings accounts quote
+          APY.
+        </li>
+        <li>
+          <strong>APR from a monthly payment:</strong> a $15,000 loan repaid at
+          $350 a month for 48 months costs $16,800 in total. Solving for the
+          rate that makes 48 payments of $350 worth $15,000 today gives about
+          0.472% a month — an APR of roughly <strong>5.67%</strong>. There is no
+          simple formula; it is found by trial (iteration), which is what the
+          calculator does.
+        </li>
+        <li>
+          <strong>How fees raise the APR:</strong> $10,000 at 8% for 5 years is
+          $202.76 a month. With a $300 origination fee you only receive $9,700
+          but still make the same payments, so the true APR is about{" "}
+          <strong>9.30%</strong> — 1.3 points above the advertised rate.
+        </li>
+      </ul>
+    </div>
+  ),
   steps: [
     "Enter the loan amount and choose your currency.",
     "Type the nominal interest rate (the advertised APR) as a percentage.",
@@ -48,6 +84,18 @@ const content: CalcContent = {
     {
       q: "Why does adding fees raise the APR?",
       a: "Fees mean you receive less money than the loan's face value but still repay the full amount plus interest. Spreading that extra cost over the loan term raises the effective interest rate, which is what the APR captures.",
+    },
+    {
+      q: "How do I convert a monthly interest rate to APR?",
+      a: "Multiply the monthly rate by 12. A 1.5% monthly rate is an 18% APR, and a 0.5% monthly rate is a 6% APR. To go from APR to a monthly rate, divide by 12 — a 24% APR is 2% per month.",
+    },
+    {
+      q: "What is the difference between APR and APY?",
+      a: "APR is the simple yearly rate (monthly rate × 12) and does not include compounding. APY (annual percentage yield) includes compounding, so it is always equal to or higher than the APR. A 6% APR compounded monthly equals about a 6.17% APY. Loans are usually quoted in APR, savings accounts in APY.",
+    },
+    {
+      q: "How do I work out the APR from a monthly payment?",
+      a: "You need the amount borrowed, the monthly payment and the number of payments. The APR is the rate at which those payments, discounted back to today, equal the amount you received. There is no closed-form formula, so it is solved by iteration — for example, $15,000 repaid at $350 a month for 48 months works out to about a 5.67% APR.",
     },
   ],
 };
