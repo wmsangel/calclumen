@@ -19,8 +19,14 @@
       JSON-LD; FAQ/HowTo schema проверено (эмитятся CalcShell для всех); target-heart-rate
       description переписан под клики. Массовый rewrite title+description money-страниц —
       делать НЕ вслепую, а точечно в Day 6 по GSC-данным (какие близко к топу).
-- [ ] **Day 6** — data-driven усиление: свежий GSC pull → где близко к топу, точечно
+- [x] **Day 6** — data-driven усиление: свежий GSC pull → где близко к топу, точечно
       усилить (worked examples / FAQ / related). Без нового тонкого программатика.
+      — dec3cd2 (2026-09-26): GSC 28д — money-страницы все на поз. 57–95, «близко к
+      топу» нет; самый плотный спрос-кластер = APR (monthly rate→APR, APR vs APY,
+      APR from payment) → apr-calculator: блок worked examples + 3 FAQ + meta.
+      Следующие кандидаты тем же приёмом: margin-vs-markup гайд (34 impr, поз. 92),
+      car-affordability (33 impr «car affordability calculator», поз. 78),
+      how-to-calculate-roi гайд (18 impr, поз. 89).
 - [ ] **Day 7** — ревизия: URL-инспекция (что проиндексировалось), Request Indexing
       следующей десятки, прогнать `/morning-seo`, скорректировать план.
 
