@@ -27,8 +27,36 @@
       Следующие кандидаты тем же приёмом: margin-vs-markup гайд (34 impr, поз. 92),
       car-affordability (33 impr «car affordability calculator», поз. 78),
       how-to-calculate-roi гайд (18 impr, поз. 89).
-- [ ] **Day 7** — ревизия: URL-инспекция (что проиндексировалось), Request Indexing
+- [x] **Day 7** — ревизия: URL-инспекция (что проиндексировалось), Request Indexing
       следующей десятки, прогнать `/morning-seo`, скорректировать план.
+      — 2026-09-27 (ревизия, без деплоя). Итоги:
+      · **GSC (API, dataState=all):** после одиночного всплеска 28.08 (139k impr, units)
+        видимость рухнула до 0–6 impr/день с ~05.09 и так держится 3 недели. Сайт
+        по сути не ранжируется в Google. CF: 10–90 визитов/день, в основном Bing/Yahoo.
+      · **URL-инспекция (выборка ~150 URL):** 56 indexed / 38 crawled-not-indexed /
+        86 unknown. Флагманы high-CPM — **crawled, not indexed**: mortgage-calculator,
+        compound-interest, auto-loan, credit-card-payoff, hsa, discount, age, хабы
+        /finance /health /date-time, гайды how-much-house / emergency-fund.
+        **Unknown to Google**: paycheck, income-tax, student-loan, roth-ira, pmi, dti,
+        ltv, refinance, home-equity, debt-consolidation, biweekly, capital-gains,
+        net-worth, margin-markup, /guides, гайды roth-vs-traditional-ira и
+        how-mortgage-payments-work.
+      · **Request Indexing (владелец, GSC UI)** — следующая десятка по CPM:
+        mortgage-calculator, paycheck-calculator, income-tax-calculator,
+        debt-consolidation-calculator, home-equity-calculator, student-loan-calculator,
+        roth-ira-calculator, compound-interest-calculator, auto-loan-calculator,
+        /en/guides/roth-vs-traditional-ira.
+      · `/morning-seo` в авто-прогоне недоступен — данные взяты из stats.db + GSC API.
+      · **Вывод для плана:** «crawled-not-indexed» на лучших страницах + ~3960
+        программатических URL на молодом домене без ссылок = сигнал site-wide quality
+        (scaled/thin). Новые калькуляторы (B1) не решат индексацию. См. ⚠️ A2 ниже.
+
+## A2. ⚠️ КРУПНОЕ — индексация (решение владельца, 2026-09-27)
+- [ ] ⚠️ Сократить индексируемый программатик (noindex/исключение из sitemap
+      тонких /units, /data, /combinations, /factors, /is-prime, /simplify и т.п.,
+      оставив топ-спрос), чтобы краулинговый бюджет и quality-сигнал ушли на
+      money-страницы. Массовый noindex — только по решению владельца.
+- [ ] Беклинки на 5–10 money-страниц с сетевых сайтов владельца (рычаг №1).
 
 ---
 
