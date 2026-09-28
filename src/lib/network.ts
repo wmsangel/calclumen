@@ -2,11 +2,11 @@
 // (not sponsored/nofollow like affiliate offers) so the cross-links pass
 // SEO value between the sites we own — reciprocal promotion + backlinks.
 //
-// Scope: only the English, topically-adjacent tool/calculator sites are
-// linked from CalcLumen — keeping the footer relevant to our audience and
-// avoiding a cross-language sitewide-footer footprint. The Russian
-// (prodom-expert.ru, 24zdorovie.com) and Kazakh (bilimjol.com) sites, and
-// izngames.com, are deliberately left out here.
+// Scope: the English versions of our family sites — the topically-adjacent
+// tool/calculator sites first, then foundaday and the owner's portfolio
+// (owner's call). We link each site's /en URL and keep the RU/KY-only content
+// sites (prodom-expert.ru, 24zdorovie.com, bilimjol.com) and izngames.com out,
+// to limit a cross-language sitewide-footer footprint.
 
 export interface NetworkSite {
   name: string;
@@ -71,5 +71,19 @@ export const NETWORK_SITES: NetworkSite[] = [
     blurb:
       "Website, email and spreadsheet templates with clean, readable code — HTML/Tailwind, MJML and Sheets, free versions to grab and go.",
     cta: "Browse Foldout",
+  },
+  {
+    name: "foundaday",
+    url: "https://foundaday.com/en",
+    blurb:
+      "One good find a day — a useful site, tool or thing worth knowing, hand-picked across the web.",
+    cta: "Open foundaday",
+  },
+  {
+    name: "Dasha Motion",
+    url: "https://dasha-motion.com/en/",
+    blurb:
+      "Motion design portfolio — 2D animation, ad creatives and AI-assisted visuals by Daria Zagorodnaya.",
+    cta: "See the work",
   },
 ];
