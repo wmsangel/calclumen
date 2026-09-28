@@ -31,7 +31,8 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const page = parseRomanSlug(slug);
   if (!page) return {};
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `roman-numerals/${slug}`,
     title: `${page.value} in Roman Numerals`,
@@ -42,7 +43,11 @@ export async function generateMetadata({
       `roman numeral for ${page.value}`,
       `${page.value} as a roman numeral`,
     ],
-  });
+  }),
+    // Thin templated cluster — noindexed 2026-09-28 to shrink the site to its
+    // substantive pages after a domain-wide Google quality demotion.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

@@ -56,7 +56,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { conv, value } = page;
   const result = formatNumber(convertUnit(value, conv), conv.precision);
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `units/${slug}`,
     title: `${value} ${conv.fromUnit} to ${conv.toUnit}`,
@@ -67,7 +68,11 @@ export async function generateMetadata({
       `${value} ${conv.fromUnit} in ${conv.toUnit}`,
       `${conv.fromUnit} to ${conv.toUnit}`,
     ],
-  });
+  }),
+    // Thin templated cluster — noindexed 2026-09-28 to shrink the site to its
+    // substantive pages after a domain-wide Google quality demotion.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

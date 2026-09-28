@@ -3,10 +3,6 @@ import { locales } from "@/lib/i18n/config";
 import { calculators, categories } from "@/lib/calculators/registry";
 import { absUrl } from "@/lib/seo/site";
 import { GUIDES } from "@/lib/guides";
-import { UNIT_PAGES } from "@/lib/programmatic/units";
-import { ROMAN_PAGES } from "@/lib/programmatic/roman";
-import { SIZE_PAGES } from "@/lib/programmatic/datasize";
-import { CHOOSE_PAGES } from "@/lib/programmatic/combinations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -78,47 +74,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    // Programmatic unit-conversion pages (/units/…) — indexable, so included.
-    for (const p of UNIT_PAGES) {
-      entries.push({
-        url: absUrl(locale, `units/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "N in Roman numerals" pages — indexable.
-    for (const p of ROMAN_PAGES) {
-      entries.push({
-        url: absUrl(locale, `roman-numerals/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic data-storage conversion pages (/data/…) — indexable.
-    for (const p of SIZE_PAGES) {
-      entries.push({
-        url: absUrl(locale, `data/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Programmatic "n choose k" combination pages — indexable.
-    for (const p of CHOOSE_PAGES) {
-      entries.push({
-        url: absUrl(locale, `combinations/${p.slug}`),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-
-    // Note: the thin math clusters (factors, gcf-lcm, multiples, is-prime,
+    // Note: ALL thin templated clusters are intentionally noindex and kept out
+    // of the sitemap — the math clusters (factors, gcf-lcm, multiples, is-prime,
     // simplify, decimal-to-fraction, fraction-to-decimal, percent,
-    // number-in-words) plus the templated /X-percent-of-Y and /convert/…
-    // pages are intentionally noindex — 0 impressions over 90 days in GSC,
-    // pure index bloat — so they're kept out of the sitemap. All stay
+    // number-in-words) since 2026-09-17, and units, roman-numerals, data and
+    // combinations added 2026-09-28 after a domain-wide Google quality
+    // demotion (159k→~2 impressions/day). The site now submits only its ~150
+    // substantive pages (calculators, guides, hubs). All thin pages stay
     // reachable for users and via internal links.
   }
 

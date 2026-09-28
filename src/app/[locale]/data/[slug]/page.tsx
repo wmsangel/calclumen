@@ -34,7 +34,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { conv, value } = page;
   const dec = fmtSize(convertDecimal(value, conv));
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `data/${slug}`,
     title: `${value} ${conv.fromLabel} to ${conv.toLabel}`,
@@ -45,7 +46,11 @@ export async function generateMetadata({
       `${value} ${conv.fromName} to ${conv.toName}`,
       `convert ${value} ${conv.fromName} to ${conv.toName}`,
     ],
-  });
+  }),
+    // Thin templated cluster — noindexed 2026-09-28 to shrink the site to its
+    // substantive pages after a domain-wide Google quality demotion.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({

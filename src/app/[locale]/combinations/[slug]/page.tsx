@@ -34,7 +34,8 @@ export async function generateMetadata({
   if (!page) return {};
   const { n, k } = page;
   const c = groupBig(nCr(n, k));
-  return pageMetadata({
+  return {
+    ...pageMetadata({
     locale,
     path: `combinations/${slug}`,
     title: `${n} choose ${k}`,
@@ -45,7 +46,11 @@ export async function generateMetadata({
       `${n} choose ${k} combinations`,
       `how many ways to choose ${k} from ${n}`,
     ],
-  });
+  }),
+    // Thin templated cluster — noindexed 2026-09-28 to shrink the site to its
+    // substantive pages after a domain-wide Google quality demotion.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function Page({
