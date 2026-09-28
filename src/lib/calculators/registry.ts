@@ -1106,6 +1106,21 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "life-insurance-calculator",
+    category: "finance",
+    title: "Life insurance needs",
+    heading: "Life Insurance Needs Calculator",
+    description:
+      "Estimate how much life insurance your family needs with the DIME method — income replacement, debts, mortgage, education and final expenses, minus what you already have.",
+    keywords: [
+      "life insurance calculator",
+      "how much life insurance do i need",
+      "life insurance needs calculator",
+      "dime method life insurance",
+    ],
+    isNew: true,
+  },
+  {
     slug: "pace-calculator",
     category: "health",
     title: "Running pace",

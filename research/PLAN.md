@@ -83,7 +83,7 @@
 - [ ] RMD · Social Security estimate · traditional IRA
 - [ ] depreciation (MACRS / straight-line)
 - [ ] rental-property ROI / DSCR
-- [ ] life-insurance needs
+- [x] life-insurance needs — life-insurance-calculator (DIME method), savings-budgeting cluster
 - [ ] FICA / self-employment tax
 - [ ] property-tax
 

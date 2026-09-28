@@ -78,6 +78,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
         "emergency-fund-calculator",
         "budget-calculator",
         "net-worth-calculator",
+        "life-insurance-calculator",
         "simple-interest-calculator",
       ],
     },
