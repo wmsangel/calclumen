@@ -1653,6 +1653,16 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "roofing-calculator",
+    category: "homediy",
+    title: "Roofing / shingles",
+    heading: "Roofing Calculator (Shingles & Squares)",
+    description:
+      "Estimate your roof's surface area from its footprint and pitch, then the roofing squares, shingle bundles, underlayment and cost you need — waste included.",
+    keywords: ["roofing calculator", "roof shingle calculator", "how many bundles of shingles do I need", "roof square footage calculator", "roof pitch calculator"],
+    isNew: true,
+  },
+  {
     slug: "mileage-reimbursement-calculator",
     category: "auto",
     title: "Mileage reimbursement",
