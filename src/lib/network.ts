@@ -52,6 +52,13 @@ export const NETWORK_SITES: NetworkSite[] = [
     cta: "Open IZN Tools",
   },
   {
+    name: "OCR Snip",
+    url: "https://ocrsnip.com/",
+    blurb:
+      "Turn documents into data right in your browser — bank statements to Excel, images to text, tables to spreadsheets. Nothing is uploaded to a server.",
+    cta: "Open OCR Snip",
+  },
+  {
     name: "TestSweep",
     url: "https://testsweep.com/",
     blurb:
