@@ -126,3 +126,40 @@
 Статистика (ANOVA/регрессия/z-score/распределения), физика/химия (Ohm's law,
 molar mass, gas laws, projectile), 3D-геометрия/тригонометрия, крипто/dev-тулзы
 (base64/subnet/password-gen), fun (love/dice/golf-handicap/shoe-size).
+
+---
+
+## E. ⚠️ ПРЕДЛОЖЕНИЕ (не внедрять без ок владельца): контекстные do-follow ссылки на сеть
+Постоянные in-body ссылки в теле контента на тематически близкие сайты сети —
+единственный кросс-линк, который Google реально ценит (футер/ротация обесцениваются,
+«все ко всем» = link scheme). Дополняет футер-сеть «From our network», НЕ заменяет.
+**Внедрять по одной, максимум ~4 на старте, do-follow, естественным анкором; сперва
+показать карту владельцу.** Реализация требует мелкой доработки контент-модели —
+сейчас intro калькулятора (CalcContent.intro: string[]) и тело гайда (Block[]) без
+inline-ссылок; нужен либо тип блока со ссылкой, либо рендер markdown-ссылок в тексте.
+
+Карта-предложение (по убыванию релевантности; tools↔tools / content↔content):
+1. **home-affordability-calculator** (или rent-affordability / salary-to-hourly) →
+   **costtrek.com/en**. Анкор: «cost of living in another city» / «the salary you'd
+   need after moving». Зачем читателю: прикинул, что может позволить по жилью/зарплате
+   → логично сравнить стоимость жизни город-vs-город при переезде. ⭐ самый естественный.
+2. **capital-gains-tax-calculator** (или инвест-гайд) → **thecryptotools.com**. Анкор:
+   «crypto profit and DCA calculators». Зачем: считает налог с прироста — если трогает
+   крипту, там спец-калькуляторы прибыли/DCA/ликвидации. Только если в тексте есть
+   крипто-контекст.
+3. **budget-calculator** (или гайд «emergency fund / take-home pay») → **ocrsnip.com**.
+   Анкор: «turn your bank statements into a spreadsheet». Зачем: бюджет начинается с
+   разбора трат — OCR Snip делает выписки→Excel прямо в браузере.
+4. **margin-markup-calculator** (или sales-commission / бизнес-гайд) → **iznkit.com/en**.
+   Анкор: «generate an invoice or quote PDF». Зачем: посчитал маржу → следующий шаг
+   выставить счёт/КП, iznkit отдаёт брендированный PDF.
+
+Опционально, ниже приоритетом (осторожно — тема/кросс-язык):
+5. budget-calculator → **pawdget.com** — анкор «the real cost of owning a dog»; для тех,
+   кто закладывает питомца в бюджет (US-аудитория совпадает).
+6. calorie / macro-calculator → **24zdorovie.com/en** (health↔health) — только EN-версия
+   и только если реально помогает; 24zdorovie RU-primary → низкий приоритет.
+
+НЕ линкуем контекстно (нерелевантно/риск): testsweep, foldoutkit, izntools (нет
+естественного места), foundaday, izngames, dasha-motion, prodom-expert.ru (RU),
+bilimjol (KY). Они остаются только в футер-сети.
