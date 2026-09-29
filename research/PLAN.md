@@ -1,165 +1,110 @@
-# CalcLumen — план работ (упорядоченная очередь)
+# CalcLumen — план работ (единый источник)
 
-Дневной авто-аналитик и любая сессия берут **следующую невыполненную** задачу
-отсюда, сверху вниз. Пусто → берём из `research/IDEAS.md`. Взятое помечай `[x]`
-и дописывай хеш коммита. Стратегия/контекст — в памяти проекта.
+Дневной авто-аналитик и любая сессия берут **следующую невыполненную** задачу из
+очереди «🎯 Следующие 10 запусков», сверху вниз. Пусто → из `research/IDEAS.md` →
+из памяти. Взятое помечай `[x]` + хеш коммита.
 
-**Правила:** одна задача за прогон · зелёный `npm run build` перед деплоем ·
-один пуш · крупное/рискованное (помечено ⚠️) — сначала владельцу, не авто-строить.
+**Правила:** одна задача за запуск · зелёный `npm run build` перед деплоем · один пуш ·
+после публикации `node scripts/indexnow.mjs` (стейт-коммит локально, не пушить) ·
+`⚠️` = крупное/рискованное → НЕ авто-строить, только владельцу.
 
----
-
-## A. Текущий недельный план (доделать первым)
-
-- [x] **Day 4** — опорный гайд «Roth vs Traditional IRA» (`/en/guides/roth-vs-traditional-ira`,
-      связан roth-ira/401k/retirement/hsa/capital-gains) — c3f2ed0 (2026-09-25).
-      ⏳ Офферные кластеры **AUTO** и **HOME** — ждут одобренных партнёрок от владельца.
-- [x] **Day 5** — freshness/схема/CTR (commit при пуше): видимый «Updated {Month Year}»
-      на всех калькуляторах (build-time, calc-shell) + `dateModified` в WebApplication
-      JSON-LD; FAQ/HowTo schema проверено (эмитятся CalcShell для всех); target-heart-rate
-      description переписан под клики. Массовый rewrite title+description money-страниц —
-      делать НЕ вслепую, а точечно в Day 6 по GSC-данным (какие близко к топу).
-- [x] **Day 6** — data-driven усиление: свежий GSC pull → где близко к топу, точечно
-      усилить (worked examples / FAQ / related). Без нового тонкого программатика.
-      — dec3cd2 (2026-09-26): GSC 28д — money-страницы все на поз. 57–95, «близко к
-      топу» нет; самый плотный спрос-кластер = APR (monthly rate→APR, APR vs APY,
-      APR from payment) → apr-calculator: блок worked examples + 3 FAQ + meta.
-      Следующие кандидаты тем же приёмом: margin-vs-markup гайд (34 impr, поз. 92),
-      car-affordability (33 impr «car affordability calculator», поз. 78),
-      how-to-calculate-roi гайд (18 impr, поз. 89).
-- [x] **Day 7** — ревизия: URL-инспекция (что проиндексировалось), Request Indexing
-      следующей десятки, прогнать `/morning-seo`, скорректировать план.
-      — 2026-09-27 (ревизия, без деплоя). Итоги:
-      · **GSC (API, dataState=all):** после одиночного всплеска 28.08 (139k impr, units)
-        видимость рухнула до 0–6 impr/день с ~05.09 и так держится 3 недели. Сайт
-        по сути не ранжируется в Google. CF: 10–90 визитов/день, в основном Bing/Yahoo.
-      · **URL-инспекция (выборка ~150 URL):** 56 indexed / 38 crawled-not-indexed /
-        86 unknown. Флагманы high-CPM — **crawled, not indexed**: mortgage-calculator,
-        compound-interest, auto-loan, credit-card-payoff, hsa, discount, age, хабы
-        /finance /health /date-time, гайды how-much-house / emergency-fund.
-        **Unknown to Google**: paycheck, income-tax, student-loan, roth-ira, pmi, dti,
-        ltv, refinance, home-equity, debt-consolidation, biweekly, capital-gains,
-        net-worth, margin-markup, /guides, гайды roth-vs-traditional-ira и
-        how-mortgage-payments-work.
-      · **Request Indexing (владелец, GSC UI)** — следующая десятка по CPM:
-        mortgage-calculator, paycheck-calculator, income-tax-calculator,
-        debt-consolidation-calculator, home-equity-calculator, student-loan-calculator,
-        roth-ira-calculator, compound-interest-calculator, auto-loan-calculator,
-        /en/guides/roth-vs-traditional-ira.
-      · `/morning-seo` в авто-прогоне недоступен — данные взяты из stats.db + GSC API.
-      · **Вывод для плана:** «crawled-not-indexed» на лучших страницах + ~3960
-        программатических URL на молодом домене без ссылок = сигнал site-wide quality
-        (scaled/thin). Новые калькуляторы (B1) не решат индексацию. См. ⚠️ A2 ниже.
-
-## A2. ⚠️ КРУПНОЕ — индексация (решение владельца, 2026-09-27)
-- [x] ⚠️ Сократить индексируемый программатик (сделано 2dcf113, 2026-09-28) (noindex/исключение из sitemap
-      тонких /units, /data, /combinations, /factors, /is-prime, /simplify и т.п.,
-      оставив топ-спрос), чтобы краулинговый бюджет и quality-сигнал ушли на
-      money-страницы. Массовый noindex — только по решению владельца.
-- [ ] Беклинки на 5–10 money-страниц с сетевых сайтов владельца (рычаг №1).
+Актуализировано: **2026-09-29** · калькуляторов: **121**.
 
 ---
 
-## B. Из конкурентного анализа (2026-09-24) — ПОСЛЕ недельного плана, по CPM
-
-### B1. Строительные / DIY-калькуляторы (high-CPM whitespace, быстрые победы)
-Категория `homediy`. Паттерн: registry (+isNew) → компонент → страница → кластер.
-- [x] roofing-calculator (площадь кровли, пачки черепицы, waste %) — a5c1149 (2026-09-28)
-- [x] mulch-calculator — уже покрыт gravel-calculator (Gravel & Mulch), дубль не строим
-- [x] deck-calculator (доски настила, лаги, крепёж) — 7d3b072 (2026-09-29)
-- [ ] drywall-calculator (листы, шпаклёвка, саморезы)
-- [ ] stair-calculator (высота/глубина ступеней, кол-во ступеней)
-- [ ] solar-panel-calculator (кол-во панелей, покрытие счёта, окупаемость) — high-CPM
-- [ ] insulation-calculator (R-value, площадь, рулоны)
-- [ ] rebar-calculator / board-foot-calculator (по остаточному спросу)
-
-### B2. Гео take-home pay / income-tax по юрисдикциям (programmatic, топовый CPM)
-- [ ] ⚠️ КРУПНОЕ — сначала владельцу. Прототип: take-home pay для 2–3 штатов US
-      (шаблон + налоговые таблицы) как образец программной генерации → далее все
-      штаты + UK. Согласовать источник налоговых данных и объём до массовой генерации.
-
-### B3. Достройка finance-сюита (high-CPM)
-- [ ] annuity / present-value / future-value / NPV / IRR / CAGR
-- [ ] RMD · Social Security estimate · traditional IRA
-- [ ] depreciation (MACRS / straight-line)
-- [ ] rental-property ROI / DSCR
-- [x] life-insurance needs — life-insurance-calculator (DIME method), savings-budgeting cluster
-- [ ] FICA / self-employment tax
-- [ ] property-tax
-
-### B4. Рост — embeddable-виджет (backlink-движок)
-- [ ] ⚠️ КРУПНОЕ — сначала владельцу. Спроектировать встраиваемый калькулятор
-      (iframe/скрипт) с ОБЯЗАТЕЛЬНЫМ бэклинком на calclumen.com (модель Omni).
-      Бьёт в дефицит №1 (внешние ссылки). Сначала дизайн/согласование.
+## 🚨 Контекст №1: восстановление после понижения Google
+Диагноз 2026-09-28: домен алгоритмически понижен (159k показов/день в конце авг →
+~2/день весь сент), из-за молодого домена + ~0 бэклинков + 96% тонких шаблонных
+страниц. Не техника (robots/sitemap/CWV чисто), Bing показывает. Рычаги восстановления:
+1. **Чистка тонкого** — ✅ сделано (noindex units/roman/data/combinations + математика; sitemap 2929→152).
+2. **Бэклинки (авторитет)** — 🔴 owner, рычаг №1, в работе («ждём, там разместили»).
+3. **Содержательный контент** — каждый запуск = уникальный finance/DIY-калькулятор, НИКОГДА не тонкий.
+4. **Ждать** — Google переоценивает неделями; мониторим (см. ниже).
 
 ---
 
-## D. Аналитика: события GA4 + цели (кросс-задача, можно инкрементально)
-Цель — видеть, ЧТО популярно, КУДА жмут, ЧЕМ пользуются, что конвертит. GA4 уже
-подключён (G-JY9FBM2921, Consent Mode v2), но кастомных событий пока нет.
-- [ ] Хелпер `track(event, params)` в `src/lib/analytics.ts` — обёртка над
-      `gtag('event', …)` через dataLayer, УВАЖАЯ согласие (события только при
-      analytics granted, как в `src/lib/consent.ts`). Без PII и без значений
-      вводимых сумм.
-- [ ] Инструментировать ключевые действия:
-      • `calculator_use { calc: slug }` — первый значимый расчёт/ввод на странице
-        (что реально используют, а не только смотрят)
-      • `offer_click { offer_id, placement }` — клики по офферам/CTA (МОНЕТИЗАЦИЯ:
-        affiliate-block, eu-offer-block, home-offers, offer-panel) — [ключевое]
-      • `result_action { action: copy|share|save }` — result-actions.tsx
-      • `feedback_open` / `feedback_send` — feedback-fab.tsx
-      • `support_copy_address { chain }` / `support_share { network }` — /support
-      • `network_click { site }` — кросс-промо (network-promo, футер)
-      • `outbound_click { host }` — прочие внешние ссылки (по желанию)
-- [ ] В GA4 (UI, владелец): пометить `offer_click`, `feedback_send`,
-      `support_copy_address` как key events (цели/конверсии).
-- [ ] Дальше по данным: какие калькуляторы деглубить, какие офферы работают, что
-      убрать. Кормит Day 6 (data-driven) и решения по контенту/монетизации.
-Гардрейлы: без персональных данных и без значений вводимых сумм; события только с
-согласием; не ломать существующий GA / Consent Mode.
+## 🎯 СЛЕДУЮЩИЕ 10 ЗАПУСКОВ (очередь — сверху вниз, по одной)
+Баланс: high-CPM finance (B3) + строительные под пустой HOME (B1) + аналитика (D).
+Каждый: registry(+isNew) → компонент → страница (intro/steps/FAQ) → кластер/связки.
+
+- [ ] **1. solar-panel-calculator** (B1) — кол-во панелей по счёту/площади, покрытие
+      счёта, окупаемость. High-CPM (энергия), пара к electricity-cost + будущий HOME-оффер.
+- [ ] **2. fica-calculator / self-employment tax** (B3) — налог самозанятого (SS+Medicare),
+      high-intent, пара к налоговым офферам.
+- [ ] **3. annuity-calculator** (B3) — present/future value аннуитета (+ можно NPV/IRR/CAGR
+      следующими). Пенсия/инвестиции, INVESTING-кластер.
+- [ ] **4. drywall-calculator** (B1) — листы, шпаклёвка, саморезы, waste. HOME, пара к VEVOR.
+- [ ] **5. rmd-calculator** (B3) — Required Minimum Distribution по возрасту/балансу IRA.
+      Пенсионная тема, INVESTING-кластер.
+- [ ] **6. stair-calculator** (B1) — высота/глубина/число ступеней (строительные нормы).
+- [ ] **7. rental-property-calculator** (B3) — ROI / cash-on-cash / DSCR аренды.
+      Недвижимость-инвестиции, high-CPM.
+- [ ] **8. insulation-calculator** (B1) — R-value, площадь, рулоны/плиты.
+- [ ] **9. depreciation-calculator** (B3) — MACRS / straight-line. Бизнес/налоги.
+- [ ] **10. Аналитика GA4 (D, кросс-задача)** — хелпер `track()` + ключевые события
+      (`offer_click`, `calculator_use`, `feedback_*`, `support_*`). Даёт данные для решений.
+      (Может делать основная сессия — трогает много компонентов.)
+
+**После десятки:** остаток — property-tax, traditional-IRA/Social-Security estimate,
+NPV/IRR/CAGR, board-foot/rebar; затем C (опционально) и точечные CTR-правки по GSC.
+
+---
+
+## ✅ Сделано (лог)
+- Недельный план Day 1–7 (хаб + перелинковка, PMI, freshness/схема, Day6 APR, Day7 ревизия).
+- **A2: чистка тонкого программатика** (2dcf113) — noindex units/roman/data/combinations, sitemap→152.
+- B1: roofing (a5c1149), deck (7d3b072); mulch = покрыт gravel-calculator.
+- B3: **life-insurance** (277a3a4, DIME).
+- Finance-калькуляторы ранее: mortgage/PMI/HELOC/refinance/biweekly, 401k/roth/hsa/529/capital-gains,
+  income-tax/paycheck/student-loan/debt-* и т.д.
+- Сеть «From our network»: +OCR Snip, +foundaday, +Dasha Motion (10 сайтов).
+- AdSense-обвязка живая на проде (ads.txt + adsbygoogle), ждём readiness.
+
+---
+
+## 📌 Событийное / по решению владельца (НЕ в авто-очереди)
+- **Офферы VEVOR + Costway** (Indoleads, поданы 2026-09-28, ждём аппрув) → как одобрят:
+  сгенерить ссылки source=calclumen.com, завести **HOME OfferGroup** в `src/lib/offers.ts`
+  [VEVOR, Costway] (homediy-кластер сейчас пуст) → покажется на всех DIY-калькуляторах.
+  Искать дальше: US-страхование жизни/авто, солнечные панели (жирный CPA).
+- **⚠️ B2. Гео take-home pay / income-tax по штатам US + UK** — крупный programmatic,
+  топовый CPM. Сначала владельцу (источник налоговых данных + объём).
+- **⚠️ B4. Embeddable-виджет (backlink-движок)** — встраиваемый калькулятор с обязательным
+  бэклинком (модель Omni). Бьёт в дефицит №1. Сначала дизайн/согласование.
+- **⚠️ E. Контекстные do-follow ссылки на сеть** — карта готова (внизу файла), approve-first.
+- **Sovrn Ad Exchange = Plan B** для дисплея, если AdSense откажет по качеству/трафику.
+- **Бэклинки на money-страницы** с сетевых сайтов владельца — рычаг №1 (owner).
+- **AdSense**: подавать, когда readiness-сигнал позеленеет (сейчас NOT YET из-за понижения).
+
+---
+
+## 🔭 Мониторинг (watch, не задача — через `/morning-seo` и авто-аналитик)
+- Google-показы (растут ли с ~2/день).
+- Money-страницы: «unknown / crawled-not-indexed» → «indexed».
+- Частота обхода Googlebot (crawl stats).
+- AdSense-readiness: quality-клики 28д.
+
+---
 
 ## C. Опционально (низкий CPM, осторожно — риск тонких страниц)
 - [ ] cooking/baking конверсии (cups↔grams, oven temps) — только топ-спрос, не массово
 - [ ] health: TDEE · BAC · pregnancy weight gain
 
-## 🔴 НЕ строить (конкуренты все на этом, но ~0 CPM, тонкие/vanity — мы это вырезали)
-Статистика (ANOVA/регрессия/z-score/распределения), физика/химия (Ohm's law,
-molar mass, gas laws, projectile), 3D-геометрия/тригонометрия, крипто/dev-тулзы
-(base64/subnet/password-gen), fun (love/dice/golf-handicap/shoe-size).
+## 🔴 НЕ строить (~0 CPM, тонкие/vanity — мы это вырезали)
+Статистика (ANOVA/регрессия/z-score), физика/химия (Ohm's law, molar mass, gas laws),
+3D-геометрия/тригонометрия, крипто/dev-тулзы (base64/subnet), fun (love/dice/golf/shoe-size).
 
 ---
 
-## E. ⚠️ ПРЕДЛОЖЕНИЕ (не внедрять без ок владельца): контекстные do-follow ссылки на сеть
-Постоянные in-body ссылки в теле контента на тематически близкие сайты сети —
-единственный кросс-линк, который Google реально ценит (футер/ротация обесцениваются,
-«все ко всем» = link scheme). Дополняет футер-сеть «From our network», НЕ заменяет.
-**Внедрять по одной, максимум ~4 на старте, do-follow, естественным анкором; сперва
-показать карту владельцу.** Реализация требует мелкой доработки контент-модели —
-сейчас intro калькулятора (CalcContent.intro: string[]) и тело гайда (Block[]) без
-inline-ссылок; нужен либо тип блока со ссылкой, либо рендер markdown-ссылок в тексте.
-
-Карта-предложение (по убыванию релевантности; tools↔tools / content↔content):
-1. **home-affordability-calculator** (или rent-affordability / salary-to-hourly) →
-   **costtrek.com/en**. Анкор: «cost of living in another city» / «the salary you'd
-   need after moving». Зачем читателю: прикинул, что может позволить по жилью/зарплате
-   → логично сравнить стоимость жизни город-vs-город при переезде. ⭐ самый естественный.
-2. **capital-gains-tax-calculator** (или инвест-гайд) → **thecryptotools.com**. Анкор:
-   «crypto profit and DCA calculators». Зачем: считает налог с прироста — если трогает
-   крипту, там спец-калькуляторы прибыли/DCA/ликвидации. Только если в тексте есть
-   крипто-контекст.
-3. **budget-calculator** (или гайд «emergency fund / take-home pay») → **ocrsnip.com**.
-   Анкор: «turn your bank statements into a spreadsheet». Зачем: бюджет начинается с
-   разбора трат — OCR Snip делает выписки→Excel прямо в браузере.
-4. **margin-markup-calculator** (или sales-commission / бизнес-гайд) → **iznkit.com/en**.
-   Анкор: «generate an invoice or quote PDF». Зачем: посчитал маржу → следующий шаг
-   выставить счёт/КП, iznkit отдаёт брендированный PDF.
-
-Опционально, ниже приоритетом (осторожно — тема/кросс-язык):
-5. budget-calculator → **pawdget.com** — анкор «the real cost of owning a dog»; для тех,
-   кто закладывает питомца в бюджет (US-аудитория совпадает).
-6. calorie / macro-calculator → **24zdorovie.com/en** (health↔health) — только EN-версия
-   и только если реально помогает; 24zdorovie RU-primary → низкий приоритет.
-
-НЕ линкуем контекстно (нерелевантно/риск): testsweep, foldoutkit, izntools (нет
-естественного места), foundaday, izngames, dasha-motion, prodom-expert.ru (RU),
-bilimjol (KY). Они остаются только в футер-сети.
+## ⚠️ E (детали). Карта контекстных do-follow ссылок — approve-first
+Постоянные in-body ссылки в теле контента на близкие сайты сети (единственный кросс-линк,
+который Google ценит; футер/ротация обесцениваются, «все ко всем» = link scheme). Дополняет
+футер-сеть, не заменяет. Внедрять по одной, максимум ~4 на старте, do-follow, естественным
+анкором; **сперва показать владельцу**. Нужна мелкая доработка контент-модели (сейчас intro
+калькулятора и тело гайда без inline-ссылок).
+1. home-affordability (/rent-afford/salary) → **costtrek.com/en** — «cost of living in another city». ⭐
+2. capital-gains-tax → **thecryptotools.com** — «crypto profit & DCA calculators» (если крипта в тексте).
+3. budget-calculator → **ocrsnip.com** — «turn bank statements into a spreadsheet».
+4. margin-markup (/sales-commission) → **iznkit.com/en** — «generate an invoice/quote PDF».
+Опц.: budget→pawdget («cost of owning a dog»); calorie/macro→24zdorovie.com/en (health↔health, EN-only, низкий приоритет).
+НЕ линкуем контекстно: testsweep, foldoutkit, izntools, foundaday, izngames, dasha-motion, RU/KY-сайты.
