@@ -66,7 +66,7 @@
 Категория `homediy`. Паттерн: registry (+isNew) → компонент → страница → кластер.
 - [x] roofing-calculator (площадь кровли, пачки черепицы, waste %) — a5c1149 (2026-09-28)
 - [x] mulch-calculator — уже покрыт gravel-calculator (Gravel & Mulch), дубль не строим
-- [ ] deck-calculator (доски настила, лаги, крепёж)
+- [x] deck-calculator (доски настила, лаги, крепёж) — 7d3b072 (2026-09-29)
 - [ ] drywall-calculator (листы, шпаклёвка, саморезы)
 - [ ] stair-calculator (высота/глубина ступеней, кол-во ступеней)
 - [ ] solar-panel-calculator (кол-во панелей, покрытие счёта, окупаемость) — high-CPM
