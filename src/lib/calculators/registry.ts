@@ -1093,6 +1093,21 @@ export const calculators: CalcDef[] = [
     popular: true,
   },
   {
+    slug: "self-employment-tax-calculator",
+    category: "finance",
+    title: "Self-employment tax",
+    heading: "Self-Employment Tax Calculator",
+    description:
+      "Work out your US self-employment (SECA) tax from net profit — the Social Security and Medicare split, the deductible half and your effective rate.",
+    keywords: [
+      "self employment tax calculator",
+      "seca tax calculator",
+      "fica self employed calculator",
+      "1099 tax calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "paycheck-calculator",
     category: "finance",
     title: "Paycheck",

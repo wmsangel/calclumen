@@ -29,8 +29,8 @@
 
 - [x] **1. solar-panel-calculator** (B1) ✅ 2026-09-29 — панели/кВт/стоимость/окупаемость
       с учётом 30% налог. кредита; homediy, рядом с electricity-cost.
-- [ ] **2. fica-calculator / self-employment tax** (B3) — налог самозанятого (SS+Medicare),
-      high-intent, пара к налоговым офферам.
+- [x] **2. self-employment-tax-calculator** (B3) ✅ 2026-09-29 — SECA: 12.4% SS до потолка +
+      2.9% Medicare на 92.35% прибыли, вычитаемая половина; income-tax кластер.
 - [ ] **3. annuity-calculator** (B3) — present/future value аннуитета (+ можно NPV/IRR/CAGR
       следующими). Пенсия/инвестиции, INVESTING-кластер.
 - [ ] **4. drywall-calculator** (B1) — листы, шпаклёвка, саморезы, waste. HOME, пара к VEVOR.

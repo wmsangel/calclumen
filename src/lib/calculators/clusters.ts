@@ -89,6 +89,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
         "Pay, hours and taxes — take-home pay, salary vs hourly, income tax, sales tax and VAT.",
       slugs: [
         "income-tax-calculator",
+        "self-employment-tax-calculator",
         "paycheck-calculator",
         "salary-to-hourly-calculator",
         "hourly-to-salary-calculator",
