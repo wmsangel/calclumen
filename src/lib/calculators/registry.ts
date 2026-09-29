@@ -1060,6 +1060,21 @@ export const calculators: CalcDef[] = [
     ],
     isNew: true,
   },
+  {
+    slug: "solar-panel-calculator",
+    category: "homediy",
+    title: "Solar panel",
+    heading: "Solar Panel Calculator",
+    description:
+      "Estimate how many solar panels you need, the system size and cost, and the payback period — worked back from your power bill, with the 30% tax credit.",
+    keywords: [
+      "solar panel calculator",
+      "how many solar panels do i need",
+      "solar system size calculator",
+      "solar payback calculator",
+    ],
+    isNew: true,
+  },
 
   // ── Batch 2: more high-demand calculators ──────────────────
   {

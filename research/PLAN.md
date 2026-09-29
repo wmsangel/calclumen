@@ -27,8 +27,8 @@
 Баланс: high-CPM finance (B3) + строительные под пустой HOME (B1) + аналитика (D).
 Каждый: registry(+isNew) → компонент → страница (intro/steps/FAQ) → кластер/связки.
 
-- [ ] **1. solar-panel-calculator** (B1) — кол-во панелей по счёту/площади, покрытие
-      счёта, окупаемость. High-CPM (энергия), пара к electricity-cost + будущий HOME-оффер.
+- [x] **1. solar-panel-calculator** (B1) ✅ 2026-09-29 — панели/кВт/стоимость/окупаемость
+      с учётом 30% налог. кредита; homediy, рядом с electricity-cost.
 - [ ] **2. fica-calculator / self-employment tax** (B3) — налог самозанятого (SS+Medicare),
       high-intent, пара к налоговым офферам.
 - [ ] **3. annuity-calculator** (B3) — present/future value аннуитета (+ можно NPV/IRR/CAGR
