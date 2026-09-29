@@ -1,0 +1,313 @@
+<title>CalcLumen Roadmap</title>
+<style>
+  /* Layout: single centered column; status tiles up top, then stacked sections. */
+  :root {
+    --bg: #f6f5f3;
+    --surface: #ffffff;
+    --surface-2: #efeeea;
+    --ink: #1a1b1e;
+    --ink-soft: #63666e;
+    --rule: #e4e3de;
+    --accent: #6d5df0;
+    --accent-soft: rgba(109, 93, 240, 0.12);
+    --good: #2f9e6f;
+    --warn: #cf8a1e;
+    --crit: #d6564a;
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17181b;
+      --surface: #1f2126;
+      --surface-2: #24262c;
+      --ink: #e9e9ec;
+      --ink-soft: #9a9ea8;
+      --rule: #2d2f36;
+      --accent: #8b7cff;
+      --accent-soft: rgba(139, 124, 255, 0.16);
+      --good: #4cc490;
+      --warn: #e0a94a;
+      --crit: #e8756a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17181b;
+    --surface: #1f2126;
+    --surface-2: #24262c;
+    --ink: #e9e9ec;
+    --ink-soft: #9a9ea8;
+    --rule: #2d2f36;
+    --accent: #8b7cff;
+    --accent-soft: rgba(139, 124, 255, 0.16);
+    --good: #4cc490;
+    --warn: #e0a94a;
+    --crit: #e8756a;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding-inline: 18px;
+    padding-block: 28px 56px;
+  }
+
+  header.top { margin-bottom: 22px; }
+  .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1 .lumen { color: var(--accent); }
+  .updated {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .lede {
+    margin: 8px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+  .src {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .src code {
+    font-family: var(--font-mono);
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+
+  /* status tiles */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 10px;
+    margin: 22px 0 28px;
+  }
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .tile .k {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+  .tile .v {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 3px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .tile .v.warn { color: var(--warn); }
+  .tile .v.crit { color: var(--crit); }
+  .tile .sub { font-size: 0.72rem; color: var(--ink-soft); margin-top: 2px; }
+
+  section { margin-bottom: 26px; }
+  h2 {
+    font-size: 1.02rem;
+    font-weight: 650;
+    margin: 0 0 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .note { font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 12px; }
+
+  /* status chips */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    line-height: 1.4;
+  }
+  .chip::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .chip.done { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+  .chip.wait { color: var(--warn); background: color-mix(in srgb, var(--warn) 16%, transparent); }
+  .chip.go   { color: var(--accent); background: var(--accent-soft); }
+  .chip.risk { color: var(--crit); background: color-mix(in srgb, var(--crit) 15%, transparent); }
+  .chip.type { color: var(--ink-soft); background: var(--surface-2); }
+  .chip.type::before { display: none; }
+
+  /* recovery levers */
+  .levers { display: flex; flex-direction: column; gap: 8px; }
+  .lever {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  .lever .txt { flex: 1; min-width: 0; }
+  .lever .txt b { font-weight: 600; }
+  .lever .txt small { display: block; color: var(--ink-soft); font-size: 0.8rem; }
+
+  /* run queue */
+  ol.queue { list-style: none; counter-reset: run; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  ol.queue li {
+    counter-increment: run;
+    display: flex; align-items: flex-start; gap: 11px;
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 10px 12px;
+    min-width: 0;
+  }
+  ol.queue li::before {
+    content: counter(run);
+    flex: none;
+    width: 24px; height: 24px;
+    display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent);
+    border-radius: 7px;
+    font-size: 0.82rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  ol.queue .body { flex: 1; min-width: 0; }
+  ol.queue .body b { font-weight: 600; }
+  ol.queue .body code { font-family: var(--font-mono); font-size: 0.86em; color: var(--accent); }
+  ol.queue .body small { display: block; color: var(--ink-soft); font-size: 0.8rem; margin-top: 2px; }
+  ol.queue .body .chip { margin-top: 5px; }
+
+  ul.list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  ul.list li {
+    display: flex; gap: 9px; align-items: flex-start;
+    font-size: 0.9rem;
+    padding-left: 2px;
+  }
+  ul.list li::before { content: "✓"; color: var(--good); font-weight: 700; flex: none; }
+  ul.list.idea li::before { content: "•"; color: var(--accent); }
+  ul.list.own li::before { content: "→"; color: var(--warn); }
+  ul.list li code { font-family: var(--font-mono); font-size: 0.86em; background: var(--surface-2); padding: 0 4px; border-radius: 4px; }
+  ul.list li small { color: var(--ink-soft); }
+
+  footer.foot { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 0.78rem; color: var(--ink-soft); }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>Calc<span class="lumen">Lumen</span> Roadmap</h1>
+      <span class="updated">обновлено 29.09.2026</span>
+    </div>
+    <p class="lede">Живой план и статус проекта: восстановление после понижения Google, очередь ближайших сборок, лог сделанного и копилка идей.</p>
+    <p class="src">Источник правды — файл в репозитории <code>research/PLAN.md</code>; эта страница — витрина поверх него.</p>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><div class="k">Калькуляторов</div><div class="v">121</div></div>
+    <div class="tile"><div class="k">В sitemap</div><div class="v">152</div><div class="sub">было 2929 · чистка</div></div>
+    <div class="tile"><div class="k">Google показы</div><div class="v crit">~2/день</div><div class="sub">⚠️ понижение</div></div>
+    <div class="tile"><div class="k">Сеть сайтов</div><div class="v">10</div></div>
+    <div class="tile"><div class="k">Очередь</div><div class="v">0/10</div><div class="sub">ближайшие запуски</div></div>
+    <div class="tile"><div class="k">AdSense</div><div class="v warn">NOT YET</div><div class="sub">ждём трафик</div></div>
+  </div>
+
+  <section>
+    <h2>🚨 Восстановление после понижения Google</h2>
+    <p class="note">Домен алгоритмически понижен (159k показов/день → ~2/день) из-за молодого домена, нехватки бэклинков и массы тонких страниц. Не техника, Bing показывает. Четыре рычага:</p>
+    <div class="levers">
+      <div class="lever"><span class="chip done">сделано</span><div class="txt"><b>Чистка тонкого контента</b><small>noindex units/roman/data/combinations + математика; sitemap 2929→152</small></div></div>
+      <div class="lever"><span class="chip wait">owner</span><div class="txt"><b>Бэклинки (авторитет) — рычаг №1</b><small>размещаются с сетевых сайтов; главный фактор возврата</small></div></div>
+      <div class="lever"><span class="chip go">идёт</span><div class="txt"><b>Содержательный контент</b><small>каждый запуск = уникальный finance/DIY-калькулятор, никогда не тонкий</small></div></div>
+      <div class="lever"><span class="chip wait">ждём</span><div class="txt"><b>Переоценка Google</b><small>недели после чистки + ссылок; мониторим показы и индексацию</small></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🎯 Следующие 10 запусков</h2>
+    <p class="note">Берётся сверху вниз, по одной задаче за запуск. Баланс: high-CPM finance + строительные под пустой HOME + аналитика.</p>
+    <ol class="queue">
+      <li><div class="body"><b><code>solar-panel</code></b> — панели по счёту/площади, покрытие, окупаемость<small>high-CPM, пара к electricity-cost + будущий HOME-оффер</small><span class="chip type">DIY</span></div></li>
+      <li><div class="body"><b><code>fica / self-employment tax</code></b> — налог самозанятого (SS+Medicare)<small>high-intent, пара к налоговым офферам</small><span class="chip type">Finance</span></div></li>
+      <li><div class="body"><b><code>annuity</code></b> — present/future value аннуитета<small>пенсия/инвестиции · далее NPV/IRR/CAGR</small><span class="chip type">Finance</span></div></li>
+      <li><div class="body"><b><code>drywall</code></b> — листы, шпаклёвка, саморезы, waste<small>пара к VEVOR</small><span class="chip type">DIY</span></div></li>
+      <li><div class="body"><b><code>rmd</code></b> — Required Minimum Distribution по возрасту/балансу IRA<small>пенсионная тема</small><span class="chip type">Finance</span></div></li>
+      <li><div class="body"><b><code>stair</code></b> — высота/глубина/число ступеней по нормам<span class="chip type">DIY</span></div></li>
+      <li><div class="body"><b><code>rental-property</code></b> — ROI / cash-on-cash / DSCR аренды<small>недвижимость-инвестиции, high-CPM</small><span class="chip type">Finance</span></div></li>
+      <li><div class="body"><b><code>insulation</code></b> — R-value, площадь, рулоны/плиты<span class="chip type">DIY</span></div></li>
+      <li><div class="body"><b><code>depreciation</code></b> — MACRS / straight-line<small>бизнес/налоги</small><span class="chip type">Finance</span></div></li>
+      <li><div class="body"><b>Аналитика GA4</b> — хелпер <code>track()</code> + ключевые события<small>offer_click / calculator_use / feedback / support · даёт данные для решений</small><span class="chip type">Data</span></div></li>
+    </ol>
+    <p class="note" style="margin-top:12px">После десятки — property-tax, traditional-IRA/Social-Security, NPV/IRR/CAGR, board-foot/rebar; затем точечные CTR-правки по GSC.</p>
+  </section>
+
+  <section>
+    <h2>✅ Сделано</h2>
+    <ul class="list">
+      <li>Недельный план Day 1–7 — хаб <code>/finance</code> + intent-перелинковка, PMI-калькулятор, freshness-байлайн + schema, APR-обогащение, Day 7 ревизия</li>
+      <li>Чистка тонкого программатика (<code>2dcf113</code>) — noindex + sitemap 2929→152</li>
+      <li>Строительные: roofing (<code>a5c1149</code>), deck (<code>7d3b072</code>); mulch покрыт gravel-калькулятором</li>
+      <li>Life Insurance Needs (<code>277a3a4</code>, метод DIME) — под страховые офферы</li>
+      <li>Сеть «From our network»: +OCR Snip, +foundaday, +Dasha Motion (10 сайтов)</li>
+      <li>AdSense-обвязка живая на проде (ads.txt + adsbygoogle), ждём readiness</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💡 Входящие идеи (копилка)</h2>
+    <p class="note">Всплывшее по ходу; берётся, когда очередь пуста. Крупное/рискованное — сначала на утверждение.</p>
+    <ul class="list idea">
+      <li>Cooking/baking конверсии (cups↔grams, oven temps) — только топ-спрос, не массово <small>(низкий CPM)</small></li>
+      <li>Health: TDEE · BAC · pregnancy weight gain <small>(средний CPM, популярно)</small></li>
+      <li>Контекстные do-follow ссылки на сеть — карта готова, approve-first <small>(детали в PLAN.md, раздел E)</small></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📌 Событийное · решение владельца</h2>
+    <ul class="list own">
+      <li><b>VEVOR + Costway</b> (Indoleads, поданы 28.09, ждём аппрув) → завести HOME-кластер офферов, ссылки source=calclumen.com</li>
+      <li><span class="chip risk">крупное</span> <b>Гео take-home pay / income-tax</b> по штатам US + UK — programmatic, топ-CPM; сначала владельцу</li>
+      <li><span class="chip risk">крупное</span> <b>Embeddable-виджет</b> (backlink-движок, модель Omni) — бьёт в дефицит №1; сначала дизайн</li>
+      <li><b>Sovrn Ad Exchange</b> — Plan B для дисплея, если AdSense откажет</li>
+      <li><b>Бэклинки на money-страницы</b> с сетевых сайтов — рычаг №1</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🔭 Мониторинг</h2>
+    <ul class="list idea">
+      <li>Google-показы — растут ли с ~2/день</li>
+      <li>Money-страницы: «unknown / crawled-not-indexed» → «indexed»</li>
+      <li>Частота обхода Googlebot (crawl stats)</li>
+      <li>AdSense-readiness: quality-клики за 28 дней</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    Витрина поверх <code style="font-family:var(--font-mono)">research/PLAN.md</code>. Обновляется после каждой выполненной работы. Приватный артефакт.
+  </footer>
+</div>
