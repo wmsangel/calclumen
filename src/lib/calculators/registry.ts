@@ -1678,6 +1678,16 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "deck-calculator",
+    category: "homediy",
+    title: "Deck boards",
+    heading: "Deck Calculator (Boards, Joists & Screws)",
+    description:
+      "Work out how many deck boards, joists and screws you need for your deck size, board width and joist spacing — waste and cost included.",
+    keywords: ["deck calculator", "deck board calculator", "how many deck boards do I need", "decking calculator", "deck joist calculator"],
+    isNew: true,
+  },
+  {
     slug: "mileage-reimbursement-calculator",
     category: "auto",
     title: "Mileage reimbursement",
