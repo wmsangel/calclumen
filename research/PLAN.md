@@ -8,7 +8,7 @@
 после публикации `node scripts/indexnow.mjs` (стейт-коммит локально, не пушить) ·
 `⚠️` = крупное/рискованное → НЕ авто-строить, только владельцу.
 
-Актуализировано: **2026-09-29** · калькуляторов: **121**.
+Актуализировано: **2026-09-30** · калькуляторов: **124**.
 
 ---
 
@@ -31,8 +31,8 @@
       с учётом 30% налог. кредита; homediy, рядом с electricity-cost.
 - [x] **2. self-employment-tax-calculator** (B3) ✅ 2026-09-29 — SECA: 12.4% SS до потолка +
       2.9% Medicare на 92.35% прибыли, вычитаемая половина; income-tax кластер.
-- [ ] **3. annuity-calculator** (B3) — present/future value аннуитета (+ можно NPV/IRR/CAGR
-      следующими). Пенсия/инвестиции, INVESTING-кластер.
+- [x] **3. annuity-calculator** (B3) ✅ 2026-09-30 — PV/FV аннуитета, ordinary/due, частота
+      выплат, график; retirement-investing кластер + INVESTING-офферы + compound-гайд.
 - [ ] **4. drywall-calculator** (B1) — листы, шпаклёвка, саморезы, waste. HOME, пара к VEVOR.
 - [ ] **5. rmd-calculator** (B3) — Required Minimum Distribution по возрасту/балансу IRA.
       Пенсионная тема, INVESTING-кластер.

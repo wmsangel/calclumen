@@ -260,6 +260,7 @@ const CURRENCY_SLUGS = new Set(["currency-converter"]);
 // loan offer, so these override the finance→FINANCIAL default below).
 const INVESTING_SLUGS = new Set([
   "compound-interest-calculator",
+  "annuity-calculator",
   "roi-calculator",
   "rule-of-72-calculator",
   "retirement-savings-calculator",

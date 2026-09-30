@@ -203,6 +203,21 @@ export const calculators: CalcDef[] = [
     popular: true,
   },
   {
+    slug: "annuity-calculator",
+    category: "finance",
+    title: "Annuity",
+    heading: "Annuity Calculator",
+    description:
+      "Find the present and future value of an annuity — regular payments at a fixed rate, ordinary or annuity due, with total interest and a growth chart.",
+    keywords: [
+      "annuity calculator",
+      "future value of annuity calculator",
+      "present value of annuity calculator",
+      "annuity due calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "rule-of-72-calculator",
     category: "finance",
     title: "Rule of 72",

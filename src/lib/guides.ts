@@ -382,7 +382,11 @@ export const GUIDES: Guide[] = [
     category: "finance",
     updated: "2026-08",
     readMins: 4,
-    calcSlugs: ["compound-interest-calculator", "savings-goal-calculator"],
+    calcSlugs: [
+      "compound-interest-calculator",
+      "savings-goal-calculator",
+      "annuity-calculator",
+    ],
     body: [
       {
         t: "p",
