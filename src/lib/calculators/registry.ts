@@ -1090,6 +1090,21 @@ export const calculators: CalcDef[] = [
     ],
     isNew: true,
   },
+  {
+    slug: "drywall-calculator",
+    category: "homediy",
+    title: "Drywall",
+    heading: "Drywall Calculator",
+    description:
+      "Estimate how many drywall sheets you need for a room's walls and ceiling, plus joint compound, tape, screws and cost — with waste included.",
+    keywords: [
+      "drywall calculator",
+      "how many sheets of drywall do i need",
+      "sheetrock calculator",
+      "drywall estimator",
+    ],
+    isNew: true,
+  },
 
   // ── Batch 2: more high-demand calculators ──────────────────
   {
