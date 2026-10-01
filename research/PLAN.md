@@ -35,9 +35,8 @@
       выплат, график; retirement-investing кластер + INVESTING-офферы + compound-гайд.
 - [x] **4. drywall-calculator** (B1) ✅ 2026-10-01 — листы (4×8/10/12), стены+потолок, шпаклёвка,
       лента, саморезы, waste, стоимость. HOME, пара к VEVOR.
-- [ ] **5. rmd-calculator** (B3) — Required Minimum Distribution по возрасту/балансу IRA.
-      Пенсионная тема, INVESTING-кластер.
-- [ ] **6. stair-calculator** (B1) — высота/глубина/число ступеней (строительные нормы).
+- [x] **5. rmd-calculator** (B3) ✅ 2026-10-01 — RMD по таблице IRS Uniform Lifetime; retirement-investing кластер.
+- [x] **6. stair-calculator** (B1) ✅ 2026-10-01 — ступени/подступёнок/косоур + проверка норм IRC; homediy.
 - [ ] **7. rental-property-calculator** (B3) — ROI / cash-on-cash / DSCR аренды.
       Недвижимость-инвестиции, high-CPM.
 - [ ] **8. insulation-calculator** (B1) — R-value, площадь, рулоны/плиты.

@@ -410,6 +410,21 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "rmd-calculator",
+    category: "finance",
+    title: "RMD (required distribution)",
+    heading: "RMD Calculator",
+    description:
+      "Calculate this year's Required Minimum Distribution from your IRA or 401(k) using the IRS Uniform Lifetime Table.",
+    keywords: [
+      "rmd calculator",
+      "required minimum distribution calculator",
+      "ira rmd calculator",
+      "how much is my rmd",
+    ],
+    isNew: true,
+  },
+  {
     slug: "roth-ira-calculator",
     category: "finance",
     title: "Roth IRA",
@@ -1087,6 +1102,21 @@ export const calculators: CalcDef[] = [
       "how many solar panels do i need",
       "solar system size calculator",
       "solar payback calculator",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "stair-calculator",
+    category: "homediy",
+    title: "Stair",
+    heading: "Stair Calculator",
+    description:
+      "Turn your floor-to-floor rise into a buildable staircase — number of steps, riser height, total run and stringer length, with code checks.",
+    keywords: [
+      "stair calculator",
+      "stair stringer calculator",
+      "how many stairs do i need",
+      "riser and tread calculator",
     ],
     isNew: true,
   },
