@@ -20,3 +20,25 @@
       href, badge} + ротация по номеру ISO-недели клиентски (как HomeOffers), 1 элемент
       за раз. Дополняет (не заменяет) футер-сеть и партнёрские офферы. Сначала показать
       владельцу дизайн/размещение.
+
+- [ ] ⚠️ approve-first · ПОСЛЕ восстановления Google — ИНФРА: миграция хостинга
+      **Vercel → Cloudflare Pages**. Сайт стандартный Next 16, ~99% статика. Зачем:
+      CF Pages для статики почти бесплатен; Cloudflare уже наш DNS + Email Routing +
+      Web Analytics (консолидация). НЕ во время восстановления — риск сломать
+      SEO-сантехнику (редиректы/заголовки/robots) когда нужна стабильность. Чеклист:
+      - [ ] Выбрать путь: (A) OpenNext-адаптер `@opennextjs/cloudflare` — всё как есть
+            (/api/og, middleware, ISR); или (B) `output:"export"` — проще/дешевле, но
+            OG/headers/redirects переносим руками.
+      - [ ] security-заголовки (`next.config` headers()) → файл `_headers` (для export)
+            или остаются в Next (адаптер). Сверить HSTS-preload, X-Frame-Options и т.д.
+      - [ ] редиректы: apex↔www 301 + не-/en → /en (сейчас `src/proxy.ts`) → `_redirects`
+            / Pages Function.
+      - [ ] `/api/og` (динамические OG) → пре-генерация на билде, либо мелкий Worker,
+            либо дефолт-картинка (на static export route не работает).
+      - [ ] robots.txt / sitemap.xml / ads.txt — отдаются идентично; canonical / hreflang.
+      - [ ] Собрать на CF Pages **preview**, прогнать заголовки/редиректы(301)/robots/
+            sitemap/OG/200-коды **ДО переключения DNS**.
+      - [ ] Переключить DNS (сайт уже на CF DNS → указать на Pages), zero-downtime;
+            подождать, сверить прод cache-busted curl'ом.
+      - [ ] Деплой-флоу: git push → CF Pages auto-build (как Vercel сейчас); обновить
+            заметку deploy-economy, если процесс изменится.
