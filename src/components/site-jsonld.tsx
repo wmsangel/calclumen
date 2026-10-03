@@ -9,6 +9,7 @@ export function SiteJsonLd({ locale }: { locale: Locale }) {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
       logo: `${SITE_URL}/icon-512.png`,
@@ -17,10 +18,12 @@ export function SiteJsonLd({ locale }: { locale: Locale }) {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
       name: SITE_NAME,
       url: SITE_URL,
       description: SITE_TAGLINE,
       inLanguage: "en",
+      publisher: { "@id": `${SITE_URL}/#organization` },
       potentialAction: {
         "@type": "SearchAction",
         target: {

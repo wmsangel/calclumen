@@ -6,8 +6,9 @@ import {
   getCategory,
   relatedCalcs,
   type CalcDef,
+  type CategoryId,
 } from "@/lib/calculators/registry";
-import { absUrl, SITE_NAME } from "@/lib/seo/site";
+import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
 import { guideForCalc } from "@/lib/guides";
 import { AdSlot } from "./ad-slot";
 import { CalcBadge } from "./calc-icon";
@@ -23,6 +24,24 @@ const CALC_UPDATED = new Date().toLocaleDateString("en-US", {
   year: "numeric",
 });
 const CALC_UPDATED_ISO = new Date().toISOString().slice(0, 10);
+
+// Google-recognized applicationCategory enums, mapped from our category so the
+// schema states what each tool actually does instead of a generic "Utility".
+const APP_CATEGORY: Record<CategoryId, string> = {
+  finance: "FinanceApplication",
+  auto: "FinanceApplication",
+  business: "BusinessApplication",
+  health: "HealthApplication",
+  datetime: "UtilitiesApplication",
+  math: "UtilitiesApplication",
+  conversions: "UtilitiesApplication",
+  homediy: "UtilitiesApplication",
+};
+
+// Stable entity @ids so every page's WebApplication links back to the same
+// Organization + WebSite — helps a young domain consolidate its entity graph.
+const ORG_ID = `${SITE_URL}/#organization`;
+const SITE_ID = `${SITE_URL}/#website`;
 
 export interface FaqItem {
   q: string;
@@ -57,16 +76,24 @@ export function CalcShell({
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
+      "@id": `${url}#app`,
       name: calc.heading,
       description: calc.description,
       url,
-      applicationCategory: "UtilityApplication",
+      applicationCategory: APP_CATEGORY[calc.category],
       operatingSystem: "Any",
       inLanguage: "en",
       isAccessibleForFree: true,
       dateModified: CALC_UPDATED_ISO,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      publisher: { "@type": "Organization", name: SITE_NAME },
+      isPartOf: { "@type": "WebSite", "@id": SITE_ID, name: SITE_NAME, url: SITE_URL },
+      publisher: {
+        "@type": "Organization",
+        "@id": ORG_ID,
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png` },
+      },
     },
     {
       "@context": "https://schema.org",
