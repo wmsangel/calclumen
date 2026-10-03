@@ -27,6 +27,7 @@
 Баланс: high-CPM finance (B3) + строительные под пустой HOME (B1) + аналитика (D).
 Каждый: registry(+isNew) → компонент → страница (intro/steps/FAQ) → кластер/связки.
 
+- [ ] **Переотправить https://calclumen.com/sitemap.xml в GSC** — Google не скачивал его 21 день, т.е. ещё не видел чистку (живой sitemap уже 161 URL вместо 2929); заодно проверить, что lastmod не проставляется всем URL одинаковым временем сборки (SEO, 2026-10-03)
 - [x] **1. solar-panel-calculator** (B1) ✅ 2026-09-29 — панели/кВт/стоимость/окупаемость
       с учётом 30% налог. кредита; homediy, рядом с electricity-cost.
 - [x] **2. self-employment-tax-calculator** (B3) ✅ 2026-09-29 — SECA: 12.4% SS до потолка +
