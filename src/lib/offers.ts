@@ -221,11 +221,18 @@ const INVESTING: OfferGroup = {
   offers: [TRADINGVIEW],
 };
 
+const VEVOR: Offer = {
+  id: "vevor",
+  name: "VEVOR",
+  blurb:
+    "Tools, machinery and equipment for your home, garage, workshop and garden — pro-grade gear at unbeatable prices, shipped fast from local warehouses.",
+  url: "https://rzekl.com/g/b9jm5dg8a845d9374ef3fcfaae913b/",
+  cta: "Shop VEVOR",
+};
+
 const HOME: OfferGroup = {
   label: "For your project",
-  offers: [
-    // e.g. home-improvement retailers, material suppliers, contractor lead-gen.
-  ],
+  offers: [VEVOR],
 };
 
 const TECH: OfferGroup = {
@@ -244,7 +251,7 @@ const EDUCATION: OfferGroup = {
  * client-side so the block rotates across visits. Safe to leave empty.
  */
 export const HOME_OFFERS_LABEL = "Handpicked tools & deals";
-export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER, QUSTODIO, ENVATO];
+export const HOME_FEATURED: Offer[] = [NORDVPN, COURSERA, LENOVO, OPENART, EASEUS, ADGUARD, PROHOSTER, QUSTODIO, ENVATO, VEVOR];
 
 const PREGNANCY_SLUGS = new Set(["due-date-calculator", "ovulation-calculator"]);
 // Tech-leaning converters: a developer/IT audience, the likeliest VPN buyers.

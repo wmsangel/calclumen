@@ -64,9 +64,11 @@ NPV/IRR/CAGR, board-foot/rebar; затем C (опционально) и точ�
 ---
 
 ## 📌 Событийное / по решению владельца (НЕ в авто-очереди)
-- **Офферы VEVOR + Costway** (Indoleads, поданы 2026-09-28, ждём аппрув) → как одобрят:
-  сгенерить ссылки source=calclumen.com, завести **HOME OfferGroup** в `src/lib/offers.ts`
-  [VEVOR, Costway] (homediy-кластер сейчас пуст) → покажется на всех DIY-калькуляторах.
+- **VEVOR — ОДОБРЕН + ПРОВЕДЁН 2026-10-05** (Admitad rzekl.com, per-sale `https://rzekl.com/g/b9jm5dg8a845d9374ef3fcfaae913b/`,
+  CPA 5% / AOV $200+ / 45-day cookie / Many GEOs US-UK-CA-AU-EU → ungated). Текстовый оффер `VEVOR`
+  в `HOME` OfferGroup + добавлен в `HOME_FEATURED` ротацию → на всех homediy-калькуляторах + главной.
+  Баннеры НЕ берём (правило text-only). Owner при желании может добавить SubID в Admitad для пер-сайт атрибуции.
+- **Costway** (Indoleads, подан 2026-09-28) — всё ещё ЖДЁМ аппрув → как одобрят, добавить вторым оффером в `HOME`.
   Искать дальше: US-страхование жизни/авто, солнечные панели (жирный CPA).
 - **⚠️ B2. Гео take-home pay / income-tax по штатам US + UK** — крупный programmatic,
   топовый CPM. Сначала владельцу (источник налоговых данных + объём).
