@@ -40,7 +40,7 @@
 - [x] **6. stair-calculator** (B1) ✅ 2026-10-01 — ступени/подступёнок/косоур + проверка норм IRC; homediy.
 - [x] **7. rental-property-calculator** (B3) ✅ 2026-10-05 — cash flow / cash-on-cash / cap rate / DSCR;
       retirement-investing кластер, finance→FINANCIAL оффер (кредит). Недвижимость-инвестиции, high-CPM.
-- [ ] **8. insulation-calculator** (B1) — R-value, площадь, рулоны/плиты.
+- [x] **8. insulation-calculator** (B1) ✅ 2026-10-05 — R нужно добавить, толщина слоя, пакеты (рулоны/плиты/мешки), стоимость + waste; homediy.
 - [ ] **9. depreciation-calculator** (B3) — MACRS / straight-line. Бизнес/налоги.
 - [ ] **10. Аналитика GA4 (D, кросс-задача)** — хелпер `track()` + ключевые события
       (`offer_click`, `calculator_use`, `feedback_*`, `support_*`). Даёт данные для решений.

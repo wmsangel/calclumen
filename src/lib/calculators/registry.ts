@@ -1151,6 +1151,22 @@ export const calculators: CalcDef[] = [
     ],
     isNew: true,
   },
+  {
+    slug: "insulation-calculator",
+    category: "homediy",
+    title: "Insulation",
+    heading: "Insulation Calculator",
+    description:
+      "Work out how much insulation you need — R-value to add, layer thickness, number of rolls, batts or bags, and the material cost, with waste included.",
+    keywords: [
+      "insulation calculator",
+      "r value calculator",
+      "how much insulation do i need",
+      "attic insulation calculator",
+      "blown in insulation calculator",
+    ],
+    isNew: true,
+  },
 
   // ── Batch 2: more high-demand calculators ──────────────────
   {
