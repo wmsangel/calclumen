@@ -41,7 +41,8 @@
 - [x] **7. rental-property-calculator** (B3) ✅ 2026-10-05 — cash flow / cash-on-cash / cap rate / DSCR;
       retirement-investing кластер, finance→FINANCIAL оффер (кредит). Недвижимость-инвестиции, high-CPM.
 - [x] **8. insulation-calculator** (B1) ✅ 2026-10-05 — R нужно добавить, толщина слоя, пакеты (рулоны/плиты/мешки), стоимость + waste; homediy.
-- [ ] **9. depreciation-calculator** (B3) — MACRS / straight-line. Бизнес/налоги.
+- [x] **9. depreciation-calculator** (B3) ✅ 2026-10-05 — straight-line / double-declining (switch to SL) / MACRS (IRS GDS half-year 3-20yr);
+      год-за-годом график (depr/accum/book). Категория business (рядом с margin/break-even; business-офферы).
 - [ ] **10. Аналитика GA4 (D, кросс-задача)** — хелпер `track()` + ключевые события
       (`offer_click`, `calculator_use`, `feedback_*`, `support_*`). Даёт данные для решений.
       (Может делать основная сессия — трогает много компонентов.)

@@ -754,6 +754,22 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "depreciation-calculator",
+    category: "business",
+    title: "Depreciation",
+    heading: "Depreciation Calculator",
+    description:
+      "Build a year-by-year depreciation schedule using straight-line, declining balance or MACRS — first-year deduction, accumulated depreciation and book value.",
+    keywords: [
+      "depreciation calculator",
+      "macrs depreciation calculator",
+      "straight line depreciation calculator",
+      "declining balance depreciation",
+      "asset depreciation schedule",
+    ],
+    isNew: true,
+  },
+  {
     slug: "break-even-calculator",
     category: "business",
     title: "Break-even",
