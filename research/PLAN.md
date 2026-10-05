@@ -38,8 +38,8 @@
       лента, саморезы, waste, стоимость. HOME, пара к VEVOR.
 - [x] **5. rmd-calculator** (B3) ✅ 2026-10-01 — RMD по таблице IRS Uniform Lifetime; retirement-investing кластер.
 - [x] **6. stair-calculator** (B1) ✅ 2026-10-01 — ступени/подступёнок/косоур + проверка норм IRC; homediy.
-- [ ] **7. rental-property-calculator** (B3) — ROI / cash-on-cash / DSCR аренды.
-      Недвижимость-инвестиции, high-CPM.
+- [x] **7. rental-property-calculator** (B3) ✅ 2026-10-05 — cash flow / cash-on-cash / cap rate / DSCR;
+      retirement-investing кластер, finance→FINANCIAL оффер (кредит). Недвижимость-инвестиции, high-CPM.
 - [ ] **8. insulation-calculator** (B1) — R-value, площадь, рулоны/плиты.
 - [ ] **9. depreciation-calculator** (B3) — MACRS / straight-line. Бизнес/налоги.
 - [ ] **10. Аналитика GA4 (D, кросс-задача)** — хелпер `track()` + ключевые события

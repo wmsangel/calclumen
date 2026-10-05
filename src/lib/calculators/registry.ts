@@ -562,6 +562,22 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "rental-property-calculator",
+    category: "finance",
+    title: "Rental property ROI",
+    heading: "Rental Property Calculator",
+    description:
+      "Analyze a rental property's monthly cash flow, cash-on-cash return, cap rate and DSCR from the price, financing and rent.",
+    keywords: [
+      "rental property calculator",
+      "cash on cash return calculator",
+      "cap rate calculator",
+      "dscr calculator",
+      "rental property roi calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "savings-goal-calculator",
     category: "finance",
     title: "Savings goal",
