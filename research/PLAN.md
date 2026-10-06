@@ -73,8 +73,10 @@ NPV/IRR/CAGR, board-foot/rebar; затем C (опционально) и точ�
   Искать дальше: US-страхование жизни/авто, солнечные панели (жирный CPA).
 - **⚠️ B2. Гео take-home pay / income-tax по штатам US + UK** — крупный programmatic,
   топовый CPM. Сначала владельцу (источник налоговых данных + объём).
-- **⚠️ B4. Embeddable-виджет (backlink-движок)** — встраиваемый калькулятор с обязательным
-  бэклинком (модель Omni). Бьёт в дефицит №1. Сначала дизайн/согласование.
+- **✅ B4. Embeddable-виджет (backlink-движок) — СДЕЛАНО 2026-10-06 (8a2668e), owner-approved.**
+  `/embed/<slug>` без chrome (noindex, не в sitemap, без AdSense) + панель «Embed this calculator»
+  со сниппетом (iframe + do-follow «Powered by CalcLumen» в HTML хоста = link equity). 8 флагманов.
+  Дальше: мониторить появление встраиваний/бэклинков (CF referrers, GSC links), расширять набор по спросу.
 - **⚠️ E. Контекстные do-follow ссылки на сеть** — карта готова (внизу файла), approve-first.
 - **Sovrn Ad Exchange = Plan B** для дисплея, если AdSense откажет по качеству/трафику.
 - **Бэклинки на money-страницы** с сетевых сайтов владельца — рычаг №1 (owner).
