@@ -16,6 +16,8 @@ import { AffiliateBlock } from "./affiliate-block";
 import { EuOfferBlock } from "./eu-offer-block";
 import { FavoriteButton } from "./favorite-button";
 import { PrintButton } from "./print-button";
+import { EmbedSnippet } from "./embed-snippet";
+import { embeddableFor } from "@/lib/embeddable";
 
 // Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
 // are statically regenerated on each deploy, so this reflects the last update.
@@ -257,6 +259,21 @@ export function CalcShell({
           ))}
         </div>
       </section>
+
+      {/* Embed widget — only for curated embeddable calculators. The snippet's
+          do-follow credit link is a backlink-seeding play (our #1 deficit). */}
+      {(() => {
+        const emb = embeddableFor(slug);
+        if (!emb) return null;
+        return (
+          <EmbedSnippet
+            heading={calc.heading}
+            src={`${SITE_URL}/embed/${slug}`}
+            canonical={url}
+            height={emb.height}
+          />
+        );
+      })()}
 
       {/* Related */}
       <section className="mt-12 no-print">

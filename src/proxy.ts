@@ -11,6 +11,12 @@ export function proxy(req: NextRequest) {
   );
   if (hasLocale) return NextResponse.next();
 
+  // /embed/<slug> is locale-less by design (clean snippet URLs for other sites);
+  // never rewrite it to /en/embed/...
+  if (pathname === "/embed" || pathname.startsWith("/embed/")) {
+    return NextResponse.next();
+  }
+
   const url = req.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);
@@ -24,5 +30,5 @@ export const config = {
   // Also skips API routes, Next internals, and files with an extension.
   // NOTE: `en` is hard-coded because matchers must be static literals — add
   // any new locale here if `src/lib/i18n/config.ts` gains one.
-  matcher: ["/((?!en(?:/|$)|api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  matcher: ["/((?!en(?:/|$)|embed(?:/|$)|api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };

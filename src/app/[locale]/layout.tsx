@@ -1,9 +1,13 @@
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CookieConsent } from "@/components/cookie-consent";
 import { FeedbackFab } from "@/components/feedback-fab";
+import { PwaRegister } from "@/components/pwa-register";
+import { GoogleAnalytics } from "@/components/google-analytics";
+import { AdSense } from "@/components/adsense";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -37,6 +41,21 @@ export default async function LocaleLayout({
       <SiteFooter locale={locale} />
       <FeedbackFab locale={locale} />
       <CookieConsent locale={locale} />
+
+      {/* Monetization + analytics — scoped to the public site, kept off /embed/*. */}
+      <PwaRegister />
+      {/* <Ezoic /> — disabled 2026-08-27 (Incubator not approved); re-enable with
+          NEXT_PUBLIC_EZOIC=1 after a successful re-application. */}
+      <AdSense />
+      <GoogleAnalytics />
+      {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо
+          прокси, поэтому вставляется руками */}
+      <Script
+        id="cf-beacon"
+        strategy="afterInteractive"
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={'{"token": "a86ccab306b54fb2b41445f3dac8b830"}'}
+      />
     </>
   );
 }

@@ -2,13 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/seo/site";
-import { PwaRegister } from "@/components/pwa-register";
-import { GoogleAnalytics } from "@/components/google-analytics";
-import { AdSense } from "@/components/adsense";
-// Ezoic disabled 2026-08-27 (Incubator application not approved — site too new).
-// Re-enable by restoring this import and the <Ezoic /> render below, then set
-// NEXT_PUBLIC_EZOIC=1 in Vercel, after a successful re-application.
-// import { Ezoic } from "@/components/ezoic";
+// AdSense / Google Analytics / Cloudflare beacon / PWA register are mounted in
+// the [locale] layout, NOT here — so they load on the public site but never on
+// the chrome-less /embed/* pages (AdSense auto-ads must not run inside an iframe
+// on third-party sites, and embed loads shouldn't pollute our analytics).
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -81,17 +78,6 @@ export default function RootLayout({
           {"try{var t=localStorage.getItem('ec-theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t}}catch(e){}"}
         </Script>
         {children}
-        <PwaRegister />
-        {/* <Ezoic /> — disabled 2026-08-27, see import note above */}
-        <AdSense />
-        <GoogleAnalytics />
-        {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо прокси, поэтому вставляется руками */}
-        <Script
-          id="cf-beacon"
-          strategy="afterInteractive"
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={'{"token": "a86ccab306b54fb2b41445f3dac8b830"}'}
-        />
       </body>
     </html>
   );
