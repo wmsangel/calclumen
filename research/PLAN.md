@@ -89,7 +89,9 @@ NPV/IRR/CAGR, board-foot/rebar; затем C (опционально) и точ�
   `/embed/<slug>` без chrome (noindex, не в sitemap, без AdSense) + панель «Embed this calculator»
   со сниппетом (iframe + do-follow «Powered by CalcLumen» в HTML хоста = link equity). 8 флагманов.
   Дальше: мониторить появление встраиваний/бэклинков (CF referrers, GSC links), расширять набор по спросу.
-- **⚠️ E. Контекстные do-follow ссылки на сеть** — карта готова (внизу файла), approve-first.
+- **✅ E. Контекстные do-follow ссылки на сеть — ВНЕДРЕНО 2026-10-08** (owner-approved). `src/lib/cross-links.ts` +
+  рендер в CalcShell после intro: home-affordability→costtrek, capital-gains-tax→thecryptotools, budget→ocrsnip,
+  margin-markup→iznkit. In-body, естественный анкор, do-follow (rel="noopener", без nofollow). Бьёт в дефицит №1.
 - **Sovrn Ad Exchange = Plan B** для дисплея, если AdSense откажет по качеству/трафику.
 - **Бэклинки на money-страницы** с сетевых сайтов владельца — рычаг №1 (owner).
 - **AdSense**: подавать, когда readiness-сигнал позеленеет (сейчас NOT YET из-за понижения).

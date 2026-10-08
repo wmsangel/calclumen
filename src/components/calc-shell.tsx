@@ -19,6 +19,7 @@ import { PrintButton } from "./print-button";
 import { EmbedSnippet } from "./embed-snippet";
 import { CalcUseTracker } from "./calc-use-tracker";
 import { embeddableFor } from "@/lib/embeddable";
+import { crossLinkFor } from "@/lib/cross-links";
 
 // Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
 // are statically regenerated on each deploy, so this reflects the last update.
@@ -230,6 +231,20 @@ export function CalcShell({
             {p}
           </p>
         ))}
+
+        {(() => {
+          const cl = crossLinkFor(slug);
+          if (!cl) return null;
+          return (
+            <p className="text-[var(--ink-soft)] leading-relaxed mt-4">
+              {cl.before}
+              <a href={cl.href} rel="noopener" className="prose-link">
+                {cl.anchor}
+              </a>
+              {cl.after}
+            </p>
+          );
+        })()}
 
         {content.extra ? <div className="mt-8">{content.extra}</div> : null}
 
