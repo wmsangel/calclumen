@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Code2, Check, Copy } from "lucide-react";
+import { track } from "@/lib/track";
 
 /**
  * "Embed this calculator" panel. Shows a copy-paste snippet whose visible
@@ -29,6 +30,7 @@ export function EmbedSnippet({
     `<a href="${canonical}" target="_blank" rel="noopener">${heading} — CalcLumen</a></p>`;
 
   async function copy() {
+    track("embed_copy", { widget: heading });
     try {
       await navigator.clipboard.writeText(snippet);
       setCopied(true);

@@ -10,5 +10,5 @@ import { OfferPanel } from "./offer-panel";
 export function AffiliateBlock({ calc }: { calc: CalcDef }) {
   const group = offersForCalc(calc);
   if (!group || group.offers.length === 0) return null;
-  return <OfferPanel group={group} />;
+  return <OfferPanel group={group} context={calc.slug} />;
 }

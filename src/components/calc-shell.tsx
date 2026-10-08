@@ -17,6 +17,7 @@ import { EuOfferBlock } from "./eu-offer-block";
 import { FavoriteButton } from "./favorite-button";
 import { PrintButton } from "./print-button";
 import { EmbedSnippet } from "./embed-snippet";
+import { CalcUseTracker } from "./calc-use-tracker";
 import { embeddableFor } from "@/lib/embeddable";
 
 // Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
@@ -171,7 +172,9 @@ export function CalcShell({
       <p className="mt-2 text-xs text-[var(--ink-soft)]">Updated {CALC_UPDATED}</p>
 
       {/* The interactive calculator */}
-      <div className="mt-7">{children}</div>
+      <div className="mt-7">
+        <CalcUseTracker slug={slug}>{children}</CalcUseTracker>
+      </div>
 
       {(() => {
         const money = ["finance", "auto", "business"].includes(calc.category);

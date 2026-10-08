@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Heart, MessageSquare, Send, X } from "lucide-react";
 import type { Locale } from "@/lib/i18n/config";
+import { track } from "@/lib/track";
 
 const FEEDBACK_EMAIL = "info@calclumen.com";
 
@@ -29,6 +30,7 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
   }, [open]);
 
   function send() {
+    track("feedback_submit");
     const url = typeof window !== "undefined" ? window.location.href : "";
     const subject = `CalcLumen feedback${url ? ` — ${new URL(url).pathname}` : ""}`;
     const body = `${msg}\n\n—\nPage: ${url}`;
@@ -83,7 +85,10 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
             <Link
               href={`/${locale}/support`}
               className="prose-link inline-flex items-center gap-1"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                track("support_click");
+                setOpen(false);
+              }}
             >
               Support us <Heart size={12} />
             </Link>
@@ -93,7 +98,10 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
 
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) track("feedback_open");
+          setOpen((v) => !v);
+        }}
         aria-expanded={open}
         aria-label="Send feedback"
         className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] text-[var(--on-accent)] pl-3.5 pr-4 py-2.5 shadow-lg hover:brightness-110 transition text-sm font-medium"

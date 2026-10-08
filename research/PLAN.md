@@ -43,9 +43,12 @@
 - [x] **8. insulation-calculator** (B1) ✅ 2026-10-05 — R нужно добавить, толщина слоя, пакеты (рулоны/плиты/мешки), стоимость + waste; homediy.
 - [x] **9. depreciation-calculator** (B3) ✅ 2026-10-05 — straight-line / double-declining (switch to SL) / MACRS (IRS GDS half-year 3-20yr);
       год-за-годом график (depr/accum/book). Категория business (рядом с margin/break-even; business-офферы).
-- [ ] **10. Аналитика GA4 (D, кросс-задача)** — хелпер `track()` + ключевые события
-      (`offer_click`, `calculator_use`, `feedback_*`, `support_*`). Даёт данные для решений.
-      (Может делать основная сессия — трогает много компонентов.)
+- [x] **10. Аналитика GA4 (D, кросс-задача)** ✅ 2026-10-08 — хелпер `src/lib/track()` (безопасная обёртка gtag) +
+      события: `offer_click` (offer-panel+home-offers, с context=slug), `embed_copy` (сниппет; embed_view НЕ делаем —
+      GA намеренно не грузится на /embed), `calculator_use` (CalcUseTracker — 1 раз на первый ввод),
+      `feedback_open`/`feedback_submit`/`support_click` (feedback-fab). Consent-mode соблюдён (gtag no-op без согласия).
+
+**🎉 Очередь 10/10 закрыта.** Дальше — «После десятки» ниже + мониторинг офферов/бэклинков.
 
 **После десятки:** остаток — property-tax, traditional-IRA/Social-Security estimate,
 NPV/IRR/CAGR, board-foot/rebar; затем C (опционально) и точечные CTR-правки по GSC.

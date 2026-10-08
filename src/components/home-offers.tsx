@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { HOME_FEATURED, HOME_OFFERS_LABEL } from "@/lib/offers";
+import { track } from "@/lib/track";
 import { OfferLogo } from "./offer-logo";
 
 /**
@@ -52,6 +53,7 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
+              onClick={() => track("offer_click", { offer: o.id, group: "home", context: "home" })}
             >
               <OfferLogo id={o.id} name={o.name} />
               <span className="offer-body">

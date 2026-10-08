@@ -1,13 +1,18 @@
+"use client";
+
 import { Sparkles } from "lucide-react";
 import type { OfferGroup } from "@/lib/offers";
+import { track } from "@/lib/track";
 import { OfferLogo } from "./offer-logo";
 
 /**
  * Presentational offer panel shared by the server-rendered {@link
  * AffiliateBlock} and the client-gated EuOfferBlock, so both render identical
  * cards, disclosure and layout. Links are rel="sponsored nofollow".
+ * `context` (the calculator slug, or "home") is sent with the offer_click
+ * event so we can see which pages actually convert clicks.
  */
-export function OfferPanel({ group }: { group: OfferGroup }) {
+export function OfferPanel({ group, context }: { group: OfferGroup; context?: string }) {
   return (
     <section className="mt-12">
       <div className="offer-panel">
@@ -30,6 +35,9 @@ export function OfferPanel({ group }: { group: OfferGroup }) {
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
+              onClick={() =>
+                track("offer_click", { offer: o.id, group: group.label, context: context ?? "" })
+              }
             >
               <OfferLogo id={o.id} name={o.name} />
               <span className="offer-body">
