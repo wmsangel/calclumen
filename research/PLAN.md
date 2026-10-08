@@ -65,14 +65,15 @@ NPV/IRR/CAGR, board-foot/rebar; затем C (опционально) и точ�
 ---
 
 ## 📌 Событийное / по решению владельца (НЕ в авто-очереди)
-- **⏳ ПРОВЕРИТЬ 2026-10-08: статус заявок на офферы** (поданы владельцем вручную 2026-10-07 в обеих сетях).
-  Admitad: пройтись `GET /advcampaigns/website/2988056/` и смотреть `connection_status` (declined/pending → **active**).
-  Indoleads: статус в кабинете (API-поле `applied` врёт). Как что одобрят → сгенерить диплинк source=calclumen.com и завести в нужный кластер `offers.ts` (НЕ дублировать между сетями — брать одну).
-  - **Admitad:** Square `114585`→BUSINESS, Sam's Club `106720`→HOME, Chegg `28853`→EDUCATION, Cricut `49734`→HOME/DIY,
-    Way.com `29492`→**AUTO (пустой!)**, Costway `116661`→HOME, Homestyler `114701`→HOME, Udemy `22448`→EDU, Great Courses `27425`→EDU.
-  - **Indoleads:** **Trademark Engine `21829`→BUSINESS ($50 CPA)** 🔥, Snoop Finance `16850`→finance(UK), Udemy `650`→EDU,
-    Costway `21626`→HOME, Homestyler `21808`→HOME, Macpaw `2015`→TECH.
-  - Детали API/вертикали — в памяти [[affiliate-api-access]].
+- **Заявки на офферы — проверено 2026-10-08:**
+  - **Admitad:** ✅ **Square `114585` ОДОБРЕН → проведён в BUSINESS** (диплинк rcpsj.com/g/xmbwxznk57…).
+    ⏳ Cricut `49734` pending (ждём). ❌ снова declined (за сутки, автоправило по трафику): Sam's Club `106720`,
+    Chegg `28853`, Way.com `29492`, Costway `116661`, Homestyler `114701`, Udemy `22448`, Great Courses `27425` —
+    переподавать смысла нет, пока трафик не подрастёт.
+  - **Indoleads:** статус по API НЕ виден (деталь оффера не отдаёт трекинг-ссылку; `applied`/`marketplace_status` неинформативны).
+    → **owner проверяет в кабинете** (app.indoleads.com); как одобрят **Trademark Engine `21829` ($50 CPA, BUSINESS)** 🔥 /
+    Snoop Finance `16850` / Udemy `650` / Costway `21626` / Homestyler `21808` / Macpaw `2015` — пришлёт трекинг-ссылку, заведу.
+  - Повторить проверку Cricut + переоценку declined через ~2-4 недели, когда вернётся трафик. Детали — [[affiliate-api-access]].
 - **VEVOR — ОДОБРЕН + ПРОВЕДЁН 2026-10-05** (Admitad rzekl.com, per-sale `https://rzekl.com/g/b9jm5dg8a845d9374ef3fcfaae913b/`,
   CPA 5% / AOV $200+ / 45-day cookie / Many GEOs US-UK-CA-AU-EU → ungated). Текстовый оффер `VEVOR`
   в `HOME` OfferGroup + добавлен в `HOME_FEATURED` ротацию → на всех homediy-калькуляторах + главной.

@@ -204,9 +204,18 @@ const BLUETTI: Offer = {
   cta: "Shop BLUETTI",
 };
 
+const SQUARE: Offer = {
+  id: "square",
+  name: "Square",
+  blurb:
+    "Take card payments, send invoices and run your business — POS, card readers and online checkout trusted by millions of sellers.",
+  url: "https://rcpsj.com/g/xmbwxznk5745d9374ef3c1c4731730/",
+  cta: "Get Square",
+};
+
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
-  offers: [NORDVPN, LENOVO, OPENART, ENVATO, NOTION],
+  offers: [SQUARE, NORDVPN, LENOVO, OPENART, ENVATO, NOTION],
 };
 
 // Money-transfer / FX intent (currency converter).
