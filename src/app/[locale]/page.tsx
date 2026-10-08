@@ -16,6 +16,7 @@ import { CalcBadge, CategoryBadge } from "@/components/calc-icon";
 import { MyCalculators } from "@/components/my-calculators";
 import { HomeOffers } from "@/components/home-offers";
 import { NetworkPromo } from "@/components/network-promo";
+import { Spotlight } from "@/components/spotlight";
 import { SiteJsonLd } from "@/components/site-jsonld";
 
 export async function generateMetadata({
@@ -78,6 +79,8 @@ export default async function HomePage({
         <AdSlot className="mt-4" />
 
         <MyCalculators locale={locale} />
+
+        <Spotlight locale={locale} />
 
         {recent.length > 0 ? (
           <section className="py-8 border-b border-[var(--rule)]">
