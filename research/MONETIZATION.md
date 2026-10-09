@@ -7,6 +7,31 @@
 
 ---
 
+## Сводка каналов (статусы: `активна` · `ждёт` · `рано` · `нет`)
+
+| Канал | Статус | Доход/мес | Условия / ссылка |
+|---|---|---|---|
+| AdSense | рано | — | порог трафика не достигнут; pub `ca-pub-5535516142831006` |
+| Upgrade (кредиты) | активна | — | FINANCIAL, все finance-калькуляторы · Indoleads |
+| TradingView | активна | — | INVESTING (13 slug) · Indoleads |
+| Square | активна | — | BUSINESS · Admitad |
+| VEVOR | активна | — | HOME (все DIY) · Admitad, CPA 5% |
+| Coursera | активна | — | EDUCATION (gpa/grade) · Admitad |
+| Doctronic | активна | — | health · Indoleads, US |
+| Qustodio | активна | — | due-date/ovulation · Admitad |
+| Instarem | активна | — | currency-converter · Indoleads |
+| TECH (NordPass/EaseUS/PureVPN/Keycense) | активна | — | data-storage/number-base · Admitad |
+| BLUETTI | активна | — | electricity-cost, **только EU** · Indoleads |
+| Trademark Engine | ждёт | — | $50 CPA, BUSINESS · Indoleads (кабинет) |
+| Cricut | ждёт | — | HOME/DIY · Admitad `49734` (pending) |
+| Way.com (AUTO) | нет | — | declined; переоценить с ростом трафика |
+| Ezoic | нет | — | отклонён (сайт молодой), переподать позже |
+
+_Доход везде «—»: конверсий пока 0 (трафик near-zero из-за понижения). Детали и полные
+ссылки — ниже._
+
+---
+
 ## 0. TL;DR — что где и какой rel
 
 | Тип ссылки | rel | Follow? | Зачем |

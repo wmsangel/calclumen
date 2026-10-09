@@ -1,318 +1,169 @@
-<title>CalcLumen Roadmap</title>
+<title>CalcLumen — дорожная карта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Layout: single centered column; status tiles up top, then stacked sections. */
-  :root {
-    --bg: #f6f5f3;
-    --surface: #ffffff;
-    --surface-2: #efeeea;
-    --ink: #1a1b1e;
-    --ink-soft: #63666e;
-    --rule: #e4e3de;
-    --accent: #6d5df0;
-    --accent-soft: rgba(109, 93, 240, 0.12);
-    --good: #2f9e6f;
-    --warn: #cf8a1e;
-    --crit: #d6564a;
-    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #17181b;
-      --surface: #1f2126;
-      --surface-2: #24262c;
-      --ink: #e9e9ec;
-      --ink-soft: #9a9ea8;
-      --rule: #2d2f36;
-      --accent: #8b7cff;
-      --accent-soft: rgba(139, 124, 255, 0.16);
-      --good: #4cc490;
-      --warn: #e0a94a;
-      --crit: #e8756a;
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #17181b;
-    --surface: #1f2126;
-    --surface-2: #24262c;
-    --ink: #e9e9ec;
-    --ink-soft: #9a9ea8;
-    --rule: #2d2f36;
-    --accent: #8b7cff;
-    --accent-soft: rgba(139, 124, 255, 0.16);
-    --good: #4cc490;
-    --warn: #e0a94a;
-    --crit: #e8756a;
-    color-scheme: dark;
-  }
-
-  * { box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-sans);
-    line-height: 1.5;
-    margin: 0;
-  }
-  .wrap {
-    max-width: 780px;
-    margin: 0 auto;
-    padding-inline: 18px;
-    padding-block: 28px 56px;
-  }
-
-  header.top { margin-bottom: 22px; }
-  .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  h1 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0;
-    text-wrap: balance;
-  }
-  h1 .lumen { color: var(--accent); }
-  .updated {
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    font-variant-numeric: tabular-nums;
-  }
-  .lede {
-    margin: 8px 0 0;
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    max-width: 62ch;
-  }
-  .src {
-    margin-top: 6px;
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-  }
-  .src code {
-    font-family: var(--font-mono);
-    background: var(--surface-2);
-    padding: 1px 5px;
-    border-radius: 5px;
-    font-size: 0.9em;
-  }
-
-  /* status tiles */
-  .tiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
-    gap: 10px;
-    margin: 22px 0 28px;
-  }
-  .tile {
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    padding: 12px 14px;
-  }
-  .tile .k {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--ink-soft);
-  }
-  .tile .v {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 3px;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.01em;
-  }
-  .tile .v.warn { color: var(--warn); }
-  .tile .v.crit { color: var(--crit); }
-  .tile .sub { font-size: 0.72rem; color: var(--ink-soft); margin-top: 2px; }
-
-  section { margin-bottom: 26px; }
-  h2 {
-    font-size: 1.02rem;
-    font-weight: 650;
-    margin: 0 0 12px;
-    padding-bottom: 7px;
-    border-bottom: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .note { font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 12px; }
-
-  /* status chips */
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 999px;
-    white-space: nowrap;
-    line-height: 1.4;
-  }
-  .chip::before {
-    content: "";
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: currentColor;
-  }
-  .chip.done { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
-  .chip.wait { color: var(--warn); background: color-mix(in srgb, var(--warn) 16%, transparent); }
-  .chip.go   { color: var(--accent); background: var(--accent-soft); }
-  .chip.risk { color: var(--crit); background: color-mix(in srgb, var(--crit) 15%, transparent); }
-  .chip.type { color: var(--ink-soft); background: var(--surface-2); }
-  .chip.type::before { display: none; }
-
-  /* recovery levers */
-  .levers { display: flex; flex-direction: column; gap: 8px; }
-  .lever {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--surface); border: 1px solid var(--rule);
-    border-radius: 10px; padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-  .lever .txt { flex: 1; min-width: 0; }
-  .lever .txt b { font-weight: 600; }
-  .lever .txt small { display: block; color: var(--ink-soft); font-size: 0.8rem; }
-
-  /* run queue */
-  ol.queue { list-style: none; counter-reset: run; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
-  ol.queue li {
-    counter-increment: run;
-    display: flex; align-items: flex-start; gap: 11px;
-    background: var(--surface); border: 1px solid var(--rule);
-    border-radius: 10px; padding: 10px 12px;
-    min-width: 0;
-  }
-  ol.queue li::before {
-    content: counter(run);
-    flex: none;
-    width: 24px; height: 24px;
-    display: grid; place-items: center;
-    background: var(--accent-soft); color: var(--accent);
-    border-radius: 7px;
-    font-size: 0.82rem; font-weight: 700;
-    font-variant-numeric: tabular-nums;
-  }
-  ol.queue .body { flex: 1; min-width: 0; }
-  ol.queue .body b { font-weight: 600; }
-  ol.queue .body code { font-family: var(--font-mono); font-size: 0.86em; color: var(--accent); }
-  ol.queue .body small { display: block; color: var(--ink-soft); font-size: 0.8rem; margin-top: 2px; }
-  ol.queue .body .chip { margin-top: 5px; }
-
-  ul.list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
-  ul.list li {
-    display: flex; gap: 9px; align-items: flex-start;
-    font-size: 0.9rem;
-    padding-left: 2px;
-  }
-  ul.list li::before { content: "✓"; color: var(--good); font-weight: 700; flex: none; }
-  ul.list.idea li::before { content: "•"; color: var(--accent); }
-  ul.list.own li::before { content: "→"; color: var(--warn); }
-  ul.list li code { font-family: var(--font-mono); font-size: 0.86em; background: var(--surface-2); padding: 0 4px; border-radius: 4px; }
-  ul.list li small { color: var(--ink-soft); }
-
-  footer.foot { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 0.78rem; color: var(--ink-soft); }
+/* Графит: холодный нейтраль, IBM Plex, один акцент под сайт.
+   Светлая + тёмная тема. Одна читаемая колонка ≤860px. */
+:root{
+  --bg:#fbfbfc; --surface:#f4f5f8; --surface2:#eceef3;
+  --ink:#1b1e26; --muted:#6a6f7d; --line:#e6e8ee; --line2:#d6d9e2;
+  --accent:#2f6f87; --accent-soft:color-mix(in srgb,var(--accent) 10%,transparent);
+  --good:#3f8f63; --warn:#9c7620; --bad:#b5494a;
+  --font-display:'IBM Plex Mono',ui-monospace,monospace;
+  --font-body:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14161b; --surface:#1b1e25; --surface2:#222630;
+  --ink:#e7e9ef; --muted:#959bab; --line:#282c35; --line2:#353a45;
+  --accent:#79bdd4;
+  --good:#6bbd8e; --warn:#d7ab5c; --bad:#e08383; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#14161b; --surface:#1b1e25; --surface2:#222630;
+  --ink:#e7e9ef; --muted:#959bab; --line:#282c35; --line2:#353a45;
+  --accent:#79bdd4;
+  --good:#6bbd8e; --warn:#d7ab5c; --bad:#e08383; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+  font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+.kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:500}
+h1{margin:10px 0 0;font-family:var(--font-display);font-weight:600;
+  font-size:clamp(32px,6vw,46px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:16px;max-width:60ch;margin:10px 0 0}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:32px 0 40px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.tile .n{font-family:var(--font-mono);font-weight:600;font-size:27px;line-height:1;letter-spacing:-.02em}
+.tile .n.accent{color:var(--accent)}
+.tile .c{display:block;margin-top:8px;font-size:13px;color:var(--muted);line-height:1.35}
+section{margin-bottom:38px}
+.s-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;
+  padding-bottom:9px;border-bottom:1px solid var(--line)}
+.s-head h2{margin:0;font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.s-head .count{font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+.q{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:none}
+.q .idx{font-family:var(--font-mono);font-weight:600;font-size:15px;color:var(--accent);padding-top:2px}
+.q .t{font-weight:600;font-size:17px}
+.q .d{color:var(--muted);font-size:15.5px;margin-top:3px}
+.q .tag{display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:11px;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--accent);
+  background:var(--accent-soft);padding:3px 8px;border-radius:6px}
+.done,.ideas{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.done li,.ideas li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:16.5px}
+.done .mk{color:var(--good);font-weight:700;font-family:var(--font-mono)}
+.ideas .bx{width:15px;height:15px;border:1.5px solid var(--line2);border-radius:4px;margin-top:5px}
+.note{color:var(--muted);font-size:14.5px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:380px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+th{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--surface)}
+.st{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.st.on{color:var(--good);background:color-mix(in srgb,var(--good) 14%,transparent)}
+.st.wait{color:var(--warn);background:color-mix(in srgb,var(--warn) 16%,transparent)}
+.st.soon{color:var(--muted);background:var(--surface2)}
+td.num{font-family:var(--font-mono);text-align:right}
+footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:620px){body{font-size:17px}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
 <div class="wrap">
-  <header class="top">
-    <div class="brand">
-      <h1>Calc<span class="lumen">Lumen</span> Roadmap</h1>
-      <span class="updated">обновлено 08.10.2026 · внутр. перелинковка (Spotlight + контекст-ссылки)</span>
-    </div>
-    <p class="lede">Живой план и статус проекта: восстановление после понижения Google, очередь ближайших сборок, лог сделанного и копилка идей.</p>
-    <p class="src">Источник правды — файл в репозитории <code>research/PLAN.md</code>; эта страница — витрина поверх него.</p>
+  <header>
+    <span class="kicker">Дорожная карта · обновлено 09.10.2026</span>
+    <h1>CalcLumen</h1>
+    <p class="sub">Хаб калькуляторов и конвертеров под англоязычный органический поиск (US/UK/CA/AU), монетизация AdSense + партнёрки. Витрина поверх рабочих документов репозитория.</p>
   </header>
 
   <div class="tiles">
-    <div class="tile"><div class="k">Калькуляторов</div><div class="v">130</div></div>
-    <div class="tile"><div class="k">В sitemap</div><div class="v">152</div><div class="sub">было 2929 · чистка</div></div>
-    <div class="tile"><div class="k">Google показы</div><div class="v crit">~2/день</div><div class="sub">⚠️ понижение</div></div>
-    <div class="tile"><div class="k">Сеть сайтов</div><div class="v">10</div></div>
-    <div class="tile"><div class="k">Очередь</div><div class="v">10/10 ✓</div><div class="sub">закрыта</div></div>
-    <div class="tile"><div class="k">AdSense</div><div class="v warn">NOT YET</div><div class="sub">ждём трафик</div></div>
+    <div class="tile"><span class="n">557</span><span class="c">визитов за 30 дней</span></div>
+    <div class="tile"><span class="n">164</span><span class="c">страниц в sitemap (отдаём в индекс)</span></div>
+    <div class="tile"><span class="n accent">6</span><span class="c">задач в очереди</span></div>
+    <div class="tile"><span class="n">0</span><span class="c">кликов из поиска (28 дней)</span></div>
   </div>
 
   <section>
-    <h2>🚨 Восстановление после понижения Google</h2>
-    <p class="note">Домен алгоритмически понижен (159k показов/день → ~2/день) из-за молодого домена, нехватки бэклинков и массы тонких страниц. Не техника, Bing показывает. Четыре рычага:</p>
-    <div class="levers">
-      <div class="lever"><span class="chip done">сделано</span><div class="txt"><b>Чистка тонкого контента</b><small>noindex units/roman/data/combinations + математика; sitemap 2929→152</small></div></div>
-      <div class="lever"><span class="chip wait">owner</span><div class="txt"><b>Бэклинки (авторитет) — рычаг №1</b><small>размещаются с сетевых сайтов; главный фактор возврата</small></div></div>
-      <div class="lever"><span class="chip go">идёт</span><div class="txt"><b>Содержательный контент</b><small>каждый запуск = уникальный finance/DIY-калькулятор, никогда не тонкий</small></div></div>
-      <div class="lever"><span class="chip wait">ждём</span><div class="txt"><b>Переоценка Google</b><small>недели после чистки + ссылок; мониторим показы и индексацию</small></div></div>
-    </div>
+    <div class="s-head"><h2>Очередь</h2><span class="count">по приоритету · 6</span></div>
+
+    <div class="q"><span class="idx">01</span><div>
+      <div class="t">Собрать входящие бэклинки с сети на money-страницы</div>
+      <div class="d">Рычаг №1 возврата Google: домену нужны ВХОДЯЩИЕ do-follow ссылки (costtrek→home-affordability, thecryptotools→capital-gains и т.д.). Задачи розданы сетевым сайтам; сейчас бэклинков 0.</div>
+      <span class="tag">индексация</span></div></div>
+
+    <div class="q"><span class="idx">02</span><div>
+      <div class="t">Мониторить возврат индексации и показов</div>
+      <div class="d">Money-страницы висят «unknown / crawled-not-indexed», показы ~0 (понижение). Смотреть GSC через 2–4 недели после появления ссылок.</div>
+      <span class="tag">трафик</span></div></div>
+
+    <div class="q"><span class="idx">03</span><div>
+      <div class="t">Проверить аппрув офферов и завести одобренные</div>
+      <div class="d">Admitad: Cricut (pending). Indoleads (кабинет): Trademark Engine $50 CPA, Snoop, Udemy, Costway, Homestyler, Macpaw. Как одобрят → в offers.ts.</div>
+      <span class="tag">деньги</span></div></div>
+
+    <div class="q"><span class="idx">04</span><div>
+      <div class="t">Закрыть пустой AUTO-кластер офферов</div>
+      <div class="d">Way.com declined; искать US авто-страховку / lead-gen (топ-CPM) под auto-loan / lease / car-affordability.</div>
+      <span class="tag">деньги</span></div></div>
+
+    <div class="q"><span class="idx">05</span><div>
+      <div class="t">Подать в AdSense, когда вернётся трафик</div>
+      <div class="d">Обвязка (ads.txt + adsbygoogle) живая на проде; сайт в AdSense ещё не добавлен — ждём качественный трафик.</div>
+      <span class="tag">деньги</span></div></div>
+
+    <div class="q"><span class="idx">06</span><div>
+      <div class="t">Строить finance-калькуляторы по реальному спросу GSC</div>
+      <div class="d">Не потоком (их пока не индексируют): property-tax, NPV/IRR/CAGR, traditional-IRA / Social-Security.</div>
+      <span class="tag">контент</span></div></div>
   </section>
 
   <section>
-    <h2>🎯 Очередь 10/10 — закрыта ✓</h2>
-    <p class="note">Все 10 запусков выполнены (5 finance/DIY-калькуляторов + backlink-движок + GA4-аналитика). Дальше по спросу:</p>
-    <p class="note" style="margin-top:4px">property-tax, traditional-IRA / Social-Security, NPV/IRR/CAGR, board-foot/rebar; затем точечные CTR-правки по GSC. Главный фокус сместился на <b>бэклинки/индексацию</b> (embed-движок + сеть) и <b>мониторинг офферов</b>.</p>
-  </section>
-
-  <section>
-    <h2>✅ Сделано</h2>
-    <ul class="list">
-      <li><b>Spotlight</b> (08.10) — ротируемый недельный слот самопромо на главной; серверный выбор по ISO-неделе = краулимая внутренняя ссылка в статике <small>(внутр. перелинковка на money-страницы)</small></li>
-      <li><b>Контекстные do-follow ссылки на сеть</b> (08.10) — in-body на 4 money-страницах → costtrek/thecryptotools/ocrsnip/iznkit, естеств. анкор, do-follow <small>(исходящее плечо; входящее раздано сетевым сайтам)</small></li>
-      <li><b>GA4-аналитика</b> (08.10) — хелпер <code>track()</code> + события offer_click / calculator_use / embed_copy / feedback <small>(Run 10/10 — очередь закрыта)</small></li>
-      <li><b>Square оффер</b> (08.10) — одобрен в Admitad → в BUSINESS-кластер <small>(остальные заявки пока declined/в кабинете)</small></li>
-      <li><b>Backlink-движок</b> (06.10) — встраиваемый виджет: iframe + do-follow «Powered by CalcLumen» в HTML хоста <small>(бьёт в дефицит №1 — авторитет; 8 флагманов, модель Omni)</small></li>
-      <li><b>VEVOR оффер</b> (05.10) — аппрув пришёл → завели в HOME-кластер (все DIY-калькуляторы) + ротацию на главной <small>(CPA 5%, AOV $200+, text-only)</small></li>
-      <li><b>Depreciation</b> (05.10) — straight-line / declining balance / MACRS + график год-за-годом <small>(Run 9/10)</small></li>
-      <li><b>Insulation</b> (05.10) — R добавить, толщина слоя, пакеты (рулоны/плиты/мешки), стоимость <small>(Run 8/10)</small></li>
-      <li><b>Rental Property</b> (05.10) — cash flow / cash-on-cash / cap rate / DSCR доходной недвижимости <small>(Run 7/10)</small></li>
-      <li><b>Schema-гигиена</b> (05.10) — точный applicationCategory по категориям + сшивка сущностей через @id <small>(без Product/фейк-рейтингов — риск спам-штрафа)</small></li>
-      <li><b>Stair</b> (01.10) — ступени/подступёнок/косоур с проверкой норм <small>(Run 6/10)</small></li>
-      <li><b>RMD</b> (01.10) — мин. выплаты с IRA по таблице IRS <small>(Run 5/10)</small></li>
-      <li><b>Drywall</b> (01.10) — листы для стен+потолка, шпаклёвка, лента, саморезы, стоимость <small>(Run 4/10)</small></li>
-      <li><b>Annuity</b> (30.09) — PV/FV аннуитета, ordinary vs due, график роста <small>(Run 3/10)</small></li>
-      <li><b>Self-Employment Tax</b> (29.09) — SECA: SS+Medicare, вычитаемая половина <small>(Run 2/10)</small></li>
-      <li><b>Solar Panel</b> (29.09) — панели/кВт/стоимость/окупаемость с 30% налог. кредитом <small>(Run 1/10)</small></li>
-      <li>Недельный план Day 1–7 — хаб <code>/finance</code> + intent-перелинковка, PMI-калькулятор, freshness-байлайн + schema, APR-обогащение, Day 7 ревизия</li>
-      <li>Чистка тонкого программатика (<code>2dcf113</code>) — noindex + sitemap 2929→152</li>
-      <li>Строительные: roofing (<code>a5c1149</code>), deck (<code>7d3b072</code>); mulch покрыт gravel-калькулятором</li>
-      <li>Life Insurance Needs (<code>277a3a4</code>, метод DIME) — под страховые офферы</li>
-      <li>Сеть «From our network»: +OCR Snip, +foundaday, +Dasha Motion (10 сайтов)</li>
-      <li>AdSense-обвязка живая на проде (ads.txt + adsbygoogle), ждём readiness</li>
+    <div class="s-head"><h2>Сделано</h2><span class="count">за 2 недели</span></div>
+    <ul class="done">
+      <li><span class="mk">✓</span><span><b>Spotlight</b> — недельный внутр. слот на главной; серверная ротация по ISO-неделе = краулимая внутренняя ссылка на money-страницы</span></li>
+      <li><span class="mk">✓</span><span><b>Контекстные do-follow ссылки</b> — in-body на 4 money-страницах → costtrek / thecryptotools / ocrsnip / iznkit</span></li>
+      <li><span class="mk">✓</span><span><b>Backlink-движок</b> — встраиваемый виджет (8 флагманов): iframe + do-follow «Powered by CalcLumen» в HTML хоста</span></li>
+      <li><span class="mk">✓</span><span><b>GA4-аналитика</b> — track() + события offer_click / calculator_use / embed_copy / feedback (очередь 10/10 закрыта)</span></li>
+      <li><span class="mk">✓</span><span><b>Офферы</b> — VEVOR (HOME) и Square (BUSINESS) одобрены и заведены; MONETIZATION.md-справочник</span></li>
+      <li><span class="mk">✓</span><span><b>5 калькуляторов</b> — rental-property, insulation, depreciation (+ annuity/rmd/stair/drywall/solar)</span></li>
+      <li><span class="mk">✓</span><span><b>Schema-гигиена</b> — точный applicationCategory + сшивка сущностей через @id</span></li>
     </ul>
   </section>
 
   <section>
-    <h2>💡 Входящие идеи (копилка)</h2>
-    <p class="note">Всплывшее по ходу; берётся, когда очередь пуста. Крупное/рискованное — сначала на утверждение.</p>
-    <ul class="list idea">
-      <li>⚙️ <b>Инфра: миграция Vercel → Cloudflare Pages</b> — после восстановления, по чеклисту <small>(CF почти бесплатен для статики; CF уже наш DNS/email/analytics; детали в IDEAS.md)</small></li>
-      <li>Cooking/baking конверсии (cups↔grams, oven temps) — только топ-спрос, не массово <small>(низкий CPM)</small></li>
-      <li>Health: TDEE · BAC · pregnancy weight gain <small>(средний CPM, популярно)</small></li>
-      <li>Spotlight в тело calc-страниц («Try also…») — если зайдёт на главной <small>(расширение)</small></li>
+    <div class="s-head"><h2>Идеи</h2><span class="count">инбокс · не в работе</span></div>
+    <ul class="ideas">
+      <li><span class="bx"></span><span>Миграция Vercel → Cloudflare Pages <span class="note">— после восстановления; CF дешевле для статики и уже наш DNS</span></span></li>
+      <li><span class="bx"></span><span>Гео take-home pay / income-tax по штатам US + UK <span class="note">— крупный programmatic, топ-CPM; после восстановления</span></span></li>
+      <li><span class="bx"></span><span>Spotlight в тело calc-страниц («Try also…») <span class="note">— расширение, если зайдёт на главной</span></span></li>
+      <li><span class="bx"></span><span>Embeddable-виджет: расширить набор флагманов по спросу <span class="note">— сейчас 8</span></span></li>
+      <li><span class="bx"></span><span>Health-калькуляторы: TDEE · BAC · pregnancy weight gain <span class="note">— средний CPM, популярно</span></span></li>
     </ul>
   </section>
 
   <section>
-    <h2>📌 Событийное · решение владельца</h2>
-    <ul class="list own">
-      <li><b>VEVOR</b> ✅ (05.10) · <b>Заявки на 15 офферов поданы 07.10</b> (Admitad+Indoleads) — ⏳ проверить аппрув 08.10, одобренные завести в кластеры <small>(Way.com→AUTO, Square→BUSINESS, Trademark Engine $50 CPA, Chegg/Udemy→EDU, Costway/Homestyler/Sam's Club/Cricut→HOME)</small></li>
-      <li><span class="chip risk">крупное</span> <b>Гео take-home pay / income-tax</b> по штатам US + UK — programmatic, топ-CPM; сначала владельцу</li>
-      <li><span class="chip done">сделано</span> <b>Embeddable-виджет</b> (backlink-движок, модель Omni) — live 06.10; мониторим появление встраиваний/ссылок</li>
-      <li><b>Sovrn Ad Exchange</b> — Plan B для дисплея, если AdSense откажет</li>
-      <li><b>Бэклинки на money-страницы</b> с сетевых сайтов — рычаг №1</li>
-    </ul>
+    <div class="s-head"><h2>Реклама и офферы</h2><span class="count">монетизация · детали в MONETIZATION.md</span></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Канал</th><th>Статус</th><th class="num">Доход / мес</th></tr></thead>
+      <tbody>
+        <tr><td>AdSense</td><td><span class="st wait">рано</span></td><td class="num">—</td></tr>
+        <tr><td>Upgrade (кредиты)</td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>Square</td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>VEVOR</td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>TradingView · Coursera · Instarem · TECH</td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>Trademark Engine ($50 CPA)</td><td><span class="st soon">ждёт</span></td><td class="num">—</td></tr>
+        <tr><td>Cricut</td><td><span class="st soon">ждёт</span></td><td class="num">—</td></tr>
+        <tr><td>Way.com (AUTO) · Ezoic</td><td><span class="st soon">нет</span></td><td class="num">—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note" style="margin-top:10px">Доход везде «—»: конверсий пока 0 — трафик near-zero из-за понижения Google. Офферы = <code>rel="sponsored nofollow"</code>; сеть / контекстные / Spotlight = do-follow.</p>
   </section>
 
-  <section>
-    <h2>🔭 Мониторинг</h2>
-    <ul class="list idea">
-      <li>Google-показы — растут ли с ~2/день</li>
-      <li>Money-страницы: «unknown / crawled-not-indexed» → «indexed»</li>
-      <li>Частота обхода Googlebot (crawl stats)</li>
-      <li>AdSense-readiness: quality-клики за 28 дней</li>
-    </ul>
-  </section>
-
-  <footer class="foot">
-    Витрина поверх <code style="font-family:var(--font-mono)">research/PLAN.md</code>. Обновляется после каждой выполненной работы. Приватный артефакт.
-  </footer>
+  <footer>Витрина проекта. Обновляется вместе с планом. Приватный артефакт.</footer>
 </div>
