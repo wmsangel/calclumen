@@ -24,6 +24,14 @@ export const EMBEDDABLE: Embeddable[] = [
   { slug: "bmi-calculator", height: 600 },
   { slug: "auto-loan-calculator", height: 640 },
   { slug: "salary-to-hourly-calculator", height: 580 },
+  { slug: "retirement-savings-calculator", height: 760 },
+  { slug: "401k-calculator", height: 760 },
+  { slug: "roth-ira-calculator", height: 760 },
+  { slug: "debt-payoff-calculator", height: 700 },
+  { slug: "roi-calculator", height: 600 },
+  { slug: "sales-tax-calculator", height: 540 },
+  { slug: "discount-calculator", height: 540 },
+  { slug: "calorie-calculator", height: 700 },
 ];
 
 const BY_SLUG = new Map(EMBEDDABLE.map((e) => [e.slug, e]));

@@ -102,3 +102,19 @@ export function spotlightOfWeek(now: Date = new Date()): Spotlight {
   const idx = isoWeek(now) % SPOTLIGHT.length;
   return SPOTLIGHT[idx];
 }
+
+/**
+ * Weekly spotlight for an in-body "Try also" slot on a calculator page, skipping
+ * the page you're already on (so it never links to itself). Server-side → the
+ * link is in the static HTML, adding a rotating internal link from every calc
+ * page to a money page / guide.
+ */
+export function spotlightForPage(currentSlug: string, now: Date = new Date()): Spotlight {
+  const base = isoWeek(now);
+  const self = `/${currentSlug}`;
+  for (let i = 0; i < SPOTLIGHT.length; i++) {
+    const item = SPOTLIGHT[(base + i) % SPOTLIGHT.length];
+    if (item.path !== self) return item;
+  }
+  return SPOTLIGHT[base % SPOTLIGHT.length];
+}

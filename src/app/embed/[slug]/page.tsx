@@ -14,6 +14,14 @@ import { TipCalculator } from "@/components/calculators/tip";
 import { BmiCalculator } from "@/components/calculators/bmi";
 import { AutoLoanCalculator } from "@/components/calculators/auto-loan";
 import { SalaryToHourly } from "@/components/calculators/salary-to-hourly";
+import { RetirementSavingsCalculator } from "@/components/calculators/retirement-savings";
+import { K401Calculator } from "@/components/calculators/k401";
+import { RothIraCalculator } from "@/components/calculators/roth-ira";
+import { DebtPayoffCalculator } from "@/components/calculators/debt-payoff";
+import { RoiCalculator } from "@/components/calculators/roi";
+import { SalesTaxCalculator } from "@/components/calculators/sales-tax";
+import { DiscountCalculator } from "@/components/calculators/discount";
+import { CalorieCalculator } from "@/components/calculators/calorie";
 
 const COMPONENTS: Record<string, ReactNode> = {
   "loan-calculator": <LoanCalculator />,
@@ -24,6 +32,14 @@ const COMPONENTS: Record<string, ReactNode> = {
   "bmi-calculator": <BmiCalculator />,
   "auto-loan-calculator": <AutoLoanCalculator />,
   "salary-to-hourly-calculator": <SalaryToHourly />,
+  "retirement-savings-calculator": <RetirementSavingsCalculator />,
+  "401k-calculator": <K401Calculator />,
+  "roth-ira-calculator": <RothIraCalculator />,
+  "debt-payoff-calculator": <DebtPayoffCalculator />,
+  "roi-calculator": <RoiCalculator />,
+  "sales-tax-calculator": <SalesTaxCalculator />,
+  "discount-calculator": <DiscountCalculator />,
+  "calorie-calculator": <CalorieCalculator />,
 };
 
 // Only the curated embed pages exist; anything else 404s.

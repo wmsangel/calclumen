@@ -9,7 +9,7 @@
       собрать на CF Pages preview и сверить заголовки/301/robots/sitemap/OG ДО переключения DNS.
 - [ ] Гео take-home pay / income-tax по штатам US + UK — крупный programmatic, топ-CPM; после
       восстановления (источник налоговых данных + объём на согласование).
-- [ ] Spotlight в тело calc-страниц («Try also…») — расширение, если зайдёт на главной.
-- [ ] Embeddable-виджет: расширить набор флагманов по спросу (сейчас 8).
-- [ ] Health-калькуляторы: TDEE · BAC · pregnancy weight gain — средний CPM, популярно.
 - [ ] Cooking/baking конверсии (cups↔grams, oven temps) — только топ-спрос, не массово (низкий CPM).
+
+<!-- Сделано 12.10: Spotlight в тело calc-страниц; embeddable 8→16; health BAC + pregnancy-weight-gain
+     (TDEE пропущен — уже покрыт calorie-calculator). См. PLAN.md → Сделано. -->

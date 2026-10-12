@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Sparkles } from "lucide-react";
 import type { Locale } from "@/lib/i18n/config";
 import {
   getCalc,
@@ -20,6 +20,7 @@ import { EmbedSnippet } from "./embed-snippet";
 import { CalcUseTracker } from "./calc-use-tracker";
 import { embeddableFor } from "@/lib/embeddable";
 import { crossLinkFor } from "@/lib/cross-links";
+import { spotlightForPage } from "@/lib/spotlight";
 
 // Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
 // are statically regenerated on each deploy, so this reflects the last update.
@@ -290,6 +291,28 @@ export function CalcShell({
             canonical={url}
             height={emb.height}
           />
+        );
+      })()}
+
+      {/* "Try also" — one rotating internal link to a flagship money page /
+          guide (never the current page). Static HTML = a crawlable internal link
+          from every calculator, spread across the roster weekly. */}
+      {(() => {
+        const sp = spotlightForPage(slug);
+        return (
+          <Link
+            href={`/${locale}${sp.path}`}
+            className="mt-12 card card-hover p-4 flex items-center gap-3 no-print"
+          >
+            <span className="grid place-items-center w-9 h-9 rounded-xl bg-[var(--accent-soft)] text-[var(--accent-2)] shrink-0">
+              <Sparkles size={18} />
+            </span>
+            <span className="flex-1 min-w-0">
+              <span className="text-xs text-[var(--ink-soft)] block">Try also</span>
+              <span className="font-medium text-sm block truncate">{sp.title}</span>
+            </span>
+            <span className="text-[var(--accent)] text-sm font-medium shrink-0">Open →</span>
+          </Link>
         );
       })()}
 

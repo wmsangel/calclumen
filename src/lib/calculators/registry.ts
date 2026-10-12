@@ -307,6 +307,36 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "bac-calculator",
+    category: "health",
+    title: "BAC (blood alcohol)",
+    heading: "Blood Alcohol Content (BAC) Calculator",
+    description:
+      "Estimate your blood alcohol content from your weight, sex, number of drinks and time using the Widmark formula.",
+    keywords: [
+      "bac calculator",
+      "blood alcohol calculator",
+      "blood alcohol content calculator",
+      "how drunk am i calculator",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "pregnancy-weight-gain-calculator",
+    category: "health",
+    title: "Pregnancy weight gain",
+    heading: "Pregnancy Weight Gain Calculator",
+    description:
+      "See your recommended pregnancy weight gain by pre-pregnancy BMI (IOM guidelines), with a healthy target for your current week.",
+    keywords: [
+      "pregnancy weight gain calculator",
+      "how much weight should i gain during pregnancy",
+      "pregnancy weight gain by week",
+      "pregnancy bmi weight gain",
+    ],
+    isNew: true,
+  },
+  {
     slug: "date-difference-calculator",
     category: "datetime",
     title: "Date difference",
