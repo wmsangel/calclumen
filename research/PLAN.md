@@ -13,9 +13,10 @@
 2. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled,
    not indexed», показы ~0 (понижение). Смотреть GSC через 2–4 недели после появления
    ссылок; бэклинков сейчас 0. `трафик`
-3. **Проверить аппрув офферов и завести одобренные** — Admitad: Cricut `49734` (pending);
-   Indoleads (в кабинете): Trademark Engine `21829` ($50 CPA) 🔥, Snoop/Udemy/Costway/
-   Homestyler/Macpaw. Как одобрят → `offers.ts` (source=calclumen.com, не дублировать сети). `деньги`
+3. **Сверять ЖИВЫЕ офферы еженедельно + заводить новые одобренные** — ⚠️ аппрувы Admitad
+   ОТКАТЫВАЮТСЯ (12.10 так умерли Square + Doctronic). Раз в неделю: `GET /advcampaigns/
+   website/2988056/` → у каждого нашего оффера `connection_status=active`, иначе убрать из кода.
+   Новые: Cricut `49734` (pending); Indoleads (кабинет): Trademark Engine `21829` ($50 CPA) 🔥. `деньги`
 4. **Закрыть пустой AUTO-кластер офферов** — Way.com `29492` declined; искать US
    авто-страховку / lead-gen (топ-CPM). `деньги`
 5. **Подать в AdSense, когда вернётся трафик** — обвязка (ads.txt + adsbygoogle) живая,

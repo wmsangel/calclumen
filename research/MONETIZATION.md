@@ -14,10 +14,10 @@
 | AdSense | рано | — | порог трафика не достигнут; pub `ca-pub-5535516142831006` |
 | Upgrade (кредиты) | активна | — | FINANCIAL, все finance-калькуляторы · Indoleads |
 | TradingView | активна | — | INVESTING (13 slug) · Indoleads |
-| Square | активна | — | BUSINESS · Admitad |
 | VEVOR | активна | — | HOME (все DIY) · Admitad, CPA 5% |
 | Coursera | активна | — | EDUCATION (gpa/grade) · Admitad |
-| Doctronic | активна | — | health · Indoleads, US |
+| Square | нет | — | ⚠️ Admitad ОТКАТИЛ аппрув (active→declined), убран из кода 12.10 |
+| Doctronic | нет | — | ⚠️ Admitad отвязал программу, убран из кода 12.10 (health теперь AdSense-only) |
 | Qustodio | активна | — | due-date/ovulation · Admitad |
 | Instarem | активна | — | currency-converter · Indoleads |
 | TECH (NordPass/EaseUS/PureVPN/Keycense) | активна | — | data-storage/number-base · Admitad |
@@ -74,11 +74,11 @@ nofollow"`, с FTC-дисклеймером. Привязка — по клас�
 | **FINANCIAL** | Upgrade (кредиты до $50k) | все finance-калькуляторы (mortgage, loan, debt-*, credit-card, dti, apr…) кроме investing/currency | Indoleads `gettracker.net/6aa298fc76f5f` | US |
 | **INVESTING** (override) | TradingView | compound-interest, annuity, roi, rule-of-72, retirement-savings, 401k, roth-ira, hsa, capital-gains-tax, cd, savings-goal, simple-interest, inflation | Indoleads `z03o.xyz/6aa7cf97bf91e` | WW |
 | **MONEY_TRANSFER** (override) | Instarem | currency-converter | Indoleads `i07o.xyz/6aa7cfe2483c4` | US/UK/CA/AU/EU/Asia |
-| **BUSINESS** | **Square**, NordVPN, Lenovo, OpenArt, Envato, Notion | business-калькуляторы (margin-markup, break-even, depreciation, sales-commission, discount…) | Admitad/Indoleads микс | US/UK/CA/AU + WW |
+| **BUSINESS** | NordVPN, Lenovo, OpenArt, Envato, Notion | business-калькуляторы (margin-markup, break-even, depreciation, sales-commission, discount…) | Admitad/Indoleads микс | US/UK/CA/AU + WW |
 | **HOME** | **VEVOR** | все homediy (insulation, drywall, stair, roofing, deck, solar-panel, concrete, paint, tile, gravel, flooring, btu, electricity-cost…) | Admitad `rzekl.com/g/b9jm5dg8a8…` | Many GEOs (US/UK/CA/AU/EU) |
 | **TECH** (override) | NordPass, EaseUS, PureVPN, Keycense | data-storage-converter, number-base-converter | Admitad микс | WW / US-UK-EU |
 | **EDUCATION** (override) | Coursera | gpa-calculator, grade-calculator | Admitad `thevospad.com/…` | WW |
-| **FITNESS** (health) | Doctronic (US-телемед) | все health (bmi, calorie, macro, bmr, body-fat…) | Indoleads `tsygg.com/g/7r1pt1n1fo…` | US |
+| **FITNESS** (health) | ⚠️ **ПУСТО** (Doctronic убран 12.10 — Admitad отвязал) | health AdSense-only, пока нет health-оффера | — | — |
 | **PREGNANCY** (override) | Qustodio (родит. контроль) | due-date-calculator, ovulation-calculator | Admitad `zejcl.com/g/zgsaevrb3a…` | US/UK/CA/AU/DE/PL/BR |
 | **AUTO** | ⚠️ **ПУСТО** | auto-loan, auto-lease, car-affordability | — | — |
 | **EU-gated** (доп.) | BLUETTI | electricity-cost-calculator, **только EU-посетителям** (гейт по таймзоне, client-side) | Indoleads `z05o.xyz/6aa7d19799ad8` | EU |
@@ -86,9 +86,10 @@ nofollow"`, с FTC-дисклеймером. Привязка — по клас�
 **Домашняя ротация** (`HOME_FEATURED`, блок на главной, тасуется client-side):
 NordVPN, Coursera, Lenovo, OpenArt, EaseUS, AdGuard, ProHoster, Qustodio, Envato, VEVOR.
 
-**Полный список заведённых офферов:** Upgrade, Doctronic, Qustodio, NordVPN, Lenovo,
+**Полный список заведённых офферов (18):** Upgrade, Qustodio, NordVPN, Lenovo,
 PureVPN, Coursera, OpenArt (15% OFF), EaseUS (20% OFF), AdGuard, ProHoster, NordPass,
-Envato, Notion, Instarem, TradingView, Keycense, BLUETTI (EU), Square, VEVOR.
+Envato, Notion, Instarem, TradingView, Keycense, BLUETTI (EU), VEVOR.
+_(убраны 12.10: Square, Doctronic — Admitad откатил/отвязал.)_
 
 **Правила оффера:** только ТЕКСТ (баннеры не берём) · гео US/UK/CA/AU (или WW) ·
 разрешён content-site/SEO трафик · Payoneer/крипто выплата · не дублировать между
@@ -100,7 +101,9 @@ Envato, Notion, Instarem, TradingView, Keycense, BLUETTI (EU), Square, VEVOR.
 (API статус не отдаёт).
 
 **Admitad:**
-- ✅ **Square `114585`** — одобрен, заведён (BUSINESS).
+- ❌ **Square `114585`** — был одобрен 08.10, но Admitad ОТКАТИЛ (active→declined), убран из кода 12.10.
+  ⚠️ **Урок: аппрувы Admitad откатываются.** Периодически (раз в неделю) сверять ЖИВЫЕ офферы, а не только заявки:
+  `GET /advcampaigns/website/2988056/` → у каждого нашего оффера `connection_status` должен быть `active`.
 - ⏳ **Cricut `49734`** — pending (HOME/DIY).
 - ❌ снова declined (автоправило по трафику/возрасту, переоценить через 2-4 нед с ростом):
   Sam's Club `106720`, Chegg `28853`, **Way.com `29492`** (закрыл бы пустой AUTO!),

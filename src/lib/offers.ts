@@ -43,18 +43,12 @@ const FINANCIAL: OfferGroup = {
   offers: [UPGRADE],
 };
 
-const DOCTRONIC: Offer = {
-  id: "doctronic",
-  name: "Doctronic",
-  blurb:
-    "Free AI health consults 24/7, or talk to a licensed U.S. doctor online — telehealth visits from $39.",
-  url: "https://tsygg.com/g/7r1pt1n1fo45d9374ef3abb0242f2d/",
-  cta: "Try Doctronic",
-};
-
+// Doctronic removed 2026-10-12 — Admitad connection no longer active (the
+// program dropped our website), so the link went dead. Health calcs are
+// AdSense-only until a new health offer is approved.
 const FITNESS: OfferGroup = {
   label: "Health & wellness",
-  offers: [DOCTRONIC],
+  offers: [],
 };
 
 const QUSTODIO: Offer = {
@@ -204,18 +198,12 @@ const BLUETTI: Offer = {
   cta: "Shop BLUETTI",
 };
 
-const SQUARE: Offer = {
-  id: "square",
-  name: "Square",
-  blurb:
-    "Take card payments, send invoices and run your business — POS, card readers and online checkout trusted by millions of sellers.",
-  url: "https://rcpsj.com/g/xmbwxznk5745d9374ef3c1c4731730/",
-  cta: "Get Square",
-};
-
+// Square removed 2026-10-12 — Admitad reversed the approval (connection_status
+// went active → declined within days), so the deeplink went dead ("you don't
+// work with the program" on clicks).
 const BUSINESS: OfferGroup = {
   label: "Tools you may like",
-  offers: [SQUARE, NORDVPN, LENOVO, OPENART, ENVATO, NOTION],
+  offers: [NORDVPN, LENOVO, OPENART, ENVATO, NOTION],
 };
 
 // Money-transfer / FX intent (currency converter).
