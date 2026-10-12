@@ -1,0 +1,37 @@
+## CalcLumen
+- **URL:** https://calclumen.com
+- **Languages:** English only (`en`). The URLs carry an `/en/` prefix, but no other locale is actually served.
+- **One-liner:** A free, no-signup hub of 130+ online calculators and converters, each with a plain-English explainer.
+- **What it is:** CalcLumen is a static, fast website offering around 130 interactive calculators and converters across Finance, Auto, Business, Health, Home & DIY, Math, Date & Time and Conversions. Every calculator is its own page: the live tool up top, then a short how-to and FAQ below it. It also has ~28 longer explainer guides. It's built as a search-first utility site — you land on the exact tool you searched for and get an instant answer.
+- **Who it's for:** Anyone who needs a quick, specific calculation and doesn't want to sign up or install anything — e.g. someone pricing a mortgage, splitting a bill, converting units, estimating materials for a home project, or checking BMI/calories. Primarily an English-speaking (US/UK/CA/AU) audience arriving from search.
+- **What you can actually do (features):**
+  - Run ~130 calculators across 8 categories — finance (mortgage/PITI, loans, refinance, HELOC, retirement, tax), health, home/DIY material estimators, math, date/time, business and conversions — with instant, in-browser results.
+  - Read a real explainer on each page: step-by-step "how to use it" plus an FAQ, not just a bare widget.
+  - Convert units (length, weight, temperature, volume, speed, area, data) and currency, with a multi-currency selector on money tools.
+  - Embed 16 flagship calculators on your own site via a copy-paste snippet (an iframe plus a visible credit link).
+  - Save favorites and reopen them from a "My calculators" list (kept in your browser).
+  - Get a shareable result URL and copy the result on many calculators; print or save any calculator as a PDF.
+  - Switch between light and dark themes.
+- **Why it stands out:** These are genuine working tools, not filler articles — each page actually computes something and backs it with a concise, readable explanation and FAQ. It's free, needs no account, loads fast (Core Web Vitals pass across the board), and stays clean and low-clutter. Its finance coverage is unusually deep for a general calculator site, and 16 of the tools are embeddable on other websites.
+- **Access:** Free. No signup, no account, no paywall or paid tier. The project is ad-supported (display ads) plus affiliate product recommendations shown under relevant tools, with an FTC affiliate disclosure.
+- **Privacy / data:** Calculations run in your browser; no account or personal data entry is required to use any tool. Favorites are stored locally (localStorage), not on a server. The site uses privacy-first analytics — Google Analytics in consent mode (denied until you accept cookies) plus cookieless Cloudflare Web Analytics — and marks affiliate links `rel="sponsored nofollow"`. The embeddable-widget pages load no ads or analytics.
+- **Best use cases (examples):**
+  - Work out a mortgage or loan's monthly payment and full amortization schedule before talking to a lender.
+  - Quick everyday math — "what is 25% of 80", a percentage change, a tip split, or a date difference.
+  - Estimate materials for a home project — concrete, drywall, insulation, roofing or paint.
+  - Convert units or currency, or check BMI, daily calories, or pregnancy weight gain.
+- **Key pages / entry points:**
+  - https://calclumen.com/en (home + category hubs)
+  - https://calclumen.com/en/mortgage-calculator (flagship)
+  - https://calclumen.com/en/compound-interest-calculator
+  - https://calclumen.com/en/finance (category hub)
+- **Suggested tags/categories:** calculators, converters, finance, health, home-improvement, math, unit-conversion, free-tools, no-signup, embeddable-widgets
+- **Short blurb (~40 words):** CalcLumen is a free, no-signup hub of 130+ online calculators and converters — mortgage and loan payments, percentages, unit and currency conversion, BMI and calories, DIY material estimates and more. Each tool runs instantly in your browser alongside a plain-English explainer and FAQ.
+- **Do NOT claim:**
+  - Not multi-language — it's English only, despite the `/en/` URL prefix.
+  - Don't call it established, popular or high-traffic — it's a new site (launched around Aug 2026) still building search visibility.
+  - Don't say the ad experience is fully live — the AdSense setup is wired but the site isn't serving a full ad load yet.
+  - Not every calculator has charts or shareable URLs — those are on a subset.
+  - Only 16 calculators are embeddable, not all of them.
+  - No mobile app, no public API, no user accounts or cross-device sync.
+  - "TDEE" is not a separate tool — it's part of the Calorie calculator.
