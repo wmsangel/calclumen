@@ -226,15 +226,34 @@ const VEVOR: Offer = {
   url: "https://rzekl.com/g/b9jm5dg8a845d9374ef3fcfaae913b/",
   cta: "Shop VEVOR",
 };
+const COSTWAY: Offer = {
+  id: "costway",
+  name: "Costway",
+  blurb:
+    "10,000+ products for home, garden and garage — furniture, patio, sporting goods and tools at better-than-Amazon prices.",
+  url: "https://z15o.xyz/6acdd4ee5655f",
+  cta: "Shop Costway",
+  badge: "10% OFF",
+};
 
 const HOME: OfferGroup = {
   label: "For your project",
-  offers: [VEVOR],
+  offers: [VEVOR, COSTWAY],
+};
+
+const MACPAW: Offer = {
+  id: "macpaw",
+  name: "MacPaw",
+  blurb:
+    "CleanMyMac and more from MacPaw — clear out junk, speed up your Mac and keep it secure. Trusted by millions.",
+  url: "https://o10o.xyz/6acdd53578e2d",
+  cta: "Get CleanMyMac",
+  badge: "10% OFF",
 };
 
 const TECH: OfferGroup = {
   label: "Tools & software you may like",
-  offers: [NORDPASS, EASEUS, PUREVPN, KEYCENSE],
+  offers: [NORDPASS, EASEUS, PUREVPN, KEYCENSE, MACPAW],
 };
 
 const EDUCATION: OfferGroup = {

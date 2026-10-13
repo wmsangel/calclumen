@@ -21,9 +21,11 @@
 | Qustodio | активна | — | due-date/ovulation · Admitad |
 | Instarem | активна | — | currency-converter · Indoleads |
 | TECH (NordPass/EaseUS/PureVPN/Keycense) | активна | — | data-storage/number-base · Admitad |
+| Costway | активна | — | HOME (DIY) · Indoleads `z15o.xyz/6acdd4ee5655f`, US 2.4%, промо COSTWAY10 |
+| MacPaw (CleanMyMac) | активна | — | TECH · Indoleads `o10o.xyz/6acdd53578e2d`, WW 28-35%, промо MACPAW10 |
 | BLUETTI | активна | — | electricity-cost, **только EU** · Indoleads |
-| Trademark Engine | ждёт | — | $50 CPA, BUSINESS · Indoleads (кабинет) |
 | Cricut | ждёт | — | HOME/DIY · Admitad `49734` (pending) |
+| Trademark Engine | нет | — | недоступен нашему Indoleads-аккаунту (0 в кабинете) |
 | Way.com (AUTO) | нет | — | declined; переоценить с ростом трафика |
 | Ezoic | нет | — | отклонён (сайт молодой), переподать позже |
 
@@ -109,9 +111,11 @@ _(убраны 12.10: Square, Doctronic — Admitad откатил/отвяза�
   Sam's Club `106720`, Chegg `28853`, **Way.com `29492`** (закрыл бы пустой AUTO!),
   Costway `116661`, Homestyler `114701`, Udemy `22448`, Great Courses `27425`.
 
-**Indoleads (проверять в кабинете):**
-- 🔥 **Trademark Engine `21829`** — $50 CPA, US/UK/CA/AU → BUSINESS (приоритет).
-- Snoop Finance `16850` (UK budgeting), Udemy `650`, Costway `21626`, Homestyler `21808`, Macpaw `2015`.
+**Indoleads — ПРОВЕРЕНО в кабинете 2026-10-13** (API-поле `applied` полностью врёт; статус виден только в вебе):
+- ✅ Уже ОДОБРЕНЫ (approved/active): **Costway `21626`** + **MacPaw `2015`** → проведены в код 13.10 (HOME / TECH).
+  Udemy `650` (approved, education — пока НЕ заводим, уже есть Coursera). Snoop `16850` (active, но Android/UK + без content-трафика → не подходит).
+- ❌ НЕ в нашем аккаунте (0 результатов в кабинете): Trademark Engine `21829`, Homestyler `21808` — недоступны, подать нельзя.
+- Трекинг-ссылки генерим в кабинете: деталь оффера → вкладка «Tracking link» → Source = https://calclumen.com → Generate.
 
 **Дефициты / куда искать дальше:**
 - **AUTO-кластер пуст** — нужен авто-оффер (Way.com declined; искать US авто-страховку/lead-gen).
