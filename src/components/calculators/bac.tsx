@@ -2,20 +2,11 @@
 
 import { useState } from "react";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
+import { estimateBac, LEGAL, weightKgFromInput, type Sex } from "@/lib/math/bac";
 
-type Sex = "male" | "female";
 type Units = "kg" | "lb";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
-
-// Widmark distribution ratio (fraction of body that is water-equivalent).
-const R: Record<Sex, number> = { male: 0.68, female: 0.55 };
-// Average alcohol elimination rate, % BAC per hour.
-const ELIM = 0.015;
-// Grams of pure alcohol in one US standard drink.
-const GRAMS_PER_DRINK = 14;
-// US legal driving limit (BAC %).
-const LEGAL = 0.08;
 
 export function BacCalculator() {
   const [sex, setSex] = useState<Sex>("male");
@@ -28,21 +19,18 @@ export function BacCalculator() {
   const d = num(drinks);
   const h = num(hours);
 
-  const weightKg = units === "kg" ? wInput : wInput / 2.2046226;
+  const weightKg = weightKgFromInput(units, wInput);
   const valid =
     Number.isFinite(weightKg) && weightKg > 0 &&
     Number.isFinite(d) && d >= 0 &&
     Number.isFinite(h) && h >= 0;
 
   let bac = NaN;
+  let peak = NaN;
   let toSober = NaN; // hours until BAC = 0
   let toLegal = NaN; // hours until BAC = 0.08
   if (valid) {
-    const grams = d * GRAMS_PER_DRINK;
-    const peak = (grams / (weightKg * 1000 * R[sex])) * 100; // % before elimination
-    bac = Math.max(0, peak - ELIM * h);
-    toSober = bac / ELIM;
-    toLegal = bac > LEGAL ? (bac - LEGAL) / ELIM : 0;
+    ({ bac, peak, toSober, toLegal } = estimateBac(sex, weightKg, d, h));
   }
 
   const over = valid && bac >= LEGAL;
@@ -133,7 +121,7 @@ export function BacCalculator() {
         />
         <Stat
           label="Peak BAC (no elimination)"
-          value={valid ? `${((d * GRAMS_PER_DRINK) / (weightKg * 1000 * R[sex]) * 100).toFixed(3)}%` : "—"}
+          value={valid ? `${peak.toFixed(3)}%` : "—"}
         />
       </div>
 
