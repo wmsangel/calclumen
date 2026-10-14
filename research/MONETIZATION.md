@@ -12,6 +12,7 @@
 | Канал | Статус | Доход/мес | Условия / ссылка |
 |---|---|---|---|
 | AdSense | рано | — | порог трафика не достигнут; pub `ca-pub-5535516142831006` |
+| Amazon Associates | активна | — | tag `calclumen-20`; search-ссылки (без цен/фото до PA-API); карточки «Materials for this project» на DIY/electricity/health/finance-страницах. ⚠️ правило 3 продаж/180д (owner нагонит сетью); добавить сайт в Associates Central → Manage Your Websites. OneLink для UK/CA/AU — позже |
 | Upgrade (кредиты) | активна | — | FINANCIAL, все finance-калькуляторы · Indoleads |
 | TradingView | активна | — | INVESTING (13 slug) · Indoleads |
 | VEVOR | активна | — | HOME (все DIY) · Admitad, CPA 5% |

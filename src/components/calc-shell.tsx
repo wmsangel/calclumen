@@ -21,6 +21,7 @@ import { CalcUseTracker } from "./calc-use-tracker";
 import { embeddableFor } from "@/lib/embeddable";
 import { crossLinkFor } from "@/lib/cross-links";
 import { spotlightForPage } from "@/lib/spotlight";
+import { AmazonMaterials } from "./amazon-materials";
 
 // Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
 // are statically regenerated on each deploy, so this reflects the last update.
@@ -293,6 +294,10 @@ export function CalcShell({
           />
         );
       })()}
+
+      {/* Amazon Associates — native "materials for this project" (DIY/health/
+          finance pages only; renders nothing elsewhere). */}
+      <AmazonMaterials slug={slug} />
 
       {/* "Try also" — one rotating internal link to a flagship money page /
           guide (never the current page). Static HTML = a crawlable internal link
