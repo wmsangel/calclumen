@@ -32,7 +32,10 @@
    Нужен источник налоговых данных по штатам + UK и согласование объёма. ПОСЛЕ восстановления. `контент`
 8. **Cooking/baking конверсии** (cups↔grams, oven temps) — только топ-спрос, точечно, не массово.
    Низкий CPM, вторично. `контент`
-9. **⚠️ Инфра: миграция Vercel → Cloudflare Pages** — по чеклисту (адаптер vs static export;
+9. **Amazon: OneLink + PA-API апгрейд** — OneLink (авто-редирект UK/CA/AU на локальный Amazon;
+   сейчас только .com/US); после 3 продаж → PA-API → реальные фото/цены + прямые ASIN вместо
+   search-ссылок (выше конверсия). Сейчас tag `calclumen-20`, карточки «Materials» на 21 стр. `деньги`
+10. **⚠️ Инфра: миграция Vercel → Cloudflare Pages** — по чеклисту (адаптер vs static export;
    headers→`_headers`; редиректы→`_redirects`/Worker; `/api/og`; сверка на CF preview ДО DNS).
    CF дешевле для статики и уже наш DNS/email/analytics. НЕ во время восстановления (риск
    SEO-сантехнике); только после. `инфра`
