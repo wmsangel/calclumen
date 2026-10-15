@@ -9,10 +9,11 @@ import { OfferLogo } from "./offer-logo";
  * Presentational offer panel shared by the server-rendered {@link
  * AffiliateBlock} and the client-gated EuOfferBlock, so both render identical
  * cards, disclosure and layout. Links are rel="sponsored nofollow".
- * `context` (the calculator slug, or "home") is sent with the offer_click
- * event so we can see which pages actually convert clicks.
+ * Clicks fire the network-standard `affiliate_click` event: `item` = offer id
+ * (the breakdown key), `placement` = where the card sits. The page itself is
+ * already captured by GA4's page_path, so it isn't duplicated here.
  */
-export function OfferPanel({ group, context }: { group: OfferGroup; context?: string }) {
+export function OfferPanel({ group }: { group: OfferGroup }) {
   return (
     <section className="mt-12">
       <div className="offer-panel">
@@ -36,7 +37,7 @@ export function OfferPanel({ group, context }: { group: OfferGroup; context?: st
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
               onClick={() =>
-                track("offer_click", { offer: o.id, group: group.label, context: context ?? "" })
+                track("affiliate_click", { item: o.id, placement: "in_article" })
               }
             >
               <OfferLogo id={o.id} name={o.name} />

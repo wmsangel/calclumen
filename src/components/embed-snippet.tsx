@@ -10,11 +10,13 @@ import { track } from "@/lib/track";
  * to us; the iframe itself does not). Rendered only for embeddable calculators.
  */
 export function EmbedSnippet({
+  slug,
   heading,
   src,
   canonical,
   height,
 }: {
+  slug: string;
   heading: string;
   src: string;
   canonical: string;
@@ -30,7 +32,7 @@ export function EmbedSnippet({
     `<a href="${canonical}" target="_blank" rel="noopener">${heading} — CalcLumen</a></p>`;
 
   async function copy() {
-    track("embed_copy", { widget: heading });
+    track("copy_click", { item: slug, placement: "embed" });
     try {
       await navigator.clipboard.writeText(snippet);
       setCopied(true);

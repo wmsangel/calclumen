@@ -8,8 +8,22 @@
 
 1. **Собрать входящие бэклинки с сети на money-страницы** — рычаг №1 возврата Google:
    домену нужны ВХОДЯЩИЕ do-follow ссылки (costtrek→home-affordability, thecryptotools→
-   capital-gains, ocrsnip→budget, iznkit→margin-markup, любой→mortgage). Задачи розданы
-   сетевым сайтам 2026-10-08; бэклинков сейчас 0 — отслеживать появление (CF referrers / GSC Links). `индексация`
+   capital-gains, ocrsnip→budget, iznkit→margin-markup, foundaday→mortgage, pawdget→budget).
+   ⚠️ Проверка live 2026-10-14: задача 08.10 выполнена на ~20% и частично вхолостую — только
+   iznkit+pawdget дали do-follow, и то на ГЛАВНУЮ; thecryptotools поставил nofollow/sponsored
+   (вес не передаёт); costtrek/ocrsnip/foundaday не ссылались. 2026-10-14 РАЗОСЛАНЫ точечные
+   задачи всем 6 сессиям (do-follow + в теле + на money-страницу): costtrek/ocrship/iznkit/
+   thecryptotools ✅ собрал do-follow editorial на /en/capital-gains-tax-calculator (гайд
+   crypto-taxes-explained, под некрипто прибыли; house-ad nofollow оставлен) — ✅ LIVE 14.10
+   (владелец одобрил, verified на проде). iznkit ✅ LIVE 14.10 (verified): /en/tools/quote → do-follow
+   rel="noopener" на /en/margin-markup-calculator — первый рабочий бэклинк на money-страницу.
+   costtrek ✅ LIVE 15.10 (verified) do-follow на /en/home-affordability-calculator (гайд
+   move-abroad, коммит ac10323). ocrsnip/pawdget в работе. foundaday ✅ сделал do-follow
+   in-body на /en/mortgage-calculator; публикация находки сдвинута на 15.10 08:00 (Бишкек) —
+   ссылка живая с этого момента. Проверка: curl -s foundaday.com/en/f/calclumen-everyday-calculators
+   | grep calclumen.com/en/mortgage-calculator. Отслеживать появление
+   (CF referrers / GSC Links). Домен budget-таргета сверен 14.10: живой = ocrsnip.com
+   (ocrship.com — опечатка в названии сессии, не резолвится); cross-links.ts верен. `индексация`
 2. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled,
    not indexed», показы ~0, кликов из поиска 0 (понижение). Смотреть GSC через 2–4 недели
    после появления ссылок. Все внутренние рычаги под обнаружение уже в проде (контекстные
@@ -44,6 +58,13 @@
 
 _(последние ~2 недели)_
 
+- **События GA4 → сетевой стандарт** (15.10) — все кастомные события переименованы под общее
+  соглашение сети, у каждого обязательный параметр `item` (ключ разбивки) + доп.:
+  `tool_used {item=slug, action}`, `affiliate_click {item=offer, placement}`,
+  `copy_click {item=slug, placement}`, `cta_click {item}`, `feedback_open/submit {item}`;
+  Amazon-клики теперь тоже трекаются (`affiliate_click {platform=amazon}`, новый AmazonLink).
+  Параметры `item/placement/platform/action` зарегистрированы в GA4 как event-scoped custom
+  dimensions (свойство calclumen p549878079). Данные копятся с момента регистрации.
 - **Чистка «Идеи» → план** (12.10) — все идеи рассмотрены и перенесены в очередь (п. 7–9);
   IDEAS.md — пустой инбокс.
 - **Идеи из бэклога** (12.10) — Spotlight в тело calc-страниц («Try also», краулимая ссылка с

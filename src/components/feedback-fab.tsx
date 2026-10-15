@@ -30,7 +30,7 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
   }, [open]);
 
   function send() {
-    track("feedback_submit");
+    track("feedback_submit", { item: "feedback" });
     const url = typeof window !== "undefined" ? window.location.href : "";
     const subject = `CalcLumen feedback${url ? ` — ${new URL(url).pathname}` : ""}`;
     const body = `${msg}\n\n—\nPage: ${url}`;
@@ -86,7 +86,7 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
               href={`/${locale}/support`}
               className="prose-link inline-flex items-center gap-1"
               onClick={() => {
-                track("support_click");
+                track("cta_click", { item: "support" });
                 setOpen(false);
               }}
             >
@@ -99,7 +99,7 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
       <button
         type="button"
         onClick={() => {
-          if (!open) track("feedback_open");
+          if (!open) track("feedback_open", { item: "feedback" });
           setOpen((v) => !v);
         }}
         aria-expanded={open}

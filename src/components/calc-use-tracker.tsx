@@ -4,11 +4,14 @@ import { useEffect, useRef } from "react";
 import { track } from "@/lib/track";
 
 /**
- * Wraps a calculator and fires a single `calculator_use` event the first time
- * the visitor changes any input inside it — a real-engagement signal (not just
- * a page view). Uses a native capturing-free listener on the wrapper so it
+ * Wraps a calculator and fires a single `tool_used` event the first time the
+ * visitor changes any input inside it — a real-engagement signal (not just a
+ * page view). Uses a native capturing-free listener on the wrapper so it
  * catches input/change from any field in the calculator subtree. Fires at most
  * once per mount; safe no-op when analytics isn't loaded.
+ *
+ * Network-standard event: `item` = tool slug (the breakdown key), `action` =
+ * what happened. See the network events convention.
  */
 export function CalcUseTracker({ slug, children }: { slug: string; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,7 +23,7 @@ export function CalcUseTracker({ slug, children }: { slug: string; children: Rea
     const onUse = () => {
       if (fired.current) return;
       fired.current = true;
-      track("calculator_use", { calc: slug });
+      track("tool_used", { item: slug, action: "calculate" });
     };
     el.addEventListener("input", onUse);
     el.addEventListener("change", onUse);

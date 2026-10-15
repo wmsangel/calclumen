@@ -287,6 +287,7 @@ export function CalcShell({
         if (!emb) return null;
         return (
           <EmbedSnippet
+            slug={slug}
             heading={calc.heading}
             src={`${SITE_URL}/embed/${slug}`}
             canonical={url}
