@@ -187,3 +187,38 @@ export const AMAZON: Record<string, AmazonBlock> = {
 export function amazonFor(slug: string): AmazonBlock | null {
   return AMAZON[slug] ?? null;
 }
+
+// --- Internal /go/<slug> cloaking -------------------------------------------
+// Links on the page point at /go/<slug>, which 302-redirects to the tagged
+// amazon.com URL (the redirect rules live in next.config.ts — a free edge
+// redirect, no serverless function). This keeps crawlers off the raw
+// `amazon.com/...?tag=` links: /go/ is Disallow-ed in robots.txt, so bots stop
+// inflating the Associates click count, while real visitors pass straight
+// through. The visible label still says "on Amazon" (not masked).
+
+/** Stable slug for an Amazon query — the /go/<slug> key and the GA4 `item`. */
+export function amazonGoSlug(q: string): string {
+  return q
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+/** Internal cloaked link for a query: /go/<slug>. */
+export function amazonGoHref(q: string): string {
+  return `/go/${amazonGoSlug(q)}`;
+}
+
+/** Flat slug -> tagged amazon URL map for next.config redirects(). Deduped, so
+ *  identical queries across pages share one /go/<slug> rule. */
+export const AMAZON_GO_REDIRECTS: ReadonlyArray<{ slug: string; url: string }> =
+  (() => {
+    const seen = new Map<string, string>();
+    for (const block of Object.values(AMAZON)) {
+      for (const item of block.items) {
+        const slug = amazonGoSlug(item.q);
+        if (!seen.has(slug)) seen.set(slug, amazonSearchUrl(item.q));
+      }
+    }
+    return [...seen].map(([slug, url]) => ({ slug, url }));
+  })();

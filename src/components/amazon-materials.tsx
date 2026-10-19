@@ -1,14 +1,6 @@
 import { ShoppingCart } from "lucide-react";
-import { amazonFor, amazonSearchUrl } from "@/lib/amazon";
+import { amazonFor, amazonGoHref, amazonGoSlug } from "@/lib/amazon";
 import { AmazonLink } from "./amazon-link";
-
-/** Short, stable slug for the affiliate_click `item` param (the breakdown key). */
-function productSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
 
 /**
  * Native "materials / gear for this project" card for pages where a real
@@ -39,8 +31,8 @@ export function AmazonMaterials({ slug }: { slug: string }) {
           {block.items.map((item) => (
             <li key={item.name}>
               <AmazonLink
-                href={amazonSearchUrl(item.q)}
-                item={productSlug(item.name)}
+                href={amazonGoHref(item.q)}
+                item={amazonGoSlug(item.q)}
                 className="flex items-center justify-between gap-3 rounded-xl border border-[var(--rule)] p-3 hover:border-[var(--accent)] transition"
               >
                 <span className="text-sm font-medium">{item.name}</span>

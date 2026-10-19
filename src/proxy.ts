@@ -17,6 +17,12 @@ export function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
+  // /go/<slug> is a locale-less affiliate cloak handled by a next.config
+  // redirect (302 to Amazon); never rewrite it to /en/go/...
+  if (pathname === "/go" || pathname.startsWith("/go/")) {
+    return NextResponse.next();
+  }
+
   const url = req.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);
@@ -30,5 +36,5 @@ export const config = {
   // Also skips API routes, Next internals, and files with an extension.
   // NOTE: `en` is hard-coded because matchers must be static literals — add
   // any new locale here if `src/lib/i18n/config.ts` gains one.
-  matcher: ["/((?!en(?:/|$)|embed(?:/|$)|api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  matcher: ["/((?!en(?:/|$)|embed(?:/|$)|go(?:/|$)|api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
