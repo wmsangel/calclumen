@@ -105,10 +105,11 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    ✅ PREP ГОТОВ 23.10 — ветка `cloudflare-ready`, адаптер @opennextjs/cloudflare (решение
    владельца, зеркало costtrek, НЕ static export). **Проверено живьём на CF Workers рантайме**
    (wrangler dev/workerd): proxy.ts locale-редирект, security-headers, 47 /go/ 302, /api/og 200,
-   robots/ads/sitemap, расчёт калькуляторов (FIRE 1.0M→1.25M). Детали + cutover —
-   `research/CLOUDFLARE-MIGRATION.md`. ОСТАЛОСЬ (владелец): завести CF API-токен + 2 GitHub-секрета
-   (CLOUDFLARE_API_TOKEN + ACCOUNT_ID d6d43b8e…) → preview-деплой → потом merge в main; DNS-cutover
-   — отдельное «да», НЕ во время восстановления. `инфра`
+   robots/ads/sitemap, расчёт калькуляторов. ✅ **PREVIEW ЖИВОЙ 23.10: https://calclumen.ocrsnip.workers.dev**
+   (секреты владельца добавлены, деплой через GitHub Action cf-preview.yml, 4740 ассетов; те же
+   проверки прошли на живом Worker). Детали + cutover — `research/CLOUDFLARE-MIGRATION.md`.
+   ОСТАЛОСЬ: потыкать preview → merge cloudflare-ready в main (Vercel соберёт 16.4.2) → DNS-cutover
+   (привязать домен к Worker) — отдельное «да» владельца, НЕ во время восстановления. `инфра`
    · **→сам** (рискованная миграция; полное ревью)
 
 ## Сделано

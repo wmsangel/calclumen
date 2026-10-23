@@ -1,8 +1,15 @@
 # CloudFlare migration (plan #10) — status & cutover
 
-**Status (2026-10-23):** branch `cloudflare-ready` is prepared and **verified locally
-on the real Cloudflare Workers runtime** (`wrangler dev` via OpenNext). Live site is
-still on Vercel — nothing is switched. DNS cutover needs the owner's explicit "go".
+**Status (2026-10-23):** branch `cloudflare-ready` is deployed to a **live CF Worker
+preview — https://calclumen.ocrsnip.workers.dev** (via the manual `cf-preview.yml`
+Action; owner's CLOUDFLARE_API_TOKEN + ACCOUNT_ID secrets are set). All checks pass on
+the live Worker (locale redirect, headers, /go/ 302, /api/og png, interactive calc).
+Live domain is still on Vercel — nothing switched. DNS cutover needs the owner's "go".
+
+Remaining: (1) kick the tires on the preview; (2) merge `cloudflare-ready` → main
+(Vercel will build 16.4.2 — verified); (3) DNS cutover: bind calclumen.com to the Worker
+(Workers → calclumen → Settings → Domains & Routes → add custom domain), then retire
+Vercel. Steps 2–3 are a separate owner "go", not during indexation recovery.
 
 Approach (owner's choice): **@opennextjs/cloudflare adapter → Cloudflare Workers**, mirroring
 the proven **costtrek** (`~/Sites/worldtime`) setup — not static export. Middleware,
