@@ -101,7 +101,11 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    МОЙ этап после этого: расширить `/go/<slug>` на гео-редирект по стране визитёра (Vercel
    `x-vercel-ip-country`) → нужный Amazon-домен + тег. PA-API (реальные фото/ASIN) — отдельно, после 3 продаж. `деньги`
    · **→сам** (гео-редирект в /go/ после получения тегов + интеграция)
-10. **⚠️ Инфра: миграция Vercel → Cloudflare Workers** <!-- crm:0mvarrq8x0d9dee726c29c4e2 --> <!-- due:2026-11-16 -->
+10. **⚠️ ПОЛНЫЙ ПЕРЕЕЗД Vercel → Cloudflare Workers** (владелец одобрил 23.10 — preview ок, делаем в ПОНЕДЕЛЬНИК) <!-- crm:0mvarrq8x0d9dee726c29c4e2 --> <!-- due:2026-10-26 -->
+   Исполнение 26.10: (1) merge `cloudflare-ready`→main (Vercel пересоберётся на 16.4.2 — проверено;
+   на main активируется deploy.yml = авто-деплой Worker на push); (2) привязать `calclumen.com` к
+   Worker'у (CF → Workers → calclumen → Domains & Routes → Custom domain); (3) сверить прод на CF,
+   отключить Vercel. ⚠️ DNS-переключение — финальный owner-confirm в день (необратимо/внешнее).
    ✅ PREP ГОТОВ 23.10 — ветка `cloudflare-ready`, адаптер @opennextjs/cloudflare (решение
    владельца, зеркало costtrek, НЕ static export). **Проверено живьём на CF Workers рантайме**
    (wrangler dev/workerd): proxy.ts locale-редирект, security-headers, 47 /go/ 302, /api/og 200,
