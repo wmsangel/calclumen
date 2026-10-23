@@ -297,6 +297,9 @@ const INVESTING_SLUGS = new Set([
   "inflation-calculator",
   "traditional-ira-calculator",
   "cagr-calculator",
+  "apy-calculator",
+  "dividend-calculator",
+  "fire-calculator",
 ]);
 
 // ── Geo-targeted offers ──────────────────────────────────────────

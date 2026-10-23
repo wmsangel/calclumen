@@ -190,6 +190,14 @@ export const AMAZON: Record<string, AmazonBlock> = {
     label: READING,
     items: [{ name: "Investing & returns books", q: "investing book beginner bestseller" }],
   },
+  "dividend-calculator": {
+    label: READING,
+    items: [{ name: "Dividend investing books", q: "dividend investing book" }],
+  },
+  "fire-calculator": {
+    label: READING,
+    items: [{ name: "FIRE & financial independence books", q: "financial independence retire early book" }],
+  },
 };
 
 export function amazonFor(slug: string): AmazonBlock | null {

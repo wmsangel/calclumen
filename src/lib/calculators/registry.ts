@@ -187,6 +187,54 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "apy-calculator",
+    category: "finance",
+    title: "APY",
+    heading: "APY Calculator",
+    description:
+      "Convert a nominal interest rate into its annual percentage yield (APY) for any compounding frequency, and see the interest earned on a balance over time.",
+    keywords: [
+      "apy calculator",
+      "annual percentage yield",
+      "apr to apy",
+      "effective annual rate calculator",
+      "savings yield calculator",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "dividend-calculator",
+    category: "finance",
+    title: "Dividend",
+    heading: "Dividend Calculator",
+    description:
+      "Project dividend income from a yield and optional annual growth, with monthly and annual payouts and a DRIP reinvestment option that compounds your balance.",
+    keywords: [
+      "dividend calculator",
+      "dividend income calculator",
+      "drip calculator",
+      "dividend reinvestment calculator",
+      "dividend yield calculator",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "fire-calculator",
+    category: "finance",
+    title: "FIRE",
+    heading: "FIRE Calculator",
+    description:
+      "Find your FIRE number and how many years to financial independence from your expenses, savings, contributions, return and safe withdrawal rate.",
+    keywords: [
+      "fire calculator",
+      "financial independence calculator",
+      "retire early calculator",
+      "fire number calculator",
+      "4 percent rule calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "home-equity-calculator",
     category: "finance",
     title: "Home equity / HELOC",
