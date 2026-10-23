@@ -42,3 +42,7 @@ next-env.d.ts
 
 # local editor/agent settings
 .claude/settings.local.json
+
+# Cloudflare build artifacts (see cloudflare-ready branch)
+.open-next/
+.wrangler/

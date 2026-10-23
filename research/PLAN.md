@@ -39,7 +39,11 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    ссылка живая с этого момента. Проверка: curl -s foundaday.com/en/f/calclumen-everyday-calculators
    | grep calclumen.com/en/mortgage-calculator. Отслеживать появление
    (CF referrers / GSC Links). Домен budget-таргета сверен 14.10: живой = ocrsnip.com
-   (ocrship.com — опечатка в названии сессии, не резолвится); cross-links.ts верен. `индексация`
+   (ocrship.com — опечатка в названии сессии, не резолвится); cross-links.ts верен.
+   **2026-10-23**: подготовлен 2-й батч доноров под 6 НОВЫХ money-страниц (property-tax/cagr/
+   fire/apy/dividend/traditional-ira), отправлен диспетчеру для рассылки сетевым сессиям. Правило
+   владельца: футер/ротация-блоки = nofollow; do-follow только единичными контекстными in-body
+   по теме. Таблица «донор→наша стр→анкор» — в сообщении диспетчеру. `индексация`
    · **→сам** (координация сетевых сессий + судейство live-проверок; кода calclumen нет)
 2. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled, <!-- crm:0mvarrq879483bda28298ad8b --> <!-- due:2026-11-07 -->
    not indexed», показы ~0, кликов из поиска 0 (понижение). Смотреть GSC через 2–4 недели
@@ -96,12 +100,15 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    МОЙ этап после этого: расширить `/go/<slug>` на гео-редирект по стране визитёра (Vercel
    `x-vercel-ip-country`) → нужный Amazon-домен + тег. PA-API (реальные фото/ASIN) — отдельно, после 3 продаж. `деньги`
    · **→сам** (гео-редирект в /go/ после получения тегов + интеграция)
-10. **⚠️ Инфра: миграция Vercel → Cloudflare Pages** — по чеклисту (адаптер vs static export; <!-- crm:0mvarrq8x0d9dee726c29c4e2 --> <!-- due:2026-11-16 -->
-   headers→`_headers`; редиректы→`_redirects`/Worker; `/api/og`; сверка на CF preview ДО DNS).
-   CF дешевле для статики и уже наш DNS/email/analytics. НЕ во время восстановления (риск
-   SEO-сантехнике); только после. `инфра`
-   · **→сам** (рискованная миграция нестандартного стека: адаптер/headers/redirects/api-og;
-   полное ревью, диагностика при промахе Cursor дороже самой работы)
+10. **⚠️ Инфра: миграция Vercel → Cloudflare Workers** <!-- crm:0mvarrq8x0d9dee726c29c4e2 --> <!-- due:2026-11-16 -->
+   ✅ PREP ГОТОВ 23.10 — ветка `cloudflare-ready`, адаптер @opennextjs/cloudflare (решение
+   владельца, зеркало costtrek, НЕ static export). **Проверено живьём на CF Workers рантайме**
+   (wrangler dev/workerd): proxy.ts locale-редирект, security-headers, 47 /go/ 302, /api/og 200,
+   robots/ads/sitemap, расчёт калькуляторов (FIRE 1.0M→1.25M). Детали + cutover —
+   `research/CLOUDFLARE-MIGRATION.md`. ОСТАЛОСЬ (владелец): завести CF API-токен + 2 GitHub-секрета
+   (CLOUDFLARE_API_TOKEN + ACCOUNT_ID d6d43b8e…) → preview-деплой → потом merge в main; DNS-cutover
+   — отдельное «да», НЕ во время восстановления. `инфра`
+   · **→сам** (рискованная миграция; полное ревью)
 
 ## Сделано
 
