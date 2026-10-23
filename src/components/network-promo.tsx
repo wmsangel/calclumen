@@ -1,10 +1,11 @@
 import { NETWORK_SITES } from "@/lib/network";
 
 /**
- * Cross-promotion for our own sister sites. Uses FOLLOW links (rel="noopener"
- * only, no nofollow) so link equity flows between sites we own — this is
- * reciprocal promotion, not paid advertising, so there's no "Ad" label or
- * sponsored rel.
+ * Cross-promotion for our own sister sites — a repeated "network card" block,
+ * so links are rel="nofollow noopener" (network policy): search engines
+ * discount sitewide cross-site boilerplate, and do-follow weight is reserved
+ * for single in-body contextual links. Not paid advertising, so no "Ad" label
+ * or sponsored rel.
  */
 export function NetworkPromo() {
   if (NETWORK_SITES.length === 0) return null;
@@ -20,7 +21,7 @@ export function NetworkPromo() {
             key={s.url}
             href={s.url}
             target="_blank"
-            rel="noopener"
+            rel="nofollow noopener"
             className="offer-card"
           >
             <span className="min-w-0">

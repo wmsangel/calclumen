@@ -66,7 +66,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        {/* Our network — follow links to sister sites (reciprocal SEO) */}
+        {/* Our network — sitewide boilerplate block, so rel="nofollow" (network
+            policy): search engines discount repeated cross-site links, and
+            do-follow weight only flows through single in-body contextual links. */}
         {NETWORK_SITES.length > 0 ? (
           <div className="mt-12 pt-6 border-t border-[var(--rule)] text-sm text-[var(--ink-soft)]">
             <span className="font-semibold text-[var(--ink)]">Our network:</span>{" "}
@@ -76,7 +78,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <a
                   href={s.url}
                   target="_blank"
-                  rel="noopener"
+                  rel="nofollow noopener"
                   className="hover:text-[var(--accent)] transition-colors"
                 >
                   {s.name}
