@@ -1,7 +1,9 @@
 import { ImageResponse } from "next/og";
 import { SITE_NAME } from "@/lib/seo/site";
 
-export const runtime = "edge";
+// No `runtime = "edge"`: on Cloudflare (OpenNext/workerd) the edge-runtime
+// designation makes next/og's ImageResponse 500. Running it as a normal route
+// in the Worker works (mirrors the costtrek setup) and is fine on Vercel too.
 
 // Branded Open Graph / Twitter card image, rendered on demand.
 // Usage: /api/og?title=Loan%20Calculator&subtitle=Monthly%20payment
