@@ -139,6 +139,54 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "property-tax-calculator",
+    category: "finance",
+    title: "Property tax",
+    heading: "Property Tax Calculator",
+    description:
+      "Estimate your annual and monthly property tax from a home's value and your local rate, with assessment ratio, exemptions and your effective tax rate.",
+    keywords: [
+      "property tax calculator",
+      "annual property tax",
+      "millage rate calculator",
+      "real estate tax calculator",
+      "home property tax estimate",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "traditional-ira-calculator",
+    category: "finance",
+    title: "Traditional IRA",
+    heading: "Traditional IRA Calculator",
+    description:
+      "Project your Traditional IRA at retirement and its after-tax value, with tax-deferred growth, your contributions and the up-front tax your pre-tax contributions save.",
+    keywords: [
+      "traditional ira calculator",
+      "ira retirement calculator",
+      "tax deferred growth calculator",
+      "traditional vs roth ira",
+      "ira contribution growth",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "cagr-calculator",
+    category: "finance",
+    title: "CAGR",
+    heading: "CAGR Calculator",
+    description:
+      "Find the compound annual growth rate between a beginning and ending value over a number of years, plus the total return and total gain.",
+    keywords: [
+      "cagr calculator",
+      "compound annual growth rate",
+      "annualized return calculator",
+      "investment growth rate",
+      "average annual growth rate",
+    ],
+    isNew: true,
+  },
+  {
     slug: "home-equity-calculator",
     category: "finance",
     title: "Home equity / HELOC",

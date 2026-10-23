@@ -295,6 +295,8 @@ const INVESTING_SLUGS = new Set([
   "savings-goal-calculator",
   "simple-interest-calculator",
   "inflation-calculator",
+  "traditional-ira-calculator",
+  "cagr-calculator",
 ]);
 
 // ── Geo-targeted offers ──────────────────────────────────────────

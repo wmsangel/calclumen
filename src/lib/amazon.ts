@@ -182,6 +182,14 @@ export const AMAZON: Record<string, AmazonBlock> = {
     label: READING,
     items: [{ name: "Retirement & 401(k) books", q: "401k retirement investing book" }],
   },
+  "traditional-ira-calculator": {
+    label: READING,
+    items: [{ name: "IRA & retirement planning books", q: "IRA retirement planning book" }],
+  },
+  "cagr-calculator": {
+    label: READING,
+    items: [{ name: "Investing & returns books", q: "investing book beginner bestseller" }],
+  },
 };
 
 export function amazonFor(slug: string): AmazonBlock | null {
