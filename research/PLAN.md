@@ -107,6 +107,12 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 
 _(последние ~2 недели)_
 
+- **+6 finance-калькуляторов по спросу** (23.10, коммиты 244ccf0 + 8301cd8) — все с юнит-тестами
+  (22 новых), verified в браузере, задеплоены, в IndexNow. Тройка плана #6: property-tax (FINANCIAL),
+  traditional-ira, cagr (INVESTING). Плюс внеплановая тройка по пробелам: **apy**, **dividend** (+DRIP),
+  **fire** (FIRE number + годы до независимости). math вынесена в src/lib/math; traditional-ira/cagr/
+  apy/dividend/fire → INVESTING_SLUGS (TradingView); Amazon-карточки книг на investing-страницах.
+
 - **События GA4 → сетевой стандарт** (15.10) — все кастомные события переименованы под общее
   соглашение сети, у каждого обязательный параметр `item` (ключ разбивки) + доп.:
   `tool_used {item=slug, action}`, `affiliate_click {item=offer, placement}`,
