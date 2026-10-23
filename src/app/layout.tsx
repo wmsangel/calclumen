@@ -50,6 +50,8 @@ export const metadata: Metadata = {
     other: {
       // Mitgo / Admitad publisher verification.
       "mitgo-verification": "9a011d91-558b-4e4a-a57a-b44f7dd37247",
+      // FlexOffers publisher site-ownership verification (public token).
+      "fo-verify": "68296c17-2837-402c-a01c-d4301022c98b",
       ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
         ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION }
         : {}),
