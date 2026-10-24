@@ -64,7 +64,12 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    • **CJ Affiliate** — ✅ АКТИВИРОВАН (W-8BEN + CJ Payments USD). Осталось внутри CJ подать в finance/insurance/auto программы (per-advertiser аппрув).
    • **FlexOffers** — ✅ подан + сайт верифицирован (мета-тег fo-verify на calclumen), на ревью ~5 раб. дней.
    • **MaxBounty** — ✅ подан + верифицирован (ID 808247), ЖДЁТ обязательного телефон-интервью с менеджером Taylor (@maxbountytaylor) — без звонка не одобрят (owner-side).
-   МОЙ этап (после аппрувов): зайти в кабинеты, подобрать auto/insurance/health офферы под US/UK/CA/AU, взять tracking-ссылки, завести в offers.ts (кластеры AUTO + health). `деньги`
+   CJ-программы (24.10): подано на 4 — **AAA Auto Club** (5128949, insurance/AUTO), **Aeroflow
+   Healthcare** (4959947, health), **Aflac** (5424279, insurance), **Ally** (5300495, finance/EPC~$1069);
+   все на manual review. Ещё в шорт-листе (не подано): RenoFi (8033802, mortgage/HELOC ⭐),
+   NAGA (8004498, investing), Ingenio (7991288, health). CJ-поиск: Partners→Find Advertisers,
+   фильтр Category(Automotive/Financial/Health/Insurance)+Serviceable Area(US/UK/CA) → 303 программы.
+   МОЙ этап (после аппрувов): взять tracking-ссылки одобренных, завести в offers.ts (кластеры AUTO + health). `деньги`
    · **→сам** (подбор/вайринг офферов после аппрува сетей)
 5. **AdSense — к 16.11 проверить трафик и вернуться к решению** — решение по сети (владелец 19.10): сейчас НЕ подаём, блоки не ставим. <!-- crm:0mvarrq8hbf2369c33b1a6ddf --> <!-- due:2026-11-16 -->
    Обвязка (ads.txt + adsbygoogle, privacy с рекламными пунктами) готова, см. «Сделано». К 16.11 свериться
