@@ -14,11 +14,9 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "calclumen"
     }
-  ],
-  // Production domain: bind the apex to this Worker (DNS cutover from Vercel).
-  // www.calclumen.com keeps redirecting to the apex; move it to the Worker or a
-  // CF redirect rule once Vercel is retired.
-  "routes": [
-    { "pattern": "calclumen.com", "custom_domain": true }
   ]
+  // Production domain (calclumen.com) is bound to this Worker as a Custom Domain
+  // in the Cloudflare dashboard (Workers → calclumen → Domains & Routes), not via
+  // a wrangler route — mirrors the costtrek setup. The dashboard atomically
+  // replaces the old Vercel apex DNS record; wrangler refuses to delete it.
 }
