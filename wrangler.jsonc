@@ -14,5 +14,11 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "calclumen"
     }
+  ],
+  // Production domain: bind the apex to this Worker (DNS cutover from Vercel).
+  // www.calclumen.com keeps redirecting to the apex; move it to the Worker or a
+  // CF redirect rule once Vercel is retired.
+  "routes": [
+    { "pattern": "calclumen.com", "custom_domain": true }
   ]
 }
