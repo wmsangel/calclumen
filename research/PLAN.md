@@ -22,7 +22,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 `→гибрид` — подход и первый образец за тобой, тираж по образцу — Cursor.
 Глубина проверки: `→cursor` — спот-чек; `→сам` и рискованное — полное ревью.
 
-1. **Собрать входящие бэклинки с сети на money-страницы** — рычаг №1 возврата Google: <!-- crm:0mvarrq7y5739733a45a30cdb --> <!-- due:2026-10-24 -->
+1. **Собрать входящие бэклинки с сети на money-страницы** — рычаг №1 возврата Google: <!-- crm:0mvarrq7y5739733a45a30cdb --> <!-- due:2026-11-07 -->
    домену нужны ВХОДЯЩИЕ do-follow ссылки (costtrek→home-affordability, thecryptotools→
    capital-gains, ocrsnip→budget, iznkit→margin-markup, foundaday→mortgage, pawdget→budget).
    ⚠️ Проверка live 2026-10-14: задача 08.10 выполнена на ~20% и частично вхолостую — только
@@ -44,7 +44,11 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    туда, где есть ЧЕСТНАЯ тематическая страница у донора (новые страницы ради ссылки НЕ писать):
    costtrek→property-tax, thecryptotools→cagr, iznkit→fire + traditional-ira. foundaday/izntools
    пропущены (нет темы). ocrsnip/pawdget — только проверяют старые budget-ссылки, новых не ставят.
-   Правило: do-follow только единичными контекстными in-body по теме; футер/ротация = nofollow. `индексация`
+   Правило: do-follow только единичными контекстными in-body по теме; футер/ротация = nofollow.
+   **ИТОГ батча-2 (25.10, по диспетчеру):** iznkit ✅ 2 новые (FIRE + Traditional IRA, задеплоено);
+   pawdget/ocrsnip ✅ старые budget на месте; costtrek — пропуск (нет темы); thecryptotools — вставка
+   CAGR готова, ждёт «ок» владельца; foundaday/izntools — пропущены решением владельца. Батч закрыт.
+   Пункт теперь = **мониторинг появления** ссылок (CF referrers / GSC Links), срок 07.11. `индексация`
    · **→сам** (координация сетевых сессий + судейство live-проверок; кода calclumen нет)
 2. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled, <!-- crm:0mvarrq879483bda28298ad8b --> <!-- due:2026-11-07 -->
    not indexed», показы ~0, кликов из поиска 0 (понижение). Смотреть GSC через 2–4 недели
@@ -59,7 +63,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    гео-релевантных (US/UK/CA/AU) среди активных нет. Trademark Engine `21829` — не в нашем
    Indoleads-аккаунте (подать нельзя через API). Следующая сверка — 27.10. `деньги`
    · **→сам** (внешний API + аппрувы откатываются → решать что убрать/завести; полное ревью)
-4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-10-24 -->
+4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-11-01 -->
    ✅ ВСЕ 3 СЕТИ ПОДАНЫ 23.10 (владелец, выплаты через Payoneer US-реквизиты / Citibank):
    • **CJ Affiliate** — ✅ АКТИВИРОВАН (W-8BEN + CJ Payments USD). Осталось внутри CJ подать в finance/insurance/auto программы (per-advertiser аппрув).
    • **FlexOffers** — ✅ подан + сайт верифицирован (мета-тег fo-verify на calclumen), на ревью ~5 раб. дней.
