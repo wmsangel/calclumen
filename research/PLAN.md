@@ -2,7 +2,7 @@
 
 > Метки `<!-- crm:… -->` в конце строк связывают пункты с задачами izn.crm (сверка раз в 15 минут, коммиты «план: отмечено из CRM»). Не удалять; переписываешь пункт — метка остаётся в конце первой строки; переносишь в «Сделано» или в идеи — вместе с ней. Новому пункту метку не ставь — её поставит сверка.
 
-Единый источник задач. Актуально: **2026-10-19** · калькуляторов ~132 · sitemap 166 ·
+Единый источник задач. Актуально: **2026-10-25** · калькуляторов ~132 · sitemap 166 ·
 гайдов ~28. Порядок в очереди = приоритет (не дата). Теги темы: `индексация` · `трафик` ·
 `контент` · `скорость` · `деньги` · `баг` · `инфра`. Теги исполнителя: `→cursor`/`→сам`/`→гибрид` (легенда ниже).
 
@@ -110,22 +110,18 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    МОЙ этап после этого: расширить `/go/<slug>` на гео-редирект по стране визитёра (Vercel
    `x-vercel-ip-country`) → нужный Amazon-домен + тег. PA-API (реальные фото/ASIN) — отдельно, после 3 продаж. `деньги`
    · **→сам** (гео-редирект в /go/ после получения тегов + интеграция)
-10. **⚠️ ПОЛНЫЙ ПЕРЕЕЗД Vercel → Cloudflare Workers** (владелец одобрил 23.10 — preview ок, делаем в ПОНЕДЕЛЬНИК) <!-- crm:0mvarrq8x0d9dee726c29c4e2 --> <!-- due:2026-10-26 -->
-   Исполнение 26.10: (1) merge `cloudflare-ready`→main (Vercel пересоберётся на 16.4.2 — проверено;
-   на main активируется deploy.yml = авто-деплой Worker на push); (2) привязать `calclumen.com` к
-   Worker'у (CF → Workers → calclumen → Domains & Routes → Custom domain); (3) сверить прод на CF,
-   отключить Vercel. ⚠️ DNS-переключение — финальный owner-confirm в день (необратимо/внешнее).
-   ✅ PREP ГОТОВ 23.10 — ветка `cloudflare-ready`, адаптер @opennextjs/cloudflare (решение
-   владельца, зеркало costtrek, НЕ static export). **Проверено живьём на CF Workers рантайме**
-   (wrangler dev/workerd): proxy.ts locale-редирект, security-headers, 47 /go/ 302, /api/og 200,
-   robots/ads/sitemap, расчёт калькуляторов. ✅ **PREVIEW ЖИВОЙ 23.10: https://calclumen.ocrsnip.workers.dev**
-   (секреты владельца добавлены, деплой через GitHub Action cf-preview.yml, 4740 ассетов; те же
-   проверки прошли на живом Worker). Детали + cutover — `research/CLOUDFLARE-MIGRATION.md`.
-   ОСТАЛОСЬ: потыкать preview → merge cloudflare-ready в main (Vercel соберёт 16.4.2) → DNS-cutover
-   (привязать домен к Worker) — отдельное «да» владельца, НЕ во время восстановления. `инфра`
-   · **→сам** (рискованная миграция; полное ревью)
-
 ## Сделано
+
+- **✅ ПОЛНЫЙ ПЕРЕЕЗД Vercel → Cloudflare Workers — ЗАВЕРШЁН 25.10** <!-- crm:0mvarrq8x0d9dee726c29c4e2 -->
+  `calclumen.com` отдаётся с CF Worker `calclumen` (прод `calclumen.ocrsnip.workers.dev`),
+  привязан Custom Domain'ом. DNS-cutover в CF-дашборде (bind отказывался, пока висели старые
+  Vercel-CNAME — code 100117): удалил apex+www Vercel-CNAME (MX/SPF/DKIM сохранены), привязал
+  apex к Worker, восстановил www проксированным `CNAME www→calclumen.com` + Redirect Rule
+  www→apex 301 (preserve query). Проверено на проде: server=cloudflare+cf-ray (нет x-vercel),
+  locale 307→/en→200, /go/<slug> 302→amazon tag, /api/og 200 png, robots/sitemap, fo-verify,
+  nofollow×20, loan-calculator 200, TLS ок, www→apex 301 с путём. `main` авто-деплоит Worker.
+  ОСТАЛОСЬ владельцу: отключить Vercel Git-интеграцию (иначе двойная сборка; домен туда уже не
+  смотрит — только лишние билды). Детали — `research/CLOUDFLARE-MIGRATION.md`. `инфра`
 
 _(последние ~2 недели)_
 
@@ -178,4 +174,6 @@ API мертва (410) — только веб-кабинет; ⚠️ аппру
 **НЕ строить** (~0 CPM, тонкое/vanity): статистика (ANOVA/регрессия), физика/химия, 3D-гео/
 тригонометрия, крипто/dev-тулзы, fun (love/dice).
 
-**Инфра:** Vercel; эконом-деплой (батч-пуши, локальный `npm run build` перед пушем, один поток).
+**Инфра:** Cloudflare Workers (@opennextjs/cloudflare, переезд с Vercel 25.10; авто-деплой через
+GitHub Actions deploy.yml на push в main); эконом-деплой (батч-пуши, локальный `npm run build`
+перед пушем, один поток). ⚠️ Vercel ещё подключён к репо — владельцу отключить Git-интеграцию.

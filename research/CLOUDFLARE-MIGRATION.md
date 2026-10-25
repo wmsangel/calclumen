@@ -1,15 +1,26 @@
 # CloudFlare migration (plan #10) — status & cutover
 
-**Status (2026-10-23):** branch `cloudflare-ready` is deployed to a **live CF Worker
-preview — https://calclumen.ocrsnip.workers.dev** (via the manual `cf-preview.yml`
-Action; owner's CLOUDFLARE_API_TOKEN + ACCOUNT_ID secrets are set). All checks pass on
-the live Worker (locale redirect, headers, /go/ 302, /api/og png, interactive calc).
-Live domain is still on Vercel — nothing switched. DNS cutover needs the owner's "go".
+**✅ CUTOVER DONE (2026-10-25).** `calclumen.com` now serves from the **Cloudflare Worker**
+`calclumen` (prod URL `calclumen.ocrsnip.workers.dev`), bound as a Custom Domain. Verified
+live on the apex: `server: cloudflare` + `cf-ray` (no `x-vercel`), locale 307→/en→200,
+`/go/<slug>` 302 → tagged amazon.com, `/api/og` 200 png, robots.txt, sitemap.xml,
+fo-verify meta, nofollow×20, loan-calculator 200 (150 KB), TLS valid (Google Trust Services).
+`main` auto-deploys the Worker via GitHub Actions on push.
 
-Remaining: (1) kick the tires on the preview; (2) merge `cloudflare-ready` → main
-(Vercel will build 16.4.2 — verified); (3) DNS cutover: bind calclumen.com to the Worker
-(Workers → calclumen → Settings → Domains & Routes → add custom domain), then retire
-Vercel. Steps 2–3 are a separate owner "go", not during indexation recovery.
+**How the DNS cutover was done** (the dashboard/wrangler Custom-Domain bind refused while the
+old Vercel records existed — "Hostname already has externally managed DNS records", code 100117):
+1. CF DNS (zone calclumen.com) → deleted the two Vercel CNAMEs: apex `calclumen.com` and
+   `www`, both → `2a33fa72fd9835ac.vercel-dns-017.com`. MX (Email Routing) + SPF + DKIM kept.
+2. Workers → calclumen → Domains → Add Domain → `calclumen.com` (root) → bound. CF created
+   its managed proxied `calclumen.com | Worker` record automatically.
+3. www restored: added proxied `CNAME www → calclumen.com`, then a Redirect Rule
+   "Redirect from WWW to root" (`https://www.*` → `https://${1}`, **301**, preserve query) —
+   verified `www.calclumen.com/en/loan-calculator` → 301 → `calclumen.com/en/loan-calculator`.
+
+**Remaining (owner):** retire Vercel so pushes don't double-build — disconnect the Vercel
+Git integration (or delete the Vercel project). The domain no longer points there, so it's
+only wasted builds, not a user-facing issue. Rollback is still possible by re-adding the
+Vercel CNAMEs in CF DNS (Vercel project intact).
 
 Approach (owner's choice): **@opennextjs/cloudflare adapter → Cloudflare Workers**, mirroring
 the proven **costtrek** (`~/Sites/worldtime`) setup — not static export. Middleware,
