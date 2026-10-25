@@ -1202,6 +1202,21 @@ export const calculators: CalcDef[] = [
       "recipe converter",
     ],
   },
+  {
+    slug: "oven-temperature-converter",
+    category: "conversions",
+    title: "Oven temperature",
+    heading: "Oven Temperature Converter",
+    description:
+      "Convert oven settings between Celsius, Fahrenheit and UK gas marks, with the fan (convection) equivalent.",
+    keywords: [
+      "oven temperature converter",
+      "gas mark to celsius",
+      "fan oven conversion",
+      "350f to celsius oven",
+    ],
+    isNew: true,
+  },
 
   // ── Home & DIY ─────────────────────────────────────────────
   {
