@@ -120,8 +120,9 @@ OneLink — настраиваем (шаги в #9); finance — построи�
   www→apex 301 (preserve query). Проверено на проде: server=cloudflare+cf-ray (нет x-vercel),
   locale 307→/en→200, /go/<slug> 302→amazon tag, /api/og 200 png, robots/sitemap, fo-verify,
   nofollow×20, loan-calculator 200, TLS ок, www→apex 301 с путём. `main` авто-деплоит Worker.
-  ОСТАЛОСЬ владельцу: отключить Vercel Git-интеграцию (иначе двойная сборка; домен туда уже не
-  смотрит — только лишние билды). Детали — `research/CLOUDFLARE-MIGRATION.md`. `инфра`
+  ✅ Vercel отключён 25.10 (izn1/calc-tools → Settings → Git → Disconnect) — push в main больше
+  не собирается на Vercel, только GitHub Actions → CF Worker. Проект Vercel сохранён (откат
+  возможен). Детали — `research/CLOUDFLARE-MIGRATION.md`. `инфра`
 
 _(последние ~2 недели)_
 
@@ -176,4 +177,4 @@ API мертва (410) — только веб-кабинет; ⚠️ аппру
 
 **Инфра:** Cloudflare Workers (@opennextjs/cloudflare, переезд с Vercel 25.10; авто-деплой через
 GitHub Actions deploy.yml на push в main); эконом-деплой (батч-пуши, локальный `npm run build`
-перед пушем, один поток). ⚠️ Vercel ещё подключён к репо — владельцу отключить Git-интеграцию.
+перед пушем, один поток). Vercel отключён 25.10 (Git-интеграция снята; проект сохранён для отката).

@@ -17,10 +17,11 @@ old Vercel records existed — "Hostname already has externally managed DNS reco
    "Redirect from WWW to root" (`https://www.*` → `https://${1}`, **301**, preserve query) —
    verified `www.calclumen.com/en/loan-calculator` → 301 → `calclumen.com/en/loan-calculator`.
 
-**Remaining (owner):** retire Vercel so pushes don't double-build — disconnect the Vercel
-Git integration (or delete the Vercel project). The domain no longer points there, so it's
-only wasted builds, not a user-facing issue. Rollback is still possible by re-adding the
-Vercel CNAMEs in CF DNS (Vercel project intact).
+**✅ Vercel retired (2026-10-25):** disconnected the Git integration on the Vercel project
+`izn1/calc-tools` (Settings → Git → Disconnect → "Git repository disconnected"). Pushes to
+`main` no longer build on Vercel — only the GitHub Actions → Cloudflare Worker deploy runs.
+The Vercel project itself is preserved (settings kept), so rollback is still possible: re-add
+the Vercel CNAMEs in CF DNS and reconnect Git if ever needed.
 
 Approach (owner's choice): **@opennextjs/cloudflare adapter → Cloudflare Workers**, mirroring
 the proven **costtrek** (`~/Sites/worldtime`) setup — not static export. Middleware,
