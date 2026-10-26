@@ -94,12 +94,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    УЖЕ есть — открыт только **погеоштатный programmatic-слой** (сотни страниц типа
    /take-home-pay/california). Нужен источник налоговых данных по штатам + UK. ПОСЛЕ восстановления. `контент`
    · **→гибрид** (каркас: источник данных + шаблон + первый штат = сам; тираж на 50 штатов + UK = cursor)
-8. **Cooking/baking конверсии** — ⚠️ Сверка 16.10: В ОСНОВНОМ СДЕЛАНО — <!-- crm:0mvarrq8r1e2f7b044aa04d1e --> <!-- due:2026-11-12 -->
-   `cooking-conversion-calculator` уже покрывает cups↔grams (flour/sugar/tbsp/tsp/ml/oz);
-   общий `temperature-converter` тоже есть. Остаток: опциональная отдельная «oven temperature»
-   страница (газ-марки/fan vs conventional), только при спросе. Низкий CPM, вторично. `контент`
-   · **→cursor** (микро: расширение temperature-паттерна на 1 страницу — обкатка пайплайна, не экономия)
-9. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-10-31 -->
+8. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-10-31 -->
    Шаги ВЛАДЕЛЬЦУ (к 31.10):
    1) зарегистрироваться в Amazon Associates каждой гео: UK — affiliate-program.amazon.co.uk,
       Canada — associates.amazon.ca, Australia — affiliate-program.amazon.com.au; получить
@@ -107,9 +102,10 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    2) в US Associates Central (associates.amazon.com) → Tools → OneLink: включить OneLink и
       связать UK/CA/AU-аккаунты;
    3) прислать мне 3 гео-тега + подтвердить домены (.co.uk / .ca / .com.au).
-   МОЙ этап после этого: расширить `/go/<slug>` на гео-редирект по стране визитёра (Vercel
-   `x-vercel-ip-country`) → нужный Amazon-домен + тег. PA-API (реальные фото/ASIN) — отдельно, после 3 продаж. `деньги`
+   МОЙ этап после этого: расширить `/go/<slug>` на гео-редирект по стране визитёра (на CF —
+   заголовок `cf-ipcountry`) → нужный Amazon-домен + тег. PA-API (реальные фото/ASIN) — отдельно, после 3 продаж. `деньги`
    · **→сам** (гео-редирект в /go/ после получения тегов + интеграция)
+
 ## Сделано
 
 - **✅ ПОЛНЫЙ ПЕРЕЕЗД Vercel → Cloudflare Workers — ЗАВЕРШЁН 25.10** <!-- crm:0mvarrq8x0d9dee726c29c4e2 -->
@@ -125,6 +121,12 @@ OneLink — настраиваем (шаги в #9); finance — построи�
   возможен). Детали — `research/CLOUDFLARE-MIGRATION.md`. `инфра`
 
 _(последние ~2 недели)_
+
+- **Cooking/baking конверсии — закрыто** (26.10, коммит 04333f2) <!-- crm:0mvarrq8r1e2f7b044aa04d1e -->
+  cups↔grams и temperature-converter уже были; остаток — отдельная **oven-temperature-converter**
+  (°C/°F/UK gas marks + fan −20 °C, таблица gas marks) — построена Cursor'ом по моему промту
+  (docs/cursor-prompts/08-oven-temperature-converter.md), приёмка пройдена (формулы, lint, 139 тестов,
+  build), влита в main, задеплоена на CF. ~133 калькулятора.
 
 - **+6 finance-калькуляторов по спросу** (23.10, коммиты 244ccf0 + 8301cd8) — все с юнит-тестами
   (22 новых), verified в браузере, задеплоены, в IndexNow. Тройка плана #6: property-tax (FINANCIAL),
