@@ -36,10 +36,13 @@ function CalcCard({ locale, calc }: { locale: Locale; calc: CalcDef }) {
 export function CategoryPage({
   locale,
   categoryId,
+  intro,
   extra,
 }: {
   locale: Locale;
   categoryId: CategoryId;
+  /** Rich hub content rendered right under the header, above the tool grid. */
+  intro?: React.ReactNode;
   extra?: React.ReactNode;
 }) {
   const cat = getCategory(categoryId);
@@ -98,6 +101,8 @@ export function CategoryPage({
           <p className="text-[var(--ink-soft)]">{cat.blurb}</p>
         </div>
       </div>
+
+      {intro ? <div className="mt-6">{intro}</div> : null}
 
       {clusters ? (
         <div className="mt-8 space-y-10">
