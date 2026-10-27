@@ -63,18 +63,20 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    website/2988056/` → у каждого нашего оффера `connection_status=active`, иначе убрать из кода.
    ✅ Сверка 2026-10-27: все 20 офферов живые. Admitad API — 11/11 active+connected (откатов нет).
    Indoleads — 9/9 диплинков 302 на верные площадки. Новых гео-релевантных активных нет (остальное
-   single-geo RU/BR/CZ/MX или дубль-VPN). ⚠️ CJ не проверен — владелец разлогинен в Chrome (редирект
-   на signin.cj.com); 4 заявки (AAA/Aeroflow/Aflac/Ally) на ручном ревью не прочитать без входа.
-   FlexOffers (~30.10) + MaxBounty (ждёт звонок) — owner-side. Следующая сверка — 03.11. `деньги`
+   single-geo RU/BR/CZ/MX или дубль-VPN). CJ проверен в кабинете (владелец залогинился): approved=0 →
+   заводить нечего; 2 pending (AAA 5128949, Aflac 5424279), 2 declined (Aeroflow 4959947, Ally 5300495
+   — у Ally EPC $1069, кандидат на переподачу). FlexOffers (~30.10) + MaxBounty (ждёт звонок) — owner-side.
+   Следующая сверка — 03.11. `деньги`
    · **→сам** (внешний API + аппрувы откатываются → решать что убрать/завести; полное ревью)
 4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-11-01 -->
    ✅ ВСЕ 3 СЕТИ ПОДАНЫ 23.10 (владелец, выплаты через Payoneer US-реквизиты / Citibank):
    • **CJ Affiliate** — ✅ АКТИВИРОВАН (W-8BEN + CJ Payments USD). Осталось внутри CJ подать в finance/insurance/auto программы (per-advertiser аппрув).
    • **FlexOffers** — ✅ подан + сайт верифицирован (мета-тег fo-verify на calclumen), на ревью ~5 раб. дней.
    • **MaxBounty** — ✅ подан + верифицирован (ID 808247), ЖДЁТ обязательного телефон-интервью с менеджером Taylor (@maxbountytaylor) — без звонка не одобрят (owner-side).
-   CJ-программы (24.10): подано на 4 — **AAA Auto Club** (5128949, insurance/AUTO), **Aeroflow
-   Healthcare** (4959947, health), **Aflac** (5424279, insurance), **Ally** (5300495, finance/EPC~$1069);
-   все на manual review. Ещё в шорт-листе (не подано): RenoFi (8033802, mortgage/HELOC ⭐),
+   CJ-программы (подано 24.10, статус на 27.10): **AAA Auto Club** (5128949, insurance/AUTO) — pending;
+   **Aflac** (5424279, insurance) — pending; **Aeroflow Healthcare** (4959947, health) — ❌ declined;
+   **Ally** (5300495, finance/EPC~$1069) — ❌ declined (кандидат на переподачу позже). approved=0.
+   Ещё в шорт-листе (не подано): RenoFi (8033802, mortgage/HELOC ⭐),
    NAGA (8004498, investing), Ingenio (7991288, health). CJ-поиск: Partners→Find Advertisers,
    фильтр Category(Automotive/Financial/Health/Insurance)+Serviceable Area(US/UK/CA) → 303 программы.
    МОЙ этап (после аппрувов): взять tracking-ссылки одобренных, завести в offers.ts (кластеры AUTO + health). `деньги`
