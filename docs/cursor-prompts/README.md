@@ -6,9 +6,9 @@ built). Each prompt carries repo context, the exact pattern file to copy, what t
 done criteria, and how to verify the build. **Cursor implements; this session only writes
 the prompts.** Source of truth for tasks stays `research/PLAN.md`.
 
-| File | Plan item | What it does |
-|------|-----------|--------------|
-| [08-oven-temperature-converter.md](08-oven-temperature-converter.md) | #8 `→cursor` | New standalone `oven-temperature-converter` page (°C/°F/UK gas marks + fan −20 °C), modeled on `cooking-conversion-calculator`. |
+| File | Plan item | Status | What it does |
+|------|-----------|--------|--------------|
+| [08-oven-temperature-converter.md](08-oven-temperature-converter.md) | #8 `→cursor` | ✅ **ВЫПОЛНЕНО 26.10 (04333f2)** | New standalone `oven-temperature-converter` page (°C/°F/UK gas marks + fan −20 °C), modeled on `cooking-conversion-calculator`. Built by Cursor, accepted, merged, deployed to CF — **do not re-run**. |
 
 ### Not included (and why)
 

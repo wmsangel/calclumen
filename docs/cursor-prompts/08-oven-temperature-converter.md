@@ -1,3 +1,5 @@
+**ВЫПОЛНЕНО, 26.10.2026 — 04333f2** (приёмка: формулы/lint/139 тестов/build; влито в main, задеплоено на CF, прод 200). Повторно Cursor'у не отдавать.
+
 # Cursor prompt — Oven Temperature Converter (plan #8, `→cursor`)
 
 > Self-contained task for Cursor. Build ONE new standalone converter page.
