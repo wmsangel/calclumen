@@ -122,6 +122,14 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 
 ## Сделано
 
+- **✅ GSC Removals тонких префиксов — 27.10** (ускорение выхода из-под демотации + де-риск AdSense).
+  Код уже noindex+вне sitemap с 28.09 (проверено на проде: factors/is-prime/simplify/percent/gcf-lcm отдают
+  `noindex, follow`), но ~1300 стр. ещё висели в индексе (GSC: проиндексировано ~1360 против 166 в sitemap;
+  Google медленно перекрауливал). В GSC (Удаления → Временное удаление) поданы **12 префиксов «все URL с префиксом»**:
+  /en/factors /is-prime /simplify /percent /gcf-lcm /multiples /units /roman-numerals /decimal-to-fraction
+  /fraction-to-decimal /combinations /data — все «Запрос обрабатывается». Вылетят из поиска за часы (на ~6 мес),
+  noindex закрепит навсегда. Не трогалось: внутренние ссылки (нужны, чтобы Googlebot увидел noindex), AdSense-скрипт.
+
 - **✅ ПОЛНЫЙ ПЕРЕЕЗД Vercel → Cloudflare Workers — ЗАВЕРШЁН 25.10** <!-- crm:0mvarrq8x0d9dee726c29c4e2 -->
   `calclumen.com` отдаётся с CF Worker `calclumen` (прод `calclumen.ocrsnip.workers.dev`),
   привязан Custom Domain'ом. DNS-cutover в CF-дашборде (bind отказывался, пока висели старые
