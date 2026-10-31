@@ -108,8 +108,11 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    УЖЕ есть — открыт только **погеоштатный programmatic-слой** (сотни страниц типа
    /take-home-pay/california). Нужен источник налоговых данных по штатам + UK. ПОСЛЕ восстановления. `контент`
    · **→гибрид** (каркас: источник данных + шаблон + первый штат = сам; тираж на 50 штатов + UK = cursor)
-8. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-10-31 -->
-   Шаги ВЛАДЕЛЬЦУ (к 31.10):
+8. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-11-30 -->
+   ⏸ **ПЕРЕНЕСЕНО на ~30.11 (владелец 31.10):** разбор партнёрок показал, что живых кликов на Amazon
+   у calclumen почти нет → гео-ссылки сейчас ничего не дадут. Вернёмся, когда появятся реальные
+   Amazon-клики / гео-трафик.
+   Шаги ВЛАДЕЛЬЦУ (когда вернёмся):
    1) зарегистрироваться в Amazon Associates каждой гео: UK — affiliate-program.amazon.co.uk,
       Canada — associates.amazon.ca, Australia — affiliate-program.amazon.com.au; получить
       tracking-тег в каждой (вид `calclumen-21` / `calclumen0c-20` и т.п.);
@@ -121,6 +124,14 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    · **→сам** (гео-редирект в /go/ после получения тегов + интеграция)
 
 ## Сделано
+
+- **✅ Privacy-аудит сети — исправлено 31.10** (коммит 9e7d626, живо на проде). privacy + cookies теперь
+  называют поимённо **GA4 (G-JY9FBM2921, cookies _ga/_ga_<id>)**, **Cloudflare Web Analytics** (cookieless)
+  и **AdSense**, описан Consent Mode по регионам (EEA/UK/CH denied до согласия); убрана обтекаемая
+  формулировка «privacy-conscious analytics». GA теперь стартует ТОЛЬКО на calclumen.com/www
+  (проверка location.hostname в src/components/google-analytics.tsx, gtag.js инжектится внутри гейта) —
+  не на превью/алиасах. Зеркало `calclumen.ocrsnip.workers.dev` закрыто (`workers_dev:false` в wrangler.jsonc
+  → 404). Баннер согласия не трогал (работает верно). Одна локаль (en).
 
 - **✅ Пилларный хаб /finance — ПИЛОТ 27.10** (коммит fc2fe47, живой на проде). Решение владельца:
   делать не «лендинги под рекламу» (это тот же thin/MFA-риск), а качественные тематические хабы,
