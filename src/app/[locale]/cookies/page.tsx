@@ -59,9 +59,12 @@ export default async function Page({
           our cookie notice. The site cannot work properly without them.
         </li>
         <li>
-          <strong>Analytics.</strong> These help us understand which pages are
-          popular and how the site performs, so we can improve it. They collect
-          aggregate usage information.
+          <strong>Analytics.</strong> Set by Google Analytics 4 (cookies such as{" "}
+          <code>_ga</code> and <code>_ga_&lt;id&gt;</code>) to help us understand
+          which pages are popular and how the site performs. They collect
+          aggregate usage information and, under Consent Mode, are not stored
+          until you accept them (and stay off in the EEA, UK and Switzerland
+          unless you consent).
         </li>
         <li>
           <strong>Advertising.</strong> These are set by our advertising partner
@@ -87,9 +90,10 @@ export default async function Page({
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
         We use Google AdSense to display ads. Google and its partners set
         cookies to serve and measure ads, and in some cases to personalize them
-        based on your browsing. We may also use analytics services that set
-        cookies or similar identifiers to measure traffic. These third parties
-        process data under their own policies.
+        based on your browsing. For analytics we use Google Analytics 4
+        (measurement ID <code>G-JY9FBM2921</code>), which sets <code>_ga</code>{" "}
+        cookies to measure traffic, and Cloudflare Web Analytics, which is
+        cookieless. These third parties process data under their own policies.
       </p>
 
       <h2 className="text-xl font-semibold mt-8 mb-2">

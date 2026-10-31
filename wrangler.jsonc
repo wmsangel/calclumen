@@ -2,6 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
   "name": "calclumen",
+  // Disable the public *.workers.dev mirror — production is served only via the
+  // calclumen.com custom domain. Stops calclumen.ocrsnip.workers.dev from being
+  // a duplicate-content + stray-analytics surface (privacy audit 2026-10-31).
+  "workers_dev": false,
   "compatibility_date": "2025-03-25",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {

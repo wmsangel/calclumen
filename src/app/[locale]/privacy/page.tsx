@@ -56,10 +56,14 @@ export default async function Page({
           device and can be cleared at any time from your browser settings.
         </li>
         <li>
-          <strong>Analytics.</strong> We may use privacy-conscious analytics to
-          understand which pages are visited and how the site performs, so we can
-          improve it. This is aggregate usage information and is not used to
-          identify you personally.
+          <strong>Analytics.</strong> We use <strong>Google Analytics 4</strong>{" "}
+          (a Google service, measurement ID <code>G-JY9FBM2921</code>) to
+          understand which pages are visited and how the site performs. Google
+          Analytics sets cookies such as <code>_ga</code> and{" "}
+          <code>_ga_&lt;id&gt;</code> to tell visitors apart across sessions. We
+          also use <strong>Cloudflare Web Analytics</strong>, which is
+          cookieless and does not track you across sites. These give us aggregate
+          usage information and are not used to identify you personally.
         </li>
         <li>
           <strong>Server logs.</strong> Like most websites, our hosting provider
@@ -86,10 +90,23 @@ export default async function Page({
       </p>
       <h2 className="text-xl font-semibold mt-8 mb-2">Third-party analytics</h2>
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
-        Analytics providers we use may set their own cookies or use similar
-        identifiers to measure traffic and usage trends. These providers process
-        data according to their own privacy policies. We do not sell your
-        personal information.
+        We use Google Analytics 4 (measurement ID <code>G-JY9FBM2921</code>), a
+        Google product, to measure traffic and usage trends. It may set cookies
+        such as <code>_ga</code> and <code>_ga_&lt;id&gt;</code>. We run it under
+        Google Consent Mode v2: analytics and advertising storage default to{" "}
+        <em>denied</em>, and for visitors in the EEA, the UK and Switzerland they
+        stay denied — no Google Analytics or advertising cookies are set — unless
+        you accept them using the cookie banner. Google processes this data under
+        its own{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          rel="noopener"
+          className="prose-link"
+        >
+          privacy policy
+        </a>
+        . Cloudflare Web Analytics, which we also use, is cookieless. We do not
+        sell your personal information.
       </p>
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Your choices</h2>
