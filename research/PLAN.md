@@ -68,7 +68,17 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    — у Ally EPC $1069, кандидат на переподачу). FlexOffers (~30.10) + MaxBounty (ждёт звонок) — owner-side.
    Следующая сверка — 03.11. `деньги`
    · **→сам** (внешний API + аппрувы откатываются → решать что убрать/завести; полное ревью)
-4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-11-01 -->
+4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-11-08 -->
+   **02.11 проверка общих аккаунтов (API):** Admitad site 2988056 — 44 кампании, US auto/insurance/health
+   НЕТ (только single-geo CZ/MX/RO кредиты + declined Costway); Indoleads/Amazon/Travelpayouts — тоже нет
+   US auto/health. Среди 20 одобренных офферов НИ ОДИН не подходит AUTO/health по смыслу → кластеры
+   пока пустые (код не трогал). **Владелец 02.11 выбрал завести ДВЕ новые сети (регистрация owner-side):**
+   • **ShareASale** (Recommended) — выплаты Payoneer (официально, 200+ стран вкл. КГ), берёт малые сайты;
+     US finance/insurance/health/home, ставки per-program. Рег: account.shareasale.com → Affiliate sign up
+     (сайт calclumen.com, payout=Payoneer). ⚠️ ShareASale под Awin — часть новых рег идёт через awin.com ($5 возвр. депозит).
+   • **Impact.com** — 190+ стран, наши топ-рекламодатели уже идут через него (sjv.io/pxf.io/i384100);
+     per-brand аппрув. Рег: app.impact.com → Sign up as partner/publisher. ⚠️ рельс для КГ (Payoneer?) подтвердить при регистрации.
+   МОЙ этап после аппрувов: взять tracking-ссылки одобренных brand-программ (auto-insurance / telehealth-health) и завести в offers.ts (AUTO + health).
    ✅ ВСЕ 3 СЕТИ ПОДАНЫ 23.10 (владелец, выплаты через Payoneer US-реквизиты / Citibank):
    • **CJ Affiliate** — ✅ АКТИВИРОВАН (W-8BEN + CJ Payments USD). Осталось внутри CJ подать в finance/insurance/auto программы (per-advertiser аппрув).
    • **FlexOffers** — ✅ подан + сайт верифицирован (мета-тег fo-verify на calclumen), на ревью ~5 раб. дней.
