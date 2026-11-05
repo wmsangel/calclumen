@@ -760,6 +760,22 @@ export const calculators: CalcDef[] = [
     ],
   },
   {
+    slug: "rent-vs-buy-calculator",
+    category: "finance",
+    title: "Rent vs buy",
+    heading: "Rent vs. Buy Calculator",
+    description:
+      "Compare the long-run net worth of renting vs buying a home — with the break-even year, using the opportunity-cost (invest-the-difference) method.",
+    keywords: [
+      "rent vs buy calculator",
+      "should I rent or buy",
+      "renting vs buying a house",
+      "rent or buy break even",
+    ],
+    popular: true,
+    isNew: true,
+  },
+  {
     slug: "inflation-calculator",
     category: "finance",
     title: "Inflation",
