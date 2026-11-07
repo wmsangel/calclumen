@@ -24,61 +24,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 `→гибрид` — подход и первый образец за тобой, тираж по образцу — Cursor.
 Глубина проверки: `→cursor` — спот-чек; `→сам` и рискованное — полное ревью.
 
-1. **Собрать входящие бэклинки с сети на money-страницы** — рычаг №1 возврата Google: <!-- crm:0mvarrq7y5739733a45a30cdb --> <!-- due:2026-11-21 -->
-   домену нужны ВХОДЯЩИЕ do-follow ссылки (costtrek→home-affordability, thecryptotools→
-   capital-gains, ocrsnip→budget, iznkit→margin-markup, foundaday→mortgage, pawdget→budget).
-   ⚠️ Проверка live 2026-10-14: задача 08.10 выполнена на ~20% и частично вхолостую — только
-   iznkit+pawdget дали do-follow, и то на ГЛАВНУЮ; thecryptotools поставил nofollow/sponsored
-   (вес не передаёт); costtrek/ocrsnip/foundaday не ссылались. 2026-10-14 РАЗОСЛАНЫ точечные
-   задачи всем 6 сессиям (do-follow + в теле + на money-страницу): costtrek/ocrship/iznkit/
-   thecryptotools ✅ собрал do-follow editorial на /en/capital-gains-tax-calculator (гайд
-   crypto-taxes-explained, под некрипто прибыли; house-ad nofollow оставлен) — ✅ LIVE 14.10
-   (владелец одобрил, verified на проде). iznkit ✅ LIVE 14.10 (verified): /en/tools/quote → do-follow
-   rel="noopener" на /en/margin-markup-calculator — первый рабочий бэклинк на money-страницу.
-   costtrek ✅ LIVE 15.10 (verified) do-follow на /en/home-affordability-calculator (гайд
-   move-abroad, коммит ac10323). ocrsnip/pawdget в работе. foundaday ✅ сделал do-follow
-   in-body на /en/mortgage-calculator; публикация находки сдвинута на 15.10 08:00 (Бишкек) —
-   ссылка живая с этого момента. Проверка: curl -s foundaday.com/en/f/calclumen-everyday-calculators
-   | grep calclumen.com/en/mortgage-calculator. Отслеживать появление
-   (CF referrers / GSC Links). Домен budget-таргета сверен 14.10: живой = ocrsnip.com
-   (ocrship.com — опечатка в названии сессии, не резолвится); cross-links.ts верен.
-   **2026-10-23**: 2-й батч доноров под новые money-страницы. Решение владельца — слать только
-   туда, где есть ЧЕСТНАЯ тематическая страница у донора (новые страницы ради ссылки НЕ писать):
-   costtrek→property-tax, thecryptotools→cagr, iznkit→fire + traditional-ira. foundaday/izntools
-   пропущены (нет темы). ocrsnip/pawdget — только проверяют старые budget-ссылки, новых не ставят.
-   Правило: do-follow только единичными контекстными in-body по теме; футер/ротация = nofollow.
-   **ИТОГ батча-2 (25.10, по диспетчеру):** iznkit ✅ 2 новые (FIRE + Traditional IRA, задеплоено);
-   pawdget/ocrsnip ✅ старые budget на месте; costtrek — пропуск (нет темы); thecryptotools — вставка
-   CAGR готова, ждёт «ок» владельца; foundaday/izntools — пропущены решением владельца. Батч закрыт.
-   Пункт теперь = **мониторинг появления** ссылок (CF referrers / GSC Links). `индексация`
-   **БАТЧ-3 (07.11, список для диспетчера — сам чужие сайты не правлю).** Факт по GSC: сейчас в индексе почти
-   ничего (1 клик/28д), поэтому цели = страницы с ДОКАЗАННЫМ спросом (показы авг–окт, из sitemap), чтобы ссылки
-   вернули их в индекс. Правило: проза, по теме, 1 ссылка на донор-страницу, без списков «партнёры». Не дублировать
-   живые (iznkit→margin-markup/fire/traditional-ira, costtrek→home-affordability, foundaday→mortgage,
-   thecryptotools→capital-gains; CAGR у thecryptotools ждёт «ок»).
-   1. costtrek /en/guides/salary-you-need-to-move-abroad → /en/salary-to-hourly-calculator (187 показов), анкор
-      «salary to hourly calculator» — где сравниваются офферы и целевая зарплата переводится в ставку.
-   2. costtrek /en/guides/cost-of-living-index-explained → /en/inflation-calculator (176), «inflation calculator» —
-      абзац про покупательную способность / сравнение лет.
-   3. costtrek /en/guides/budgeting-a-move-abroad-with-family → /en/currency-converter (410), «currency converter» —
-      где бюджет считают в местной валюте.
-   4. costtrek /en/guides/how-to-compare-cities-before-moving → /en/car-affordability-calculator (234),
-      «car affordability calculator» — абзац про транспорт / стоимость владения машиной в новом городе.
-   5. iznkit /en/guides/how-to-set-your-hourly-rate → /en/hourly-to-salary-calculator (224), «hourly to salary
-      calculator» — где ставка переводится в годовой доход.
-   6. iznkit /en/guides/what-is-compound-interest → /en/rule-of-72-calculator (50), «Rule of 72 calculator» —
-      абзац про время удвоения.
-   7. thecryptotools /guides/apr-vs-apy-crypto/ → /en/apr-calculator (449, показы ещё 15.10 — сильнейшая цель),
-      «APR calculator» — где даётся классическое определение APR (с комиссиями).
-   8. thecryptotools /guides/dollar-cost-averaging-crypto/ → /en/guides/how-to-calculate-roi (223), «how to
-      calculate ROI» — раздел про измерение результата DCA.
-   9. rightweekend /calendar/2027/ → /en/countdown-calculator (84, позиция 28 — лучшая), «countdown calculator» —
-      «сколько дней до события».
-   10. izntools /t/loan-calculator → /en/apr-calculator, «APR calculator» — одна строка в пояснении: ставка
-      ≠ APR, APR с комиссиями считается отдельно (взаимодополняющие, не дубль).
-   Следующий срез появления ссылок — 21.11.
-   · **→сам** (координация сетевых сессий + судейство live-проверок; кода calclumen нет)
-2. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled, <!-- crm:0mvarrq879483bda28298ad8b --> <!-- due:2026-11-16 -->
+1. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled, <!-- crm:0mvarrq879483bda28298ad8b --> <!-- due:2026-11-16 -->
    not indexed», показы ~0, кликов из поиска 0 (понижение). Все внутренние рычаги под обнаружение
    уже в проде (контекстные ссылки + embed-движок + Spotlight + «Try also»). `трафик`
    📊 **Срез 03.11 (seo-stats):** показы/клики 7д = **0 / 0**, 28д = **42 показа / 1 клик**, пред-28д = **78 / 0**
@@ -91,7 +37,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    что именно в 270 «просканировано, не проиндексировано» и 696 «неизвестны Google» (какие URL/кластеры, в sitemap
    ли они, дата последнего обхода, canonical Google vs наш, есть ли на них внутренние ссылки), и вывод, что чинить.
    · **→сам** (чтение данных GSC/CF + судейство; не код)
-3. **Сверять ЖИВЫЕ офферы еженедельно + заводить новые одобренные** — ⚠️ аппрувы Admitad <!-- crm:0mvarrq8a86f59ada20afff1a --> <!-- due:2026-11-10 -->
+2. **Сверять ЖИВЫЕ офферы еженедельно + заводить новые одобренные** — ⚠️ аппрувы Admitad <!-- crm:0mvarrq8a86f59ada20afff1a --> <!-- due:2026-11-10 -->
    ОТКАТЫВАЮТСЯ (12.10 так умерли Square + Doctronic). Раз в неделю: `GET /advcampaigns/
    website/2988056/` → у каждого нашего оффера `connection_status=active`, иначе убрать из кода.
    **03.11:** сверку НЕ дублирую — идёт сетевой Admitad-аудит диспетчера (итоги от него). По быстрой проверке
@@ -108,7 +54,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    — у Ally EPC $1069, кандидат на переподачу). FlexOffers (~30.10) + MaxBounty (ждёт звонок) — owner-side.
    Следующая сверка — 03.11. `деньги`
    · **→сам** (внешний API + аппрувы откатываются → решать что убрать/завести; полное ревью)
-4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-11-08 -->
+3. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 --> <!-- due:2026-11-08 -->
    **02.11 проверка общих аккаунтов (API):** Admitad site 2988056 — 44 кампании, US auto/insurance/health
    НЕТ (только single-geo CZ/MX/RO кредиты + declined Costway); Indoleads/Amazon/Travelpayouts — тоже нет
    US auto/health. Среди 20 одобренных офферов НИ ОДИН не подходит AUTO/health по смыслу → кластеры
@@ -131,7 +77,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    фильтр Category(Automotive/Financial/Health/Insurance)+Serviceable Area(US/UK/CA) → 303 программы.
    МОЙ этап (после аппрувов): взять tracking-ссылки одобренных, завести в offers.ts (кластеры AUTO + health). `деньги`
    · **→сам** (подбор/вайринг офферов после аппрува сетей)
-5. **AdSense — подать calclumen (pub-5535516142831006)** — владелец 27.10 (через диспетчер) РЕВЕРСНУЛ решение 19.10: подаём. <!-- crm:0mvarrq8hbf2369c33b1a6ddf --> <!-- due:2026-11-16 -->
+4. **AdSense — подать calclumen (pub-5535516142831006)** — владелец 27.10 (через диспетчер) РЕВЕРСНУЛ решение 19.10: подаём. <!-- crm:0mvarrq8hbf2369c33b1a6ddf --> <!-- due:2026-11-16 -->
    Проверено 27.10 (Chrome владельца): calclumen **ещё НЕ в консоли** AdSense (там izngames=❌Бесполезный
    контент 17.10, thecryptotools+24zdorovie=на проверке, prodom-expert=одобрен). Техника на проде готова:
    ads.txt (pub-5535516142831006 DIRECT), adsbygoogle client ok, privacy с Google-рекламой/cookies, about+contact 200,
@@ -146,12 +92,12 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 
 **↓ Отложено до восстановления Google** (строить контент/менять инфру сейчас = впустую или рискованно):
 
-6. **⚠️ Гео take-home pay по штатам US + UK** — крупный programmatic, топ-CPM. <!-- crm:0mvarrq8o1279508307ae45e6 --> <!-- due:2026-11-16 -->
+5. **⚠️ Гео take-home pay по штатам US + UK** — крупный programmatic, топ-CPM. <!-- crm:0mvarrq8o1279508307ae45e6 --> <!-- due:2026-11-16 -->
    ⚠️ Сверка 16.10: базовые `income-tax-calculator` / `paycheck-calculator` / `salary-to-hourly`
    УЖЕ есть — открыт только **погеоштатный programmatic-слой** (сотни страниц типа
    /take-home-pay/california). Нужен источник налоговых данных по штатам + UK. ПОСЛЕ восстановления. `контент`
    · **→гибрид** (каркас: источник данных + шаблон + первый штат = сам; тираж на 50 штатов + UK = cursor)
-7. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-11-30 -->
+6. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-11-30 -->
    ⏸ **ПЕРЕНЕСЕНО на ~30.11 (владелец 31.10):** разбор партнёрок показал, что живых кликов на Amazon
    у calclumen почти нет → гео-ссылки сейчас ничего не дадут. Вернёмся, когда появятся реальные
    Amazon-клики / гео-трафик.
@@ -168,6 +114,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 
 ## Сделано
 
+- **Собрать входящие бэклинки с сети на money-страницы** (07.11) <!-- crm:0mvarrq7y5739733a45a30cdb -->
 - **✅ Вторая тройка вечнозелёных finance-калькуляторов — ЗАКРЫТА 07.11** <!-- crm:0mvarrq8k80b1b4861a82b227 -->
   rent-vs-buy (03.11, e3fbdd2) + bonus-tax + balance-transfer (07.11, a461b18). Все на проде: 200, canonical, в sitemap
   (176 URL), на хабе /finance. Формулы: rent-vs-buy — модель opportunity-cost (NYT); bonus-tax — IRS Pub 15 (2026);
