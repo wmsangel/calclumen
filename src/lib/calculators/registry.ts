@@ -776,6 +776,36 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "bonus-tax-calculator",
+    category: "finance",
+    title: "Bonus tax",
+    heading: "Bonus Tax Calculator",
+    description:
+      "See how much of a bonus you take home after US withholding — the 22% flat federal rate, Social Security, Medicare and state — using 2026 IRS Publication 15 rates.",
+    keywords: [
+      "bonus tax calculator",
+      "how are bonuses taxed",
+      "bonus withholding 22 percent",
+      "bonus take home pay",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "balance-transfer-calculator",
+    category: "finance",
+    title: "Balance transfer",
+    heading: "Balance Transfer Calculator",
+    description:
+      "Find out if moving a credit-card balance to a 0% promo card saves money after the transfer fee — interest both ways, payoff time and the payment that clears it within the promo.",
+    keywords: [
+      "balance transfer calculator",
+      "0% balance transfer savings",
+      "is a balance transfer worth it",
+      "credit card balance transfer fee",
+    ],
+    isNew: true,
+  },
+  {
     slug: "inflation-calculator",
     category: "finance",
     title: "Inflation",

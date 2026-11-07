@@ -24,7 +24,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 `→гибрид` — подход и первый образец за тобой, тираж по образцу — Cursor.
 Глубина проверки: `→cursor` — спот-чек; `→сам` и рискованное — полное ревью.
 
-1. **Собрать входящие бэклинки с сети на money-страницы** — рычаг №1 возврата Google: <!-- crm:0mvarrq7y5739733a45a30cdb --> <!-- due:2026-11-07 -->
+1. **Собрать входящие бэклинки с сети на money-страницы** — рычаг №1 возврата Google: <!-- crm:0mvarrq7y5739733a45a30cdb --> <!-- due:2026-11-21 -->
    домену нужны ВХОДЯЩИЕ do-follow ссылки (costtrek→home-affordability, thecryptotools→
    capital-gains, ocrsnip→budget, iznkit→margin-markup, foundaday→mortgage, pawdget→budget).
    ⚠️ Проверка live 2026-10-14: задача 08.10 выполнена на ~20% и частично вхолостую — только
@@ -50,7 +50,33 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    **ИТОГ батча-2 (25.10, по диспетчеру):** iznkit ✅ 2 новые (FIRE + Traditional IRA, задеплоено);
    pawdget/ocrsnip ✅ старые budget на месте; costtrek — пропуск (нет темы); thecryptotools — вставка
    CAGR готова, ждёт «ок» владельца; foundaday/izntools — пропущены решением владельца. Батч закрыт.
-   Пункт теперь = **мониторинг появления** ссылок (CF referrers / GSC Links), срок 07.11. `индексация`
+   Пункт теперь = **мониторинг появления** ссылок (CF referrers / GSC Links). `индексация`
+   **БАТЧ-3 (07.11, список для диспетчера — сам чужие сайты не правлю).** Факт по GSC: сейчас в индексе почти
+   ничего (1 клик/28д), поэтому цели = страницы с ДОКАЗАННЫМ спросом (показы авг–окт, из sitemap), чтобы ссылки
+   вернули их в индекс. Правило: проза, по теме, 1 ссылка на донор-страницу, без списков «партнёры». Не дублировать
+   живые (iznkit→margin-markup/fire/traditional-ira, costtrek→home-affordability, foundaday→mortgage,
+   thecryptotools→capital-gains; CAGR у thecryptotools ждёт «ок»).
+   1. costtrek /en/guides/salary-you-need-to-move-abroad → /en/salary-to-hourly-calculator (187 показов), анкор
+      «salary to hourly calculator» — где сравниваются офферы и целевая зарплата переводится в ставку.
+   2. costtrek /en/guides/cost-of-living-index-explained → /en/inflation-calculator (176), «inflation calculator» —
+      абзац про покупательную способность / сравнение лет.
+   3. costtrek /en/guides/budgeting-a-move-abroad-with-family → /en/currency-converter (410), «currency converter» —
+      где бюджет считают в местной валюте.
+   4. costtrek /en/guides/how-to-compare-cities-before-moving → /en/car-affordability-calculator (234),
+      «car affordability calculator» — абзац про транспорт / стоимость владения машиной в новом городе.
+   5. iznkit /en/guides/how-to-set-your-hourly-rate → /en/hourly-to-salary-calculator (224), «hourly to salary
+      calculator» — где ставка переводится в годовой доход.
+   6. iznkit /en/guides/what-is-compound-interest → /en/rule-of-72-calculator (50), «Rule of 72 calculator» —
+      абзац про время удвоения.
+   7. thecryptotools /guides/apr-vs-apy-crypto/ → /en/apr-calculator (449, показы ещё 15.10 — сильнейшая цель),
+      «APR calculator» — где даётся классическое определение APR (с комиссиями).
+   8. thecryptotools /guides/dollar-cost-averaging-crypto/ → /en/guides/how-to-calculate-roi (223), «how to
+      calculate ROI» — раздел про измерение результата DCA.
+   9. rightweekend /calendar/2027/ → /en/countdown-calculator (84, позиция 28 — лучшая), «countdown calculator» —
+      «сколько дней до события».
+   10. izntools /t/loan-calculator → /en/apr-calculator, «APR calculator» — одна строка в пояснении: ставка
+      ≠ APR, APR с комиссиями считается отдельно (взаимодополняющие, не дубль).
+   Следующий срез появления ссылок — 21.11.
    · **→сам** (координация сетевых сессий + судейство live-проверок; кода calclumen нет)
 2. **Мониторить возврат индексации и показов** — money-страницы висят «unknown»/«crawled, <!-- crm:0mvarrq879483bda28298ad8b --> <!-- due:2026-11-16 -->
    not indexed», показы ~0, кликов из поиска 0 (понижение). Все внутренние рычаги под обнаружение
@@ -124,10 +150,13 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    • ✅ **rent-vs-buy-calculator** — СДЕЛАН 03.11 (math src/lib/math/rent-vs-buy.ts + 5 тестов, компонент,
      страница, в finance-кластере «Mortgage & home»). Модель opportunity-cost / invest-the-difference (методология
      NYT): сравнивает net worth аренды vs покупки за горизонт + break-even. Формула = арифметика на входах, без выдумок.
-   • ⏳ **bonus-tax-calculator** (supplemental wage withholding; источник IRS Pub 15: федер. flat 22% до $1M / 37% выше
-     + SS 6.2% до wage base + Medicare 1.45%(+0.9%) + опц. штат) — срок **05.11**.
-   • ⏳ **balance-transfer-calculator** (держать долг под текущий APR vs перенос на promo 0% на N мес с комиссией %;
-     проценты туда/сюда, экономия, payoff в промо-период) — срок **07.11**.
+   • ✅ **bonus-tax-calculator** — СДЕЛАН 07.11. Источник ставок 2026 — IRS Pub 15: федер. flat 22% до $1M
+     supplemental / 37% выше; SS 6.2% до wage base $184 500; Medicare 1.45% + 0.9% свыше $200 000; штат — опц. %.
+     Считает удержание (не итоговый налог), так и написано. 6 тестов. Кластер «Income & tax».
+   • ✅ **balance-transfer-calculator** — СДЕЛАН 07.11. Два сценария с одним платежом: остаться под текущим APR vs
+     перенос с комиссией на promo APR на N мес, затем regular APR; проценты/месяцы/экономия/платёж для закрытия
+     в промо. Чистая арифметика. 5 тестов. Кластер «Loans & debt».
+   Тройка закрыта: rent-vs-buy (03.11) + bonus-tax + balance-transfer (07.11). ~135 калькуляторов.
    `контент` · **→сам** (контент = продукт + уникальная математика; выноса в Cursor нет)
 
 **↓ Отложено до восстановления Google** (строить контент/менять инфру сейчас = впустую или рискованно):
