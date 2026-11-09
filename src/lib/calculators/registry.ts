@@ -806,6 +806,21 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "mortgage-points-calculator",
+    category: "finance",
+    title: "Mortgage points",
+    heading: "Mortgage Points Calculator",
+    description:
+      "See whether buying discount points is worth it — the cost of points, monthly savings, the break-even month and your net result over the years you keep the loan.",
+    keywords: [
+      "mortgage points calculator",
+      "discount points break even",
+      "should I buy points on my mortgage",
+      "mortgage buydown calculator",
+    ],
+    isNew: true,
+  },
+  {
     slug: "inflation-calculator",
     category: "finance",
     title: "Inflation",

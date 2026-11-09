@@ -90,14 +90,42 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    одобрения. Ждём вердикт (дни–2 недели); если reject за thin — дорабатывать homework-кластер. `деньги`
    · **→сам** (решение по данным + действие во внешнем аккаунте владельца)
 
+5. **План контента и фич до 06.12** (владелец 08.11 через диспетчера: «мало нового контента и функционала»). <!-- due:2026-12-06 -->
+   Правила: страницы только под спрос (GSC свой/соседей/конкуренты), у каждой — главный запрос, показы «до» и
+   донор внутри сети (иначе останется вне индекса, как сейчас: 1 клик/28д). Факт по данным (09.11): в GSC calclumen
+   показы только у тонких unit-страниц; у соседей финансовый спрос без калькулятора — iznkit (freelance tax estimator 2,
+   how to calculate freelance taxes 2, freelance/contractor rate 3), thecryptotools (crypto-DCA/interest/profit —
+   крипто, calclumen не строит по правилу «НЕ строить»), foldoutkit (amortization schedule in excel with extra payments 1).
+   Остальное — известные head-термы конкурентов, которых у нас нет («до» = 0 у нас, спрос внешний).
+   **КОНТЕНТ (2/нед, 8 страниц):**
+   | # | Страница | Главный запрос | До | Донор в сети | Срок |
+   |---|---|---|---|---|---|
+   | 1 | mortgage-points-calculator | mortgage points calculator / break even | 0 | izntools /t/mortgage-calculator (строка) + внутр. Mortgage & home | 12.11 |
+   | 2 | quarterly-estimated-tax-calculator (1040-ES, safe harbor 100/110%) | estimated tax calculator / freelancer tax estimator | iznkit 2+2+1 | iznkit /en/guides/freelance-tax-explained | 15.11 |
+   | 3 | extra-payment-calculator (досрочные платежи по кредиту/ипотеке) | extra mortgage payment calculator | foldoutkit 1 | izntools /t/loan-calculator + iznkit what-is-compound-interest | 19.11 |
+   | 4 | travel-budget-calculator (стоимость поездки на человека/день) | travel budget calculator / trip cost | 0 | rightweekend /calendar/2027/ + costtrek digital-nomad-visa-guide | 22.11 |
+   | 5 | home-sale-proceeds-calculator (чистые деньги с продажи) | home sale proceeds calculator | 0 | iznkit /en/guides/how-to-calculate-rental-yield | 26.11 |
+   | 6 | investment-fee-calculator (expense ratio drag) | investment fee calculator / expense ratio | 0 | iznkit what-is-compound-interest + thecryptotools /exchanges/ | 29.11 |
+   | 7 | lump-sum-vs-annuity-calculator | lump sum vs annuity calculator | 0 | внутр. Retirement & investing; iznkit compound guide (PV) | 03.12 |
+   | 8 | credit-utilization-calculator | credit utilization calculator | 0 | ocrsnip credit-card statement→excel + внутр. credit-card-payoff | 06.12 |
+   Отклонено как дубль сетки: freelance-rate (есть izntools /t/hourly-rate-calculator), crypto-DCA (thecryptotools),
+   VAT-margin (iznkit margin-calculator), cost-of-living (costtrek).
+   **ФИЧИ (правило «результат под данные пользователя», ≥2 за месяц):**
+   | # | Фича | Кому | Запрос/сигнал | Оценка | Срок |
+   |---|---|---|---|---|---|
+   | F1 | Ссылка на расчёт: состояние → URL-параметры, кнопка «Copy link», префилл при открытии (все калькуляторы через CalcShell) | тем, кто шлёт сценарий партнёру/советнику; каждый результат становится ссылкой (помогает и бэклинкам) | прямого запроса нет; сигнал — шаринг = основной источник естественных ссылок | 2 дня | 20.11 |
+   | F2 | Экспорт таблиц по годам в CSV + печать/PDF (mortgage/loan/rent-vs-buy/compound/retirement) | тем, кто строит таблицу в Excel | foldoutkit «amortization schedule in excel… extra payments» (1), head-терм «amortization schedule excel» | 2 дня | 04.12 |
+   | F3 | Сравнение сценариев A/B (mortgage, loan) — если останется время | сравнивающим офферы | «compare mortgage offers» | 3 дня | бэклог дек. |
+   Задачи заведены в izn.crm 09.11 (по одной, со сроками). `контент` `фичи` · **→сам** (контент = продукт; фичи — нестандартный стек)
+
 **↓ Отложено до восстановления Google** (строить контент/менять инфру сейчас = впустую или рискованно):
 
-5. **⚠️ Гео take-home pay по штатам US + UK** — крупный programmatic, топ-CPM. <!-- crm:0mvarrq8o1279508307ae45e6 --> <!-- due:2026-11-16 -->
+6. **⚠️ Гео take-home pay по штатам US + UK** — крупный programmatic, топ-CPM. <!-- crm:0mvarrq8o1279508307ae45e6 --> <!-- due:2026-11-16 -->
    ⚠️ Сверка 16.10: базовые `income-tax-calculator` / `paycheck-calculator` / `salary-to-hourly`
    УЖЕ есть — открыт только **погеоштатный programmatic-слой** (сотни страниц типа
    /take-home-pay/california). Нужен источник налоговых данных по штатам + UK. ПОСЛЕ восстановления. `контент`
    · **→гибрид** (каркас: источник данных + шаблон + первый штат = сам; тираж на 50 штатов + UK = cursor)
-6. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-11-30 -->
+7. **Amazon OneLink мультигео UK/CA/AU** (владелец 19.10 — настраиваем; сейчас только .com/US): <!-- crm:0mvarrq8ua90ba19fda461de0 --> <!-- due:2026-11-30 -->
    ⏸ **ПЕРЕНЕСЕНО на ~30.11 (владелец 31.10):** разбор партнёрок показал, что живых кликов на Amazon
    у calclumen почти нет → гео-ссылки сейчас ничего не дадут. Вернёмся, когда появятся реальные
    Amazon-клики / гео-трафик.
