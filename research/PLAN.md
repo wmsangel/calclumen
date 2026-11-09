@@ -100,7 +100,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    **КОНТЕНТ (2/нед, 8 страниц):**
    | # | Страница | Главный запрос | До | Донор в сети | Срок |
    |---|---|---|---|---|---|
-   | 1 | mortgage-points-calculator | mortgage points calculator / break even | 0 | izntools /t/mortgage-calculator (строка) + внутр. Mortgage & home | 12.11 |
+   | 1 | mortgage-points-calculator | mortgage points calculator / break even | 0 | izntools /t/mortgage-calculator (строка) + внутр. Mortgage & home | ✅ 09.11 (663ad39, прод 200) |
    | 2 | quarterly-estimated-tax-calculator (1040-ES, safe harbor 100/110%) | estimated tax calculator / freelancer tax estimator | iznkit 2+2+1 | iznkit /en/guides/freelance-tax-explained | 15.11 |
    | 3 | extra-payment-calculator (досрочные платежи по кредиту/ипотеке) | extra mortgage payment calculator | foldoutkit 1 | izntools /t/loan-calculator + iznkit what-is-compound-interest | 19.11 |
    | 4 | travel-budget-calculator (стоимость поездки на человека/день) | travel budget calculator / trip cost | 0 | rightweekend /calendar/2027/ + costtrek digital-nomad-visa-guide | 22.11 |
