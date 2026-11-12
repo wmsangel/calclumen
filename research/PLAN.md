@@ -321,6 +321,10 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **Пилот claude-seo 12.11** (research/reports/seo-plugin-pilot-2026-11-12.md): найден и починен баг bonus-tax
+  (float-проценты, 2d8b560); в сб 14.11 добавить: офферы ниже пояснения (сейчас первый H2 = офферы), тематические H2,
+  убрать HowTo, Person-автор + sameAs, 404 meta, title главной; APR — поле «Nominal interest rate (APR %)» и description
+  обещают больше, чем умеет; DOM главной 2439 элементов. Стандарт: `/seo technical` + `/seo schema` + `/seo page` на новое.
 - Техника 12.11: thin → `noindex,follow` ок; зеркало workers.dev 404; GA только на calclumen.com; privacy называет GA4;
   прод 200 (/, /en, /en/finance, mortgage, sitemap, ads.txt, robots), деплои 4/4 success; AdSense: «Требуется действие:
   Бесполезный контент» (10.11) — не трогаем до чек-листа.
