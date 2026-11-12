@@ -167,6 +167,21 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    (гейт AdSense / хаб Conversions) · чт 03.12 5/8 home-sale · сб 05.12 F2 экспорт CSV/PDF · вт 08.12 T4 UK self-assessment ·
    чт 10.12 6/8 investment-fee (+ полный аудит) · сб 12.12 F1 ссылка на расчёт · вт 15.12 T5 irs-penalty · чт 17.12 7/8
    lump-sum-vs-annuity · чт 24.12 8/8 credit-utilization.
+   **ПЕНСИОННЫЕ КАЛЬКУЛЯТОРЫ (владелец 12.11; заметка retirement-calculators-check-2026-11-12.md) — январские вторники после
+   налогового хаба.** Ключевое наблюдение заметки: AI Overview стоит на всех 12 проверенных запросах и зовёт «посчитать в чате»
+   → выживают страницы с многолетней таблицей + экспортом, графиком, сценариями рядом, .ics-датами, ссылкой на расчёт — это
+   обязательная часть каждой страницы (и налоговых тоже; поэтому F1/F2 — фундамент). Партнёрки Empower ($76–100/лид, CJ/FlexOffers),
+   Betterment (CJ) — только после кнопки владельца. Не брать: общий retirement calculator (301K, крепость), 401k, Roth vs Traditional,
+   отдельный countdown (как режим). Задачи в CRM 12.11:
+   | # | Страница | Спрос/мес | Срок |
+   |---|---|---|---|
+   | R1 | rmd-calculator (апгрейд существующей: таблица RMD по возрастам, CSV, .ics 31.12/01.04) | 90,5K; топ-10 без IRS/Schwab/Fidelity | вт 05.01 |
+   | R2 | coast-fire-calculator (новая) | 18,1K, competition 0,02, CPC $3,98 | вт 12.01 |
+   | R3 | social-security-break-even-calculator 62/67/70 (новая) | 6,6K, CPC $5,77; сосед ss estimator 74K | вт 19.01 |
+   | R4 | retirement-withdrawal-calculator «how long will my savings last» 4/3,5/3% (новая) | 14,8K | вт 26.01 |
+   | R5 | fire-calculator (апгрейд: таблица по годам, сценарии, экспорт) | 14,8K | вт 02.02 |
+   | R6 | uk-state-pension-age-calculator (дата + .ics; countdown как режим) | UK, косвенно | вт 09.02 |
+
 
 
 **↓ Отложено до восстановления Google** (строить контент/менять инфру сейчас = впустую или рискованно):
