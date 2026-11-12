@@ -272,6 +272,7 @@ _(последние ~2 недели)_
   «Квота превышена»: дневную квоту URL Inspection уже расходует сетевой пайплайн подачи в GSC → ручные запросы
   не дублировать, а передать диспетчеру приоритетный список (mortgage, loan, compound-interest, apr, rent-vs-buy,
   home-affordability, salary-to-hourly, hourly-to-salary, inflation, finance-хаб) для очереди пайплайна.
+  → 12.11 диспетчер завёл 9 задач «Подать в GSC» (+compound-interest уже стоял); квота ~11/день на аккаунт, разберёт за 1–2 дня.
 - Техника 12.11: thin → `noindex,follow` ок; зеркало workers.dev 404; GA только на calclumen.com; privacy называет GA4;
   прод 200 (/, /en, /en/finance, mortgage, sitemap, ads.txt, robots), деплои 4/4 success; AdSense: «Требуется действие:
   Бесполезный контент» (10.11) — не трогаем до чек-листа.
