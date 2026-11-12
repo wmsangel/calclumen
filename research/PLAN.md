@@ -321,6 +321,10 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- Removals 12.11 (проверка по запросу диспетчера): все 12 префиксов (/data /combinations /fraction-to-decimal
+  /decimal-to-fraction /roman-numerals /units /multiples /gcf-lcm /percent /simplify /is-prime /factors) — `index:false`
+  в коде, на проде `noindex, follow`, в sitemap 0 URL, money-страницы (percentage-calculator, data-storage-converter)
+  вне префиксов. Временное удаление истекает ~27.04.2027; noindex остаётся, возврата не будет. Строка в замеры 19.11.
 - **Пилот claude-seo 12.11** (research/reports/seo-plugin-pilot-2026-11-12.md): найден и починен баг bonus-tax
   (float-проценты, 2d8b560); в сб 14.11 добавить: офферы ниже пояснения (сейчас первый H2 = офферы), тематические H2,
   убрать HowTo, Person-автор + sameAs, 404 meta, title главной; APR — поле «Nominal interest rate (APR %)» и description
