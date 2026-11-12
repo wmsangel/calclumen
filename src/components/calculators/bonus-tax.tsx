@@ -8,6 +8,7 @@ import { BONUS_TAX_2026, bonusTax } from "@/lib/math/bonus-tax";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 const usd = (n: number) => formatMoney(n, "USD");
+const pct = (rate: number) => formatPercent(rate * 100, 2).replace(/\.?0+%$/, "%");
 
 export function BonusTaxCalculator() {
   const [bonus, setBonus] = useState("5000");
@@ -80,10 +81,10 @@ export function BonusTaxCalculator() {
 
       <p className="mt-4 text-xs text-[var(--ink-soft)] leading-relaxed">
         2026 federal rates per IRS Publication 15: supplemental wages withheld at{" "}
-        {t.supplementalRate * 100}% up to {usd(t.supplementalHighThreshold)} per year and{" "}
-        {t.supplementalHighRate * 100}% above; Social Security {t.socialSecurityRate * 100}% up to the{" "}
-        {usd(t.socialSecurityWageBase)} wage base; Medicare {t.medicareRate * 100}% plus{" "}
-        {t.additionalMedicareRate * 100}% on wages over {usd(t.additionalMedicareThreshold)}. This is
+        {pct(t.supplementalRate)} up to {usd(t.supplementalHighThreshold)} per year and{" "}
+        {pct(t.supplementalHighRate)} above; Social Security {pct(t.socialSecurityRate)} up to the{" "}
+        {usd(t.socialSecurityWageBase)} wage base; Medicare {pct(t.medicareRate)} plus{" "}
+        {pct(t.additionalMedicareRate)} on wages over {usd(t.additionalMedicareThreshold)}. This is
         withholding from the check, not your final tax.
       </p>
     </ToolCard>
