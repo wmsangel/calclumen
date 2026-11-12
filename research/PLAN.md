@@ -144,6 +144,26 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    | F2 | Экспорт таблиц по годам в CSV + печать/PDF (mortgage/loan/rent-vs-buy/compound/retirement) | тем, кто строит таблицу в Excel | foldoutkit «amortization schedule in excel… extra payments» (1), head-терм «amortization schedule excel» | 2 дня | 04.12 |
    | F3 | Сравнение сценариев A/B (mortgage, loan) — если останется время | сравнивающим офферы | «compare mortgage offers» | 3 дня | бэклог дек. |
    Задачи заведены в izn.crm 09.11 (по одной, со сроками). `контент` `фичи` · **→сам** (контент = продукт; фичи — нестандартный стек)
+   **НАЛОГОВЫЙ ХАБ SELF-EMPLOYED US/UK (владелец 12.11 через диспетчера; отчёт
+   side-session-notes/…/tax-hub-selfemployed-research-2026-11-12.md).** Как отдельный проект отклонён (14–16 мес до денег),
+   как раздел 3–5 страниц на calclumen — проходит. Спрос (Google Ads API, 12 мес): US «estimated tax payments» 27,1K,
+   «quarterly tax dates» 8,1K, «quarterly tax calculator» 3,6K (CPC $7,4), «1099 tax calculator» 22,2K, «1099 vs w2» 1,6K,
+   «irs penalty calculator» 2,4K; UK «self assessment tax calculator» 3,6K, «payments on account» 1,9K. Сезон янв–апр 2027 →
+   первые две страницы на проде к середине декабря. Правила: результат под ввод пользователя; формула + источники + год ставок
+   на странице; дисклеймер «не налоговая консультация»; автор/дата (YMYL); рекламный код не трогать до решения AdSense;
+   партнёрки ТОЛЬКО CJ/Awin (Payoneer) — Keeper/1-800Accountant (Awin 81243)/Gusto/Tide заводить лишь после «да» владельца
+   кнопкой у диспетчера. Страницы по моим дням (вт — контент, сб — фичи), суббота 14.11 и четверги аудита не заняты:
+   | # | Страница | Главный запрос (спрос/мес) | Источники ставок | Срок |
+   |---|---|---|---|---|
+   | T1 | quarterly-estimated-tax-calculator — 1040-ES 2026/27, safe harbor 90%/100%/110% (AGI>$150K), минус удержания W-2, штат flat % | quarterly/estimated tax calculator 3,6K+3,6K+1,6K | IRS Pub 505, Form 1040-ES 2026, Pub 15 | вт 17.11 (= бывший «Контент 2/8») |
+   | T3 | 1099-vs-w2-calculator — take-home: SE tax 15,3% (½ вычет), QBI 20%, станд. вычет 2026, брекеты, штат % | 1099 calculator 2,4K; 1099 vs w2 1,6K | IRS Pub 15/505, Rev. Proc. 2026 брекеты | вт 24.11 |
+   | T2 | tax-deadline-calendar — .ics под страну/штат/дату регистрации: IRS 15.04/15.06/15.09/15.01 + годовой + штатные; напоминания за 14/3 дня; UK 31.01/31.07 (+MTD-кварталы позже) | quarterly tax dates 8,1K; estimated tax dates 6,6K | IRS Pub 509, tax.state.*.gov | сб 28.11 (день фич — это файл-артефакт) |
+   | T4 | uk-self-assessment-calculator — income tax + Class 4 (6%/2%, порог £12 570), payments on account (2×50% прошлого счёта), когда SA303 | self assessment tax calculator 3,6K; payments on account 1,9K | gov.uk rates 2026/27, HMRC SA guidance | вт 08.12 |
+   | T5 | irs-penalty-calculator — late filing 5%/мес (до 25%), late payment 0,5%/мес, underpayment по кварталам + проценты IRS за квартал (ставка по дате) | irs penalty calculator 2,4K; interest & penalties 3,6K | IRS Topic 653, Form 2210, IRS interest rates (кварт.) | вт 15.12 |
+   Следствие для плана контента: Контент 3/8 extra-payment → вт 01.12; 4/8–8/8 сдвигаются на вт после хаба (22.12, 29.12, 05.01,
+   12.01, 19.01) — порядок на решении владельца (вопрос диспетчеру 12.11). F1 → сб 21.11 (вместе с остатком AdSense-батчей),
+   F2 → сб 05.12. Все задачи в CRM с датами (12.11).
+
 
 **↓ Отложено до восстановления Google** (строить контент/менять инфру сейчас = впустую или рискованно):
 
