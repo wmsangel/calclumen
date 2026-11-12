@@ -6,10 +6,12 @@ import { GUIDES } from "@/lib/guides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
-  // Build-time date, used as lastmod for pages we actively edit (home,
-  // hubs, calculators, guides). The static programmatic pages below omit
-  // lastmod on purpose — they don't change, so a real "unknown" beats a
-  // misleading "changed today" (which makes engines distrust lastmod).
+  // Build-time date, used as lastmod ONLY for the pages that really change on
+  // every release (home and category hubs gain new tools). Calculators, guides
+  // and the support page omit lastmod: stamping all ~170 URLs "changed today"
+  // on each deploy made every lastmod identical and meaningless, so Google
+  // could not prioritise anything (GSC 12.11: sitemap read, 0 of 174 indexed
+  // via sitemap). A real "unknown" beats a misleading "changed today".
   const lastModified = new Date();
 
   for (const locale of locales) {
@@ -34,14 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Guides
     entries.push({
       url: absUrl(locale, "guides"),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.6,
     });
     for (const g of GUIDES) {
       entries.push({
         url: absUrl(locale, `guides/${g.slug}`),
-        lastModified,
         changeFrequency: "monthly",
         priority: 0.6,
       });
@@ -59,7 +59,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Support / donate page
     entries.push({
       url: absUrl(locale, "support"),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.5,
     });
@@ -68,7 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const calc of calculators) {
       entries.push({
         url: absUrl(locale, calc.slug),
-        lastModified,
         changeFrequency: "monthly",
         priority: calc.popular ? 0.9 : 0.8,
       });
