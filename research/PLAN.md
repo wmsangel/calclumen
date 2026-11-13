@@ -189,7 +189,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
 
 **↓ Отложено до восстановления Google** (строить контент/менять инфру сейчас = впустую или рискованно):
 
-6. **⚠️ Гео take-home pay по штатам US + UK** — крупный programmatic, топ-CPM. <!-- crm:0mvarrq8o1279508307ae45e6 --> <!-- due:2026-11-16 -->
+6. **⚠️ Гео take-home pay по штатам US + UK** — крупный programmatic, топ-CPM. <!-- due:2027-02-16 --> <!-- crm:0mvarrq8o1279508307ae45e6 -->
    ⚠️ Сверка 16.10: базовые `income-tax-calculator` / `paycheck-calculator` / `salary-to-hourly`
    УЖЕ есть — открыт только **погеоштатный programmatic-слой** (сотни страниц типа
    /take-home-pay/california). Нужен источник налоговых данных по штатам + UK. ПОСЛЕ восстановления. `контент`
