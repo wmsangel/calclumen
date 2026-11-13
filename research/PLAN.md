@@ -324,6 +324,10 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- Сверка CRM 13.11 (по просьбе владельца через диспетчера): закрыто 2 дубля (AdSense p3-копия 0mwc44jl…, Retirement 5/6
+  с датой 17.11 — остался 02.02); сроки: self-employed-раздел → 15.12, favicon.ico → сб 14.11, гео take-home → 16.02.2027
+  (гейт — восстановление индексации), заявка GSC apr-calculator → 16.11 (пайплайн); заметки «владелец: …» на ShareASale/Impact
+  и OneLink. Остальные 24 даты совпадают с календарём до 24.12 и пенсионным янв–фев.
 - Removals 12.11 (проверка по запросу диспетчера): все 12 префиксов (/data /combinations /fraction-to-decimal
   /decimal-to-fraction /roman-numerals /units /multiples /gcf-lcm /percent /simplify /is-prime /factors) — `index:false`
   в коде, на проде `noindex, follow`, в sitemap 0 URL, money-страницы (percentage-calculator, data-storage-converter)
