@@ -22,14 +22,25 @@ import { embeddableFor } from "@/lib/embeddable";
 import { crossLinkFor } from "@/lib/cross-links";
 import { spotlightForPage } from "@/lib/spotlight";
 import { AmazonMaterials } from "./amazon-materials";
+import calcUpdated from "@/lib/generated/calc-updated.json";
+import { AUTHOR } from "@/lib/seo/author";
 
-// Build-time freshness stamp shown on every calculator (E-E-A-T signal). Pages
-// are statically regenerated on each deploy, so this reflects the last update.
-const CALC_UPDATED = new Date().toLocaleDateString("en-US", {
-  month: "long",
-  year: "numeric",
-});
-const CALC_UPDATED_ISO = new Date().toISOString().slice(0, 10);
+// Per-calculator "last updated" date from git history (scripts/calc-updated.mjs):
+// the latest commit touching the page, its component or its math module. An
+// honest freshness signal — not the build timestamp, which made every page
+// claim it changed today.
+const UPDATED: Record<string, string> = calcUpdated;
+function updatedIso(slug: string): string {
+  return UPDATED[slug] ?? new Date().toISOString().slice(0, 10);
+}
+function updatedLabel(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
 
 // Google-recognized applicationCategory enums, mapped from our category so the
 // schema states what each tool actually does instead of a generic "Utility".
@@ -54,11 +65,20 @@ export interface FaqItem {
   a: string;
 }
 
+export interface SourceRef {
+  label: string;
+  url: string;
+}
+
 export interface CalcContent {
   intro: string[];
   steps: string[];
   faq: FaqItem[];
   extra?: React.ReactNode;
+  /** "How it's calculated": formula, assumptions, what is NOT modelled. */
+  methodology?: string[];
+  /** Primary sources the formula / rates come from (linked, do-follow). */
+  sources?: SourceRef[];
 }
 
 export function CalcShell({
@@ -77,8 +97,11 @@ export function CalcShell({
   const url = absUrl(locale, slug);
   const related = relatedCalcs(slug);
   const guide = guideForCalc(slug);
+  const updatedIsoDate = updatedIso(slug);
+  const updated = updatedLabel(updatedIsoDate);
+  const sources = content.sources ?? [];
 
-  const jsonLd = [
+  const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
@@ -90,8 +113,25 @@ export function CalcShell({
       operatingSystem: "Any",
       inLanguage: "en",
       isAccessibleForFree: true,
-      dateModified: CALC_UPDATED_ISO,
+      dateModified: updatedIsoDate,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      author: { "@type": "Organization", "@id": ORG_ID, name: SITE_NAME },
+      maintainer: {
+        "@type": "Person",
+        "@id": `${SITE_URL}/en/about#${AUTHOR.id}`,
+        name: AUTHOR.name,
+        jobTitle: AUTHOR.role,
+        url: `${SITE_URL}/en/about`,
+      },
+      ...(sources.length
+        ? {
+            citation: sources.map((src) => ({
+              "@type": "CreativeWork",
+              name: src.label,
+              url: src.url,
+            })),
+          }
+        : {}),
       isPartOf: { "@type": "WebSite", "@id": SITE_ID, name: SITE_NAME, url: SITE_URL },
       publisher: {
         "@type": "Organization",
@@ -123,16 +163,6 @@ export function CalcShell({
         },
         { "@type": "ListItem", position: 3, name: calc.title, item: url },
       ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: `How to use the ${calc.heading}`,
-      step: content.steps.map((text, i) => ({
-        "@type": "HowToStep",
-        position: i + 1,
-        text,
-      })),
     },
   ];
 
@@ -172,7 +202,17 @@ export function CalcShell({
       <p className="mt-3 text-lg text-[var(--ink-soft)] leading-relaxed">
         {calc.description}
       </p>
-      <p className="mt-2 text-xs text-[var(--ink-soft)]">Updated {CALC_UPDATED}</p>
+      <p className="mt-2 text-xs text-[var(--ink-soft)]">
+        By {SITE_NAME} · Reviewed by{" "}
+        <Link href={`/${locale}/about#${AUTHOR.id}`} className="prose-link">
+          {AUTHOR.name}
+        </Link>{" "}
+        · Updated{" "}
+        <time dateTime={updatedIsoDate}>{updated}</time> ·{" "}
+        <Link href={`/${locale}/editorial-policy`} className="prose-link">
+          How we check our math
+        </Link>
+      </p>
 
       {/* The interactive calculator */}
       <div className="mt-7">
@@ -187,7 +227,11 @@ export function CalcShell({
           <p className="mt-3 text-xs text-[var(--ink-soft)] leading-relaxed">
             {money
               ? "This is an estimate for general information only and is not financial, tax or investment advice. Figures may differ from a lender or advisor."
-              : "This is an estimate for general information only and is not medical advice. Talk to a healthcare professional for decisions about your health."}
+              : "This is an estimate for general information only and is not medical advice. Talk to a healthcare professional for decisions about your health."}{" "}
+            <Link href={`/${locale}/disclaimer`} className="prose-link">
+              Read our disclaimer
+            </Link>
+            .
           </p>
         );
       })()}
@@ -211,15 +255,6 @@ export function CalcShell({
           </span>
         </Link>
       ) : null}
-
-      {/* Intent-matched affiliate recommendations — placed right under the
-          result (peak attention), not buried at the bottom of the page. */}
-      <div className="no-print">
-        <AffiliateBlock calc={calc} />
-        {/* EU-only offers (e.g. BLUETTI), gated client-side by visitor
-            timezone so pages stay static and non-EU visitors don't see them. */}
-        <EuOfferBlock calc={calc} />
-      </div>
 
       <AdSlot className="mt-8 no-print" />
 
@@ -250,7 +285,7 @@ export function CalcShell({
 
         {content.extra ? <div className="mt-8">{content.extra}</div> : null}
 
-        <h2 className="mt-12 text-xl font-semibold">How to use it</h2>
+        <h2 className="mt-12 text-xl font-semibold">How to use the {calc.heading.toLowerCase()}</h2>
         <ol className="mt-4 space-y-3">
           {content.steps.map((step, i) => (
             <li key={i} className="flex gap-3">
@@ -262,7 +297,54 @@ export function CalcShell({
           ))}
         </ol>
 
-        <h2 className="mt-12 text-xl font-semibold">Frequently asked questions</h2>
+        {content.methodology?.length || sources.length ? (
+          <section aria-labelledby="methodology" className="mt-12">
+            <h2 id="methodology" className="text-xl font-semibold">
+              How the {calc.heading.toLowerCase()} works
+            </h2>
+            {content.methodology?.map((p, i) => (
+              <p key={i} className="text-[var(--ink-soft)] leading-relaxed mt-4">
+                {p}
+              </p>
+            ))}
+            {sources.length ? (
+              <div className="mt-5 card p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[var(--ink-soft)]">
+                  Sources
+                </div>
+                <ul className="mt-2 space-y-1.5 text-sm">
+                  {sources.map((src) => (
+                    <li key={src.url}>
+                      <a
+                        href={src.url}
+                        rel="noopener"
+                        target="_blank"
+                        className="prose-link"
+                      >
+                        {src.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs text-[var(--ink-soft)]">
+                  Formula and figures last reviewed{" "}
+                  <time dateTime={updatedIsoDate}>{updated}</time>. Found an
+                  error?{" "}
+                  <Link href={`/${locale}/contact`} className="prose-link">
+                    Tell us
+                  </Link>{" "}
+                  and we will fix it — see our{" "}
+                  <Link href={`/${locale}/editorial-policy`} className="prose-link">
+                    editorial policy
+                  </Link>
+                  .
+                </p>
+              </div>
+            ) : null}
+          </section>
+        ) : null}
+
+        <h2 className="mt-12 text-xl font-semibold">{calc.title} questions, answered</h2>
         <div className="mt-4 space-y-2">
           {content.faq.map((f) => (
             <details key={f.q} className="group card p-4">
@@ -279,6 +361,15 @@ export function CalcShell({
           ))}
         </div>
       </section>
+
+      {/* Intent-matched affiliate recommendations — after the explanatory
+          content, so the first H2 and the reading flow belong to the topic. */}
+      <div className="no-print">
+        <AffiliateBlock calc={calc} />
+        {/* EU-only offers (e.g. BLUETTI), gated client-side by visitor
+            timezone so pages stay static and non-EU visitors don't see them. */}
+        <EuOfferBlock calc={calc} />
+      </div>
 
       {/* Embed widget — only for curated embeddable calculators. The snippet's
           do-follow credit link is a backlink-seeding play (our #1 deficit). */}

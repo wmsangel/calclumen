@@ -29,8 +29,10 @@ export async function generateMetadata({
   return pageMetadata({
     locale,
     path: "",
-    title: `${SITE_NAME} — Free Online Calculators`,
-    description: SITE_TAGLINE,
+    title: `${SITE_NAME} — Free Online Calculators for Money, Health & Everyday Math`,
+    description:
+      "135+ free calculators that show their formulas and sources: mortgage, loan and compound interest, take-home pay and tax, BMI and calories, dates and unit conversions.",
+    absoluteTitle: true,
   });
 }
 

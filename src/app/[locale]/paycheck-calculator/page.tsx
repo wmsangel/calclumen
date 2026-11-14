@@ -36,6 +36,15 @@ const content: CalcContent = {
     "Set your retirement contribution as a percentage of gross pay.",
     "Enter an estimated combined federal and state income tax rate to see your take-home pay.",
   ],
+  methodology: [
+    "Gross pay per period is your annual salary divided by the number of pay periods (or your hourly rate times hours). Pre-tax retirement contributions are taken off first. FICA is 7.65% of gross — 6.2% Social Security plus 1.45% Medicare. Income tax is estimated at the combined federal and state rate you enter, applied to pay after pre-tax deductions. Net pay is gross minus retirement, FICA and income tax.",
+    "Not modelled: the Social Security wage base (6.2% stops above $184,500 of wages in 2026), the 0.9% Additional Medicare Tax above $200,000, W-4 adjustments and progressive brackets (use the income tax calculator for those), health premiums, HSA/FSA deductions, local taxes and garnishments. Your employer's stub is the authority on actual withholding.",
+  ],
+  sources: [
+    { label: "IRS Topic 751 — Social Security and Medicare withholding rates", url: "https://www.irs.gov/taxtopics/tc751" },
+    { label: "IRS Publication 15 (Circular E), Employer's Tax Guide", url: "https://www.irs.gov/publications/p15" },
+    { label: "Social Security Administration — Contribution and benefit base", url: "https://www.ssa.gov/oact/cola/cbb.html" },
+  ],
   faq: [
     {
       q: "What is FICA and how much is it?",

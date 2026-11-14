@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     // Info / legal pages
-    for (const p of ["about", "contact", "privacy", "cookies", "terms"]) {
+    for (const p of ["about", "contact", "privacy", "cookies", "terms", "editorial-policy", "advertising", "disclaimer"]) {
       entries.push({
         url: absUrl(locale, p),
         changeFrequency: "yearly",

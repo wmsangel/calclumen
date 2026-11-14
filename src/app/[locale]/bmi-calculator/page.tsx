@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Enter your weight in kilograms or pounds.",
     "Read your BMI, weight category and the healthy weight range for your height.",
   ],
+  methodology: [
+    "BMI = weight in kilograms ÷ height in metres squared; in imperial units it is 703 × weight in pounds ÷ height in inches squared. The categories follow the World Health Organization cut-offs used by the CDC for adults: under 18.5 underweight, 18.5–24.9 healthy weight, 25–29.9 overweight, 30 and above obesity. The healthy weight range shown is the weight that gives a BMI of 18.5 to 24.9 at your height.",
+    "BMI is a screening measure, not a diagnosis. It does not distinguish muscle from fat, so very muscular people can read as overweight, and it can understate body fat in older adults. It is not designed for children (who use age- and sex-specific percentiles), pregnant women or competitive athletes.",
+  ],
+  sources: [
+    { label: "CDC — Adult BMI categories and calculator", url: "https://www.cdc.gov/bmi/adult-calculator/" },
+    { label: "World Health Organization — Obesity and overweight fact sheet", url: "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" },
+  ],
   faq: [
     {
       q: "What is the BMI formula?",

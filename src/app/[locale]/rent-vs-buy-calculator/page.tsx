@@ -36,6 +36,16 @@ const content: CalcContent = {
     "Adjust the assumptions — home appreciation, rent growth, investment return, property tax, maintenance and insurance, HOA, and buying and selling costs.",
     "Read the verdict, the break-even year, and the net-worth table showing buying vs renting year by year.",
   ],
+  methodology: [
+    "The calculator follows the opportunity-cost method popularised by the New York Times: it tracks the net worth of a buyer and a renter year by year with the same income. The buyer puts the down payment and closing costs into the home and pays mortgage principal and interest, property tax, insurance, maintenance and, on exit, selling costs; the home grows at your appreciation rate.",
+    "The renter pays rent (rising at your rent-growth rate) and invests the money the buyer spent up front, plus any month in which owning costs more than renting, at your investment return. The verdict compares the two net-worth lines after your horizon, and the break-even year is the first year in which the buyer comes out ahead.",
+    "Not modelled: the mortgage-interest deduction and the capital-gains exclusion on sale (which favour buying for some households), renters insurance and deposits, moving costs, and rate changes. Treat the result as a sensitivity tool and vary appreciation, returns and horizon.",
+  ],
+  sources: [
+    { label: "The New York Times — Is It Better to Rent or Buy? (method)", url: "https://www.nytimes.com/interactive/2024/upshot/buy-rent-calculator.html" },
+    { label: "CFPB — Owning a home", url: "https://www.consumerfinance.gov/owning-a-home/" },
+    { label: "Freddie Mac — Primary Mortgage Market Survey", url: "https://www.freddiemac.com/pmms" },
+  ],
   faq: [
     {
       q: "Why compare net worth instead of monthly payment vs rent?",

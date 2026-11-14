@@ -113,7 +113,7 @@ export function AprCalculator() {
             </select>
           </div>
         </Field>
-        <Field label="Nominal interest rate (APR %)">
+        <Field label="Interest rate (note rate, %)" hint="The rate on the loan agreement, before fees">
           <input
             className="field"
             type="number"
@@ -147,7 +147,7 @@ export function AprCalculator() {
           value={calc ? money(calc.monthlyPayment) : "—"}
         />
         <Stat
-          label="Nominal rate"
+          label="Note rate (before fees)"
           value={calc ? `${formatNumber(r, 2)}%` : "—"}
         />
         <Stat label="Total paid" value={calc ? money(calc.total) : "—"} />

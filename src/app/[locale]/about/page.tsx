@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { calculators, categories } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
-import { SITE_NAME } from "@/lib/seo/site";
+import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
+import { AUTHOR } from "@/lib/seo/author";
 
 export async function generateMetadata({
   params,
@@ -29,8 +30,25 @@ export default async function Page({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
+  const personLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${absUrl(locale, "about")}#${AUTHOR.id}`,
+    name: AUTHOR.name,
+    jobTitle: AUTHOR.role,
+    worksFor: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: SITE_NAME },
+    address: { "@type": "PostalAddress", addressLocality: "Bishkek", addressCountry: "KG" },
+    url: absUrl(locale, "about"),
+    sameAs: [AUTHOR.github],
+    knowsAbout: ["web development", "financial calculators", "unit conversion", "search engine optimization"],
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-5 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+      />
       <h1 className="display text-3xl sm:text-4xl">About {SITE_NAME}</h1>
       <p className="mt-4 text-lg text-[var(--ink-soft)] leading-relaxed">
         {SITE_NAME} is a free collection of {calculators.length} calculators and
@@ -58,6 +76,35 @@ export default async function Page({
         ))}
       </div>
 
+      <h2 id={AUTHOR.id} className="text-xl font-semibold mt-10 mb-2">Who makes {SITE_NAME}</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
+        {SITE_NAME} is built and maintained by <strong>{AUTHOR.name}</strong>, a
+        software developer based in {AUTHOR.location}. Igor has been building web
+        tools since 2010 and has published measurement, finance and productivity
+        utilities used by people in more than 100 countries. He writes the
+        formulas, codes the calculators, writes the automated tests and reviews
+        every page before it goes live; there is no content farm and no AI-written
+        filler behind the site. You can find his open-source work on{" "}
+        <a href={AUTHOR.github} rel="noopener me" target="_blank" className="prose-link">
+          GitHub
+        </a>
+        .
+      </p>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
+        Igor is not a licensed financial adviser, tax preparer or physician, and{" "}
+        {SITE_NAME} does not claim to be. The site&rsquo;s job is to apply
+        published formulas and official figures correctly and show you exactly
+        how — see our{" "}
+        <Link href={`/${locale}/editorial-policy`} className="prose-link">
+          editorial policy
+        </Link>{" "}
+        and{" "}
+        <Link href={`/${locale}/disclaimer`} className="prose-link">
+          disclaimer
+        </Link>
+        .
+      </p>
+
       <h2 className="text-xl font-semibold mt-10 mb-2">How we keep it accurate</h2>
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
         Our calculators use established, published formulas — standard loan
@@ -66,6 +113,10 @@ export default async function Page({
         show the method on each page so you can check the math yourself. When a
         tool relies on a reference table (tax rates, unit factors, indicative
         currency rates), we label it clearly and note when it was last updated.
+        Every calculator carries the date its page, logic or figures last
+        changed, taken from our version history, and links the primary sources
+        it relies on. Each formula lives in a separate module with automated
+        tests that run before every release.
       </p>
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
         That said, results are estimates for general information only and are not

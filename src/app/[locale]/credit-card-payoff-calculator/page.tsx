@@ -36,6 +36,14 @@ const content: CalcContent = {
     "In fixed mode, enter the monthly payment; in target mode, enter the number of months.",
     "Read the payoff time or required payment, along with the total interest and total paid.",
   ],
+  methodology: [
+    "Each month the balance accrues interest at APR ÷ 12 and your fixed payment is applied; the months to pay off are n = −ln(1 − r × balance ÷ payment) ÷ ln(1 + r), rounded up, and total interest is payments × months − balance. If the payment is not more than the first month's interest the balance can never fall, and the calculator says so. In the by-date mode the formula is inverted to find the payment that clears the balance in your chosen number of months.",
+    "Not modelled: new purchases, a minimum payment that falls as the balance falls (which stretches payoff much further), promotional rates, fees and daily-balance compounding. Card statements must show how long minimum payments would take and the payment that clears the balance in 36 months — compare those with the figures here.",
+  ],
+  sources: [
+    { label: "12 CFR §1026.7(b)(12) — Repayment disclosures on periodic statements (Regulation Z)", url: "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-B/section-1026.7" },
+    { label: "CFPB — Credit cards", url: "https://www.consumerfinance.gov/consumer-tools/credit-cards/" },
+  ],
   faq: [
     {
       q: "Why does it say my payment is too low to cover interest?",

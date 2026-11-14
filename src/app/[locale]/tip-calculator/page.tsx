@@ -36,6 +36,10 @@ const content: CalcContent = {
     "Set how many people are splitting the bill.",
     "Read the tip amount, the total, and the per-person share.",
   ],
+  methodology: [
+    "Tip = bill × tip percentage ÷ 100; total = bill + tip; each person's share = total ÷ number of people. Rounding options round the tip or each share to the nearest whole unit and recompute the total so the figures add up.",
+    "Customary rates differ by country and setting — 15–20% of the pre-tax bill is typical for table service in the US, while many countries include service in the price. Whether to tip on the pre-tax or post-tax amount is a convention, not a rule; enter whichever figure you want to tip on.",
+  ],
   faq: [
     {
       q: "What is a typical tip percentage in the US?",

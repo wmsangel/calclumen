@@ -36,6 +36,16 @@ const content: CalcContent = {
     "Add property tax, home insurance, PMI and any HOA fee.",
     "Read your total monthly payment, the breakdown, total interest and amortization schedule.",
   ],
+  methodology: [
+    "Principal and interest come from the standard amortization formula: payment = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1), where P is the loan amount (price minus down payment), r is the annual rate divided by 12 and n is the term in months. Property tax is the home price times your annual rate divided by 12, home insurance is the annual premium divided by 12, and HOA dues are added as entered.",
+    "Private mortgage insurance is charged only while the loan-to-value ratio is above 80%: the loan amount times your PMI rate divided by 12. The amortization schedule applies each month's interest first and the remainder to principal, which is why early payments are mostly interest.",
+    "Not modelled: adjustable-rate changes, escrow cushions, lender fees and discount points (see the mortgage points calculator), biweekly payments, extra principal payments and tax deductions. A lender's quote will also reflect your credit score and the exact closing date.",
+  ],
+  sources: [
+    { label: "CFPB — What is private mortgage insurance?", url: "https://www.consumerfinance.gov/ask-cfpb/what-is-private-mortgage-insurance-en-122/" },
+    { label: "Freddie Mac — Primary Mortgage Market Survey (current average rates)", url: "https://www.freddiemac.com/pmms" },
+    { label: "CFPB — Owning a home: loan options and closing", url: "https://www.consumerfinance.gov/owning-a-home/" },
+  ],
   faq: [
     {
       q: "What is included in a monthly mortgage payment?",

@@ -112,7 +112,7 @@ export const calculators: CalcDef[] = [
     title: "Loan",
     heading: "Loan Payment Calculator",
     description:
-      "Work out the monthly payment, total interest and total cost of any loan, with a full amortization schedule.",
+      "Enter a loan amount, interest rate and term to get the monthly payment, total interest and total cost, with a full month-by-month amortization schedule.",
     keywords: [
       "loan calculator",
       "personal loan calculator",
@@ -127,7 +127,7 @@ export const calculators: CalcDef[] = [
     title: "Mortgage",
     heading: "Mortgage Calculator",
     description:
-      "Estimate your full monthly mortgage payment — principal, interest, property tax, home insurance, PMI and HOA — with total interest and an amortization schedule.",
+      "Full monthly mortgage payment with principal, interest, tax, insurance, PMI and HOA from price, down payment, rate and term, plus an amortization schedule.",
     keywords: [
       "mortgage calculator",
       "monthly mortgage payment",
@@ -160,7 +160,7 @@ export const calculators: CalcDef[] = [
     title: "Traditional IRA",
     heading: "Traditional IRA Calculator",
     description:
-      "Project your Traditional IRA at retirement and its after-tax value, with tax-deferred growth, your contributions and the up-front tax your pre-tax contributions save.",
+      "Project a Traditional IRA to retirement: tax-deferred growth, your contributions, the tax saved by pre-tax deposits and the after-tax value at withdrawal.",
     keywords: [
       "traditional ira calculator",
       "ira retirement calculator",
@@ -208,7 +208,7 @@ export const calculators: CalcDef[] = [
     title: "Dividend",
     heading: "Dividend Calculator",
     description:
-      "Project dividend income from a yield and optional annual growth, with monthly and annual payouts and a DRIP reinvestment option that compounds your balance.",
+      "Project dividend income from a balance, yield and growth rate: monthly and annual payouts, with a DRIP option that reinvests and compounds your shares.",
     keywords: [
       "dividend calculator",
       "dividend income calculator",
@@ -273,7 +273,7 @@ export const calculators: CalcDef[] = [
     title: "Biweekly mortgage",
     heading: "Biweekly Mortgage Calculator",
     description:
-      "See how much interest and time you save by paying your mortgage every two weeks instead of monthly — the biweekly payment, years shaved off and interest saved.",
+      "Compare monthly and biweekly mortgage payments from your balance, rate and term: the biweekly amount, interest saved and the years cut from your loan.",
     keywords: [
       "biweekly mortgage calculator",
       "biweekly mortgage payment calculator",
@@ -290,7 +290,7 @@ export const calculators: CalcDef[] = [
     title: "Compound interest",
     heading: "Compound Interest Calculator",
     description:
-      "See how savings or investments grow over time with compound interest and regular contributions.",
+      "See how a deposit grows with compound interest and regular contributions: set rate, compounding frequency and years for the balance and total interest.",
     keywords: [
       "compound interest calculator",
       "investment growth calculator",
@@ -319,7 +319,7 @@ export const calculators: CalcDef[] = [
     title: "Rule of 72",
     heading: "Rule of 72 Calculator",
     description:
-      "Estimate how long it takes to double your money at a given return — or the rate needed to double in a set time.",
+      "Estimate how many years it takes to double your money at a given return, or the return needed to double in a set time, with the exact figure alongside.",
     keywords: [
       "rule of 72 calculator",
       "double your money calculator",
@@ -334,7 +334,7 @@ export const calculators: CalcDef[] = [
     title: "Salary to hourly",
     heading: "Salary to Hourly Calculator",
     description:
-      "Convert an annual salary to an hourly, weekly or monthly rate — and back again.",
+      "Convert an annual salary to hourly, daily, weekly and monthly pay from your hours per week and weeks per year, or go the other way from an hourly rate.",
     keywords: [
       "salary to hourly",
       "hourly to salary",
@@ -348,7 +348,7 @@ export const calculators: CalcDef[] = [
     title: "Hourly to salary",
     heading: "Hourly to Salary Calculator",
     description:
-      "Convert an hourly wage to a yearly, monthly and weekly salary based on your hours and weeks worked.",
+      "Convert an hourly wage to yearly, monthly, biweekly and weekly pay from the hours and weeks you work, so you can compare a job offer in any pay period.",
     keywords: [
       "hourly to salary calculator",
       "hourly wage to annual salary",
@@ -364,7 +364,7 @@ export const calculators: CalcDef[] = [
     title: "Tip & split",
     heading: "Tip Calculator & Bill Splitter",
     description:
-      "Calculate the tip and split the bill evenly between any number of people.",
+      "Work out the tip and total for a restaurant bill at any percentage, then split the bill and tip evenly between any number of people, with rounding options.",
     keywords: [
       "tip calculator",
       "bill split calculator",
@@ -379,7 +379,7 @@ export const calculators: CalcDef[] = [
     title: "BMI",
     heading: "BMI Calculator",
     description:
-      "Calculate your Body Mass Index in metric or imperial units and see your weight category.",
+      "Calculate Body Mass Index from height and weight in metric or imperial units, see your WHO weight category and the healthy weight range for your height.",
     keywords: [
       "bmi calculator",
       "body mass index",
@@ -394,7 +394,7 @@ export const calculators: CalcDef[] = [
     title: "Calorie / TDEE",
     heading: "Calorie & TDEE Calculator",
     description:
-      "Estimate your daily calorie needs (BMR and TDEE) for maintaining, losing or gaining weight.",
+      "Estimate BMR and daily calories (TDEE) with the Mifflin-St Jeor equation from age, sex, height, weight and activity, plus targets to lose or gain weight.",
     keywords: [
       "calorie calculator",
       "tdee calculator",
@@ -408,7 +408,7 @@ export const calculators: CalcDef[] = [
     title: "BAC (blood alcohol)",
     heading: "Blood Alcohol Content (BAC) Calculator",
     description:
-      "Estimate your blood alcohol content from your weight, sex, number of drinks and time using the Widmark formula.",
+      "Estimate blood alcohol content with the Widmark formula from weight, sex, drinks and hours since drinking, with the time until you are back to zero.",
     keywords: [
       "bac calculator",
       "blood alcohol calculator",
@@ -438,7 +438,7 @@ export const calculators: CalcDef[] = [
     title: "Date difference",
     heading: "Date Difference Calculator",
     description:
-      "Count the days, weeks and months between two dates — or how long until a future date.",
+      "Count the exact days, weeks, months and years between two dates, or the time until a future date, with business days and the weekday of each date included.",
     keywords: [
       "date difference calculator",
       "days between dates",
@@ -452,7 +452,7 @@ export const calculators: CalcDef[] = [
     title: "Percentage",
     heading: "Percentage Calculator",
     description:
-      "Find a percentage of a number, percentage change, and what percent one number is of another.",
+      "Find X% of a number, what percent one number is of another, and the percentage increase or decrease between two values, with the formula shown for each.",
     keywords: [
       "percentage calculator",
       "percent of a number",
@@ -467,7 +467,7 @@ export const calculators: CalcDef[] = [
     title: "Unit converter",
     heading: "Unit Converter",
     description:
-      "Convert length, weight, temperature and volume between metric and imperial units.",
+      "Convert length, weight, temperature, volume, area and speed between metric and imperial units instantly, with the conversion factor shown for every pair.",
     keywords: [
       "unit converter",
       "metric to imperial",
@@ -481,7 +481,7 @@ export const calculators: CalcDef[] = [
     title: "Currency converter",
     heading: "Currency Converter",
     description:
-      "Convert between world currencies with a simple, fast exchange-rate calculator.",
+      "Convert between 30+ world currencies with indicative daily exchange rates, see the rate used and the reverse conversion, and compare amounts side by side.",
     keywords: [
       "currency converter",
       "exchange rate calculator",
@@ -497,7 +497,7 @@ export const calculators: CalcDef[] = [
     title: "Mortgage refinance",
     heading: "Mortgage Refinance Calculator",
     description:
-      "See if refinancing saves money and how fast you break even on closing costs.",
+      "See if refinancing pays off: the new monthly payment, monthly savings, the months to break even on closing costs and total interest saved over the loan.",
     keywords: [
       "mortgage refinance calculator",
       "refinance break even",
@@ -512,7 +512,7 @@ export const calculators: CalcDef[] = [
     title: "Retirement savings",
     heading: "Retirement Savings Calculator",
     description:
-      "Project your retirement nest egg from savings, monthly contributions and returns.",
+      "Project your retirement nest egg from current savings, monthly contributions, expected return and years to retirement, and see the income it could support.",
     keywords: [
       "retirement calculator",
       "retirement savings calculator",
@@ -527,7 +527,7 @@ export const calculators: CalcDef[] = [
     title: "401(k)",
     heading: "401(k) Retirement Calculator",
     description:
-      "Estimate your 401(k) balance at retirement including employer matching and growth.",
+      "Estimate your 401(k) balance at retirement from salary, contribution rate, employer match and return, and see how much the match adds over the years.",
     keywords: [
       "401k calculator",
       "401k growth calculator",
@@ -541,7 +541,7 @@ export const calculators: CalcDef[] = [
     title: "RMD (required distribution)",
     heading: "RMD Calculator",
     description:
-      "Calculate this year's Required Minimum Distribution from your IRA or 401(k) using the IRS Uniform Lifetime Table.",
+      "Calculate this year's Required Minimum Distribution from your IRA or 401(k) balance and age with the IRS Uniform Lifetime Table, plus deadline and penalty.",
     keywords: [
       "rmd calculator",
       "required minimum distribution calculator",
@@ -556,7 +556,7 @@ export const calculators: CalcDef[] = [
     title: "Roth IRA",
     heading: "Roth IRA Calculator",
     description:
-      "Project your tax-free Roth IRA balance at retirement and see how much tax you save versus a taxable account.",
+      "Project your tax-free Roth IRA balance at retirement from contributions, return and years, and compare it with a taxable account to see the tax you save.",
     keywords: [
       "roth ira calculator",
       "roth ira growth calculator",
@@ -587,7 +587,7 @@ export const calculators: CalcDef[] = [
     title: "529 college savings",
     heading: "529 College Savings Calculator",
     description:
-      "Project your 529 plan's value by the time your child starts college and see how much of the four-year cost it covers.",
+      "Project a 529 college savings plan to your child's first year from balance, monthly deposits and return, and see the share of four-year costs it covers.",
     keywords: [
       "529 calculator",
       "529 college savings calculator",
@@ -602,7 +602,7 @@ export const calculators: CalcDef[] = [
     title: "Capital gains tax",
     heading: "Capital Gains Tax Calculator",
     description:
-      "Estimate federal and state tax on your investment profit, with 2025 long-term and short-term rates by filing status.",
+      "Estimate federal and state tax on an investment profit from purchase price, sale price, holding period and filing status.",
     keywords: [
       "capital gains tax calculator",
       "long term capital gains calculator",
@@ -617,7 +617,7 @@ export const calculators: CalcDef[] = [
     title: "Credit card payoff",
     heading: "Credit Card Payoff Calculator",
     description:
-      "Find how long it takes to clear credit card debt and the total interest you'll pay.",
+      "Find how many months it takes to clear a credit card at your APR and monthly payment, the total interest, and the payment needed to be debt-free by a date.",
     keywords: [
       "credit card payoff calculator",
       "credit card interest calculator",
@@ -632,7 +632,7 @@ export const calculators: CalcDef[] = [
     title: "Debt snowball",
     heading: "Debt Snowball & Avalanche Calculator",
     description:
-      "Compare snowball and avalanche strategies to pay off multiple debts faster.",
+      "Enter several debts with balances, rates and minimums to compare snowball and avalanche: payoff order, debt-free date and total interest for each method.",
     keywords: [
       "debt snowball calculator",
       "debt avalanche calculator",
@@ -679,7 +679,7 @@ export const calculators: CalcDef[] = [
     title: "ROI",
     heading: "Return on Investment (ROI) Calculator",
     description:
-      "Calculate return on investment, net profit and annualized ROI for any investment.",
+      "Calculate return on investment from the amount invested and the amount returned: net profit, ROI percentage and annualized ROI over the holding period.",
     keywords: [
       "roi calculator",
       "return on investment calculator",
@@ -693,7 +693,7 @@ export const calculators: CalcDef[] = [
     title: "Rental property ROI",
     heading: "Rental Property Calculator",
     description:
-      "Analyze a rental property's monthly cash flow, cash-on-cash return, cap rate and DSCR from the price, financing and rent.",
+      "Analyze a rental from price, financing, rent and expenses: monthly cash flow, cash-on-cash return, cap rate, NOI and DSCR with your own vacancy rate.",
     keywords: [
       "rental property calculator",
       "cash on cash return calculator",
@@ -709,7 +709,7 @@ export const calculators: CalcDef[] = [
     title: "Savings goal",
     heading: "Savings Goal Calculator",
     description:
-      "Find the monthly deposit needed to reach a savings goal by your target date.",
+      "Find the monthly deposit needed to reach a savings goal by a target date from your starting balance and interest rate, with a month-by-month plan.",
     keywords: [
       "savings goal calculator",
       "how much to save monthly",
@@ -737,7 +737,7 @@ export const calculators: CalcDef[] = [
     title: "Simple interest",
     heading: "Simple Interest Calculator",
     description:
-      "Calculate simple interest and the total owed or earned on a principal over time.",
+      "Calculate simple interest and the total owed or earned from a principal, annual rate and time in years, months or days, with the I = P × r × t formula.",
     keywords: [
       "simple interest calculator",
       "simple interest formula",
@@ -751,7 +751,7 @@ export const calculators: CalcDef[] = [
     title: "Home affordability",
     heading: "Home Affordability Calculator",
     description:
-      "Estimate how much house you can afford from income, debts and down payment.",
+      "Estimate how much house you can afford from income, monthly debts, down payment, rate and term with the 28/36 rule: maximum price and monthly payment.",
     keywords: [
       "home affordability calculator",
       "how much house can I afford",
@@ -781,7 +781,7 @@ export const calculators: CalcDef[] = [
     title: "Bonus tax",
     heading: "Bonus Tax Calculator",
     description:
-      "See how much of a bonus you take home after US withholding — the 22% flat federal rate, Social Security, Medicare and state — using 2026 IRS Publication 15 rates.",
+      "See how much of a bonus you take home after US withholding — 22% flat federal, Social Security, Medicare and state — with 2026 IRS Publication 15 rates.",
     keywords: [
       "bonus tax calculator",
       "how are bonuses taxed",
@@ -796,7 +796,7 @@ export const calculators: CalcDef[] = [
     title: "Balance transfer",
     heading: "Balance Transfer Calculator",
     description:
-      "Find out if moving a credit-card balance to a 0% promo card saves money after the transfer fee — interest both ways, payoff time and the payment that clears it within the promo.",
+      "See whether moving a card balance to a 0% promo card saves money after the fee: interest both ways, payoff time and the payment that clears it in time.",
     keywords: [
       "balance transfer calculator",
       "0% balance transfer savings",
@@ -811,7 +811,7 @@ export const calculators: CalcDef[] = [
     title: "Mortgage points",
     heading: "Mortgage Points Calculator",
     description:
-      "See whether buying discount points is worth it — the cost of points, monthly savings, the break-even month and your net result over the years you keep the loan.",
+      "See whether buying discount points pays off: cost of the points, monthly savings, the break-even month and the net result over the years you keep the loan.",
     keywords: [
       "mortgage points calculator",
       "discount points break even",
@@ -826,7 +826,7 @@ export const calculators: CalcDef[] = [
     title: "Inflation",
     heading: "Inflation Calculator",
     description:
-      "See how inflation changes the buying power of money over a number of years.",
+      "See how inflation changes the buying power of money between two years, or what an amount will be worth at a chosen annual rate over any number of years.",
     keywords: [
       "inflation calculator",
       "buying power calculator",
@@ -840,7 +840,7 @@ export const calculators: CalcDef[] = [
     title: "Sales tax",
     heading: "Sales Tax Calculator",
     description:
-      "Add or remove US sales tax from a price and see the tax amount and total.",
+      "Add US sales tax to a price or back it out of a total at any state or local rate: tax amount, pre-tax price and final total, with common state rates.",
     keywords: [
       "sales tax calculator",
       "add sales tax",
@@ -855,7 +855,7 @@ export const calculators: CalcDef[] = [
     title: "VAT",
     heading: "VAT Calculator",
     description:
-      "Add or remove VAT at any rate to find net price, VAT amount and gross total.",
+      "Add or remove VAT at any rate (20%, 5% or your own) to find the net price, VAT amount and gross total, for UK and EU invoices and receipts.",
     keywords: [
       "vat calculator",
       "add vat",
@@ -871,7 +871,7 @@ export const calculators: CalcDef[] = [
     title: "Auto loan",
     heading: "Auto Loan Calculator",
     description:
-      "Calculate your monthly car payment including taxes, fees, trade-in and down payment.",
+      "Calculate your monthly car payment from vehicle price, down payment, trade-in, sales tax, fees, APR and term, with total interest and a payment schedule.",
     keywords: [
       "auto loan calculator",
       "car payment calculator",
@@ -886,7 +886,7 @@ export const calculators: CalcDef[] = [
     title: "Car affordability",
     heading: "Car Affordability Calculator",
     description:
-      "Find the car price you can afford from a monthly payment budget, down payment, trade-in, APR and loan term.",
+      "Find the car price you can afford from a monthly payment budget, down payment, trade-in, APR and loan term, with the total cost of the loan.",
     keywords: [
       "car affordability calculator",
       "how much car can i afford",
@@ -901,7 +901,7 @@ export const calculators: CalcDef[] = [
     title: "Auto lease",
     heading: "Car Lease Calculator",
     description:
-      "Estimate your monthly car lease payment from price, residual value and money factor.",
+      "Estimate a monthly car lease payment from negotiated price, residual value, money factor, term and down payment, with the depreciation and finance charge.",
     keywords: [
       "auto lease calculator",
       "car lease calculator",
@@ -917,7 +917,7 @@ export const calculators: CalcDef[] = [
     title: "Margin & markup",
     heading: "Profit Margin & Markup Calculator",
     description:
-      "Calculate profit margin, markup percentage and selling price from cost and revenue.",
+      "Calculate profit margin, markup percentage and selling price from cost and revenue, or work backwards from a target margin to the price you need to charge.",
     keywords: [
       "margin calculator",
       "markup calculator",
@@ -931,7 +931,7 @@ export const calculators: CalcDef[] = [
     title: "Sales commission",
     heading: "Sales Commission Calculator",
     description:
-      "Calculate commission earned and total pay from your sales and commission rate.",
+      "Calculate commission earned and total pay from sales revenue and a commission rate, with tiered rates, a base salary and the base-versus-commission split.",
     keywords: [
       "commission calculator",
       "sales commission calculator",
@@ -993,7 +993,7 @@ export const calculators: CalcDef[] = [
     title: "Body fat",
     heading: "Body Fat Percentage Calculator",
     description:
-      "Estimate your body fat percentage using the US Navy tape-measurement method.",
+      "Estimate body fat percentage with the US Navy tape method from height, neck, waist and hip measurements, with your category and lean body mass.",
     keywords: [
       "body fat calculator",
       "navy body fat calculator",
@@ -1007,7 +1007,7 @@ export const calculators: CalcDef[] = [
     title: "BMR",
     heading: "Basal Metabolic Rate (BMR) Calculator",
     description:
-      "Calculate the calories your body burns at rest using the Mifflin-St Jeor equation.",
+      "Calculate the calories your body burns at rest with the Mifflin-St Jeor equation from age, sex, height and weight, alongside the Harris-Benedict result.",
     keywords: [
       "bmr calculator",
       "basal metabolic rate",
@@ -1021,7 +1021,7 @@ export const calculators: CalcDef[] = [
     title: "Ideal weight",
     heading: "Ideal Body Weight Calculator",
     description:
-      "Estimate your ideal body weight using the Devine, Robinson, Miller and Hamwi formulas.",
+      "Estimate ideal body weight for your height and sex using the Devine, Robinson, Miller and Hamwi formulas, with the healthy BMI range shown alongside.",
     keywords: [
       "ideal weight calculator",
       "ideal body weight",
@@ -1035,7 +1035,7 @@ export const calculators: CalcDef[] = [
     title: "Macros",
     heading: "Macronutrient (Macro) Calculator",
     description:
-      "Split your daily calories into protein, carb and fat targets for your goal.",
+      "Split your daily calories into protein, carbohydrate and fat targets in grams for weight loss, maintenance or muscle gain, with preset or custom ratios.",
     keywords: [
       "macro calculator",
       "macronutrient calculator",
@@ -1049,7 +1049,7 @@ export const calculators: CalcDef[] = [
     title: "Ovulation",
     heading: "Ovulation & Fertility Calculator",
     description:
-      "Find your most fertile days and next period from your last cycle and length.",
+      "Find your most fertile days, estimated ovulation date and next period from the first day of your last period and your average cycle length.",
     keywords: [
       "ovulation calculator",
       "fertility calculator",
@@ -1063,7 +1063,7 @@ export const calculators: CalcDef[] = [
     title: "Due date",
     heading: "Pregnancy Due Date Calculator",
     description:
-      "Estimate your baby's due date and current pregnancy week from your last period.",
+      "Estimate your baby's due date and current pregnancy week from your last period, conception date or IVF transfer, with trimester dates and key milestones.",
     keywords: [
       "due date calculator",
       "pregnancy due date",
@@ -1077,7 +1077,7 @@ export const calculators: CalcDef[] = [
     title: "One rep max",
     heading: "One Rep Max (1RM) Calculator",
     description:
-      "Estimate your one-rep max and training percentages from a set's weight and reps.",
+      "Estimate your one-rep max from a set's weight and reps with the Epley and Brzycki formulas, plus training percentages from 50% to 95% for programming.",
     keywords: [
       "one rep max calculator",
       "1rm calculator",
@@ -1091,7 +1091,7 @@ export const calculators: CalcDef[] = [
     title: "Water intake",
     heading: "Daily Water Intake Calculator",
     description:
-      "Estimate how much water you should drink each day based on weight and activity.",
+      "Estimate how much water to drink each day from your weight, activity level and climate, in liters, cups and ounces, with the common guidelines explained.",
     keywords: [
       "water intake calculator",
       "how much water should I drink",
@@ -1107,7 +1107,7 @@ export const calculators: CalcDef[] = [
     title: "Age",
     heading: "Age Calculator",
     description:
-      "Calculate exact age in years, months and days between a birth date and any date.",
+      "Calculate exact age in years, months and days between a birth date and today or any other date, with total days lived and the weekday you were born.",
     keywords: [
       "age calculator",
       "how old am I",
@@ -1136,7 +1136,7 @@ export const calculators: CalcDef[] = [
     title: "Business days",
     heading: "Business Days Calculator",
     description:
-      "Count working days between two dates, excluding weekends and chosen holidays.",
+      "Count working days between two dates excluding weekends and the US federal holidays you choose, or add business days to a date to find a deadline.",
     keywords: [
       "business days calculator",
       "working days calculator",
@@ -1150,7 +1150,7 @@ export const calculators: CalcDef[] = [
     title: "Time duration",
     heading: "Time Duration Calculator",
     description:
-      "Calculate the hours and minutes between two times, ideal for timesheets and shifts.",
+      "Calculate the hours and minutes between two clock times, across midnight if needed, with a break deducted and the result in decimal hours for timesheets.",
     keywords: [
       "time duration calculator",
       "hours between times",
@@ -1197,7 +1197,7 @@ export const calculators: CalcDef[] = [
     title: "Fractions",
     heading: "Fraction Calculator",
     description:
-      "Add, subtract, multiply and divide fractions with simplified results and decimals.",
+      "Add, subtract, multiply and divide fractions and mixed numbers, with the result simplified to lowest terms, shown as a decimal and worked step by step.",
     keywords: [
       "fraction calculator",
       "adding fractions calculator",
@@ -1211,7 +1211,7 @@ export const calculators: CalcDef[] = [
     title: "Standard deviation",
     heading: "Standard Deviation Calculator",
     description:
-      "Calculate mean, variance and standard deviation for a data set (sample or population).",
+      "Calculate the mean, variance and standard deviation of a data set for a sample or a population, with the sum of squares and each step of the formula.",
     keywords: [
       "standard deviation calculator",
       "variance calculator",
@@ -1225,7 +1225,7 @@ export const calculators: CalcDef[] = [
     title: "Roman numerals",
     heading: "Roman Numeral Converter",
     description:
-      "Convert numbers to Roman numerals and Roman numerals back to numbers instantly.",
+      "Convert numbers from 1 to 3,999,999 to Roman numerals and Roman numerals back to numbers, with the symbol-by-symbol breakdown and the rules explained.",
     keywords: [
       "roman numeral converter",
       "roman numerals",
@@ -1255,7 +1255,7 @@ export const calculators: CalcDef[] = [
     title: "Cooking converter",
     heading: "Cooking Measurement Converter",
     description:
-      "Convert cooking volumes between cups, tablespoons, teaspoons, milliliters and ounces.",
+      "Convert cooking volumes between cups, tablespoons, teaspoons, milliliters, fluid ounces and pints, US and metric, with a table of common amounts.",
     keywords: [
       "cooking measurement converter",
       "cups to ml",
@@ -1269,7 +1269,7 @@ export const calculators: CalcDef[] = [
     title: "Oven temperature",
     heading: "Oven Temperature Converter",
     description:
-      "Convert oven settings between Celsius, Fahrenheit and UK gas marks, with the fan (convection) equivalent.",
+      "Convert oven settings between Celsius, Fahrenheit and UK gas marks, with the fan (convection) equivalent and a table of common baking temperatures.",
     keywords: [
       "oven temperature converter",
       "gas mark to celsius",
@@ -1286,7 +1286,7 @@ export const calculators: CalcDef[] = [
     title: "Paint",
     heading: "Paint Calculator",
     description:
-      "Estimate how many gallons of paint you need for a room based on wall area.",
+      "Estimate the gallons or liters of paint for a room from wall dimensions, doors, windows and coats, with the coverage per gallon and a cost estimate.",
     keywords: [
       "paint calculator",
       "how much paint do I need",
@@ -1300,7 +1300,7 @@ export const calculators: CalcDef[] = [
     title: "Square footage",
     heading: "Square Footage Calculator",
     description:
-      "Calculate area in square feet for rooms and projects, plus total material cost.",
+      "Calculate the area of a room or project in square feet and square meters from its dimensions, for several shapes, with material cost at your unit price.",
     keywords: [
       "square footage calculator",
       "square feet calculator",
@@ -1314,7 +1314,7 @@ export const calculators: CalcDef[] = [
     title: "Electricity cost",
     heading: "Electricity Cost Calculator",
     description:
-      "Work out what any appliance costs to run — per day, month and year — from its wattage and your electricity rate.",
+      "Work out what an appliance costs to run per day, month and year from its wattage, hours of use and your electricity rate per kWh, with annual kWh used.",
     keywords: [
       "electricity cost calculator",
       "appliance running cost",
@@ -1393,7 +1393,7 @@ export const calculators: CalcDef[] = [
     title: "Income tax",
     heading: "Income Tax Calculator (US Federal)",
     description:
-      "Estimate your US federal income tax, effective rate and take-home pay by filing status.",
+      "Estimate 2026 US federal income tax from income and filing status with the standard deduction and IRS brackets: tax owed, effective rate and take-home pay.",
     keywords: [
       "income tax calculator",
       "federal tax calculator",
@@ -1423,7 +1423,7 @@ export const calculators: CalcDef[] = [
     title: "Paycheck",
     heading: "Paycheck Calculator",
     description:
-      "Estimate your take-home pay per paycheck after taxes, FICA and retirement contributions.",
+      "Estimate take-home pay per paycheck from gross pay, pay frequency, federal and state tax rate, FICA and pre-tax 401(k) deductions, with a full breakdown.",
     keywords: [
       "paycheck calculator",
       "take home pay calculator",
@@ -1451,7 +1451,7 @@ export const calculators: CalcDef[] = [
     title: "Life insurance needs",
     heading: "Life Insurance Needs Calculator",
     description:
-      "Estimate how much life insurance your family needs with the DIME method — income replacement, debts, mortgage, education and final expenses, minus what you already have.",
+      "Estimate how much life insurance your family needs with the DIME method: income, debts, mortgage and education, minus savings and existing cover.",
     keywords: [
       "life insurance calculator",
       "how much life insurance do i need",
@@ -1466,7 +1466,7 @@ export const calculators: CalcDef[] = [
     title: "Running pace",
     heading: "Running Pace Calculator",
     description:
-      "Work out your running pace, speed and finish time from distance and time.",
+      "Work out running pace per mile or kilometer, speed and finish time from any two of distance, time and pace, with splits for 5K, 10K, half and marathon.",
     keywords: [
       "pace calculator",
       "running pace calculator",
@@ -1481,7 +1481,7 @@ export const calculators: CalcDef[] = [
     title: "Calories burned",
     heading: "Calories Burned Calculator",
     description:
-      "Estimate calories burned during exercise from activity, weight and duration.",
+      "Estimate calories burned during exercise from the activity, your weight and the duration, using MET values for 50+ activities from walking to swimming.",
     keywords: [
       "calories burned calculator",
       "calories burned walking",
@@ -1495,7 +1495,7 @@ export const calculators: CalcDef[] = [
     title: "Add / subtract days",
     heading: "Add or Subtract Days Calculator",
     description:
-      "Add or subtract days, weeks, months or years from any date to find the new date.",
+      "Add or subtract days, weeks, months or years from any date to find the new date, with the weekday, business-day option and the number of days between.",
     keywords: [
       "add days to date",
       "date calculator add days",
@@ -1538,7 +1538,7 @@ export const calculators: CalcDef[] = [
     title: "Unit price",
     heading: "Unit Price Calculator",
     description:
-      "Compare products by price per unit and see which one is the better deal, plus how much you save.",
+      "Compare products by price per unit (ounce, pound, liter, count) to see which is the better deal and how much you save per unit and per purchase.",
     keywords: [
       "unit price calculator",
       "price per unit calculator",
@@ -1597,7 +1597,7 @@ export const calculators: CalcDef[] = [
     title: "Fuel / trip cost",
     heading: "Fuel Cost Calculator",
     description:
-      "Estimate the fuel needed and total cost of a trip from distance, efficiency and price.",
+      "Estimate the fuel needed and total cost of a trip from distance, your car's MPG or L/100km and the fuel price, with round-trip and cost-per-person options.",
     keywords: [
       "fuel cost calculator",
       "gas cost calculator",
@@ -1658,7 +1658,7 @@ export const calculators: CalcDef[] = [
     title: "Pythagorean theorem",
     heading: "Pythagorean Theorem Calculator",
     description:
-      "Find the hypotenuse or a missing leg of a right triangle with a² + b² = c².",
+      "Find the hypotenuse or a missing leg of a right triangle with a² + b² = c², with the area, perimeter and angles of the triangle and each step shown.",
     keywords: [
       "pythagorean theorem calculator",
       "hypotenuse calculator",
@@ -1672,7 +1672,7 @@ export const calculators: CalcDef[] = [
     title: "Distance between two points",
     heading: "Distance Between Two Points Calculator",
     description:
-      "Find the distance, midpoint and slope between two points on a coordinate plane.",
+      "Find the distance, midpoint and slope between two points on a coordinate plane from their x and y coordinates, with the distance formula worked out.",
     keywords: [
       "distance between two points",
       "distance formula calculator",
@@ -1702,7 +1702,7 @@ export const calculators: CalcDef[] = [
     title: "LCM & GCD",
     heading: "LCM and GCD Calculator",
     description:
-      "Find the least common multiple and greatest common divisor of two or more numbers.",
+      "Find the least common multiple and greatest common divisor of two or more numbers, with the prime factorization and Euclidean steps that produce them.",
     keywords: [
       "lcm calculator",
       "gcd calculator",
@@ -1731,7 +1731,7 @@ export const calculators: CalcDef[] = [
     title: "Target heart rate",
     heading: "Target Heart Rate Calculator",
     description:
-      "Work out your target heart-rate training zones — warm-up, fat-burn, aerobic and peak — from your age and resting heart rate, using the max-HR and Karvonen methods.",
+      "Work out your target heart-rate training zones (warm-up, fat-burn, aerobic, peak) from age and resting heart rate with the max-HR and Karvonen methods.",
     keywords: [
       "target heart rate calculator",
       "heart rate zones",
@@ -1745,7 +1745,7 @@ export const calculators: CalcDef[] = [
     title: "Debt-to-income",
     heading: "Debt-to-Income (DTI) Calculator",
     description:
-      "Calculate your debt-to-income ratio to see how lenders view your finances.",
+      "Calculate your debt-to-income ratio from monthly debt payments and gross income, with front-end and back-end DTI and how they compare with lender limits.",
     keywords: [
       "debt to income calculator",
       "dti calculator",
@@ -1759,7 +1759,7 @@ export const calculators: CalcDef[] = [
     title: "Down payment",
     heading: "Down Payment Calculator",
     description:
-      "Work out your down payment amount and loan amount from a home price and percentage.",
+      "Work out your down payment and loan amount from a home price and percentage, see the LTV, whether PMI applies and how 5%, 10% and 20% change the payment.",
     keywords: [
       "down payment calculator",
       "how much down payment",
@@ -1773,7 +1773,7 @@ export const calculators: CalcDef[] = [
     title: "Loan-to-value (LTV)",
     heading: "Loan-to-Value (LTV) Calculator",
     description:
-      "Calculate your loan-to-value ratio from a property value and down payment, and see if PMI applies.",
+      "Calculate your loan-to-value ratio from a property value and down payment or loan balance, see if PMI applies above 80% and the equity you hold.",
     keywords: [
       "ltv calculator",
       "loan to value calculator",
@@ -1788,7 +1788,7 @@ export const calculators: CalcDef[] = [
     title: "50/30/20 budget",
     heading: "Budget Calculator (50/30/20)",
     description:
-      "Split your monthly income into needs, wants and savings with the 50/30/20 rule.",
+      "Split your monthly after-tax income into needs, wants and savings with the 50/30/20 rule, or set your own percentages, and see the dollar amount for each.",
     keywords: [
       "budget calculator",
       "50 30 20 budget",
@@ -1803,7 +1803,7 @@ export const calculators: CalcDef[] = [
     title: "Concrete",
     heading: "Concrete Calculator",
     description:
-      "Estimate the concrete you need for a slab in cubic yards, cubic feet and bags.",
+      "Estimate the concrete for a slab, footing or column in cubic yards, cubic feet and 60 or 80 lb bags from its dimensions, with waste and cost included.",
     keywords: [
       "concrete calculator",
       "concrete yardage calculator",
@@ -1819,7 +1819,7 @@ export const calculators: CalcDef[] = [
     title: "APR",
     heading: "APR Calculator",
     description:
-      "Find the true APR of a loan including fees, convert a monthly interest rate to APR, and see APR vs APY — free, with worked examples.",
+      "Find the true APR of a loan once origination and other fees are included: enter the amount, note rate, term and fees to compare offers on the same basis.",
     keywords: ["apr calculator", "annual percentage rate", "loan apr", "true cost of a loan", "monthly interest rate to apr", "apr vs apy", "apr from monthly payment"],
     isNew: true,
   },
@@ -1829,7 +1829,7 @@ export const calculators: CalcDef[] = [
     title: "Emergency fund",
     heading: "Emergency Fund Calculator",
     description:
-      "Work out how much to save for an emergency fund based on your monthly expenses.",
+      "Work out how much to save for an emergency fund from your essential monthly expenses and the months of cover you want, with a monthly plan to reach it.",
     keywords: ["emergency fund calculator", "how much emergency fund", "rainy day fund", "months of expenses"],
     isNew: true,
   },
@@ -1849,7 +1849,7 @@ export const calculators: CalcDef[] = [
     title: "Overtime pay",
     heading: "Overtime Pay Calculator",
     description:
-      "Calculate your overtime pay and total weekly earnings from your hourly rate.",
+      "Calculate overtime pay and total weekly earnings from your hourly rate, regular hours and overtime hours at time-and-a-half, double time or a custom rate.",
     keywords: ["overtime pay calculator", "time and a half calculator", "overtime rate", "weekly pay with overtime"],
     isNew: true,
   },
@@ -1859,7 +1859,7 @@ export const calculators: CalcDef[] = [
     title: "Timesheet",
     heading: "Timesheet Calculator",
     description:
-      "Add up your weekly work hours from clock-in and clock-out times, with breaks, overtime and gross pay.",
+      "Add up weekly work hours from clock-in and clock-out times with breaks deducted, split regular and overtime hours, and see gross pay at your hourly rate.",
     keywords: [
       "timesheet calculator",
       "work hours calculator",
@@ -1885,7 +1885,7 @@ export const calculators: CalcDef[] = [
     title: "Volume",
     heading: "Volume Converter",
     description:
-      "Convert volume between liters, gallons, milliliters, cups, pints and quarts.",
+      "Convert volume between liters, milliliters, US and UK gallons, quarts, pints, cups and fluid ounces instantly, with a table of common conversions.",
     keywords: ["volume converter", "liters to gallons", "ml to oz", "gallons to liters"],
     isNew: true,
   },
@@ -1895,7 +1895,7 @@ export const calculators: CalcDef[] = [
     title: "Area",
     heading: "Area Converter",
     description:
-      "Convert area between square feet, square meters, acres, hectares and more.",
+      "Convert area between square feet, square meters, square yards, acres, hectares and square miles instantly, with the factor and a table of common values.",
     keywords: ["area converter", "square feet to square meters", "acres to hectares", "sq m to sq ft"],
     isNew: true,
   },
@@ -1905,7 +1905,7 @@ export const calculators: CalcDef[] = [
     title: "Scientific notation",
     heading: "Scientific Notation Converter",
     description:
-      "Convert numbers to and from scientific notation and see the expanded form.",
+      "Convert numbers to and from scientific notation and E notation, see the expanded standard form and significant figures, with the steps explained.",
     keywords: ["scientific notation calculator", "standard form converter", "e notation", "convert to scientific notation"],
     isNew: true,
   },
@@ -1941,7 +1941,7 @@ export const calculators: CalcDef[] = [
     title: "Prime factorization",
     heading: "Prime Factorization Calculator",
     description:
-      "Break a number into its prime factors, list all its divisors, and check whether it is prime.",
+      "Break any number into its prime factors, list all its divisors and check whether it is prime, with the factor tree and exponent form shown.",
     keywords: [
       "prime factorization calculator",
       "factors of a number",
@@ -1957,7 +1957,7 @@ export const calculators: CalcDef[] = [
     title: "Number to words",
     heading: "Number to Words Converter",
     description:
-      "Write any number in words — including decimals and a cheque-style amount for USD.",
+      "Write any number in words, including decimals and negatives, plus a cheque-style dollars-and-cents amount, in US or UK spelling.",
     keywords: [
       "number to words",
       "number to words converter",
@@ -1973,7 +1973,7 @@ export const calculators: CalcDef[] = [
     title: "Tile",
     heading: "Tile Calculator",
     description:
-      "Estimate how many tiles and boxes you need for a floor or wall, with waste.",
+      "Estimate how many tiles and boxes you need for a floor or wall from the area, tile size, grout gap and waste, with the total cost at your price per box.",
     keywords: ["tile calculator", "how many tiles do I need", "tile flooring calculator", "square footage tiles"],
     isNew: true,
   },
@@ -2003,7 +2003,7 @@ export const calculators: CalcDef[] = [
     title: "Flooring",
     heading: "Flooring Calculator",
     description:
-      "Work out the flooring area and number of boxes you need, including waste.",
+      "Work out the flooring area and number of boxes or planks you need from room dimensions, box coverage and waste, with the total material cost.",
     keywords: ["flooring calculator", "how much flooring do I need", "laminate flooring calculator", "square footage flooring"],
     isNew: true,
   },
@@ -2043,7 +2043,7 @@ export const calculators: CalcDef[] = [
     title: "Lease vs buy",
     heading: "Lease vs Buy Car Calculator",
     description:
-      "Compare the total cost of leasing versus buying a car over the same period.",
+      "Compare the total cost of leasing versus buying a car over the same years: payments, down payment, fees, resale value and interest, side by side.",
     keywords: ["lease vs buy calculator", "should I lease or buy", "car lease vs buy", "lease or finance"],
     isNew: true,
   },

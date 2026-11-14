@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Adjust the property tax rate, annual insurance and the DTI ratios if your lender uses different limits.",
     "Read your affordable home price, maximum monthly payment and loan amount.",
   ],
+  methodology: [
+    "The calculator applies the 28/36 rule that most conventional lenders start from: total housing costs (principal, interest, property tax and insurance) should not exceed 28% of gross monthly income, and all debt payments including housing should not exceed 36%. The lower of the two limits, after your other monthly debts, is the maximum housing payment.",
+    "That payment is converted into a loan amount with the amortization formula at your rate and term, iterating so that property tax (a percentage of price) is included; the home price is the loan plus your down payment. Not modelled: PMI below 20% down, HOA dues, closing costs, lender-specific ratio limits (FHA and some programs allow higher) and the effect of your credit score on the rate.",
+  ],
+  sources: [
+    { label: "CFPB — What is a debt-to-income ratio?", url: "https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/" },
+    { label: "CFPB — Owning a home: how much can you afford", url: "https://www.consumerfinance.gov/owning-a-home/" },
+  ],
   faq: [
     {
       q: "What are the front-end and back-end ratios?",

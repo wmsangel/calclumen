@@ -31,6 +31,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: scripts/calc-updated.mjs dates pages from git
 
       - uses: actions/setup-node@v4
         with:
@@ -50,6 +52,10 @@ jobs:
       - name: Install dependencies
         if: steps.check.outputs.skip != 'true'
         run: npm ci
+
+      - name: Date calculators from git history
+        if: steps.check.outputs.skip != 'true'
+        run: node scripts/calc-updated.mjs
 
       - name: Build (OpenNext for Cloudflare)
         if: steps.check.outputs.skip != 'true'

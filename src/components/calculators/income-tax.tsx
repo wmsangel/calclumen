@@ -9,31 +9,34 @@ type Filing = "single" | "mfj";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
+// Tax year 2026 — IRS Rev. Proc. 2025-32 (inflation adjustments, Oct 2025).
+const TAX_YEAR = 2026;
 const DEDUCTION: Record<Filing, number> = {
-  single: 14600,
-  mfj: 29200,
+  single: 16100,
+  mfj: 32200,
 };
 
 const BRACKETS: Record<Filing, [number, number][]> = {
   single: [
-    [0.1, 11600],
-    [0.12, 47150],
-    [0.22, 100525],
-    [0.24, 191950],
-    [0.32, 243725],
-    [0.35, 609350],
+    [0.1, 12400],
+    [0.12, 50400],
+    [0.22, 105700],
+    [0.24, 201775],
+    [0.32, 256225],
+    [0.35, 640600],
     [0.37, Infinity],
   ],
   mfj: [
-    [0.1, 23200],
-    [0.12, 94300],
-    [0.22, 201050],
-    [0.24, 383900],
-    [0.32, 487450],
-    [0.35, 731200],
+    [0.1, 24800],
+    [0.12, 100800],
+    [0.22, 211400],
+    [0.24, 403550],
+    [0.32, 512450],
+    [0.35, 768700],
     [0.37, Infinity],
   ],
 };
+export { TAX_YEAR as INCOME_TAX_YEAR, DEDUCTION as STANDARD_DEDUCTION };
 
 function computeTax(income: number, filing: Filing) {
   const deduction = DEDUCTION[filing];

@@ -35,6 +35,15 @@ const content: CalcContent = {
     "Enter the transfer offer: the fee (usually 3–5% of the balance), the promo APR and how many months it lasts, and the card's regular APR afterwards.",
     "Read the verdict, how long each option takes to pay off, and the payment needed to clear the balance within the promo window.",
   ],
+  methodology: [
+    "Both scenarios use the standard card model: each month the balance accrues interest at APR ÷ 12, then your payment is applied. In the stay scenario the current APR runs until the balance is cleared. In the transfer scenario the transfer fee is added to the balance, the promotional APR applies for the promo months and the card's regular APR applies to whatever is left.",
+    "Savings is the stay scenario's total interest minus the transfer scenario's interest plus fee. The payment to clear in promo is the balance plus fee divided by the promo months (at 0%), or the equivalent amortized payment at a non-zero promo rate.",
+    "Not modelled: a missed payment ending the promo early, interest on new purchases, deferred-interest terms, minimum-payment rules and the fee cap some issuers apply. Regulation Z requires issuers to disclose the promo rate, its end date and the go-to rate; check your offer against those terms.",
+  ],
+  sources: [
+    { label: "CFPB — Credit cards: understanding your rights and costs", url: "https://www.consumerfinance.gov/consumer-tools/credit-cards/" },
+    { label: "12 CFR Part 1026 (Regulation Z) — Truth in Lending", url: "https://www.ecfr.gov/current/title-12/chapter-X/part-1026" },
+  ],
   faq: [
     {
       q: "Is a balance transfer worth it if there is a 3% fee?",

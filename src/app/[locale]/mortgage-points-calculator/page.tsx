@@ -36,6 +36,15 @@ const content: CalcContent = {
     "Enter how many years you expect to keep the loan before selling or refinancing.",
     "Read the break-even month, the monthly savings, and whether you come out ahead over the years you keep the loan.",
   ],
+  methodology: [
+    "One discount point costs 1% of the loan amount and lowers the rate by the amount you enter (commonly 0.25% per point, but it varies by lender and market). The calculator computes the monthly principal-and-interest payment at both rates with the standard amortization formula and takes the difference as your monthly saving.",
+    "Break-even months = cost of points ÷ monthly saving. Net after the years you plan to keep the loan = savings over those months minus the points cost; the full-term net does the same over the whole term. Both figures are nominal — a dollar saved in year 20 is counted the same as a dollar paid today.",
+    "Not modelled: refinancing before break-even, the time value of money, tax deductibility of points, lender credits (negative points) and changes to taxes, insurance or PMI.",
+  ],
+  sources: [
+    { label: "CFPB — What are discount points and lender credits?", url: "https://www.consumerfinance.gov/ask-cfpb/what-are-discount-points-and-lender-credits-and-how-do-they-work-en-136/" },
+    { label: "Freddie Mac — Primary Mortgage Market Survey", url: "https://www.freddiemac.com/pmms" },
+  ],
   faq: [
     {
       q: "How much does one mortgage point cost?",

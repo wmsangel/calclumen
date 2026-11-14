@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Adjust hours per week (40 by default) and weeks per year (52 by default) to match your schedule.",
     "Read the hourly, weekly, monthly and annual equivalents in the result cards.",
   ],
+  methodology: [
+    "Hourly rate = annual salary ÷ (hours per week × weeks per year). With the defaults of 40 hours and 52 weeks that is 2,080 hours a year, the figure most US employers use; the federal government uses a 2,087-hour divisor and some employers exclude unpaid leave, so adjust the weeks if your situation differs. Weekly, biweekly and monthly figures are the annual amount divided by 52, 26 and 12.",
+    "The conversion is gross pay before tax and ignores overtime, bonuses, paid time off and the value of benefits, which can make two offers with the same hourly rate very different in practice.",
+  ],
+  sources: [
+    { label: "U.S. Office of Personnel Management — Computing hourly rates of pay using the 2,087-hour divisor", url: "https://www.opm.gov/policy-data-oversight/pay-leave/pay-administration/fact-sheets/computing-hourly-rates-of-pay-using-the-2087-hour-divisor/" },
+    { label: "U.S. Department of Labor — Overtime pay under the FLSA", url: "https://www.dol.gov/agencies/whd/overtime" },
+  ],
   faq: [
     {
       q: "How many work hours are in a year?",

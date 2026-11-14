@@ -117,6 +117,24 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               Support
             </Link>
             <Link
+              href={`/${locale}/editorial-policy`}
+              className="hover:text-[var(--accent)]"
+            >
+              Editorial policy
+            </Link>
+            <Link
+              href={`/${locale}/advertising`}
+              className="hover:text-[var(--accent)]"
+            >
+              Advertising
+            </Link>
+            <Link
+              href={`/${locale}/disclaimer`}
+              className="hover:text-[var(--accent)]"
+            >
+              Disclaimer
+            </Link>
+            <Link
               href={`/${locale}/privacy`}
               className="hover:text-[var(--accent)]"
             >

@@ -36,6 +36,15 @@ const content: CalcContent = {
     "Pick how often the interest compounds and set your monthly contribution (use 0 for none).",
     "Read your projected future value, total contributions and total interest earned.",
   ],
+  methodology: [
+    "The balance grows by A = P × (1 + r/n)^(n × t) for the initial deposit, where r is the annual rate, n the number of compounding periods per year and t the years. Regular contributions are added at the end of each period and then compound at the same rate, which is the future value of an annuity formula applied period by period.",
+    "Total interest is the final balance minus everything you put in. Choosing a higher compounding frequency raises the result slightly; the difference between monthly and daily compounding is small compared with the effect of the rate and the time.",
+    "Not modelled: taxes on interest or gains, fees, inflation (see the inflation calculator), and returns that vary from year to year. Real investment returns are not a fixed rate.",
+  ],
+  sources: [
+    { label: "U.S. SEC Investor.gov — Compound interest", url: "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" },
+    { label: "FDIC — Understanding deposit interest and APY", url: "https://www.fdic.gov/resources/consumers/consumer-news/" },
+  ],
   faq: [
     {
       q: "How is compound interest calculated?",

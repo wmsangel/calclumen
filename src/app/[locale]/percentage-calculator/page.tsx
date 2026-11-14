@@ -93,6 +93,10 @@ const content: CalcContent = {
     "Type the two numbers into the fields.",
     "Read the result — it recalculates as you type, no button needed.",
   ],
+  methodology: [
+    "Three formulas cover every mode: X percent of Y = Y × X ÷ 100; X is what percent of Y = X ÷ Y × 100; and percentage change from A to B = (B − A) ÷ A × 100, positive for an increase and negative for a decrease. Results are rounded for display only — the full-precision value is used in each step.",
+    "A percentage change is always measured from the starting value, which is why a 50% drop followed by a 50% rise does not get you back to where you started. For differences between two percentages, remember the result is in percentage points, not percent.",
+  ],
   faq: [
     {
       q: "How do I find a percentage of a number, like 25% of 1,965,333?",

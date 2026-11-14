@@ -72,6 +72,15 @@ const content: CalcContent = {
     "Set the term in years.",
     "Add any upfront fees, then read the true APR, monthly payment and total paid.",
   ],
+  methodology: [
+    "The APR is the single annual rate at which the amount you actually receive (the loan amount minus the fees you pay) is repaid by your scheduled payments. The calculator first works out the monthly payment from the note rate and term, then solves for the rate that makes the present value of those payments equal the net amount received, and annualizes it as rate × 12 — the method Regulation Z prescribes for closed-end credit.",
+    "Because the fees are spread over the term, a shorter loan with the same fees has a higher APR. Two offers with different rates and fees can be compared on the APR alone, as long as you would keep both for the full term.",
+    "Not modelled: fees financed into the loan rather than paid upfront, points on a mortgage, mortgage insurance, variable rates and prepayment. APR is also not APY — APY describes compounding on deposits, not the cost of a loan.",
+  ],
+  sources: [
+    { label: "12 CFR §1026.22 — Determination of annual percentage rate (Regulation Z)", url: "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-C/section-1026.22" },
+    { label: "CFPB — What is the difference between a loan interest rate and the APR?", url: "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-loan-interest-rate-and-the-apr-en-135/" },
+  ],
   faq: [
     {
       q: "What is the difference between nominal rate and APR?",

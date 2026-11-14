@@ -9,14 +9,14 @@ const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
 // SECA rates: you pay on 92.35% of net profit; Social Security 12.4% up to the
 // annual wage base, Medicare 2.9% with no cap. Wage base is editable (changes
-// yearly; default is the 2025 figure).
+// yearly; default is the 2026 figure, $184,500 — SSA COLA fact sheet).
 const SE_BASE = 0.9235;
 const SS_RATE = 0.124;
 const MEDICARE_RATE = 0.029;
 
 export function SelfEmploymentTaxCalculator() {
   const [profit, setProfit] = useState("80000");
-  const [wageBase, setWageBase] = useState("176100");
+  const [wageBase, setWageBase] = useState("184500");
   const [currency, setCurrency] = useState("USD");
 
   const p = num(profit);

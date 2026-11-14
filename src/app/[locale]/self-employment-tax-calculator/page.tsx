@@ -36,6 +36,15 @@ const content: CalcContent = {
     "Read your total self-employment tax and the Social Security and Medicare split.",
     "Note the deductible half, which lowers your income-tax bill.",
   ],
+  methodology: [
+    "Net earnings subject to tax are 92.35% of your net profit from self-employment (Schedule SE line 4a), which mirrors the employer's half of FICA that employees do not pay tax on. Social Security is 12.4% of those earnings up to the 2026 wage base of $184,500; Medicare is 2.9% with no cap. Half of the total is deductible from your income (an adjustment to income, not an itemized deduction).",
+    "Not modelled: the 0.9% Additional Medicare Tax above $200,000 ($250,000 married filing jointly), wages from an employer in the same year that use up part of the Social Security base, the optional farm and nonfarm methods, and income tax itself — self-employment tax is paid on top of income tax, usually through quarterly estimated payments.",
+  ],
+  sources: [
+    { label: "IRS — About Schedule SE (Form 1040), Self-Employment Tax", url: "https://www.irs.gov/forms-pubs/about-schedule-se-form-1040" },
+    { label: "IRS Topic 554 — Self-employment tax", url: "https://www.irs.gov/taxtopics/tc554" },
+    { label: "Social Security Administration — Contribution and benefit base", url: "https://www.ssa.gov/oact/cola/cbb.html" },
+  ],
   faq: [
     {
       q: "How much is self-employment tax?",

@@ -36,6 +36,15 @@ const content: CalcContent = {
     "If you have had other bonuses this year, enter them too (only matters above $1,000,000). Add your state's supplemental withholding rate, or leave 0.",
     "Read your take-home bonus and the breakdown of federal, Social Security, Medicare and state withholding.",
   ],
+  methodology: [
+    "Federal withholding uses the IRS percentage method for supplemental wages in Publication 15: a flat 22% on bonuses up to $1,000,000 in the year and 37% on the amount above. The calculator does not apply the aggregate method, which some employers use when a bonus is paid with regular wages.",
+    "Social Security is withheld at 6.2% until your year-to-date wages reach the 2026 wage base of $184,500; Medicare is 1.45% on all wages plus the 0.9% Additional Medicare Tax on wages over $200,000. State withholding is applied at the flat rate you enter. The result is withholding from the check, not your final tax — the bonus is taxed as ordinary income on your return, and the difference comes back as a refund or is owed in April.",
+  ],
+  sources: [
+    { label: "IRS Publication 15 (Circular E), Employer's Tax Guide — supplemental wages", url: "https://www.irs.gov/publications/p15" },
+    { label: "Social Security Administration — Contribution and benefit base", url: "https://www.ssa.gov/oact/cola/cbb.html" },
+    { label: "IRS Topic 560 — Additional Medicare Tax", url: "https://www.irs.gov/taxtopics/tc560" },
+  ],
   faq: [
     {
       q: "Why is 22% taken out of my bonus?",

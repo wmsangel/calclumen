@@ -9,6 +9,8 @@ interface PageMetaArgs {
   title: string;
   description: string;
   keywords?: string[];
+  /** Use the title as-is (skip the "· SiteName" template) — for the home page. */
+  absoluteTitle?: boolean;
 }
 
 /** Build consistent metadata (canonical, OG, Twitter, social image) for a page. */
@@ -18,13 +20,14 @@ export function pageMetadata({
   title,
   description,
   keywords,
+  absoluteTitle = false,
 }: PageMetaArgs): Metadata {
   const url = absUrl(locale, path);
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(
     title,
   )}&subtitle=${encodeURIComponent(description.slice(0, 110))}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     keywords,
     alternates: {

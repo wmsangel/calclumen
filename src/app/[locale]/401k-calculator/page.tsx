@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Enter your employer's match rate and the match limit as a percentage of salary.",
     "Set your expected annual return and salary growth, then read your projected balance and its breakdown.",
   ],
+  methodology: [
+    "Each year the calculator adds your contribution (salary × contribution rate) and the employer match — your contribution matched at the employer's percentage, but only up to the match limit as a share of salary — then grows the balance at your expected annual return. Salary rises by the growth rate you set, which raises both contributions in later years.",
+    "Not modelled: the IRS annual elective-deferral limit and catch-up contributions, vesting schedules that can forfeit part of the match if you leave, plan fees, taxes on withdrawal (traditional) or contributions (Roth), and years with negative returns. The projection is a smooth-return illustration, not a forecast.",
+  ],
+  sources: [
+    { label: "IRS — 401(k) and profit-sharing plan contribution limits", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" },
+    { label: "U.S. Department of Labor — A look at 401(k) plan fees", url: "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/a-look-at-401k-plan-fees" },
+  ],
   faq: [
     {
       q: "How does the employer match work here?",

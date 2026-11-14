@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Set the loan term in months, the APR and any dealer fees.",
     "Read your monthly payment, loan amount, sales tax and total cost.",
   ],
+  methodology: [
+    "Sales tax is applied to the vehicle price minus your trade-in (the rule in most US states), then the amount financed is price + sales tax + fees − down payment − trade-in. The monthly payment uses the standard amortization formula on that amount at your APR over the term in months; total interest is all payments minus the amount financed, and total cost adds back the down payment and trade-in.",
+    "Not modelled: states that tax the full price before trade-in, negative equity rolled in from a previous loan, dealer add-ons, GAP insurance, and rates that depend on your credit tier. Check the dealer's contract for the exact amount financed and APR.",
+  ],
+  sources: [
+    { label: "CFPB — Auto loans: shopping and comparing offers", url: "https://www.consumerfinance.gov/consumer-tools/auto-loans/" },
+    { label: "12 CFR Part 1026 (Regulation Z) — Truth in Lending", url: "https://www.ecfr.gov/current/title-12/chapter-X/part-1026" },
+  ],
   faq: [
     {
       q: "Is sales tax charged on the trade-in?",

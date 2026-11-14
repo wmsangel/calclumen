@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Pick the activity level that best matches your typical week.",
     "Read your maintenance calories (TDEE), plus targets for mild weight loss, weight gain and your BMR.",
   ],
+  methodology: [
+    "Basal metabolic rate uses the Mifflin-St Jeor equation: BMR = 10 × weight (kg) + 6.25 × height (cm) − 5 × age + 5 for men, or − 161 for women. It is multiplied by an activity factor from 1.2 (sedentary) to 1.9 (very active) to give total daily energy expenditure (TDEE), the calories that keep your weight stable.",
+    "Weight-loss and gain targets subtract or add a daily amount to TDEE; a 500-calorie daily deficit corresponds to roughly 0.45 kg (1 lb) a week in the classic 3,500-calorie rule, although real loss slows as weight drops. Mifflin-St Jeor is accurate to within about 10% for most adults but is a population formula — individual metabolism varies, and the activity factor is the largest source of error.",
+  ],
+  sources: [
+    { label: "Mifflin MD et al., A new predictive equation for resting energy expenditure in healthy individuals, Am J Clin Nutr 1990", url: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Dietary Guidelines for Americans 2020–2025 — estimated calorie needs", url: "https://www.dietaryguidelines.gov/" },
+  ],
   faq: [
     {
       q: "What is TDEE?",

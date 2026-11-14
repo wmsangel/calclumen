@@ -36,6 +36,15 @@ const content: CalcContent = {
     "Set the term in years — 30 for a typical mortgage, 5 for a car loan.",
     "Read your monthly payment, total interest and total cost.",
   ],
+  methodology: [
+    "The payment comes from the standard amortization formula for a fixed-rate, fully amortizing loan: payment = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1), where P is the amount borrowed, r the annual rate divided by 12 and n the number of monthly payments. At 0% the payment is simply P ÷ n.",
+    "Total interest is the sum of all payments minus the principal. The schedule shows, for every month, how much of the payment is interest (balance × r) and how much reduces the balance, so you can see the balance at any point.",
+    "Not modelled: origination fees and other costs (use the APR calculator to include them), variable rates, fees for late or early payment, and balloon or interest-only structures.",
+  ],
+  sources: [
+    { label: "CFPB — What is the difference between a loan interest rate and the APR?", url: "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-loan-interest-rate-and-the-apr-en-135/" },
+    { label: "12 CFR Part 1026 (Regulation Z) — Truth in Lending", url: "https://www.ecfr.gov/current/title-12/chapter-X/part-1026" },
+  ],
   faq: [
     {
       q: "How is the monthly loan payment calculated?",
