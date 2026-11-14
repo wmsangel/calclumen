@@ -97,6 +97,18 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    **Чек-лист исправлений (по ритму чт/сб):**
    - чт 13.11 — выгрузить из GSC список проиндексированных URL и статус Removals; посчитать видимые слова всех
      177 URL sitemap, список <450 слов; проверить текст отказа в AdSense (Chrome, только чтение); составить батчи.
+   - ✅ **сб 14.11 СДЕЛАНО (2279019, на проде):** блок «How the X works» (формула, допущения, что не моделируем) + «Sources»
+     с первичными источниками (IRS Pub 15 / Rev. Proc. 2025-32 / SSA / CFPB / Reg Z / OPM / CDC / WHO / Mifflin 1990), они же
+     `citation` в WebApplication — на 20 money-страницах (mortgage, rent-vs-buy, bonus-tax, balance-transfer, mortgage-points,
+     loan, compound, apr, income-tax, paycheck, salary-to-hourly, auto-loan, bmi, calorie, percentage, tip, SE-tax, 401k,
+     home-affordability, cc-payoff); byline «By CalcLumen · Reviewed by Igor Zagorodnyi · Updated <дата из git>» на всех 135
+     (scripts/calc-updated.mjs, prebuild + шаг CI, fetch-depth 0 — даты теперь разные: авг–ноя); /editorial-policy,
+     /advertising, /disclaimer + футер + sitemap (180 URL); /about «Who makes CalcLumen» + Person schema; Organization
+     founder/sameAs/contactPoint; офферы ниже пояснения (первый H2 теперь тематический); HowTo удалён; все 135 description
+     120–155 симв.; income-tax → 2026 (было 2024!), SE wage base 184 500; APR — поле «Interest rate (note rate)»;
+     title главной без дубля бренда; favicon.ico. Не сделано: 404 с двумя meta robots (Next вставляет свой noindex поверх
+     layout — безвредно, статус 404 решает); методология на остальных 115 калькуляторах — батчами по кластерам (сб 21.11 finance
+     остаток, затем health/home).
    - сб 14.11 — **meta description 120–155 символов на всех 135 калькуляторах** (Bing SEO 12.11: 88 страниц «too short»;
      в реестре 79 описаний <120 симв., 9 >155): конкретика — что считает, какие входы, год ставок; описание = поле
      `description` в registry.ts (оно же OG-подзаголовок, slice 110). Проверить скриптом длины перед пушем.
