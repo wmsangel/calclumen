@@ -336,6 +336,12 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **CJ 16.11 (решение владельца — подключить CJ/Awin):** площадка calclumen.com в CJ есть (Property 101867578, Active);
+  найдены TurboTax 1905878 (15% TY25), TaxAct 4110283 (10%), FreeTaxUSA 4526117 (15%, 90д), TaxSlayer 5273914 (0–10%),
+  Barclays US Online Savings 4931276 (lead $0–250, EPC $1,116), Mortgage Research Center 7647072 (lead 60%); H&R Block и
+  Credit Karma в CJ нет. **Клик Apply заблокирован классификатором** (не обходим) → заявки кликает владелец по списку в
+  research/AFFILIATE.md (там же sub-id `sid`, ≤64 симв., правило проверки на проде). Старые заявки: Aflac pending; AAA, Aeroflow,
+  Ally — declined. CRM-задача со сроком 19.11.
 - Сверка CRM 13.11 (по просьбе владельца через диспетчера): закрыто 2 дубля (AdSense p3-копия 0mwc44jl…, Retirement 5/6
   с датой 17.11 — остался 02.02); сроки: self-employed-раздел → 15.12, favicon.ico → сб 14.11, гео take-home → 16.02.2027
   (гейт — восстановление индексации), заявка GSC apr-calculator → 16.11 (пайплайн); заметки «владелец: …» на ShareASale/Impact
