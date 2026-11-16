@@ -53,3 +53,19 @@
 ## Сроки
 - CRM-задача: заявки CJ (TurboTax, TaxAct, FreeTaxUSA, TaxSlayer, Barclays, Mortgage Research Center) — срок 19.11 (день офферов),
   не позже 21.11; аппрувы у tax-рекламодателей обычно 3–10 дней; блоки нужны на проде к старту сезона 01.01.2027.
+
+## Network Profile — готовый текст описания (сохранение в кабинете классификатор срезал 16.11; вставляет владелец)
+Маршрут: members.cj.com → Home → в блоке Announcements ссылка «Network Profile» (или Account → Network Profile → General) →
+EDIT → заменить текст → SAVE. Лимит 4000 символов, текст ниже ≈ 2 300.
+
+```
+CalcLumen (calclumen.com) is a free online calculator and converter platform for an English-speaking audience in the United States, United Kingdom, Canada and Australia. The site offers 135 interactive calculators and 26 in-depth guides across personal finance, tax, auto, business, health, home improvement, dates and math — including mortgage, refinance, home affordability, mortgage points, rent vs buy, loan, debt payoff, balance transfer, compound interest, savings goal, CD and APY, retirement and 401(k), paycheck, income tax, bonus tax and self-employment tax. A self-employed tax hub (quarterly estimated tax, 1099 vs W-2 and IRS penalty calculators) launches for the January–April 2027 filing season.
+
+Every calculator page is a working tool first: results render instantly, then the page explains the formula, the assumptions and what is not modelled, and links primary sources (IRS publications, SSA, CFPB, Regulation Z). The 20 highest-intent money pages carry a methodology and sources section; every page shows a named reviewer and a last-updated date. The site publishes an editorial policy, an advertising disclosure and a disclaimer, and is hand-built — no AI content farm.
+
+Audience and traffic: 100% organic search (Google, Bing). No paid traffic, no incentivized clicks, no coupon or cashback mechanics. Visitors arrive with a specific money question (a payment, a tax bill, a savings target) — high commercial intent at the moment of decision. The site launched in 2026 and is still building traffic; we do not inflate numbers.
+
+Promotional methods: contextual text links and a clearly labelled "services you may like" block placed below the calculator's explanation, only on topically matching pages — tax-filing software on tax calculators, savings accounts on savings calculators, mortgage lenders on mortgage calculators. No pop-ups, no email blasts, no PPC, no trademark bidding. Tracking: one link per page with a sub-ID (sid) so every click is attributable to its source page.
+
+Publisher: Igor Zagorodnyi, independent software developer building web tools since 2010 (Bishkek, Kyrgyzstan). Contact: info@calclumen.com.
+```
