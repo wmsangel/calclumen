@@ -339,7 +339,8 @@ _(последние ~2 недели)_
 - **CJ 16.11 (решение владельца — подключить CJ/Awin):** площадка calclumen.com в CJ есть (Property 101867578, Active);
   найдены TurboTax 1905878 (15% TY25), TaxAct 4110283 (10%), FreeTaxUSA 4526117 (15%, 90д), TaxSlayer 5273914 (0–10%),
   Barclays US Online Savings 4931276 (lead $0–250, EPC $1,116), Mortgage Research Center 7647072 (lead 60%); H&R Block и
-  Credit Karma в CJ нет. **Клик Apply заблокирован классификатором** (не обходим) → заявки кликает владелец по списку в
+  Credit Karma в CJ нет. второй заход 16.11 (после разрешения владельца): **TurboTax 1905878 и TaxAct 4110283 — PENDING**, FreeTaxUSA — авто-declined;
+  TaxSlayer/Barclays/MRC — клик не оставляет записи (3/2/2 попытки) → владелец кликает по маршруту в заметке CRM; список в
   research/AFFILIATE.md (там же sub-id `sid`, ≤64 симв., правило проверки на проде). Старые заявки: Aflac pending; AAA, Aeroflow,
   Ally — declined. CRM-задача со сроком 19.11.
 - Сверка CRM 13.11 (по просьбе владельца через диспетчера): закрыто 2 дубля (AdSense p3-копия 0mwc44jl…, Retirement 5/6

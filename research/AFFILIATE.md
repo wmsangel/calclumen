@@ -19,13 +19,13 @@
 
 | Рекламодатель | CJ ID | Категория | Условия (из карточки) | 3-мес EPC | Куда ставить | Статус |
 |---|---|---|---|---|---|---|
-| **TurboTax (Intuit)** | 1905878 | Tax Services, US | TY25: 15% TurboTax Online (federal+state); сезон 01.01–15.04, пики до 15.02 и 1–15.04 | $30.59 | tax-хаб: quarterly-estimated-tax, 1099-vs-w2, irs-penalty, income-tax, self-employment-tax, bonus-tax | **к подаче** (клик Apply заблокирован классификатором) |
-| **TaxAct** | 4110283 | Tax Services, US | Sale 10% | $25.87 | те же tax-страницы (2-й вариант «file with…») | к подаче |
-| **FreeTaxUSA** | 4526117 | Tax Services, US | 15% база, cookie 90 дней, co-branded LP; «lower approval odds» | $1.96 | бюджетный вариант под self-employed/1099 | к подаче |
-| **TaxSlayer** | 5273914 | Tax Services, US | 0–10% за e-file (classic/premium/SE), cookie 30 дней | $0.25 | резерв (низкий EPC) | к подаче, низкий приоритет |
+| **TurboTax (Intuit)** | 1905878 | Tax Services, US | TY25: 15% TurboTax Online (federal+state); сезон 01.01–15.04, пики до 15.02 и 1–15.04 | $30.59 | tax-хаб: quarterly-estimated-tax, 1099-vs-w2, irs-penalty, income-tax, self-employment-tax, bonus-tax | **PENDING** (подано 16.11, manual review) |
+| **TaxAct** | 4110283 | Tax Services, US | Sale 10% | $25.87 | те же tax-страницы (2-й вариант «file with…») | **PENDING** (подано 16.11) |
+| **FreeTaxUSA** | 4526117 | Tax Services, US | 15% база, cookie 90 дней, co-branded LP; «lower approval odds» | $1.96 | бюджетный вариант под self-employed/1099 | **DECLINED** (авто-отказ сразу после подачи 16.11; переподать при росте трафика) |
+| **TaxSlayer** | 5273914 | Tax Services, US | 0–10% за e-file (classic/premium/SE), cookie 30 дней | $0.25 | резерв (низкий EPC) | ⚠️ клик Apply принимается UI (кнопка гаснет), но заявка не появляется ни в Pending, ни в Declined (3 попытки 16.11) → владелец кликает сам |
 | Intuit Small Business (QuickBooks) | 2271086 | Productivity | Sale $55, lead $0–5 | $66.35 | self-employment-tax, 1099-vs-w2 (бухгалтерия для ИП) | кандидат, не в списке владельца |
-| **Barclays US Online Savings** | 4931276 | Banking, US | Lead $0–250 | $1,115.85 | savings-goal, emergency-fund, compound-interest, cd, apy, hysa-контекст | **к подаче** (сбережения) |
-| **Mortgage Research Center** | 7647072 | Mortgage Loans, US | Lead 60% (rev-share); «lower approval odds» | $110.46 | mortgage, refinance, home-affordability, biweekly, points | **к подаче** (ипотека/рефинанс) |
+| **Barclays US Online Savings** | 4931276 | Banking, US | Lead $0–250 | $1,115.85 | savings-goal, emergency-fund, compound-interest, cd, apy, hysa-контекст | ⚠️ то же: 2 клика 16.11 без записи в Pending/Declined → владелец |
+| **Mortgage Research Center** | 7647072 | Mortgage Loans, US | Lead 60% (rev-share); «lower approval odds»; CJ показывает «profile matches an advertiser auto-decline rule» | $110.46 | mortgage, refinance, home-affordability, biweekly, points | ⚠️ 2 клика 16.11 без записи → владелец; вероятен авто-отказ (правило рекламодателя) |
 | RenoFi | 8033802 | Mortgage Loans, US | Sale $20 (новый) | new | home-equity (HELOC), renovation | кандидат (⭐ в PLAN с 27.10) |
 | LendingTree | 4884367 | Personal Loans, US | Lead до $35 за форму, cookie 14 дней | $0.00 | loan, debt-consolidation | кандидат, EPC нулевой — позже |
 | Axos Bank | 6828337 | Banking, US | (условия в карточке) | $543.74 | savings/checking | кандидат |
@@ -34,7 +34,7 @@
 **Нет в CJ:** H&R Block (0 результатов; программа у Impact), Credit Karma (0; это Intuit, отдельной CJ-программы нет).
 
 ## Что заблокировано и кто делает
-- Клик **Apply to Program** в кабинете CJ классификатор сессии режет как «реальное действие» (16.11, TurboTax). Не обходим.
+- 16.11, второй заход (разрешение владельца 16.11 в CLAUDE.md): классификатор пропустил; **TurboTax и TaxAct — pending**, FreeTaxUSA — авто-declined. TaxSlayer, Barclays, MRC: кнопка Apply гаснет с подсказкой «will be manually reviewed», но записи не появляется (проверено в Pending/Declined после каждой попытки) — у владельца в браузере может показаться диалог/ошибка, которых сессия не видит. Первая попытка (до разрешения) была срезана классификатором.
   Варианты: (а) владелец кликает сам по списку выше (Partners → Find Advertisers → Keyword → Apply, площадка
   101867578, принять условия конкретной программы); (б) диспетчер решает иначе.
 - После одобрения сессия сама: берёт tracking-ссылку (Links → Get Links, формат `https://www.anrdoezrs.net/click-<PID>-<linkId>`
