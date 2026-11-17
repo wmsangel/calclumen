@@ -69,3 +69,68 @@ Promotional methods: contextual text links and a clearly labelled "services you 
 
 Publisher: Igor Zagorodnyi, independent software developer building web tools since 2010 (Bishkek, Kyrgyzstan). Contact: info@calclumen.com.
 ```
+
+---
+
+# Media.net — план Б по рекламе (решение владельца 17.11.2026)
+
+Контекст: AdSense отказал 10.11 («бесполезный контент»), переподача не раньше 25.11. Трафик calclumen ~760 визитов/28д (CF RUM),
+поиск почти целиком Bing (28д: Bing 10 672 показов / 11 кликов, Google 11 показов / 0). Media.net — контекстная сеть на
+Yahoo/Bing-спросе, формально подходит под источник трафика.
+
+## Рельсы (проверка 17.11 по официальным страницам media.net)
+- **Публичных условий выплат у Media.net нет**: /faq — 404, /legal/tos — это Terms of Use сайта (без выплат), /publishers — маркетинг,
+  /contact — форма (Region, «What You Do: Publisher/Media Owner») + «Publisher Inquiries: pubsales@media.net». Самостоятельной
+  регистрации (sign-up) на сайте нет — вход через запрос в pubsales / форму, договор и платёжные условия показывают после одобрения.
+- **Официальная Inventory Policy** (/legal/inventorypolicies/): сайт должен принадлежать паблишеру; обязателен **ads.txt** с их
+  строками до запуска; оригинальный контент и удобная навигация; трафик «primarily from organic sources» (покупной/мотивированный —
+  бан); запрещено: adult, наркотики, гемблинг, пиратство, hate; **ограничено (может считаться запрещённым): cryptocurrency**,
+  алкоголь, рецептурные препараты, sexual health и т.п. — у нас крипта только во внешних ссылках сети (The Crypto Tools) и
+  capital-gains; при подаче не выпячивать. Нельзя: менять размер/кэшировать/стекать блоки, двойные iframe, маскировать под контент.
+  Требований по языку, гео и минимальному трафику в политике НЕТ (на сайте вообще нет).
+- **Неофициально (обзоры, не подтверждено Media.net):** выплаты NET-30 (через 30 дней после конца месяца), минимум **$100**,
+  способы — **wire** и **Payoneer** (PayPal по большинству источников нет); контент на английском; трафик преимущественно US/UK/CA;
+  одобрение выборочное, при малом трафике отказывают.
+- **Кыргызстан:** в официальных документах стран-исключений нет. Wire на счёт ИП в КГ и Payoneer (уже используется владельцем для
+  CJ) технически проходят → рельс **вероятно ДА**, но подтверждать только ответом pubsales (способ выплаты, минимум, нужна ли W-8BEN,
+  примут ли ИП из КГ). Честная оценка шансов: при 760 визитах/28д и нулевом Google одобрение маловероятно; заявка нужна, чтобы
+  получить письменные условия и встать в очередь — переподать при росте Bing-кликов / возврате Google.
+
+## Что нужно от владельца для заявки
+1. Отправить письмо с адреса владельца на **pubsales@media.net** (или форму /contact: Region = North America — по аудитории; What You Do =
+   Publisher/Media Owner) с текстом ниже. Аккаунт, договор, W-8BEN и платёжные реквизиты (wire/Payoneer) — вводит владелец сам.
+2. Данные, которые спросят: сайт https://calclumen.com, страна паблишера Kyrgyz Republic (ИП Igor Nikolaevich Zagorodnyi, адрес из
+   CLAUDE.md), контактный email, оценка трафика и его источников, тематика, наличие ads.txt (у нас есть: /ads.txt с AdSense; строки
+   Media.net добавлю после одобрения).
+
+## Текст запроса (английский, без преувеличений)
+```
+Subject: Publisher inquiry — calclumen.com (finance & everyday calculators, US/UK/CA audience)
+
+Hello Media.net team,
+
+I'd like to apply as a publisher for calclumen.com, a free English-language site of 135 interactive calculators and
+26 guides (mortgage, loans, tax withholding, savings, BMI, unit conversions) built for a US/UK/CA/AU audience.
+
+Site facts: launched August 2026; all traffic is organic search (no paid or incentivized traffic); the site currently
+receives most of its search impressions from Bing (~10,000 impressions per 28 days) and is in an early-growth phase
+(~750 visits per 28 days). Every calculator page is a working tool with a methodology and sources section, an editorial
+policy, an advertising disclosure and a disclaimer; ads.txt is in place. The site is built with Next.js on Cloudflare and
+passes Core Web Vitals.
+
+Publisher: Igor Nikolaevich Zagorodnyi, individual entrepreneur, Kyrgyz Republic. Before I complete the application I'd
+appreciate confirmation of: (1) available payout methods for a publisher in Kyrgyzstan (wire / Payoneer) and the minimum
+payout; (2) payment terms (NET-30?); (3) tax documentation required (W-8BEN?); (4) whether a site at this traffic level can be
+reviewed now or should re-apply at a threshold you specify.
+
+Thank you,
+Igor Zagorodnyi — info@calclumen.com — https://calclumen.com
+```
+
+## Совместимость с AdSense и порядок
+- Обе сети разрешают работать вместе (у AdSense — если блоки других сетей не маскируются под AdSense и не нарушают его политики;
+  у Media.net — запрет на стекинг/маскировку). Но **порядок зафиксирован: код Media.net на сайт НЕ ставим до решения Google по
+  переподаче (≥25.11)**. Если AdSense снова откажет → ставим Media.net (при одобрении) первым; если одобрит → Media.net только как
+  вторую сеть через 30 дней стабильной работы AdSense, по одному блоку, не в тех же слотах.
+- Код Media.net = такой же env-gated компонент, как AdSense/Ezoic (src/components/adsense.tsx, ezoic.tsx); ads.txt — добавить
+  строки Media.net в src/app/ads.txt/route.ts после одобрения.
