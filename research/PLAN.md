@@ -360,7 +360,7 @@ _(последние ~2 недели)_
   page переписан под это. События по стандарту сети: tool_opened{tool}, tool_used{tool} дебаунс 1,5 с, cta_click{placement,tool},
   affiliate_click{network,placement,tool} (Offer.network у всех 20 офферов + amazon), share{method,tool}; схема docs/analytics-events.md.
   Проверено на проде: page_view/tool_opened/tool_used уходят с `gcs=G111`, Realtime видит tool_used. GA4 Admin: созданы custom dimensions
-  tool/network/method (+ были action/item/placement/platform). Key event tool_used — отметить чт 19.11, когда появится в списке событий.
+  tool/network/method (+ были action/item/placement/platform). Key event tool_used — отметить чт 19.11, когда появится в списке событий. **izn-beacon подключён 17.11 (44835f6)** через track() + /izn-tools.json; на проде b.js грузится, очередь дренируется, POST /e уходит.
   ⚠️ `next build` 16.4.2 показывает SecurityFatalError-нудж (известная уязвимость Next 16.4.2, повтор команды проходит) — обновление
   Next отдельным решением.
 - **Media.net 17.11 (решение владельца — план Б по рекламе):** официальных условий выплат нет (sign-up только через pubsales@media.net /
