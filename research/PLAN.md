@@ -187,7 +187,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    кнопкой у диспетчера. Страницы по моим дням (вт — контент, сб — фичи), суббота 14.11 и четверги аудита не заняты:
    | # | Страница | Главный запрос (спрос/мес) | Источники ставок | Срок |
    |---|---|---|---|---|
-   | T1 | quarterly-estimated-tax-calculator — 1040-ES 2026/27, safe harbor 90%/100%/110% (AGI>$150K), минус удержания W-2, штат flat % | quarterly/estimated tax calculator 3,6K+3,6K+1,6K | IRS Pub 505, Form 1040-ES 2026, Pub 15 | вт 17.11 (= бывший «Контент 2/8») |
+   | ✅ T1 (17.11, 3a365ff) | quarterly-estimated-tax-calculator — 1040-ES 2026/27, safe harbor 90%/100%/110% (AGI>$150K), минус удержания W-2, штат flat % | quarterly/estimated tax calculator 3,6K+3,6K+1,6K | IRS Pub 505, Form 1040-ES 2026, Pub 15 | вт 17.11 (= бывший «Контент 2/8») |
    | T3 | 1099-vs-w2-calculator — take-home: SE tax 15,3% (½ вычет), QBI 20%, станд. вычет 2026, брекеты, штат % | 1099 calculator 2,4K; 1099 vs w2 1,6K | IRS Pub 15/505, Rev. Proc. 2026 брекеты | вт 24.11 |
    | T2 | tax-deadline-calendar — .ics под страну/штат/дату регистрации: IRS 15.04/15.06/15.09/15.01 + годовой + штатные; напоминания за 14/3 дня; UK 31.01/31.07 (+MTD-кварталы позже) | quarterly tax dates 8,1K; estimated tax dates 6,6K | IRS Pub 509, tax.state.*.gov | сб 28.11 (день фич — это файл-артефакт) |
    | T4 | uk-self-assessment-calculator — income tax + Class 4 (6%/2%, порог £12 570), payments on account (2×50% прошлого счёта), когда SA303 | self assessment tax calculator 3,6K; payments on account 1,9K | gov.uk rates 2026/27, HMRC SA guidance | вт 08.12 |
@@ -353,6 +353,11 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **17.11 вт (ритм):** T1 /en/quarterly-estimated-tax-calculator на проде (3a365ff): общий модуль federal-tax-2026.ts, 1040-ES-математика
+  с 8 тестами, safe harbor 90/100/110 % и порог $1,000, 4 даты 2026, worked example в HTML ($80k → $3,746/кв.), методология + 5 источников;
+  income-tax переведён на общие константы. Донор: iznkit /en/guides/freelance-tax-explained. Сетевые: НГ-оформление → CRM
+  0mwk84on5f63e93163fdf9c34 (срок сб 05.12); сроки выровнены на дни группы B (План контента 06.12 → 05.12; остальные уже на вт/чт/сб);
+  «Запросы без своей страницы» — раздел в context пуст («пары ещё не собраны»), не взял; sub-id ревизия — чт 19.11; маячок → b.izntools.com.
 - **GA4 17.11 (поручение владельца — события инструментов):** причина «1 сессия за 14 дней при ~380 визитах» — Consent Mode
   default `denied` для ВСЕХ регионов; почти все визиты были неконсентными cookieless-пингами, которые GA4 при нашем объёме в отчёты
   не включает (моделирование требует ~1k консентных событий/день). Починено 8786b73+a2518f2: denied только EEA+IS/LI/NO+GB+CH до
