@@ -14,6 +14,8 @@ Property G-JY9FBM2921 (`src/components/google-analytics.tsx`), helper `track()` 
 | `share` | Copy result / Copy link / копия embed-кода | `method`: `copy_result` \| `copy_link` \| `embed`; `tool`; `item` | result-actions.tsx, embed-snippet.tsx |
 | `feedback_open`, `feedback_submit` | виджет обратной связи | `item: "feedback"` | feedback-fab.tsx |
 
-GA4 (Admin, через Chrome владельца): custom dimensions (event scope) `tool`, `placement`, `network`, `method`; key event — `tool_used`.
+GA4 property a391451680 / p549878079. Custom dimensions (event scope) на 17.11: `action`, `item`, `placement`, `platform` (15.10) + **`tool`, `network`, `method` (созданы 17.11)**. Key event `tool_used` — отметить звёздочкой в Admin → События → «Недавние события», когда событие появится в 28-дневном списке (первые хиты ушли 17.11; проверить чт 19.11).
+
+Замечание по реализации: `track()` НЕ кладёт событие в dataLayer напрямую — события, попавшие в очередь раньше `config`, gtag.js отбрасывает; вместо этого повтор каждые 250 мс до 5 с, пока не появится `window.gtag`.
 Проверка на проде: Network → `collect?v=2…&en=<event>&ep.tool=…`, параметр `gcs=G111` (granted) / `G100` (denied); GA4 Realtime.
 Новые инструменты получают события автоматически через CalcShell → CalcUseTracker.

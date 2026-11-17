@@ -353,6 +353,16 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **GA4 17.11 (поручение владельца — события инструментов):** причина «1 сессия за 14 дней при ~380 визитах» — Consent Mode
+  default `denied` для ВСЕХ регионов; почти все визиты были неконсентными cookieless-пингами, которые GA4 при нашем объёме в отчёты
+  не включает (моделирование требует ~1k консентных событий/день). Починено 8786b73+a2518f2: denied только EEA+IS/LI/NO+GB+CH до
+  «Accept all», остальные — granted до «Reject non-essential» (`ec-consent=essential` теперь переприменяется при загрузке); privacy
+  page переписан под это. События по стандарту сети: tool_opened{tool}, tool_used{tool} дебаунс 1,5 с, cta_click{placement,tool},
+  affiliate_click{network,placement,tool} (Offer.network у всех 20 офферов + amazon), share{method,tool}; схема docs/analytics-events.md.
+  Проверено на проде: page_view/tool_opened/tool_used уходят с `gcs=G111`, Realtime видит tool_used. GA4 Admin: созданы custom dimensions
+  tool/network/method (+ были action/item/placement/platform). Key event tool_used — отметить чт 19.11, когда появится в списке событий.
+  ⚠️ `next build` 16.4.2 показывает SecurityFatalError-нудж (известная уязвимость Next 16.4.2, повтор команды проходит) — обновление
+  Next отдельным решением.
 - **Media.net 17.11 (решение владельца — план Б по рекламе):** официальных условий выплат нет (sign-up только через pubsales@media.net /
   форму), Inventory Policy требует ads.txt, оригинальный контент, органический трафик; крипта — «restricted». КГ не исключён; по обзорам
   NET-30, $100, wire/Payoneer. Рельс вероятно ДА — подтверждать ответом pubsales. Письмо-запрос готово в research/AFFILIATE.md
