@@ -13,7 +13,7 @@ import { OfferLogo } from "./offer-logo";
  * (the breakdown key), `placement` = where the card sits. The page itself is
  * already captured by GA4's page_path, so it isn't duplicated here.
  */
-export function OfferPanel({ group }: { group: OfferGroup }) {
+export function OfferPanel({ group, tool }: { group: OfferGroup; tool?: string }) {
   return (
     <section className="mt-12">
       <div className="offer-panel">
@@ -37,7 +37,12 @@ export function OfferPanel({ group }: { group: OfferGroup }) {
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
               onClick={() =>
-                track("affiliate_click", { item: o.id, placement: "in_article" })
+                track("affiliate_click", {
+                  item: o.id,
+                  network: o.network,
+                  placement: "in_article",
+                  tool,
+                })
               }
             >
               <OfferLogo id={o.id} name={o.name} />

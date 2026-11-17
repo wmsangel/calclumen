@@ -31,8 +31,10 @@ export function AmazonLink({
       onClick={() =>
         track("affiliate_click", {
           item,
-          placement: "materials",
+          network: "amazon",
           platform: "amazon",
+          placement: "materials",
+          tool: typeof location !== "undefined" ? location.pathname.split("/").pop() : undefined,
         })
       }
     >

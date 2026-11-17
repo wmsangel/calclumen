@@ -32,7 +32,7 @@ export function EmbedSnippet({
     `<a href="${canonical}" target="_blank" rel="noopener">${heading} — CalcLumen</a></p>`;
 
   async function copy() {
-    track("copy_click", { item: slug, placement: "embed" });
+    track("share", { method: "embed", tool: slug, item: slug, placement: "embed" });
     try {
       await navigator.clipboard.writeText(snippet);
       setCopied(true);

@@ -86,7 +86,7 @@ export function FeedbackFab({ locale }: { locale: Locale }) {
               href={`/${locale}/support`}
               className="prose-link inline-flex items-center gap-1"
               onClick={() => {
-                track("cta_click", { item: "support" });
+                track("cta_click", { placement: "support", item: "support" });
                 setOpen(false);
               }}
             >

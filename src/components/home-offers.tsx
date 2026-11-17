@@ -53,7 +53,7 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
-              onClick={() => track("affiliate_click", { item: o.id, placement: "home" })}
+              onClick={() => track("affiliate_click", { item: o.id, network: o.network, placement: "home" })}
             >
               <OfferLogo id={o.id} name={o.name} />
               <span className="offer-body">

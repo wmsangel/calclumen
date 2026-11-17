@@ -22,6 +22,7 @@ import { embeddableFor } from "@/lib/embeddable";
 import { crossLinkFor } from "@/lib/cross-links";
 import { spotlightForPage } from "@/lib/spotlight";
 import { AmazonMaterials } from "./amazon-materials";
+import { TrackedLink } from "./tracked-link";
 import calcUpdated from "@/lib/generated/calc-updated.json";
 import { AUTHOR } from "@/lib/seo/author";
 
@@ -237,8 +238,10 @@ export function CalcShell({
       })()}
 
       {guide ? (
-        <Link
+        <TrackedLink
           href={`/${locale}/guides/${guide.slug}`}
+          placement="guide_card"
+          tool={slug}
           className="mt-6 card card-hover p-4 flex items-center gap-3 no-print"
         >
           <span className="grid place-items-center w-9 h-9 rounded-xl bg-[var(--accent-soft)] text-[var(--accent-2)] shrink-0">
@@ -253,7 +256,7 @@ export function CalcShell({
           <span className="text-[var(--accent)] text-sm font-medium shrink-0">
             Read →
           </span>
-        </Link>
+        </TrackedLink>
       ) : null}
 
       <AdSlot className="mt-8 no-print" />
@@ -397,8 +400,10 @@ export function CalcShell({
       {(() => {
         const sp = spotlightForPage(slug);
         return (
-          <Link
+          <TrackedLink
             href={`/${locale}${sp.path}`}
+            placement="spotlight"
+            tool={slug}
             className="mt-12 card card-hover p-4 flex items-center gap-3 no-print"
           >
             <span className="grid place-items-center w-9 h-9 rounded-xl bg-[var(--accent-soft)] text-[var(--accent-2)] shrink-0">
@@ -409,7 +414,7 @@ export function CalcShell({
               <span className="font-medium text-sm block truncate">{sp.title}</span>
             </span>
             <span className="text-[var(--accent)] text-sm font-medium shrink-0">Open →</span>
-          </Link>
+          </TrackedLink>
         );
       })()}
 

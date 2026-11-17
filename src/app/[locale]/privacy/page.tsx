@@ -93,10 +93,12 @@ export default async function Page({
         We use Google Analytics 4 (measurement ID <code>G-JY9FBM2921</code>), a
         Google product, to measure traffic and usage trends. It may set cookies
         such as <code>_ga</code> and <code>_ga_&lt;id&gt;</code>. We run it under
-        Google Consent Mode v2: analytics and advertising storage default to{" "}
-        <em>denied</em>, and for visitors in the EEA, the UK and Switzerland they
-        stay denied — no Google Analytics or advertising cookies are set — unless
-        you accept them using the cookie banner. Google processes this data under
+        Google Consent Mode v2: for visitors in the EEA, the UK and Switzerland,
+        analytics and advertising storage default to <em>denied</em> — no Google
+        Analytics or advertising cookies are set — unless you accept them using
+        the cookie banner. Elsewhere they are on by default and you can switch
+        them off at any time with &ldquo;Reject non-essential&rdquo; in the
+        banner; your choice is remembered on this device. Google processes this data under
         its own{" "}
         <a
           href="https://policies.google.com/privacy"

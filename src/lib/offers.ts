@@ -18,6 +18,8 @@ export interface Offer {
   cta?: string;
   /** optional promo/deal pill, e.g. "15% OFF" */
   badge?: string;
+  /** affiliate network the link belongs to — GA4 `affiliate_click.network` */
+  network: "admitad" | "indoleads" | "amazon" | "cj" | "house";
 }
 
 export interface OfferGroup {
@@ -31,6 +33,7 @@ export interface OfferGroup {
 // the comments; leave empty to show nothing.
 const UPGRADE: Offer = {
   id: "upgrade",
+  network: "indoleads",
   name: "Upgrade",
   blurb:
     "Personal loans up to $50,000 to consolidate debt or fund a big purchase — check your rate in minutes with no impact to your credit score.",
@@ -53,6 +56,7 @@ const FITNESS: OfferGroup = {
 
 const QUSTODIO: Offer = {
   id: "qustodio",
+  network: "admitad",
   name: "Qustodio",
   blurb:
     "All-in-one parental controls: screen-time limits, content filtering and location alerts across your kids' phones, tablets and computers.",
@@ -75,6 +79,7 @@ const AUTO: OfferGroup = {
 // ── Live offers (named so the homepage pool can reuse them) ──────
 const NORDVPN: Offer = {
   id: "nordvpn",
+  network: "admitad",
   name: "NordVPN",
   blurb:
     "Keep your work and financial data private with one of the most trusted VPNs — secure browsing on any network.",
@@ -83,6 +88,7 @@ const NORDVPN: Offer = {
 };
 const LENOVO: Offer = {
   id: "lenovo",
+  network: "admitad",
   name: "Lenovo",
   blurb:
     "Laptops, desktops and accessories for work and business, direct from the world's #1 PC maker.",
@@ -91,6 +97,7 @@ const LENOVO: Offer = {
 };
 const PUREVPN: Offer = {
   id: "purevpn",
+  network: "admitad",
   name: "PureVPN",
   blurb:
     "Encrypt your connection and protect your data on any network with a fast, no-logs VPN.",
@@ -99,6 +106,7 @@ const PUREVPN: Offer = {
 };
 const COURSERA: Offer = {
   id: "coursera",
+  network: "admitad",
   name: "Coursera",
   blurb:
     "Earn certificates and specializations from top universities and companies like Yale, Google and IBM.",
@@ -107,6 +115,7 @@ const COURSERA: Offer = {
 };
 const OPENART: Offer = {
   id: "openart",
+  network: "indoleads",
   name: "OpenArt AI",
   blurb:
     "Create images and video with fast AI generation tools — 15% off with code LEADS15.",
@@ -116,6 +125,7 @@ const OPENART: Offer = {
 };
 const EASEUS: Offer = {
   id: "easeus",
+  network: "indoleads",
   name: "EaseUS",
   blurb:
     "Recover lost files, manage disks and back up data — trusted by 100M+ users.",
@@ -125,6 +135,7 @@ const EASEUS: Offer = {
 };
 const ADGUARD: Offer = {
   id: "adguard",
+  network: "admitad",
   name: "AdGuard",
   blurb:
     "Block ads and trackers and browse privately with AdGuard's ad blocker and VPN.",
@@ -133,6 +144,7 @@ const ADGUARD: Offer = {
 };
 const PROHOSTER: Offer = {
   id: "prohoster",
+  network: "admitad",
   name: "ProHoster",
   blurb:
     "Reliable web hosting, VPS and dedicated servers from $2.5/mo with 24/7 support.",
@@ -141,6 +153,7 @@ const PROHOSTER: Offer = {
 };
 const NORDPASS: Offer = {
   id: "nordpass",
+  network: "admitad",
   name: "NordPass",
   blurb:
     "Password manager from the team behind NordVPN — autofill, secure sharing and zero-knowledge encryption across all your devices.",
@@ -149,6 +162,7 @@ const NORDPASS: Offer = {
 };
 const ENVATO: Offer = {
   id: "envato",
+  network: "admitad",
   name: "Envato",
   blurb:
     "Unlimited downloads of 19M+ templates, stock video, music, photos and fonts for your projects — from $16.50/mo.",
@@ -157,6 +171,7 @@ const ENVATO: Offer = {
 };
 const NOTION: Offer = {
   id: "notion",
+  network: "indoleads",
   name: "Notion",
   blurb:
     "One workspace for notes, docs, tasks and wikis — organize work and life, with free and paid plans.",
@@ -165,6 +180,7 @@ const NOTION: Offer = {
 };
 const INSTAREM: Offer = {
   id: "instarem",
+  network: "indoleads",
   name: "Instarem",
   blurb:
     "Send money abroad at great exchange rates with low, transparent fees — fast, secure international transfers.",
@@ -173,6 +189,7 @@ const INSTAREM: Offer = {
 };
 const TRADINGVIEW: Offer = {
   id: "tradingview",
+  network: "indoleads",
   name: "TradingView",
   blurb:
     "Real-time charts and market data for stocks, crypto and forex — powerful technical analysis for any level.",
@@ -181,6 +198,7 @@ const TRADINGVIEW: Offer = {
 };
 const KEYCENSE: Offer = {
   id: "keycense",
+  network: "admitad",
   name: "Keycense",
   blurb:
     "Instant digital keys for games, Windows, Office and antivirus — delivered by email in seconds at discount prices.",
@@ -191,6 +209,7 @@ const KEYCENSE: Offer = {
 // euOffersForCalc + the client-side <EuOfferBlock> timezone gate.
 const BLUETTI: Offer = {
   id: "bluetti",
+  network: "indoleads",
   name: "BLUETTI",
   blurb:
     "Portable power stations, solar generators and solar panels for backup power at home, off-grid and on the road.",
@@ -220,6 +239,7 @@ const INVESTING: OfferGroup = {
 
 const VEVOR: Offer = {
   id: "vevor",
+  network: "admitad",
   name: "VEVOR",
   blurb:
     "Tools, machinery and equipment for your home, garage, workshop and garden — pro-grade gear at unbeatable prices, shipped fast from local warehouses.",
@@ -228,6 +248,7 @@ const VEVOR: Offer = {
 };
 const COSTWAY: Offer = {
   id: "costway",
+  network: "indoleads",
   name: "Costway",
   blurb:
     "10,000+ products for home, garden and garage — furniture, patio, sporting goods and tools at better-than-Amazon prices.",
@@ -243,6 +264,7 @@ const HOME: OfferGroup = {
 
 const MACPAW: Offer = {
   id: "macpaw",
+  network: "indoleads",
   name: "MacPaw",
   blurb:
     "CleanMyMac and more from MacPaw — clear out junk, speed up your Mac and keep it secure. Trusted by millions.",
