@@ -14,6 +14,16 @@ const MAX_TRIES = 20;
 export function track(event: string, params?: Params): void {
   if (typeof window === "undefined") return;
   const payload = params ?? {};
+  // izn-beacon (network, cookieless, no consent needed): fire once, queue if
+  // b.js hasn't loaded yet (tool_opened fires at hydration). The beacon keeps
+  // only standard keys and ≤3 params; `item` is mapped to `tool` server-side.
+  try {
+    const w = window as unknown as { iznTrack?: (...a: unknown[]) => void; iznTrackQ?: unknown[] };
+    if (typeof w.iznTrack === "function") w.iznTrack(event, payload);
+    else (w.iznTrackQ = w.iznTrackQ || []).push([event, payload]);
+  } catch {
+    /* never break the UI */
+  }
   let tries = 0;
   const fire = () => {
     try {
