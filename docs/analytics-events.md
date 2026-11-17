@@ -21,7 +21,7 @@ GA4 property a391451680 / p549878079. Custom dimensions (event scope) на 17.11
 Новые инструменты получают события автоматически через CalcShell → CalcUseTracker.
 
 ## Маячок сети izn-beacon (с 17.11, 44835f6)
-`<Script id="izn-beacon" src="https://izn-beacon.ocrsnip.workers.dev/b.js">` в `[locale]/layout.tsx` (без условия на согласие, нет на /embed).
+`<Script id="izn-beacon" src="https://b.izntools.com/b.js (адрес workers.dev режут адблоки)">` в `[locale]/layout.tsx` (без условия на согласие, нет на /embed).
 `track()` шлёт каждое событие и в GA4, и в `window.iznTrack` (очередь `iznTrackQ` до загрузки b.js). Словарь имён: `/izn-tools.json`
 (135 слагов → heading, из реестра). Маячок оставляет только стандартные ключи (tool/action/network/placement/method…) и ≤3 параметра;
 `item` переименовывается в `tool` на стороне Worker. Проверка: POST `…/e` после действия; ночью `beacon_events_daily` в stats.db.

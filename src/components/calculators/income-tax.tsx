@@ -1,42 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { BRACKETS, STANDARD_DEDUCTION, TAX_YEAR, type Filing } from "@/lib/math/federal-tax-2026";
 import { formatMoney, formatNumber } from "@/lib/format";
 import { Field, Segmented, Stat, ToolCard } from "@/components/ui";
 import { NumberInput } from "@/components/number-input";
 
-type Filing = "single" | "mfj";
 
 const num = (s: string) => (s.trim() === "" ? NaN : Number(s));
 
-// Tax year 2026 — IRS Rev. Proc. 2025-32 (inflation adjustments, Oct 2025).
-const TAX_YEAR = 2026;
-const DEDUCTION: Record<Filing, number> = {
-  single: 16100,
-  mfj: 32200,
-};
-
-const BRACKETS: Record<Filing, [number, number][]> = {
-  single: [
-    [0.1, 12400],
-    [0.12, 50400],
-    [0.22, 105700],
-    [0.24, 201775],
-    [0.32, 256225],
-    [0.35, 640600],
-    [0.37, Infinity],
-  ],
-  mfj: [
-    [0.1, 24800],
-    [0.12, 100800],
-    [0.22, 211400],
-    [0.24, 403550],
-    [0.32, 512450],
-    [0.35, 768700],
-    [0.37, Infinity],
-  ],
-};
-export { TAX_YEAR as INCOME_TAX_YEAR, DEDUCTION as STANDARD_DEDUCTION };
+// Tax-year constants live in src/lib/math/federal-tax-2026.ts (shared with the
+// quarterly estimated tax calculator).
+const DEDUCTION = STANDARD_DEDUCTION;
+export { TAX_YEAR as INCOME_TAX_YEAR, STANDARD_DEDUCTION };
 
 function computeTax(income: number, filing: Filing) {
   const deduction = DEDUCTION[filing];

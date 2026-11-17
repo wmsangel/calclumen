@@ -50,7 +50,7 @@ export default async function LocaleLayout({
       <GoogleAnalytics />
       {/* izn-beacon — маячок сети без кук и без согласия (izn.project.stats/beacon/README.md).
           Без условия на согласие; события через track() → iznTrack (очередь до загрузки). */}
-      <Script id="izn-beacon" strategy="afterInteractive" src="https://izn-beacon.ocrsnip.workers.dev/b.js" />
+      <Script id="izn-beacon" strategy="afterInteractive" src="https://b.izntools.com/b.js" />
       {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо
           прокси, поэтому вставляется руками */}
       <Script
