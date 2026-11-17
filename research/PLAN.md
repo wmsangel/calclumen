@@ -366,8 +366,9 @@ _(последние ~2 недели)_
   affiliate_click{network,placement,tool} (Offer.network у всех 20 офферов + amazon), share{method,tool}; схема docs/analytics-events.md.
   Проверено на проде: page_view/tool_opened/tool_used уходят с `gcs=G111`, Realtime видит tool_used. GA4 Admin: созданы custom dimensions
   tool/network/method (+ были action/item/placement/platform). Key event tool_used — отметить чт 19.11, когда появится в списке событий. **izn-beacon подключён 17.11 (44835f6)** через track() + /izn-tools.json; на проде b.js грузится, очередь дренируется, POST /e уходит.
-  ⚠️ `next build` 16.4.2 показывает SecurityFatalError-нудж (известная уязвимость Next 16.4.2, повтор команды проходит) — обновление
-  Next отдельным решением.
+  ⚠️ Next 16.4.2 — уязвимость подтверждена bilimjol по первоисточникам (Moderate, батч advisory 03.11.2026, GHSA-mfr8-8qww-v76h,
+  затронуты >=16.3.0 <=16.4.4, фикс 16.4.5). **Сб 22.11: поднять до ^16.4.6 руками** (не через нудж), tsc + 168 тестов + build по коду
+  возврата + деплой + проверка /api/og; откат одним коммитом. CRM-задача срок 22.11.
 - **Media.net 17.11 (решение владельца — план Б по рекламе):** официальных условий выплат нет (sign-up только через pubsales@media.net /
   форму), Inventory Policy требует ads.txt, оригинальный контент, органический трафик; крипта — «restricted». КГ не исключён; по обзорам
   NET-30, $100, wire/Payoneer. Рельс вероятно ДА — подтверждать ответом pubsales. Письмо-запрос готово в research/AFFILIATE.md
