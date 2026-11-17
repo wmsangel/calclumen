@@ -288,7 +288,7 @@ export function CalcShell({
 
         {content.extra ? <div className="mt-8">{content.extra}</div> : null}
 
-        <h2 className="mt-12 text-xl font-semibold">How to use the {calc.heading.toLowerCase()}</h2>
+        <h2 className="mt-12 text-xl font-semibold">How to use the {calc.heading}</h2>
         <ol className="mt-4 space-y-3">
           {content.steps.map((step, i) => (
             <li key={i} className="flex gap-3">
@@ -303,7 +303,7 @@ export function CalcShell({
         {content.methodology?.length || sources.length ? (
           <section aria-labelledby="methodology" className="mt-12">
             <h2 id="methodology" className="text-xl font-semibold">
-              How the {calc.heading.toLowerCase()} works
+              How the {calc.heading} works
             </h2>
             {content.methodology?.map((p, i) => (
               <p key={i} className="text-[var(--ink-soft)] leading-relaxed mt-4">
