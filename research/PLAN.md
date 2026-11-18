@@ -74,7 +74,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    — у Ally EPC $1069, кандидат на переподачу). FlexOffers (~30.10) + MaxBounty (ждёт звонок) — owner-side.
    Следующая сверка — 03.11. `деньги`
    · **→сам** (внешний API + аппрувы откатываются → решать что убрать/завести; полное ревью)
-4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- due:2026-11-18 --> <!-- crm:0mvarrq8d0cfe6e8839d7e0a2 -->
+4. **Завести US auto/finance партнёрские сети → закрыть пустые кластеры AUTO + health** — топ-CPM US auto-страховка/finance lead-gen в Admitad/Indoleads отсутствует. <!-- due:2026-11-19 --> <!-- crm:see AFFILIATE.md; task 0mvarrq8d0 closed 18.11 as duplicate, replaced by session task -->
    **02.11 проверка общих аккаунтов (API):** Admitad site 2988056 — 44 кампании, US auto/insurance/health
    НЕТ (только single-geo CZ/MX/RO кредиты + declined Costway); Indoleads/Amazon/Travelpayouts — тоже нет
    US auto/health. Среди 20 одобренных офферов НИ ОДИН не подходит AUTO/health по смыслу → кластеры
