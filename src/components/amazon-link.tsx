@@ -14,17 +14,20 @@ import { track } from "@/lib/track";
 export function AmazonLink({
   href,
   item,
+  tool,
   children,
   className,
 }: {
   href: string;
   item: string;
+  /** page slug — becomes /go/?src= → Amazon ascsubtag (server-rendered, so no hydration drift) */
+  tool: string;
   children: React.ReactNode;
   className?: string;
 }) {
   return (
     <a
-      href={`${href}${href.includes("?") ? "&" : "?"}src=${encodeURIComponent(typeof location !== "undefined" ? (location.pathname.split("/").pop() || "home") : "page")}`}
+      href={`${href}${href.includes("?") ? "&" : "?"}src=${encodeURIComponent(tool)}`}
       target="_blank"
       rel="sponsored nofollow noopener"
       className={className}
@@ -34,7 +37,7 @@ export function AmazonLink({
           network: "amazon",
           platform: "amazon",
           placement: "materials",
-          tool: typeof location !== "undefined" ? location.pathname.split("/").pop() : undefined,
+          tool,
         })
       }
     >

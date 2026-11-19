@@ -31,6 +31,7 @@ export function AmazonMaterials({ slug }: { slug: string }) {
           {block.items.map((item) => (
             <li key={item.name}>
               <AmazonLink
+              tool={slug}
                 href={amazonGoHref(item.q)}
                 item={amazonGoSlug(item.q)}
                 className="flex items-center justify-between gap-3 rounded-xl border border-[var(--rule)] p-3 hover:border-[var(--accent)] transition"
