@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { HOME_FEATURED, HOME_OFFERS_LABEL } from "@/lib/offers";
 import { track } from "@/lib/track";
+import { withSubId } from "@/lib/subid";
 import { OfferLogo } from "./offer-logo";
 
 /**
@@ -49,7 +50,7 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
           {offers.map((o) => (
             <a
               key={o.id}
-              href={o.url}
+              href={withSubId(o.url, o.network, "home")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"

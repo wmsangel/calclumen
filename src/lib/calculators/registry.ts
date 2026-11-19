@@ -802,6 +802,16 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "extra-payment-calculator",
+    category: "finance",
+    title: "Extra Payment",
+    heading: "Extra Mortgage Payment Calculator",
+    description:
+      "See how much interest you save and how many years you cut off a mortgage or loan by paying extra monthly, yearly or one time, with a year-by-year table.",
+    keywords: ["extra mortgage payment calculator", "extra payment calculator", "mortgage payoff calculator", "pay off mortgage early calculator", "additional principal payment calculator", "lump sum mortgage payment calculator", "biweekly vs extra payment"],
+    isNew: true,
+  },
+  {
     slug: "balance-transfer-calculator",
     category: "finance",
     title: "Balance transfer",

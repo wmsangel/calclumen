@@ -3,6 +3,7 @@
 import { Sparkles } from "lucide-react";
 import type { OfferGroup } from "@/lib/offers";
 import { track } from "@/lib/track";
+import { withSubId } from "@/lib/subid";
 import { OfferLogo } from "./offer-logo";
 
 /**
@@ -32,7 +33,7 @@ export function OfferPanel({ group, tool }: { group: OfferGroup; tool?: string }
           {group.offers.map((o) => (
             <a
               key={o.id}
-              href={o.url}
+              href={withSubId(o.url, o.network, tool)}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"

@@ -26,12 +26,23 @@ const nextConfig: NextConfig = {
   // with Disallow:/go/ in robots.ts so crawlers stop hammering the raw tagged
   // links and inflating the Associates click count.
   async redirects() {
-    return AMAZON_GO_REDIRECTS.map(({ slug, url }) => ({
-      source: `/go/${slug}`,
-      destination: url,
-      statusCode: 302,
-      basePath: false as const,
-    }));
+    // With ?src=<page-slug> the page label is forwarded as Amazon's ascsubtag
+    // (sub-id per page, network rule 2026-11-16); without it, the plain redirect.
+    return AMAZON_GO_REDIRECTS.flatMap(({ slug, url }) => [
+      {
+        source: `/go/${slug}`,
+        has: [{ type: "query" as const, key: "src", value: "(?<src>[a-z0-9-]{1,64})" }],
+        destination: `${url}&ascsubtag=calclumen-:src`,
+        statusCode: 302,
+        basePath: false as const,
+      },
+      {
+        source: `/go/${slug}`,
+        destination: url,
+        statusCode: 302,
+        basePath: false as const,
+      },
+    ]);
   },
 };
 

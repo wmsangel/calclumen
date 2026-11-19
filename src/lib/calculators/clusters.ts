@@ -26,6 +26,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
         "mortgage-calculator",
         "mortgage-refinance-calculator",
         "biweekly-mortgage-calculator",
+        "extra-payment-calculator",
         "home-affordability-calculator",
         "rent-vs-buy-calculator",
         "mortgage-points-calculator",

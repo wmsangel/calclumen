@@ -8,4 +8,9 @@ import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incre
 
 export default defineCloudflareConfig({
   incrementalCache: staticAssetsIncrementalCache,
+  // Serve prerendered pages straight from the incremental cache before the
+  // Next.js server boots — Googlebot measured 0.33–2.8 s TTFB on cache HITs
+  // (crawl stats 483 ms avg, 2026-11-12); the network recipe (foundaday 14.11)
+  // cut HTML time with the same flag.
+  enableCacheInterception: true,
 });

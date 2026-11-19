@@ -24,7 +24,7 @@ export function AmazonLink({
 }) {
   return (
     <a
-      href={href}
+      href={`${href}${href.includes("?") ? "&" : "?"}src=${encodeURIComponent(typeof location !== "undefined" ? (location.pathname.split("/").pop() || "home") : "page")}`}
       target="_blank"
       rel="sponsored nofollow noopener"
       className={className}
