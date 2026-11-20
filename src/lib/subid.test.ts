@@ -19,6 +19,11 @@ describe("withSubId", () => {
     expect(subIdValue(undefined)).toBe("home");
     expect(subIdValue("a".repeat(80))).toHaveLength(64);
   });
+  it("keeps /go/ cloaks relative and labels them with src", () => {
+    expect(withSubId("/go/keeper", "hasoffers", "self-employment-tax-calculator")).toBe(
+      "/go/keeper?src=self-employment-tax-calculator",
+    );
+  });
   it("does not overwrite an existing label", () => {
     expect(withSubId("https://x.io/c/1?p1=keep", "indoleads", "new")).toBe("https://x.io/c/1?p1=keep");
   });

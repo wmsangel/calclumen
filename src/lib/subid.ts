@@ -8,6 +8,7 @@ const PARAM: Record<Offer["network"], string | null> = {
   indoleads: "p1",
   admitad: "subid",
   cj: "sid",
+  hasoffers: "src", // /go/<program>?src=<page> → aff_sub via next.config redirect
   amazon: null, // handled by /go/?src= → ascsubtag in next.config redirects
   house: null,
 };
@@ -22,9 +23,10 @@ export function withSubId(url: string, network: Offer["network"], tool?: string)
   const param = PARAM[network];
   if (!param) return url;
   try {
-    const u = new URL(url);
+    const u = new URL(url, "https://calclumen.com");
+    const relative = url.startsWith("/");
     if (!u.searchParams.has(param)) u.searchParams.set(param, subIdValue(tool));
-    return u.toString();
+    return relative ? u.pathname + u.search : u.toString();
   } catch {
     return url;
   }

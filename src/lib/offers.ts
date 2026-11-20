@@ -19,7 +19,7 @@ export interface Offer {
   /** optional promo/deal pill, e.g. "15% OFF" */
   badge?: string;
   /** affiliate network the link belongs to — GA4 `affiliate_click.network` */
-  network: "admitad" | "indoleads" | "amazon" | "cj" | "house";
+  network: "admitad" | "indoleads" | "amazon" | "cj" | "hasoffers" | "house";
 }
 
 export interface OfferGroup {
@@ -278,6 +278,26 @@ const TECH: OfferGroup = {
   offers: [NORDPASS, EASEUS, PUREVPN, KEYCENSE, MACPAW],
 };
 
+
+// Keeper (HasOffers direct program, owner account aff_id 2191, offer 25):
+// $50 CPA per free-trial start. Served through our /go/keeper cloak so the page
+// label travels as aff_sub (see next.config redirects) and crawlers stay off
+// the raw tracking link. US tax-season intent only.
+const KEEPER: Offer = {
+  id: "keeper",
+  name: "Keeper",
+  network: "hasoffers",
+  blurb:
+    "Tax filing built for freelancers and 1099 workers: it finds write-offs in your bank transactions, estimates quarterly payments and files your return. Free trial.",
+  url: "/go/keeper",
+  cta: "Try Keeper free",
+};
+
+const TAX: OfferGroup = {
+  label: "File your taxes with",
+  offers: [KEEPER],
+};
+
 const EDUCATION: OfferGroup = {
   label: "Level up your skills",
   offers: [COURSERA],
@@ -301,6 +321,15 @@ const TECH_SLUGS = new Set([
 const EDUCATION_SLUGS = new Set(["gpa-calculator", "grade-calculator"]);
 // Currency conversion → money-transfer intent.
 const CURRENCY_SLUGS = new Set(["currency-converter"]);
+// Self-employed / 1099 tax intent → Keeper (tax filing), not a personal loan.
+const TAX_SLUGS = new Set([
+  "quarterly-estimated-tax-calculator",
+  "self-employment-tax-calculator",
+  "income-tax-calculator",
+  "bonus-tax-calculator",
+  "mileage-reimbursement-calculator",
+  "capital-gains-tax-calculator",
+]);
 // Investment / savings-growth calculators → markets intent (better match than a
 // loan offer, so these override the finance→FINANCIAL default below).
 const INVESTING_SLUGS = new Set([
@@ -350,6 +379,7 @@ export function euOffersForCalc(calc: CalcDef): OfferGroup | null {
 
 /** The affiliate offer group for a calculator, or null (ads-only). */
 export function offersForCalc(calc: CalcDef): OfferGroup | null {
+  if (TAX_SLUGS.has(calc.slug)) return TAX;
   if (PREGNANCY_SLUGS.has(calc.slug)) return PREGNANCY;
   if (EDUCATION_SLUGS.has(calc.slug)) return EDUCATION;
   if (TECH_SLUGS.has(calc.slug)) return TECH;

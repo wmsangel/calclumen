@@ -28,7 +28,20 @@ const nextConfig: NextConfig = {
   async redirects() {
     // With ?src=<page-slug> the page label is forwarded as Amazon's ascsubtag
     // (sub-id per page, network rule 2026-11-16); without it, the plain redirect.
-    return AMAZON_GO_REDIRECTS.flatMap(({ slug, url }) => [
+    // Direct affiliate programs behind /go/<program>: page label → the
+    // network's sub-id parameter (Keeper/HasOffers: aff_sub).
+    const KEEPER = "https://keepertax.go2cloud.org/aff_c?offer_id=25&aff_id=2191";
+    const programGo = [
+      {
+        source: "/go/keeper",
+        has: [{ type: "query" as const, key: "src", value: "(?<src>[a-z0-9-]{1,64})" }],
+        destination: `${KEEPER}&aff_sub=calclumen-:src`,
+        statusCode: 302,
+        basePath: false as const,
+      },
+      { source: "/go/keeper", destination: KEEPER, statusCode: 302, basePath: false as const },
+    ];
+    return programGo.concat(AMAZON_GO_REDIRECTS.flatMap(({ slug, url }) => [
       {
         source: `/go/${slug}`,
         has: [{ type: "query" as const, key: "src", value: "(?<src>[a-z0-9-]{1,64})" }],
@@ -42,7 +55,7 @@ const nextConfig: NextConfig = {
         statusCode: 302,
         basePath: false as const,
       },
-    ]);
+    ]));
   },
 };
 
