@@ -331,6 +331,9 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **20.11 (к сб 21.11):** Admitad broken_links «calclumen.com → Doctronic 182747, клик 20.11 09:38»: на сайте ссылки нет с 12.10
+  (a173b26; grep кода/прода по doctronic — 0, health-страницы чистые) → это старый диплинк из кэша/закладки с referrer calclumen;
+  заменять нечего, в сб отчитаться строкой и убедиться, что в Admitad запись одиночная. Keeper: клик с меткой в Performance → Sub ID.
 - **20.11 пт (поручение):** Keeper (HasOffers, прямая) подключён (4d5ebc3): оффер 25 «Free Trial ($50 CPA)», aff_id 2191, на 6
   налоговых страницах через `/go/keeper?src=<slug>` → `aff_sub=calclumen-<slug>`; клик-тест ✓; метка в отчёте — проверить. Владельцу:
   payment method + tax form в кабинете Keeper. Подробности research/AFFILIATE.md.
