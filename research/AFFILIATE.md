@@ -137,3 +137,20 @@ Igor Zagorodnyi — info@calclumen.com — https://calclumen.com
   вторую сеть через 30 дней стабильной работы AdSense, по одному блоку, не в тех же слотах.
 - Код Media.net = такой же env-gated компонент, как AdSense/Ezoic (src/components/adsense.tsx, ezoic.tsx); ads.txt — добавить
   строки Media.net в src/app/ads.txt/route.ts после одобрения.
+
+---
+
+# Keeper (HasOffers, прямая программа) — подключено 20.11.2026
+
+- Кабинет: https://keepertax.hasoffers.com/publisher (владелец зарегистрировался 20.11; аккаунт активен, модерации нет). aff_id **2191**.
+- Единственный оффер **25 «Keeper Tax — Free Trial ($50)»**: $50 CPA за цель «Free Trial Start» (другие цели — $0), протокол server postback, истекает 22.12.2030, гео-ограничений нет (US-продукт).
+- Трекинг: `https://keepertax.go2cloud.org/aff_c?offer_id=25&aff_id=2191`; sub-id — `aff_sub` (до 500 симв., отчёт Performance → Sub ID).
+- На сайте: оффер `keeper` (network `hasoffers`) в группе **TAX «File your taxes with»** на quarterly-estimated-tax, self-employment-tax,
+  income-tax, bonus-tax, mileage-reimbursement, capital-gains-tax (4d5ebc3). Ссылка в HTML — `/go/keeper?src=<slug>` (rel sponsored
+  nofollow, /go/ закрыт в robots) → 302 → трекинг + `aff_sub=calclumen-<slug>`; без `src` — чистый трекинг.
+- Клик-тест 20.11: /go/keeper?src=… → 302 с aff_sub ✓ → go2cloud 302 на keepertax.com ✓. Метку в отчёте HasOffers проверить
+  (Reports → Performance → Sub ID 1 = calclumen-quarterly-estimated-tax-calculator).
+- **Владелец:** в кабинете висит «Add a payment method» и «Complete the tax form» — без них выплат не будет (платёжные данные и
+  налоговые формы вводит владелец).
+- Логика размещения: ниже блока «How it works», только на налоговых страницах; Upgrade (кредит) с этих страниц снят (группа TAX
+  имеет приоритет над FINANCIAL).
