@@ -8,6 +8,7 @@ import {
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/seo/site";
 import { NETWORK_SITES } from "@/lib/network";
 import { BrandMark } from "./brand";
+import { StudioCredit } from "./studio-credit";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   return (
@@ -90,7 +91,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-[var(--rule)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[var(--ink-soft)]">
-          <span>© 2026 {SITE_NAME}</span>
+          <span>
+            © 2026 {SITE_NAME} · <StudioCredit />
+          </span>
           <nav className="flex items-center gap-4 flex-wrap justify-center">
             <Link
               href={`/${locale}/guides`}

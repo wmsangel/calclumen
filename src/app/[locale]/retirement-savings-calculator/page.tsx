@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Set your expected annual return and, optionally, a yearly contribution increase.",
     "Read your projected balance at retirement, total contributions and total growth.",
   ],
+  methodology: [
+    "The projection compounds monthly: each month the balance grows by the annual return divided by 12, then the monthly contribution is added, from today until the retirement age you enter. It is the future value of the current balance plus the future value of an annuity of contributions at the same monthly rate. The result is nominal dollars unless you enter a real (inflation-adjusted) return.",
+    "Not modelled: employer matching (see the 401(k) calculator), annual contribution limits, taxes on withdrawal, fees, sequence-of-returns risk and years with losses — a fixed return is an illustration, not a forecast. For how long the money lasts after retirement, use the retirement withdrawal rules of thumb (the 4% guideline) rather than this accumulation model.",
+  ],
+  sources: [
+    { label: "U.S. SEC Investor.gov — Saving and investing for retirement", url: "https://www.investor.gov/additional-resources/retirement-toolkit" },
+    { label: "U.S. Department of Labor — Top 10 ways to prepare for retirement", url: "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/top-10-ways-to-prepare-for-retirement" },
+  ],
   faq: [
     {
       q: "What rate of return should I assume?",

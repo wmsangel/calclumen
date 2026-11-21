@@ -36,6 +36,14 @@ const content: CalcContent = {
     "Enter the number of years between the two.",
     "Read the CAGR per year, the total return over the period and the total gain.",
   ],
+  methodology: [
+    "CAGR = (ending value ÷ beginning value)^(1 ÷ years) − 1: the single constant yearly rate that turns the start value into the end value over the period. Total return = ending ÷ beginning − 1, and the absolute gain is the difference in money. Fractional years are allowed, so a 30-month period is 2.5 years.",
+    "CAGR smooths out the path: two investments with the same start and end values have the same CAGR even if one swung wildly in between, and it says nothing about volatility or risk. It also ignores cash added or withdrawn during the period — for portfolios with contributions use a money-weighted return (IRR) instead — and it is a nominal figure unless you enter inflation-adjusted values.",
+  ],
+  sources: [
+    { label: "U.S. SEC Investor.gov — Compound interest and return concepts", url: "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" },
+    { label: "CFA Institute — Time-weighted vs money-weighted returns (GIPS guidance)", url: "https://www.cfainstitute.org/en/ethics-standards/codes/gips-standards" },
+  ],
   faq: [
     {
       q: "How is CAGR calculated?",

@@ -29,7 +29,7 @@ const content: CalcContent = {
   intro: [
     "If you earn money without an employer withholding tax — freelancing, contracting on a 1099, running a side business or a sole proprietorship — the IRS expects you to pay as you go through quarterly estimated tax payments on Form 1040-ES. This calculator works out what you owe for tax year 2026: self-employment tax on your net profit, federal income tax after the standard deduction and the optional QBI deduction, any Additional Medicare Tax, and a flat estimate for state tax. It then applies the safe-harbor rules to tell you the amount to send each quarter so you avoid an underpayment penalty.",
     "The key idea is the safe harbor. You do not have to predict your tax to the dollar: as long as your withholding plus estimated payments reach the smaller of 90% of this year's tax or 100% of last year's tax (110% if last year's adjusted gross income was over $150,000), there is no penalty even if you end up owing more in April. And if the balance you would owe after withholding is under $1,000, estimated payments are not required at all. Enter last year's total tax from Form 1040 line 24 to let the calculator pick the cheaper safe harbor for you.",
-    "Worked example: a single freelancer with $80,000 of net profit, no W-2 job and no prior-year return. Self-employment tax is 15.3% of 92.35% of the profit, $11,304. Half of that is deducted, so AGI is $74,348; after the $16,100 standard deduction and a 20% QBI deduction of $11,650, taxable income is $46,599 and federal income tax comes to $5,344, for a total of $16,647. Ninety percent of that is the safe harbor, so $3,746 is due each quarter — plus state tax, if your state has one.",
+    "Worked example: a single freelancer with $80,000 of net profit, no W-2 job and no prior-year return. Self-employment tax is 15.3% of 92.35% of the profit, $11,304. Half of that is deducted, so AGI is $74,348; after the $16,100 standard deduction and a 20% QBI deduction of $11,650, taxable income is $46,599 and federal income tax comes to $5,344, for a total of $16,647 (figures rounded to the dollar). Ninety percent of that is the safe harbor, so $3,746 is due each quarter — plus state tax, if your state has one.",
   ],
   steps: [
     "Pick your filing status and enter your expected net profit for the year (income minus business expenses). Add W-2 wages, other income and any federal tax already withheld if you also have a job.",
@@ -64,6 +64,14 @@ const content: CalcContent = {
     {
       q: "What happens if I pay too little or pay late?",
       a: "The IRS charges an underpayment penalty, which is essentially interest (the federal short-term rate plus 3 percentage points, set quarterly) on the shortfall for each period it was unpaid, computed on Form 2210. It is not a flat fine, so paying late in the year is cheaper than not paying at all, and catching up by the January deadline limits the cost. If your income is uneven, the annualized income installment method on Form 2210 can reduce or remove the penalty.",
+    },
+    {
+      q: "How much should I set aside for taxes on 1099 income?",
+      a: "A common rule of thumb is 25–30% of net profit, and the calculator shows your actual figure: total federal tax divided by profit (the effective rate above). For a single filer with $80,000 of profit and the standard deduction it is about 21% federal; add your state's rate on top. Set the money aside in a separate account as the income arrives, then pay it out in the four instalments.",
+    },
+    {
+      q: "Do I also owe state estimated taxes?",
+      a: "In most states with an income tax, yes — they run their own quarterly schedule, usually on the same four dates, with their own safe-harbor rules and vouchers. Enter your state's flat rate above to include an estimate; states without an income tax on wages (Texas, Florida, Washington, Nevada, Tennessee, South Dakota, Wyoming, Alaska, New Hampshire) need no payment.",
     },
     {
       q: "How do I actually pay?",

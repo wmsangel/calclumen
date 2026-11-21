@@ -794,7 +794,7 @@ export const calculators: CalcDef[] = [
     slug: "quarterly-estimated-tax-calculator",
     category: "finance",
     title: "Quarterly Estimated Tax",
-    heading: "Quarterly Estimated Tax Calculator (1040-ES)",
+    heading: "Quarterly Estimated Tax Calculator 2026 (1040-ES)",
     description:
       "Work out your 2026 quarterly estimated tax payments as a freelancer or 1099 contractor: SE tax, federal income tax, safe harbor and the four IRS due dates.",
     keywords: ["quarterly tax calculator", "estimated tax calculator", "estimated tax payments calculator", "1040-ES calculator", "how to calculate quarterly taxes", "freelancer tax estimator", "self employed quarterly taxes 2026", "safe harbor estimated tax"],

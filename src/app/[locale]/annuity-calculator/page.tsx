@@ -37,6 +37,14 @@ const content: CalcContent = {
     "Pick ordinary annuity (end of period) or annuity due (start of period).",
     "Read the future value, present value, total paid and interest earned; the chart shows the balance growing year by year.",
   ],
+  methodology: [
+    "Future value of an ordinary annuity: FV = P × [((1 + r)ⁿ − 1) ÷ r], where P is the payment per period, r the interest rate per period (annual rate divided by the number of payments a year) and n the total number of payments. Present value: PV = P × [(1 − (1 + r)⁻ⁿ) ÷ r]. For an annuity due (payments at the start of each period) both results are multiplied by (1 + r). Total interest is FV minus the sum of payments; at r = 0 the formulas collapse to P × n.",
+    "Not modelled: taxes on the growth, fees and surrender charges of commercial annuity products, inflation, payments that grow over time (a growing annuity) and mortality-based pricing of lifetime annuities — a quote from an insurer reflects those and your age, and will differ from this time-value-of-money result.",
+  ],
+  sources: [
+    { label: "U.S. SEC Investor.gov — Annuities", url: "https://www.investor.gov/introduction-investing/investing-basics/investment-products/insurance-products/annuities" },
+    { label: "FINRA — Annuities", url: "https://www.finra.org/investors/investing/investment-products/annuities" },
+  ],
   faq: [
     {
       q: "What's the difference between present value and future value of an annuity?",

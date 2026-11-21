@@ -36,6 +36,15 @@ const content: CalcContent = {
     "Enter how much you want to borrow, the rate and the repayment term.",
     "Read your equity, the credit available, and the monthly payment and total interest.",
   ],
+  methodology: [
+    "Equity = home value − mortgage balance. Available credit = home value × maximum combined loan-to-value (CLTV) − mortgage balance, floored at zero; most lenders cap CLTV at 80–85% for home equity loans and HELOCs, which is why the default is 85%. The monthly payment on the amount you borrow uses the standard fixed-rate amortization formula over the term you enter (a HELOC draw period with interest-only payments would be lower during the draw and higher after).",
+    "Not modelled: closing costs and appraisal fees, variable HELOC rates that reset with the prime rate, interest-only draw periods, lender minimums and credit-score pricing, and the tax treatment of the interest (deductible only when the funds buy, build or substantially improve the home, under the current rules).",
+  ],
+  sources: [
+    { label: "CFPB — What is a home equity loan?", url: "https://www.consumerfinance.gov/ask-cfpb/what-is-a-home-equity-loan-en-106/" },
+    { label: "CFPB — What you should know about home equity lines of credit (HELOC)", url: "https://www.consumerfinance.gov/owning-a-home/explore/home-equity-line-of-credit/" },
+    { label: "IRS Publication 936 — Home mortgage interest deduction", url: "https://www.irs.gov/publications/p936" },
+  ],
   faq: [
     {
       q: "How much equity can I borrow from my home?",

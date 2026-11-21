@@ -17,8 +17,8 @@ export function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // /go/<slug> is a locale-less affiliate cloak handled by a next.config
-  // redirect (302 to Amazon); never rewrite it to /en/go/...
+  // /go/<slug> is a locale-less affiliate cloak handled by app/go/[slug]/route.ts
+  // (gesture gate + 302); never rewrite it to /en/go/...
   if (pathname === "/go" || pathname.startsWith("/go/")) {
     return NextResponse.next();
   }

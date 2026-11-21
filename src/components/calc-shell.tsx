@@ -23,6 +23,7 @@ import { crossLinkFor } from "@/lib/cross-links";
 import { spotlightForPage } from "@/lib/spotlight";
 import { AmazonMaterials } from "./amazon-materials";
 import { TrackedLink } from "./tracked-link";
+import { boostLinksFor } from "@/lib/boost-links";
 import calcUpdated from "@/lib/generated/calc-updated.json";
 import { AUTHOR } from "@/lib/seo/author";
 
@@ -287,6 +288,27 @@ export function CalcShell({
         })()}
 
         {content.extra ? <div className="mt-8">{content.extra}</div> : null}
+
+        {(() => {
+          const boost = boostLinksFor(slug)
+            .map((s) => getCalc(s))
+            .filter((c): c is CalcDef => Boolean(c));
+          if (!boost.length) return null;
+          return (
+            <p className="text-[var(--ink-soft)] leading-relaxed mt-4">
+              Often used alongside this tool:{" "}
+              {boost.map((c, i) => (
+                <span key={c.slug}>
+                  {i > 0 ? (i === boost.length - 1 ? " and " : ", ") : ""}
+                  <Link href={`/${locale}/${c.slug}`} className="prose-link">
+                    {c.heading.replace(/ Calculator$/, "").toLowerCase()} calculator
+                  </Link>
+                </span>
+              ))}
+              .
+            </p>
+          );
+        })()}
 
         <h2 className="mt-12 text-xl font-semibold">How to use the {calc.heading}</h2>
         <ol className="mt-4 space-y-3">

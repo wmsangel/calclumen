@@ -104,7 +104,7 @@ export function QuarterlyEstimatedTaxCalculator() {
             ]}
           />
         </Field>
-        <Field label="State income tax rate (%)" hint="Flat estimate; 0 for TX, FL, WA, NV, TN, SD, WY, AK">
+        <Field label="State income tax rate (%)" hint="Flat estimate; 0 for TX, FL, WA, NV, TN, SD, WY, AK, NH">
           <input
             className="field"
             type="number"
