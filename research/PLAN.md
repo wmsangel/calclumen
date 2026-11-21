@@ -165,16 +165,16 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    | # | Страница | Главный запрос (спрос/мес) | Источники ставок | Срок |
    |---|---|---|---|---|
    | ✅ T1 (17.11, 3a365ff) | quarterly-estimated-tax-calculator — 1040-ES 2026/27, safe harbor 90%/100%/110% (AGI>$150K), минус удержания W-2, штат flat % | quarterly/estimated tax calculator 3,6K+3,6K+1,6K | IRS Pub 505, Form 1040-ES 2026, Pub 15 | вт 17.11 (= бывший «Контент 2/8») |
-   | T3 | 1099-vs-w2-calculator — take-home: SE tax 15,3% (½ вычет), QBI 20%, станд. вычет 2026, брекеты, штат % | 1099 calculator 2,4K; 1099 vs w2 1,6K | IRS Pub 15/505, Rev. Proc. 2026 брекеты | вт 24.11 |
-   | T2 | tax-deadline-calendar — .ics под страну/штат/дату регистрации: IRS 15.04/15.06/15.09/15.01 + годовой + штатные; напоминания за 14/3 дня; UK 31.01/31.07 (+MTD-кварталы позже) | quarterly tax dates 8,1K; estimated tax dates 6,6K | IRS Pub 509, tax.state.*.gov | сб 28.11 (день фич — это файл-артефакт) |
-   | T4 | uk-self-assessment-calculator — income tax + Class 4 (6%/2%, порог £12 570), payments on account (2×50% прошлого счёта), когда SA303 | self assessment tax calculator 3,6K; payments on account 1,9K | gov.uk rates 2026/27, HMRC SA guidance | вт 08.12 |
-   | T5 | irs-penalty-calculator — late filing 5%/мес (до 25%), late payment 0,5%/мес, underpayment по кварталам + проценты IRS за квартал (ставка по дате) | irs penalty calculator 2,4K; interest & penalties 3,6K | IRS Topic 653, Form 2210, IRS interest rates (кварт.) | вт 15.12 |
+   | T3 | 1099-vs-w2-calculator — take-home: SE tax 15,3% (½ вычет), QBI 20%, станд. вычет 2026, брекеты, штат % | 1099 calculator 2,4K; 1099 vs w2 1,6K | IRS Pub 15/505, Rev. Proc. 2026 брекеты | вт 24.11 | <!-- crm:0mwd3lg6qf8d514764017b22a --> <!-- due:2026-11-24 -->
+   | T2 | tax-deadline-calendar — .ics под страну/штат/дату регистрации: IRS 15.04/15.06/15.09/15.01 + годовой + штатные; напоминания за 14/3 дня; UK 31.01/31.07 (+MTD-кварталы позже) | quarterly tax dates 8,1K; estimated tax dates 6,6K | IRS Pub 509, tax.state.*.gov | сб 28.11 (день фич — это файл-артефакт) | <!-- crm:0mwd3lfquba40d0720845d1f7 --> <!-- due:2026-12-05 -->
+   | T4 | uk-self-assessment-calculator — income tax + Class 4 (6%/2%, порог £12 570), payments on account (2×50% прошлого счёта), когда SA303 | self assessment tax calculator 3,6K; payments on account 1,9K | gov.uk rates 2026/27, HMRC SA guidance | вт 08.12 | <!-- crm:0mwd3lgkid45a2cc0b6926872 --> <!-- due:2026-12-08 -->
+   | T5 | irs-penalty-calculator — late filing 5%/мес (до 25%), late payment 0,5%/мес, underpayment по кварталам + проценты IRS за квартал (ставка по дате) | irs penalty calculator 2,4K; interest & penalties 3,6K | IRS Topic 653, Form 2210, IRS interest rates (кварт.) | вт 15.12 | <!-- crm:0mwd3lh1f9f5242fc97710395 --> <!-- due:2026-12-15 -->
    **Решение владельца 12.11: 2 страницы/нед — вторник хаб, четверг страница контент-плана; четверговый аудит ужат до замеров
    (индексация 7/28д, 302 диплинков, статус AdSense), полный разбор раз в 2 недели.** Итоговые даты (CRM обновлён):
    вт 17.11 T1 quarterly · чт 19.11 3/8 extra-payment (+AdSense-тонкое переносится на сб 21.11) · сб 21.11 AdSense: тонкие
-   страницы + хабы · вт 24.11 T3 1099-vs-w2 · чт 26.11 4/8 travel-budget · сб 28.11 T2 .ics-календарь · вт 01.12 резерв
-   (гейт AdSense / хаб Conversions) · чт 03.12 5/8 home-sale · сб 05.12 F2 экспорт CSV/PDF · вт 08.12 T4 UK self-assessment ·
-   чт 10.12 6/8 investment-fee (+ полный аудит) · сб 12.12 F1 ссылка на расчёт · вт 15.12 T5 irs-penalty · чт 17.12 7/8
+   страницы + хабы · вт 24.11 T3 1099-vs-w2 · чт 26.11 4/8 travel-budget · сб 28.11 T2 .ics-календарь · вт 01.12 резерв <!-- crm:0mw8ug9c6270bb1948b5cc7ea --> <!-- due:2026-11-26 -->
+   (гейт AdSense / хаб Conversions) · чт 03.12 5/8 home-sale · сб 05.12 F2 экспорт CSV/PDF · вт 08.12 T4 UK self-assessment · <!-- crm:0mw8ug9o95c35bfe539780da3 --> <!-- due:2026-12-03 --> <!-- crm:0mw8ugbf0182dd7b5164b4613 --> <!-- due:2026-12-12 -->
+   чт 10.12 6/8 investment-fee (+ полный аудит) · сб 12.12 F1 ссылка на расчёт · вт 15.12 T5 irs-penalty · чт 17.12 7/8 <!-- crm:0mw8uga2zbfb945070341f750 --> <!-- due:2026-12-10 --> <!-- crm:0mw8ugb314982eea862ece1cf --> <!-- due:2026-12-19 -->
    lump-sum-vs-annuity · чт 24.12 8/8 credit-utilization.
    **ПЕНСИОННЫЕ КАЛЬКУЛЯТОРЫ (владелец 12.11; заметка retirement-calculators-check-2026-11-12.md) — январские вторники после
    налогового хаба.** Ключевое наблюдение заметки: AI Overview стоит на всех 12 проверенных запросах и зовёт «посчитать в чате»
@@ -331,6 +331,13 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **21.11 сб (ритм):** 4cf1b08 — Next ^16.4.6 (advisory закрыт, нудж исчез, OG/страницы ок); **/go за жест-гейтом** (route handler
+  src/app/go/[slug]/route.ts + src/lib/go.ts, 9 тестов): curl/боты/prefetch/не-navigate → 204, Chrome/Safari без Sec-Fetch-User → 204,
+  жест → 302 с sub-id (keeper aff_sub, amazon ascsubtag); матрица на проде 204/302/204/302/204 ✓; подпись студии в футере
+  (nofollow noopener, outbound_click); boost-links: 16 проиндексированных → 20 CNI in-body (каждая цель ≥2); методология на annuity,
+  cagr, retirement-savings, home-equity (24 страницы всего); налоговая страница: «2026» в H1/title, +2 FAQ, NH. Keeper: клик в
+  отчёте не проверен — сессия кабинета истекла (логин владельца) → 26.11. Doctronic broken_link: ссылки на сайте нет с 12.10 — старый
+  диплинк, заменять нечего. CRM: закрыты Next, 2б; Keeper → 26.11. Сверка план↔CRM: внесено 13 меток, сроки Media.net/НГ сведены.
 - **20.11 (к сб 21.11):** Admitad broken_links «calclumen.com → Doctronic 182747, клик 20.11 09:38»: на сайте ссылки нет с 12.10
   (a173b26; grep кода/прода по doctronic — 0, health-страницы чистые) → это старый диплинк из кэша/закладки с referrer calclumen;
   заменять нечего, в сб отчитаться строкой и убедиться, что в Admitad запись одиночная. Keeper: клик с меткой в Performance → Sub ID.
@@ -349,11 +356,15 @@ _(последние ~2 недели)_
   **CJ:** pending TurboTax/TaxAct/TaxSlayer; MRC — declined (auto), Barclays — 3 клика без заявки (пропустить, если не возьмёт 26.11).
   **Страница 3/8** /en/extra-payment-calculator на проде (2d1e2e6). Плагин: technical 95/100 по новой странице (без Medium+),
   content 78/100, E-E-A-T 66 — советы (год в title, H2 под запросы, поля SEP-IRA/медстраховка) → в сб 21.11.
-  CRM: заведённые сессией задачи помечены crm-метками в плане: партнёрки <!-- crm:0mwlu1lxsc06ead10b69c955b --> <!-- due:2026-11-26 -->,
-  GA4 key event <!-- crm:0mwk7itlx1a03dd2135800c6f --> ✅ закрыть, CJ заявки <!-- crm:0mwiradegdd036c1819e9d329 --> <!-- due:2026-11-26 -->,
-  Media.net <!-- crm:0mwk66fae4ad70a65daf14f58 --> <!-- due:2026-11-20 -->, НГ <!-- crm:0mwk84on5f63e93163fdf9c34 --> <!-- due:2026-12-05 -->,
-  Next 16.4.6 <!-- crm:0mwk91u252a07da96277b49ff --> <!-- due:2026-11-21 -->, владельцу FreshBooks/Keeper (PartnerStack; диспетчер)
-  <!-- crm:0mwm456qrf --> <!-- crm:0mwm45616c --> <!-- due:2026-11-20 -->.
+  CRM-метки (одна задача — одна строка):
+  - партнёрки AUTO/health <!-- crm:0mwlu1lxsc06ead10b69c955b --> <!-- due:2026-11-26 -->
+  - CJ заявки/статусы <!-- crm:0mwiradegdd036c1819e9d329 --> <!-- due:2026-11-26 -->
+  - Media.net (владелец: письмо pubsales) <!-- crm:0mwk66fae4ad70a65daf14f58 --> <!-- due:2026-11-26 -->
+  - НГ-оформление <!-- crm:0mwk84on5f63e93163fdf9c34 --> <!-- due:2026-12-05 -->
+  - Keeper: клик с меткой в Performance → Sub ID <!-- crm:0mwopoelic80d7b6666a43d33 --> <!-- due:2026-11-26 -->
+  - ✅ Next 16.4.6 (21.11) <!-- crm:0mwk91u252a07da96277b49ff -->
+  - ✅ GA4 key event (19.11) <!-- crm:0mwk7itlx1a03dd2135800c6f -->
+  - GSC Request Indexing add-days (конвейер) <!-- crm:0mwpsudqf1 --> <!-- due:2026-11-24 -->
 - **17.11 вт (ритм):** T1 /en/quarterly-estimated-tax-calculator на проде (3a365ff): общий модуль federal-tax-2026.ts, 1040-ES-математика
   с 8 тестами, safe harbor 90/100/110 % и порог $1,000, 4 даты 2026, worked example в HTML ($80k → $3,746/кв.), методология + 5 источников;
   income-tax переведён на общие константы. Донор: iznkit /en/guides/freelance-tax-explained. Сетевые: НГ-оформление → CRM
