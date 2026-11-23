@@ -329,6 +329,11 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **23.11 решение владельца — авто-довесок:** car-maintenance-cost-calculator + печатный maintenance log (PDF в браузере), одна задача
+  ~1 день; спрос 1–1,4K/мес, CPC $3,89; в топе CarEdge/KBB/Edmunds/AAA → наша ценность — расчёт по пробегу/возрасту/типу с
+  методологией и печатный лог. Партнёрки только Advance Auto Parts/AutoZone из открытых кабинетов; CarShield/Endurance — нет.
+  **Срок: сб 12.12 вместе с F2** (общая PDF/print-машинерия; 28.11 занято возвратом 57 URL, 05.12 — T2 .ics + НГ). Стоп 28.02.2027:
+  <300 показов/нед или <10 кликов/нед → страницы по моделям не делать. <!-- crm:0mwstsd2sd5bfc9e58ebb135b --> <!-- due:2026-12-12 -->
 - **21.11 сб (ритм):** 4cf1b08 — Next ^16.4.6 (advisory закрыт, нудж исчез, OG/страницы ок); **/go за жест-гейтом** (route handler
   src/app/go/[slug]/route.ts + src/lib/go.ts, 9 тестов): curl/боты/prefetch/не-navigate → 204, Chrome/Safari без Sec-Fetch-User → 204,
   жест → 302 с sub-id (keeper aff_sub, amazon ascsubtag); матрица на проде 204/302/204/302/204 ✓; подпись студии в футере
