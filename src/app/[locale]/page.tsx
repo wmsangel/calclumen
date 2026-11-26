@@ -78,7 +78,7 @@ export default async function HomePage({
       </section>
 
       <div className="mx-auto max-w-6xl px-5">
-        <AdSlot className="mt-4" />
+        <AdSlot className="mt-4" house />
 
         <MyCalculators locale={locale} />
 
