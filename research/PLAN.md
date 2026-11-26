@@ -161,7 +161,7 @@ OneLink — настраиваем (шаги в #9); finance — построи�
    | # | Страница | Главный запрос (спрос/мес) | Источники ставок | Срок |
    |---|---|---|---|---|
    | ✅ T1 (17.11, 3a365ff) | quarterly-estimated-tax-calculator — 1040-ES 2026/27, safe harbor 90%/100%/110% (AGI>$150K), минус удержания W-2, штат flat % | quarterly/estimated tax calculator 3,6K+3,6K+1,6K | IRS Pub 505, Form 1040-ES 2026, Pub 15 | вт 17.11 (= бывший «Контент 2/8») |
-   | T3 | 1099-vs-w2-calculator — take-home: SE tax 15,3% (½ вычет), QBI 20%, станд. вычет 2026, брекеты, штат % | 1099 calculator 2,4K; 1099 vs w2 1,6K | IRS Pub 15/505, Rev. Proc. 2026 брекеты | вт 24.11 | <!-- crm:0mwd3lg6qf8d514764017b22a --> <!-- due:2026-11-24 -->
+   | ✅ T3 (24/26.11, 018b1fc) | 1099-vs-w2-calculator — take-home: SE tax 15,3% (½ вычет), QBI 20%, станд. вычет 2026, брекеты, штат % | 1099 calculator 2,4K; 1099 vs w2 1,6K | IRS Pub 15/505, Rev. Proc. 2026 брекеты | вт 24.11 | <!-- crm:0mwd3lg6qf8d514764017b22a --> <!-- due:2026-11-24 -->
    | T2 | tax-deadline-calendar — .ics под страну/штат/дату регистрации: IRS 15.04/15.06/15.09/15.01 + годовой + штатные; напоминания за 14/3 дня; UK 31.01/31.07 (+MTD-кварталы позже) | quarterly tax dates 8,1K; estimated tax dates 6,6K | IRS Pub 509, tax.state.*.gov | сб 28.11 (день фич — это файл-артефакт) | <!-- crm:0mwd3lfquba40d0720845d1f7 --> <!-- due:2026-12-05 -->
    | T4 | uk-self-assessment-calculator — income tax + Class 4 (6%/2%, порог £12 570), payments on account (2×50% прошлого счёта), когда SA303 | self assessment tax calculator 3,6K; payments on account 1,9K | gov.uk rates 2026/27, HMRC SA guidance | вт 08.12 | <!-- crm:0mwd3lgkid45a2cc0b6926872 --> <!-- due:2026-12-08 -->
    | T5 | irs-penalty-calculator — late filing 5%/мес (до 25%), late payment 0,5%/мес, underpayment по кварталам + проценты IRS за квартал (ставка по дате) | irs penalty calculator 2,4K; interest & penalties 3,6K | IRS Topic 653, Form 2210, IRS interest rates (кварт.) | вт 15.12 | <!-- crm:0mwd3lh1f9f5242fc97710395 --> <!-- due:2026-12-15 -->
@@ -329,6 +329,14 @@ _(последние ~2 недели)_
   К разбору 16.11 / сб: (1) edge-кэш HTML (Cache Rule «cache everything» для /en/* с учётом cookie-баннера, либо Cache API
   в OpenNext), (2) ужать HTML главной (не инлайнить весь реестр/RSC-пейлоад), (3) стабильность чанков между деплоями (vendor-чанк),
   (4) AdsBot 17% — пока AdSense на пересмотре смысла ограничивать нет (без Mediapartners реклама не пройдёт), пересмотреть после.
+- **24.11 вт (ритм; ход оборвался на лимите, доделано 26.11):** T3 /en/1099-vs-w2-calculator на проде (018b1fc): W-2 vs 1099 с
+  бенефитами, break-even rate; 6 тестов (194), методология + 5 источников IRS. **Разбор событий недели:** GA4 после фикса consent —
+  56–90 сессий/день (было ~8), но tool_opened 2–3/день: программные страницы (units/data/combinations…, ~половина лендингов) и гайды
+  не имели событий вовсе → узкое место «нет инструментовки»; добавлен ToolEvents (tool_opened{tool=кластер,item=slug}) на 12 шаблонов,
+  события print и search{len,kind}; проверено на проде (/en/units/50-kg-to-lbs → tool_opened:units в GA и маячке). **Ссылки сети:**
+  блок «Our network» убран из футера шаблона (был **dofollow 28.08–23.10**, e2bc925→9e95e43; обвал показов начался 29.08 — на следующий
+  день после появления блока), оставлен на / и /about (nofollow); in-body cross-links → nofollow; house-ad сети — только на главной
+  (79a9046); на внутренних страницах ссылок на домены сети нет (кроме подписи студии). ✅ T3 CRM закрыта.
 - **23.11 решение владельца — авто-довесок:** car-maintenance-cost-calculator + печатный maintenance log (PDF в браузере), одна задача
   ~1 день; спрос 1–1,4K/мес, CPC $3,89; в топе CarEdge/KBB/Edmunds/AAA → наша ценность — расчёт по пробегу/возрасту/типу с
   методологией и печатный лог. Партнёрки только Advance Auto Parts/AutoZone из открытых кабинетов; CarShield/Endurance — нет.
