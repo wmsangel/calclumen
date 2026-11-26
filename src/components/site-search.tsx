@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/track";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -117,6 +118,16 @@ export function SiteSearch({
       setOpen(false);
     }
   }
+
+  // Network-standard `search` event: query LENGTH and result kind only — never
+  // the text. Debounced so a typed query counts once.
+  useEffect(() => {
+    const len = q.trim().length;
+    if (len < 2) return;
+    const t = setTimeout(() => track("search", { len, kind: hits.length ? "tool" : "empty" }), 1200);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q]);
 
   return (
     <div ref={boxRef} className="relative w-full">

@@ -97,6 +97,7 @@ export const CLUSTERS: Partial<Record<CategoryId, CalcCluster[]>> = {
       slugs: [
         "income-tax-calculator",
         "quarterly-estimated-tax-calculator",
+        "1099-vs-w2-calculator",
         "self-employment-tax-calculator",
         "paycheck-calculator",
         "bonus-tax-calculator",

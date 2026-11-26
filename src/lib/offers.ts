@@ -324,6 +324,7 @@ const CURRENCY_SLUGS = new Set(["currency-converter"]);
 // Self-employed / 1099 tax intent → Keeper (tax filing), not a personal loan.
 const TAX_SLUGS = new Set([
   "quarterly-estimated-tax-calculator",
+  "1099-vs-w2-calculator",
   "self-employment-tax-calculator",
   "income-tax-calculator",
   "bonus-tax-calculator",

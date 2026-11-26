@@ -1,13 +1,14 @@
 // Permanent in-content do-follow links from a few money pages to topically
 // adjacent sites in our own network. Unlike the footer "network" row (which
 // search engines discount as sitewide boilerplate) and unlike the affiliate
-// offers (rel="sponsored nofollow"), these are editorial, in-body, DO-FOLLOW
+// offers (rel="sponsored nofollow"), these are editorial, in-body; since 24.11 also
+// rel="nofollow" (owner decision: all links between network sites are nofollow)
 // links with a natural anchor — the one kind of cross-link that actually passes
 // authority. Kept deliberately small (one per page, only where it genuinely
 // helps the reader) so it reads as a recommendation, not a link scheme.
 //
 // Rendered as a normal prose paragraph right after the calculator's intro by
-// <CalcShell>. Links are do-follow (rel="noopener" only — NOT nofollow).
+// <CalcShell>. Links are rel="nofollow noopener" (network policy 24.11).
 
 export interface CrossLink {
   href: string;

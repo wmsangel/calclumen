@@ -279,7 +279,7 @@ export function CalcShell({
           return (
             <p className="text-[var(--ink-soft)] leading-relaxed mt-4">
               {cl.before}
-              <a href={cl.href} rel="noopener" className="prose-link">
+              <a href={cl.href} rel="nofollow noopener" className="prose-link">
                 {cl.anchor}
               </a>
               {cl.after}

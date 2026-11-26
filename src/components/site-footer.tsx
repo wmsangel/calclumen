@@ -6,7 +6,6 @@ import {
   categories,
 } from "@/lib/calculators/registry";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/seo/site";
-import { NETWORK_SITES } from "@/lib/network";
 import { BrandMark } from "./brand";
 import { StudioCredit } from "./studio-credit";
 
@@ -67,27 +66,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        {/* Our network — sitewide boilerplate block, so rel="nofollow" (network
-            policy): search engines discount repeated cross-site links, and
-            do-follow weight only flows through single in-body contextual links. */}
-        {NETWORK_SITES.length > 0 ? (
-          <div className="mt-12 pt-6 border-t border-[var(--rule)] text-sm text-[var(--ink-soft)]">
-            <span className="font-semibold text-[var(--ink)]">Our network:</span>{" "}
-            {NETWORK_SITES.map((s, i) => (
-              <span key={s.url}>
-                {i > 0 ? " · " : ""}
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="nofollow noopener"
-                  className="hover:text-[var(--accent)] transition-colors"
-                >
-                  {s.name}
-                </a>
-              </span>
-            ))}
-          </div>
-        ) : null}
+        {/* "Our network" block removed from the sitewide footer 24.11 (owner decision:
+            cross-network links only on the home page and /about, all nofollow). */}
 
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-[var(--rule)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[var(--ink-soft)]">

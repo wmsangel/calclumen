@@ -812,6 +812,16 @@ export const calculators: CalcDef[] = [
     isNew: true,
   },
   {
+    slug: "1099-vs-w2-calculator",
+    category: "finance",
+    title: "1099 vs W-2",
+    heading: "1099 vs W-2 Calculator 2026: Contractor or Employee Take-Home",
+    description:
+      "Compare a W-2 salary with a 1099 contract for 2026: self-employment tax, health insurance, 401(k) match, paid time off and the break-even contractor rate.",
+    keywords: ["1099 vs w2 calculator", "1099 calculator", "contractor vs employee calculator", "w2 to 1099 conversion", "how much more should 1099 make", "self employed vs employee take home", "1099 take home pay calculator"],
+    isNew: true,
+  },
+  {
     slug: "balance-transfer-calculator",
     category: "finance",
     title: "Balance transfer",

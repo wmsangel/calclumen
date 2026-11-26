@@ -17,6 +17,7 @@ import {
 } from "@/lib/programmatic/units";
 import { getCalc } from "@/lib/calculators/registry";
 import { AdSlot } from "@/components/ad-slot";
+import { ToolEvents } from "@/components/tool-events";
 import { Stat, ToolCard } from "@/components/ui";
 
 export const dynamicParams = false;
@@ -122,6 +123,7 @@ export default async function Page({
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8">
+      <ToolEvents tool="units" item={slug} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

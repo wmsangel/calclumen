@@ -6,6 +6,7 @@ import { calculators, categories } from "@/lib/calculators/registry";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
 import { AUTHOR } from "@/lib/seo/author";
+import { NetworkPromo } from "@/components/network-promo";
 
 export async function generateMetadata({
   params,
@@ -135,6 +136,12 @@ export default async function Page({
         </Link>{" "}
         for the details.
       </p>
+
+      <h2 className="text-xl font-semibold mt-10 mb-2">Our other projects</h2>
+      <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
+        CalcLumen is one of a small family of independent tools and guides built by the same developer:
+      </p>
+      <NetworkPromo />
 
       <h2 className="text-xl font-semibold mt-10 mb-2">Get in touch</h2>
       <p className="text-[var(--ink-soft)] leading-relaxed mt-3">
