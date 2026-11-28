@@ -15,6 +15,7 @@ import { FloatingGlyphs } from "@/components/floating-glyphs";
 import { CalcBadge, CategoryBadge } from "@/components/calc-icon";
 import { MyCalculators } from "@/components/my-calculators";
 import { HomeOffers } from "@/components/home-offers";
+import { HOME_FEATURED, HOME_OFFERS_LABEL, publicOffer } from "@/lib/offers";
 import { NetworkPromo } from "@/components/network-promo";
 import { Spotlight } from "@/components/spotlight";
 import { SiteJsonLd } from "@/components/site-jsonld";
@@ -104,7 +105,7 @@ export default async function HomePage({
           </section>
         ) : null}
 
-        <HomeOffers />
+        <HomeOffers pool={HOME_FEATURED.map(publicOffer)} label={HOME_OFFERS_LABEL} />
 
         {/* Category sections */}
         <div className="py-10 space-y-12">

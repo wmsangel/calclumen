@@ -1,45 +1,33 @@
-"use client";
-
-import { track } from "@/lib/track";
-
 /**
- * Client wrapper for a single Amazon Associates link so the click can fire the
- * network-standard `affiliate_click` event (the parent card is a server
- * component). `item` = a short stable product slug (the breakdown key),
- * `placement` = "materials", `platform` = "amazon". `href` is our internal
- * /go/<slug> cloak, which 302-redirects to the tagged amazon.com URL (see
- * next.config.ts + robots Disallow:/go/) so crawlers stop inflating the
- * Associates click count. Link is rel="sponsored nofollow noopener".
+ * One Amazon Associates link. No URL in HTML: href="#" + data-go="<item slug>";
+ * the tokenized /go URL is built on a trusted click by <ClickTracker/>, and the
+ * route adds the tag and the per-page ascsubtag (calclumen-<page>) server-side.
+ * Link is rel="sponsored nofollow noopener".
  */
 export function AmazonLink({
-  href,
   item,
   tool,
   children,
   className,
 }: {
-  href: string;
+  /** short stable item slug (also the /go id) */
   item: string;
-  /** page slug — becomes /go/?src= → Amazon ascsubtag (server-rendered, so no hydration drift) */
+  /** page slug → sub-id */
   tool: string;
   children: React.ReactNode;
   className?: string;
 }) {
   return (
     <a
-      href={`${href}${href.includes("?") ? "&" : "?"}src=${encodeURIComponent(tool)}`}
+      href="#"
+      data-go={item}
+      data-go-s={tool}
+      data-aff-item={item}
+      data-aff-network="amazon"
+      data-aff-placement="materials"
       target="_blank"
       rel="sponsored nofollow noopener"
       className={className}
-      onClick={() =>
-        track("affiliate_click", {
-          item,
-          network: "amazon",
-          platform: "amazon",
-          placement: "materials",
-          tool,
-        })
-      }
     >
       {children}
     </a>

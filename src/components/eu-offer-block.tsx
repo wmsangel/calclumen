@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { CalcDef } from "@/lib/calculators/registry";
-import { euOffersForCalc } from "@/lib/offers";
+import { euOffersForCalc, publicGroup } from "@/lib/offers";
 import { OfferPanel } from "./offer-panel";
 
 /**
@@ -45,5 +45,5 @@ export function EuOfferBlock({ calc }: { calc: CalcDef }) {
   const group = euOffersForCalc(calc);
   if (!group || group.offers.length === 0) return null;
 
-  return <OfferPanel group={group} tool={calc.slug} />;
+  return <OfferPanel group={publicGroup(group)} tool={calc.slug} />;
 }

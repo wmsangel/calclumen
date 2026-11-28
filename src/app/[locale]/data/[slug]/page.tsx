@@ -1,3 +1,5 @@
+import { clusterRobots } from "@/lib/cluster-core";
+import { ClusterSiblings } from "@/components/cluster-siblings";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -50,7 +52,7 @@ export async function generateMetadata({
   }),
     // Thin templated cluster — noindexed 2026-09-28 to shrink the site to its
     // substantive pages after a domain-wide Google quality demotion.
-    robots: { index: false, follow: true },
+    robots: clusterRobots("data", slug),
   };
 }
 
@@ -151,6 +153,7 @@ export default async function Page({
         </ToolCard>
       </div>
 
+      <ClusterSiblings cluster="data" slug={slug} locale={locale} parent={{ href: "/data-storage-converter", label: "Data Storage Converter" }} />
       <AdSlot className="mt-8" />
 
       <section className="mt-10">

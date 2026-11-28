@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { gate, goDestination } from "./go";
+import { goTokenValid, goUrl } from "./gotoken";
+
 
 const H = (o: Record<string, string>) => ({ get: (k: string) => o[k.toLowerCase()] ?? null });
 const CHROME = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
@@ -38,16 +40,36 @@ describe("gate matrix (network rule 20.11)", () => {
   });
 });
 
-describe("goDestination", () => {
-  it("keeper gets aff_sub from a valid label only", () => {
+describe("goDestination (sub-id calclumen-<page>)", () => {
+  it("keeper → aff_sub; indoleads offer → p1; admitad offer → subid", () => {
     expect(goDestination("keeper", "self-employment-tax-calculator")).toContain("aff_sub=calclumen-self-employment-tax-calculator");
-    expect(goDestination("keeper", "bad label!")).not.toContain("aff_sub");
-    expect(goDestination("keeper", null)).toBe("https://keepertax.go2cloud.org/aff_c?offer_id=25&aff_id=2191");
+    expect(goDestination("upgrade", "loan-calculator")).toContain("p1=calclumen-loan-calculator");
+    expect(goDestination("qustodio", "due-date-calculator")).toContain("subid=calclumen-due-date-calculator");
   });
-  it("unknown slug → null; amazon slug gets ascsubtag", () => {
+  it("missing or invalid label falls back to home; unknown id → null", () => {
+    expect(goDestination("keeper", null)).toContain("aff_sub=calclumen-home");
+    expect(goDestination("keeper", "bad label!")).toContain("aff_sub=calclumen-home");
     expect(goDestination("nope", "x")).toBeNull();
+  });
+  it("amazon item gets the tag and ascsubtag", () => {
     const d = goDestination("paint-roller-kit", "paint-calculator");
-    expect(d).toContain("amazon.com");
+    expect(d).toContain("tag=calclumen-20");
     expect(d).toContain("ascsubtag=calclumen-paint-calculator");
+  });
+});
+
+describe("click-time token", () => {
+  const now = Date.UTC(2026, 10, 28, 12, 0, 0);
+  const url = new URL("https://x" + goUrl("keeper", "loan-calculator", now));
+  const t = url.searchParams.get("t"), k = url.searchParams.get("k");
+  it("fresh token validates; wrong id/slug fails", () => {
+    expect(goTokenValid("keeper", "loan-calculator", t, k, now + 60_000)).toBe(true);
+    expect(goTokenValid("upgrade", "loan-calculator", t, k, now)).toBe(false);
+    expect(goTokenValid("keeper", "other", t, k, now)).toBe(false);
+  });
+  it("stale (>15 min), bare and forged tokens fail", () => {
+    expect(goTokenValid("keeper", "loan-calculator", t, k, now + 901_000)).toBe(false);
+    expect(goTokenValid("keeper", "loan-calculator", null, null, now)).toBe(false);
+    expect(goTokenValid("keeper", "loan-calculator", t, "abc", now)).toBe(false);
   });
 });

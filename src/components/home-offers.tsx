@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
-import { HOME_FEATURED, HOME_OFFERS_LABEL } from "@/lib/offers";
-import { track } from "@/lib/track";
-import { withSubId } from "@/lib/subid";
+import type { PublicOffer } from "@/lib/offers";
 import { OfferLogo } from "./offer-logo";
 
 /**
@@ -13,17 +11,17 @@ import { OfferLogo } from "./offer-logo";
  * Renders deterministically on the server (first `max` in order) and reshuffles
  * after hydration to avoid a mismatch. Nothing renders if the pool is empty.
  */
-export function HomeOffers({ max = 3 }: { max?: number }) {
-  const [offers, setOffers] = useState(() => HOME_FEATURED.slice(0, max));
+export function HomeOffers({ pool, label, max = 3 }: { pool: PublicOffer[]; label: string; max?: number }) {
+  const [offers, setOffers] = useState(() => pool.slice(0, max));
 
   useEffect(() => {
-    const shuffled = [...HOME_FEATURED];
+    const shuffled = [...pool];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     setOffers(shuffled.slice(0, max));
-  }, [max]);
+  }, [max, pool]);
 
   if (offers.length === 0) return null;
 
@@ -35,7 +33,7 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
             <span className="grid place-items-center w-7 h-7 rounded-lg bg-[var(--accent)] text-[var(--on-accent)] shrink-0">
               <Sparkles size={15} />
             </span>
-            <h2 className="text-lg font-semibold">{HOME_OFFERS_LABEL}</h2>
+            <h2 className="text-lg font-semibold">{label}</h2>
           </div>
           <span className="text-[11px] uppercase tracking-wide text-[var(--ink-soft)]">
             Ad
@@ -50,11 +48,15 @@ export function HomeOffers({ max = 3 }: { max?: number }) {
           {offers.map((o) => (
             <a
               key={o.id}
-              href={withSubId(o.url, o.network, "home")}
+              href="#"
+              data-go={o.id}
+              data-go-s="home"
+              data-aff-item={o.id}
+              data-aff-network={o.network}
+              data-aff-placement="home"
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
-              onClick={() => track("affiliate_click", { item: o.id, network: o.network, placement: "home" })}
             >
               <OfferLogo id={o.id} name={o.name} />
               <span className="offer-body">

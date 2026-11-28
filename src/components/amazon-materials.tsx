@@ -1,5 +1,5 @@
 import { ShoppingCart } from "lucide-react";
-import { amazonFor, amazonGoHref, amazonGoSlug } from "@/lib/amazon";
+import { amazonFor,  amazonGoSlug } from "@/lib/amazon";
 import { AmazonLink } from "./amazon-link";
 
 /**
@@ -32,7 +32,6 @@ export function AmazonMaterials({ slug }: { slug: string }) {
             <li key={item.name}>
               <AmazonLink
               tool={slug}
-                href={amazonGoHref(item.q)}
                 item={amazonGoSlug(item.q)}
                 className="flex items-center justify-between gap-3 rounded-xl border border-[var(--rule)] p-3 hover:border-[var(--accent)] transition"
               >

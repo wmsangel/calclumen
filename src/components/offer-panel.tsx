@@ -1,9 +1,7 @@
 "use client";
 
 import { Sparkles } from "lucide-react";
-import type { OfferGroup } from "@/lib/offers";
-import { track } from "@/lib/track";
-import { withSubId } from "@/lib/subid";
+import type { PublicOfferGroup } from "@/lib/offers";
 import { OfferLogo } from "./offer-logo";
 
 /**
@@ -14,7 +12,7 @@ import { OfferLogo } from "./offer-logo";
  * (the breakdown key), `placement` = where the card sits. The page itself is
  * already captured by GA4's page_path, so it isn't duplicated here.
  */
-export function OfferPanel({ group, tool }: { group: OfferGroup; tool?: string }) {
+export function OfferPanel({ group, tool }: { group: PublicOfferGroup; tool?: string }) {
   return (
     <section className="mt-12">
       <div className="offer-panel">
@@ -33,18 +31,15 @@ export function OfferPanel({ group, tool }: { group: OfferGroup; tool?: string }
           {group.offers.map((o) => (
             <a
               key={o.id}
-              href={withSubId(o.url, o.network, tool)}
+              href="#"
+              data-go={o.id}
+              data-go-s={tool ?? "home"}
+              data-aff-item={o.id}
+              data-aff-network={o.network}
+              data-aff-placement="in_article"
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               className="offer-card"
-              onClick={() =>
-                track("affiliate_click", {
-                  item: o.id,
-                  network: o.network,
-                  placement: "in_article",
-                  tool,
-                })
-              }
             >
               <OfferLogo id={o.id} name={o.name} />
               <span className="offer-body">

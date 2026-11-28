@@ -8,6 +8,7 @@ import { FeedbackFab } from "@/components/feedback-fab";
 import { PwaRegister } from "@/components/pwa-register";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { AdSense } from "@/components/adsense";
+import { ClickTracker } from "@/components/click-tracker";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
       {/* <Ezoic /> — disabled 2026-08-27 (Incubator not approved); re-enable with
           NEXT_PUBLIC_EZOIC=1 after a successful re-application. */}
       <AdSense />
+      <ClickTracker />
       <GoogleAnalytics />
       {/* izn-beacon — маячок сети без кук и без согласия (izn.project.stats/beacon/README.md).
           Без условия на согласие; события через track() → iznTrack (очередь до загрузки). */}

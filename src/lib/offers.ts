@@ -22,6 +22,18 @@ export interface Offer {
   network: "admitad" | "indoleads" | "amazon" | "cj" | "hasoffers" | "house";
 }
 
+/** Offer as shown to the browser: no partner URL (click-time token, gotoken.ts). */
+export type PublicOffer = Omit<Offer, "url">;
+export function publicOffer(o: Offer): PublicOffer {
+  const { url: _url, ...rest } = o;
+  void _url;
+  return rest;
+}
+export interface PublicOfferGroup { label: string; offers: PublicOffer[] }
+export function publicGroup(g: OfferGroup): PublicOfferGroup {
+  return { label: g.label, offers: g.offers.map(publicOffer) };
+}
+
 export interface OfferGroup {
   /** heading shown above the offers */
   label: string;
@@ -282,14 +294,15 @@ const TECH: OfferGroup = {
 // Keeper (HasOffers direct program, owner account aff_id 2191, offer 25):
 // $50 CPA per free-trial start. Served through our /go/keeper cloak so the page
 // label travels as aff_sub (see next.config redirects) and crawlers stay off
-// the raw tracking link. US tax-season intent only.
+// the raw tracking link. US tax-season intent only. Since 28.11 no partner URL is
+// written into HTML at all (click-time token, src/lib/gotoken.ts).
 const KEEPER: Offer = {
   id: "keeper",
   name: "Keeper",
   network: "hasoffers",
   blurb:
     "Tax filing built for freelancers and 1099 workers: it finds write-offs in your bank transactions, estimates quarterly payments and files your return. Free trial.",
-  url: "/go/keeper",
+  url: "https://keepertax.go2cloud.org/aff_c?offer_id=25&aff_id=2191",
   cta: "Try Keeper free",
 };
 
@@ -402,3 +415,6 @@ export function offersForCalc(calc: CalcDef): OfferGroup | null {
       return null;
   }
 }
+
+/** Every offer by id — the /go route resolves destinations from here. */
+export const ALL_OFFERS: Offer[] = [UPGRADE, QUSTODIO, NORDVPN, LENOVO, PUREVPN, COURSERA, OPENART, EASEUS, ADGUARD, PROHOSTER, NORDPASS, ENVATO, NOTION, INSTAREM, TRADINGVIEW, KEYCENSE, BLUETTI, VEVOR, COSTWAY, MACPAW, KEEPER];

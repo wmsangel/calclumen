@@ -1,3 +1,4 @@
+import { CLUSTER_CORE } from "@/lib/cluster-core";
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
 import { calculators, categories } from "@/lib/calculators/registry";
@@ -72,7 +73,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    // Note: ALL thin templated clusters are intentionally noindex and kept out
+    // Cluster pages with proven demand (units/data/combinations allowlist, returned
+    // 2026-11-28; see src/lib/cluster-core.ts) are the only templated URLs listed.
+    for (const cl of ["units", "data", "combinations"] as const) {
+      for (const slug of CLUSTER_CORE[cl]) {
+        entries.push({ url: absUrl(locale, `${cl}/${slug}`), changeFrequency: "monthly", priority: 0.4 });
+      }
+    }
+
+    // Note: all OTHER thin templated clusters are intentionally noindex and kept out
     // of the sitemap — the math clusters (factors, gcf-lcm, multiples, is-prime,
     // simplify, decimal-to-fraction, fraction-to-decimal, percent,
     // number-in-words) since 2026-09-17, and units, roman-numerals, data and

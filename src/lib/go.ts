@@ -8,16 +8,19 @@
 // browser on WebKit). Older browsers that predate Sec-Fetch-* get a soft pass
 // only with a Referer.
 import { AMAZON_GO_REDIRECTS } from "./amazon";
+import { ALL_OFFERS } from "./offers";
+import { subIdValue, withSubId } from "./subid";
 
-export const KEEPER_TRACKING = "https://keepertax.go2cloud.org/aff_c?offer_id=25&aff_id=2191";
-
-/** Where /go/<slug> points; `label` = the page slug from ?src= (sub-id). */
-export function goDestination(slug: string, label: string | null): string | null {
-  const sub = label && /^[a-z0-9-]{1,64}$/.test(label) ? label : null;
-  if (slug === "keeper") return sub ? `${KEEPER_TRACKING}&aff_sub=calclumen-${sub}` : KEEPER_TRACKING;
-  const hit = AMAZON_GO_REDIRECTS.find((r) => r.slug === slug);
+/** Destination for /go/<id> (offer id or Amazon item slug), with the page sub-id. */
+export function goDestination(id: string, label: string | null): string | null {
+  const place = label && /^[a-z0-9-]{1,64}$/.test(label) ? label : "home";
+  const offer = ALL_OFFERS.find((o) => o.id === id);
+  if (offer) return withSubId(offer.url, offer.network, place);
+  const hit = AMAZON_GO_REDIRECTS.find((r) => r.slug === id);
   if (!hit) return null;
-  return sub ? `${hit.url}&ascsubtag=calclumen-${sub}` : hit.url;
+  const u = new URL(hit.url);
+  u.searchParams.set("ascsubtag", subIdValue(place));
+  return u.toString();
 }
 
 export type GateVerdict =

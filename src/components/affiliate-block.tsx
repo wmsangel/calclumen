@@ -1,5 +1,5 @@
 import type { CalcDef } from "@/lib/calculators/registry";
-import { offersForCalc } from "@/lib/offers";
+import { offersForCalc, publicGroup } from "@/lib/offers";
 import { OfferPanel } from "./offer-panel";
 
 /**
@@ -10,5 +10,5 @@ import { OfferPanel } from "./offer-panel";
 export function AffiliateBlock({ calc }: { calc: CalcDef }) {
   const group = offersForCalc(calc);
   if (!group || group.offers.length === 0) return null;
-  return <OfferPanel group={group} tool={calc.slug} />;
+  return <OfferPanel group={publicGroup(group)} tool={calc.slug} />;
 }
